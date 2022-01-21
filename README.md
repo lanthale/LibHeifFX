@@ -17,8 +17,9 @@ Supported OS:
 I have integrated Libheif 1.12.0 (https://github.com/strukturag/libheif/releases/tag/v1.12.0)
 
 ## Open topics
-- The lib is not resizing of the image data before sending back to the image class
-- No meta data is read out
+- The lib is not resizing the image data before sending back to the image class
+- No meta data is read out actually
+- Not enabled is AVIF support
 
 ## Usage
 Point to the maven coordinates:
