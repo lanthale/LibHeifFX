@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>run</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
+            <goals>
+                <goal>javafx:run@default-cli</goal>
+            </goals>
+            <properties>
+                <exec.args>-classpath %classpath org.librawfx.TestApp</exec.args>
+                <exec.executable>java</exec.executable>
+            </properties>
+        </action>
+        <action>
+            <actionName>debug</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
+            <goals>
+                <goal>javafx:run@ide-debug</goal>
+            </goals>
+            <properties>
+                <exec.args>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address} -classpath %classpath org.librawfx.TestApp</exec.args>
+                <exec.executable>java</exec.executable>
+                <jpda.listen>true</jpda.listen>
+            </properties>
+        </action>
+        <action>
+            <actionName>profile</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
+            <goals>
+                <goal>javafx:run@ide-profile</goal>
+            </goals>
+            <properties>
+                <exec.args>-classpath %classpath ${packageClassName}</exec.args>
+                <exec.executable>java</exec.executable>
+            </properties>
+        </action>
+        <action>
+            <actionName>CUSTOM-deploy to maven central</actionName>
+            <displayName>deploy to maven central</displayName>
+            <goals>
+                <goal>clean</goal>
+                <goal>deploy</goal>
+                
+            </goals>
+            <properties>
+                <Env.MAVEN_OPTS>--add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED --add-opens=java.desktop/java.awt.font=ALL-UNNAMED</Env.MAVEN_OPTS>
+            </properties>
+            <activatedProfiles>
+                <activatedProfile>package</activatedProfile>
+            </activatedProfiles>
+        </action>
+    </actions>

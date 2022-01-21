@@ -1,0 +1,274 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.libheiffx</groupId>
+    <artifactId>LibHeifFX</artifactId>
+    <version>1.0.0</version>
+    
+    <name>LibHeifFX</name>
+    <description>This installs the native lib libheif as a JavaFX Image format provider similar to imageIO before on Swing</description>
+    <url>https://github.com/lanthale/libheiffx</url>
+ 
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v2.1</name>
+            <url>https://www.gnu.org/licenses/old-licenses/lgpl-2.1.de.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+ 
+    <scm>
+        <url>https://github.com/lanthale/LibHeifFX.git</url>
+    </scm>
+    
+    <developers>
+        <developer>
+            <id>clemens</id>
+            <name>Clemens Lanthaler</name>
+            <email>clemens.lanthaler@itarchitects.at</email>
+            <organization>ITArchitects</organization>
+            <organizationUrl>http://www.itarchitects.at/</organizationUrl>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>
+    </developers>
+    
+    <distributionManagement>
+        <repository>
+            <id>ossrh</id>
+            <name>Central Repository OSSRH</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target> 
+        <javafx.version>17.0.2</javafx.version>       
+    </properties>
+    
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>               
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>               
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>               
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>               
+    </dependencies>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/ressources</directory>
+                <excludes>
+                    <exclude>**/*.heif</exclude>                    
+                </excludes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <release>17</release>
+                    <fork>true</fork>
+                    <compilerArgs>                        
+                        <arg>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</arg>                                
+                        <arg>--add-exports=javafx.graphics/com.sun.javafx.iio.common=org.libheiffx</arg>
+                    </compilerArgs>                                        
+                </configuration>
+            </plugin>            
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <executions>
+                    <execution>
+                        <!-- Default configuration for running -->
+                        <!-- Usage: mvn clean javafx:run -->
+                        <id>default-cli</id>
+                        <configuration>
+                            <mainClass>org.libheiffx.TestApp</mainClass>  
+                            <options>                                   
+                                <option>--enable-native-access org.libheiffx</option>
+                                <option>--add-modules jdk.incubator.foreign</option>                                
+                                <option>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</option>                                
+                                <option>--add-exports=javafx.graphics/com.sun.javafx.iio.common=org.libheiffx</option>
+                            </options>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <!-- Configuration for manual attach debugging -->
+                        <!-- Usage: mvn clean javafx:run@debug -->
+                        <id>debug</id>
+                        <configuration>
+                            <mainClass>org.libheiffx.TestApp</mainClass>  
+                            <options> 
+                                <option>--enable-native-access org.libheiffx</option>                               
+                                <option>--add-modules jdk.incubator.foreign -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=localhost:8000</option>
+                                <option>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</option>                                
+                                <option>--add-exports=javafx.graphics/com.sun.javafx.iio.common=org.libheiffx</option>
+                            </options>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <!-- Configuration for automatic IDE debugging -->
+                        <id>ide-debug</id>
+                        <configuration>
+                            <mainClass>org.libheiffx.TestApp</mainClass>  
+                            <options> 
+                                <option>--enable-native-access org.libheiffx</option>                               
+                                <option>--add-modules jdk.incubator.foreign -agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</option>
+                                <option>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</option>                                
+                                <option>--add-exports=javafx.graphics/com.sun.javafx.iio.common=org.libheiffx</option>
+                            </options>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <!-- Configuration for automatic IDE profiling -->
+                        <id>ide-profile</id>
+                        <configuration>
+                            <mainClass>org.libheiffx.TestApp</mainClass>  
+                            <options>
+                                <option>${profiler.jvmargs.arg1}</option>
+                                <option>${profiler.jvmargs.arg2}</option>
+                                <option>${profiler.jvmargs.arg3}</option>
+                                <option>${profiler.jvmargs.arg4}</option>
+                                <option>${profiler.jvmargs.arg5}</option>
+                                <option>--enable-native-access org.libheiffx</option>                               
+                                <option>--add-modules jdk.incubator.foreign</option>
+                                <option>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</option>                                
+                                <option>--add-exports=javafx.graphics/com.sun.javafx.iio.common=org.libheiffx</option>
+                            </options>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <profiles>        
+        <profile>
+            <id>unix-active</id>
+            <activation>
+                <os>
+                    <family>unix</family>
+                </os>
+            </activation>
+            <properties>
+                <platform>linux</platform>
+            </properties>
+        </profile>
+        <profile>
+            <id>windows-active</id>
+            <activation>
+                <os>
+                    <family>windows</family>
+                </os>
+            </activation>
+            <properties>
+                <platform>win</platform>
+            </properties>            
+        </profile>
+        <profile>
+            <id>mac-active</id>
+            <activation>
+                <os>
+                    <family>mac</family>
+                </os>
+            </activation>
+            <properties>
+                <platform>mac</platform>
+            </properties>
+        </profile>
+        <profile>
+            <id>package</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.2.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>3.3.1</version>                
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>                            
+                                    <additionalJOptions>                                
+                                        <additionalJOption>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</additionalJOption>                                
+                                        <additionalJOption>--add-exports=javafx.graphics/com.sun.javafx.iio.common=org.libheiffx</additionalJOption>
+                                    </additionalJOptions>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.8</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://s01.oss.sonatype.org</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                                <configuration>
+                                    <gpgArguments>
+                                        <arg>--pinentry-mode</arg>
+                                        <arg>loopback</arg>
+                                    </gpgArguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- add jrelease to create GIT releases automatically -->
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
