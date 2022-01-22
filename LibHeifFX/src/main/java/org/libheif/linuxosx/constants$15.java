@@ -9,6 +9,14 @@ import jdk.incubator.foreign.*;
 import static jdk.incubator.foreign.CLinker.*;
 class constants$15 {
 
+    static final FunctionDescriptor heif_image_release$FUNC = FunctionDescriptor.ofVoid(
+        C_POINTER
+    );
+    static final MethodHandle heif_image_release$MH = RuntimeHelper.downcallHandle(
+        heif_h.LIBRARIES, "heif_image_release",
+        "(Ljdk/incubator/foreign/MemoryAddress;)V",
+        constants$15.heif_image_release$FUNC, false
+    );
     static final FunctionDescriptor heif_context_write_to_file$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         C_INT.withName("code"),
         C_INT.withName("subcode"),
@@ -63,14 +71,6 @@ class constants$15 {
         heif_h.LIBRARIES, "heif_encoder_descriptor_get_id_name",
         "(Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemoryAddress;",
         constants$15.heif_encoder_descriptor_get_id_name$FUNC, false
-    );
-    static final FunctionDescriptor heif_encoder_descriptor_get_compression_format$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER
-    );
-    static final MethodHandle heif_encoder_descriptor_get_compression_format$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_encoder_descriptor_get_compression_format",
-        "(Ljdk/incubator/foreign/MemoryAddress;)I",
-        constants$15.heif_encoder_descriptor_get_compression_format$FUNC, false
     );
 }
 

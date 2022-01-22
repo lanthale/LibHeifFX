@@ -9,6 +9,20 @@ import jdk.incubator.foreign.*;
 import static jdk.incubator.foreign.CLinker.*;
 class constants$19 {
 
+    static final FunctionDescriptor heif_encoder_set_parameter_integer$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
+        C_INT.withName("code"),
+        C_INT.withName("subcode"),
+        C_POINTER.withName("message")
+    ).withName("heif_error"),
+        C_POINTER,
+        C_POINTER,
+        C_INT
+    );
+    static final MethodHandle heif_encoder_set_parameter_integer$MH = RuntimeHelper.downcallHandle(
+        heif_h.LIBRARIES, "heif_encoder_set_parameter_integer",
+        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;I)Ljdk/incubator/foreign/MemorySegment;",
+        constants$19.heif_encoder_set_parameter_integer$FUNC, false
+    );
     static final FunctionDescriptor heif_encoder_get_parameter_integer$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         C_INT.withName("code"),
         C_INT.withName("subcode"),
@@ -80,21 +94,6 @@ class constants$19 {
         heif_h.LIBRARIES, "heif_encoder_set_parameter_string",
         "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
         constants$19.heif_encoder_set_parameter_string$FUNC, false
-    );
-    static final FunctionDescriptor heif_encoder_get_parameter_string$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
-    ).withName("heif_error"),
-        C_POINTER,
-        C_POINTER,
-        C_POINTER,
-        C_INT
-    );
-    static final MethodHandle heif_encoder_get_parameter_string$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_encoder_get_parameter_string",
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;I)Ljdk/incubator/foreign/MemorySegment;",
-        constants$19.heif_encoder_get_parameter_string$FUNC, false
     );
 }
 

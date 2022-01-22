@@ -9,6 +9,21 @@ import jdk.incubator.foreign.*;
 import static jdk.incubator.foreign.CLinker.*;
 class constants$22 {
 
+    static final FunctionDescriptor heif_context_add_exif_metadata$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
+        C_INT.withName("code"),
+        C_INT.withName("subcode"),
+        C_POINTER.withName("message")
+    ).withName("heif_error"),
+        C_POINTER,
+        C_POINTER,
+        C_POINTER,
+        C_INT
+    );
+    static final MethodHandle heif_context_add_exif_metadata$MH = RuntimeHelper.downcallHandle(
+        heif_h.LIBRARIES, "heif_context_add_exif_metadata",
+        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;I)Ljdk/incubator/foreign/MemorySegment;",
+        constants$22.heif_context_add_exif_metadata$FUNC, false
+    );
     static final FunctionDescriptor heif_context_add_XMP_metadata$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         C_INT.withName("code"),
         C_INT.withName("subcode"),
@@ -81,14 +96,6 @@ class constants$22 {
         heif_h.LIBRARIES, "heif_image_set_premultiplied_alpha",
         "(Ljdk/incubator/foreign/MemoryAddress;I)V",
         constants$22.heif_image_set_premultiplied_alpha$FUNC, false
-    );
-    static final FunctionDescriptor heif_image_is_premultiplied_alpha$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER
-    );
-    static final MethodHandle heif_image_is_premultiplied_alpha$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_is_premultiplied_alpha",
-        "(Ljdk/incubator/foreign/MemoryAddress;)I",
-        constants$22.heif_image_is_premultiplied_alpha$FUNC, false
     );
 }
 

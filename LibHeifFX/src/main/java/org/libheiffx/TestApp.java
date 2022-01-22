@@ -48,7 +48,7 @@ public class TestApp extends Application {
         stack.setSpacing(5);
         stack.setAlignment(Pos.TOP_CENTER);
         loadImagesByStream(stack, file, file2, file3);
-        //loadImagesByFile(stack,"/System/Volumes/Data/mnt/NAS-ITA/Development/NetBeansProjects/LibHeifFX/src/main/ressources/image0.heic");
+        //loadImagesByFile(stack,"/System/Volumes/Data/mnt/NAS-ITA/Development/NetBeansProjects/LibHeifFX/src/main/ressources/image5.avif");
 
         var scene = new Scene(stack, 640, 480);
         stage.setScene(scene);
@@ -100,7 +100,7 @@ public class TestApp extends Application {
                 stack.getChildren().add(hb);
                 hb.getChildren().add(view);
                 Platform.runLater(() -> {
-                    /*try {
+                    try {
                         HashMap<String, String> metaData = new LibheifImage(initialFile.getAbsolutePath()).getMetaData();
                         ScrollPane sc = new ScrollPane();
                         TextArea vb = new TextArea();
@@ -113,7 +113,7 @@ public class TestApp extends Application {
                         hb.getChildren().add(sc);
                     } catch (IOException ex) {
                         Logger.getLogger(TestApp.class.getName()).log(Level.SEVERE, null, ex);
-                    }*/
+                    }
                 });
                 if (img.getException() != null) {
                     System.out.println("Exception for: " + img.getUrl());
@@ -130,7 +130,7 @@ public class TestApp extends Application {
                 stack.getChildren().add(hb);
                 hb.getChildren().add(view2);
                 Platform.runLater(() -> {
-                    /*try {
+                    try {
                         HashMap<String, String> metaData = new LibheifImage(initialFile2.getAbsolutePath()).getMetaData();
                         ScrollPane sc = new ScrollPane();
                         TextArea vb = new TextArea();
@@ -143,7 +143,7 @@ public class TestApp extends Application {
                         hb.getChildren().add(sc);
                     } catch (IOException ex) {
                         Logger.getLogger(TestApp.class.getName()).log(Level.SEVERE, null, ex);
-                    }*/
+                    }
                 });
                 if (img2.getException() != null) {
                     System.out.println("Exception for: " + img2.getUrl());
@@ -160,7 +160,7 @@ public class TestApp extends Application {
                 stack.getChildren().add(hb);
                 hb.getChildren().add(view3);
                 Platform.runLater(() -> {
-                    /*try {
+                    try {
                         HashMap<String, String> metaData = new LibheifImage(initialFile3.getAbsolutePath()).getMetaData();
                         ScrollPane sc = new ScrollPane();
                         TextArea vb = new TextArea();
@@ -173,7 +173,7 @@ public class TestApp extends Application {
                         hb.getChildren().add(sc);
                     } catch (IOException ex) {
                         Logger.getLogger(TestApp.class.getName()).log(Level.SEVERE, null, ex);
-                    }*/
+                    }
                 });
                 if (img3.getException() != null) {
                     System.out.println("Exception for: " + img3.getUrl());

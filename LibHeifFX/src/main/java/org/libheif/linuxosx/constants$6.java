@@ -9,6 +9,14 @@ import jdk.incubator.foreign.*;
 import static jdk.incubator.foreign.CLinker.*;
 class constants$6 {
 
+    static final FunctionDescriptor heif_image_handle_is_premultiplied_alpha$FUNC = FunctionDescriptor.of(C_INT,
+        C_POINTER
+    );
+    static final MethodHandle heif_image_handle_is_premultiplied_alpha$MH = RuntimeHelper.downcallHandle(
+        heif_h.LIBRARIES, "heif_image_handle_is_premultiplied_alpha",
+        "(Ljdk/incubator/foreign/MemoryAddress;)I",
+        constants$6.heif_image_handle_is_premultiplied_alpha$FUNC, false
+    );
     static final FunctionDescriptor heif_image_handle_get_luma_bits_per_pixel$FUNC = FunctionDescriptor.of(C_INT,
         C_POINTER
     );
@@ -48,14 +56,6 @@ class constants$6 {
         heif_h.LIBRARIES, "heif_image_handle_has_depth_image",
         "(Ljdk/incubator/foreign/MemoryAddress;)I",
         constants$6.heif_image_handle_has_depth_image$FUNC, false
-    );
-    static final FunctionDescriptor heif_image_handle_get_number_of_depth_images$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER
-    );
-    static final MethodHandle heif_image_handle_get_number_of_depth_images$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_handle_get_number_of_depth_images",
-        "(Ljdk/incubator/foreign/MemoryAddress;)I",
-        constants$6.heif_image_handle_get_number_of_depth_images$FUNC, false
     );
 }
 

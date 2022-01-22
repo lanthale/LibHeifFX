@@ -9,6 +9,12 @@ import jdk.incubator.foreign.*;
 import static jdk.incubator.foreign.CLinker.*;
 class constants$21 {
 
+    static final FunctionDescriptor heif_encoding_options_alloc$FUNC = FunctionDescriptor.of(C_POINTER);
+    static final MethodHandle heif_encoding_options_alloc$MH = RuntimeHelper.downcallHandle(
+        heif_h.LIBRARIES, "heif_encoding_options_alloc",
+        "([Ljava/lang/Object;)Ljdk/incubator/foreign/MemoryAddress;",
+        constants$21.heif_encoding_options_alloc$FUNC, true
+    );
     static final FunctionDescriptor heif_encoding_options_free$FUNC = FunctionDescriptor.ofVoid(
         C_POINTER
     );
@@ -77,21 +83,6 @@ class constants$21 {
         heif_h.LIBRARIES, "heif_context_assign_thumbnail",
         "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
         constants$21.heif_context_assign_thumbnail$FUNC, false
-    );
-    static final FunctionDescriptor heif_context_add_exif_metadata$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
-    ).withName("heif_error"),
-        C_POINTER,
-        C_POINTER,
-        C_POINTER,
-        C_INT
-    );
-    static final MethodHandle heif_context_add_exif_metadata$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_context_add_exif_metadata",
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;I)Ljdk/incubator/foreign/MemorySegment;",
-        constants$21.heif_context_add_exif_metadata$FUNC, false
     );
 }
 

@@ -9,6 +9,14 @@ import jdk.incubator.foreign.*;
 import static jdk.incubator.foreign.CLinker.*;
 class constants$23 {
 
+    static final FunctionDescriptor heif_image_is_premultiplied_alpha$FUNC = FunctionDescriptor.of(C_INT,
+        C_POINTER
+    );
+    static final MethodHandle heif_image_is_premultiplied_alpha$MH = RuntimeHelper.downcallHandle(
+        heif_h.LIBRARIES, "heif_image_is_premultiplied_alpha",
+        "(Ljdk/incubator/foreign/MemoryAddress;)I",
+        constants$23.heif_image_is_premultiplied_alpha$FUNC, false
+    );
     static final FunctionDescriptor heif_register_decoder$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         C_INT.withName("code"),
         C_INT.withName("subcode"),

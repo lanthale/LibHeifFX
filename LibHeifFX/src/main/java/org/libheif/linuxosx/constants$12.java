@@ -9,6 +9,14 @@ import jdk.incubator.foreign.*;
 import static jdk.incubator.foreign.CLinker.*;
 class constants$12 {
 
+    static final FunctionDescriptor heif_decoding_options_free$FUNC = FunctionDescriptor.ofVoid(
+        C_POINTER
+    );
+    static final MethodHandle heif_decoding_options_free$MH = RuntimeHelper.downcallHandle(
+        heif_h.LIBRARIES, "heif_decoding_options_free",
+        "(Ljdk/incubator/foreign/MemoryAddress;)V",
+        constants$12.heif_decoding_options_free$FUNC, false
+    );
     static final FunctionDescriptor heif_decode_image$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         C_INT.withName("code"),
         C_INT.withName("subcode"),
@@ -60,15 +68,6 @@ class constants$12 {
         heif_h.LIBRARIES, "heif_image_get_width",
         "(Ljdk/incubator/foreign/MemoryAddress;I)I",
         constants$12.heif_image_get_width$FUNC, false
-    );
-    static final FunctionDescriptor heif_image_get_height$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER,
-        C_INT
-    );
-    static final MethodHandle heif_image_get_height$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_get_height",
-        "(Ljdk/incubator/foreign/MemoryAddress;I)I",
-        constants$12.heif_image_get_height$FUNC, false
     );
 }
 

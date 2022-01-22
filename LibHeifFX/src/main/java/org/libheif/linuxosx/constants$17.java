@@ -9,6 +9,20 @@ import jdk.incubator.foreign.*;
 import static jdk.incubator.foreign.CLinker.*;
 class constants$17 {
 
+    static final FunctionDescriptor heif_context_get_encoder_for_format$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
+        C_INT.withName("code"),
+        C_INT.withName("subcode"),
+        C_POINTER.withName("message")
+    ).withName("heif_error"),
+        C_POINTER,
+        C_INT,
+        C_POINTER
+    );
+    static final MethodHandle heif_context_get_encoder_for_format$MH = RuntimeHelper.downcallHandle(
+        heif_h.LIBRARIES, "heif_context_get_encoder_for_format",
+        "(Ljdk/incubator/foreign/MemoryAddress;ILjdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
+        constants$17.heif_context_get_encoder_for_format$FUNC, false
+    );
     static final FunctionDescriptor heif_encoder_release$FUNC = FunctionDescriptor.ofVoid(
         C_POINTER
     );
@@ -63,14 +77,6 @@ class constants$17 {
         heif_h.LIBRARIES, "heif_encoder_set_logging_level",
         "(Ljdk/incubator/foreign/MemoryAddress;I)Ljdk/incubator/foreign/MemorySegment;",
         constants$17.heif_encoder_set_logging_level$FUNC, false
-    );
-    static final FunctionDescriptor heif_encoder_list_parameters$FUNC = FunctionDescriptor.of(C_POINTER,
-        C_POINTER
-    );
-    static final MethodHandle heif_encoder_list_parameters$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_encoder_list_parameters",
-        "(Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemoryAddress;",
-        constants$17.heif_encoder_list_parameters$FUNC, false
     );
 }
 

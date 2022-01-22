@@ -9,6 +9,16 @@ import jdk.incubator.foreign.*;
 import static jdk.incubator.foreign.CLinker.*;
 class constants$8 {
 
+    static final FunctionDescriptor heif_image_handle_get_list_of_thumbnail_IDs$FUNC = FunctionDescriptor.of(C_INT,
+        C_POINTER,
+        C_POINTER,
+        C_INT
+    );
+    static final MethodHandle heif_image_handle_get_list_of_thumbnail_IDs$MH = RuntimeHelper.downcallHandle(
+        heif_h.LIBRARIES, "heif_image_handle_get_list_of_thumbnail_IDs",
+        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;I)I",
+        constants$8.heif_image_handle_get_list_of_thumbnail_IDs$FUNC, false
+    );
     static final FunctionDescriptor heif_image_handle_get_thumbnail$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         C_INT.withName("code"),
         C_INT.withName("subcode"),
@@ -64,20 +74,6 @@ class constants$8 {
         heif_h.LIBRARIES, "heif_image_handle_free_auxiliary_types",
         "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;)V",
         constants$8.heif_image_handle_free_auxiliary_types$FUNC, false
-    );
-    static final FunctionDescriptor heif_image_handle_get_auxiliary_image_handle$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
-    ).withName("heif_error"),
-        C_POINTER,
-        C_INT,
-        C_POINTER
-    );
-    static final MethodHandle heif_image_handle_get_auxiliary_image_handle$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_handle_get_auxiliary_image_handle",
-        "(Ljdk/incubator/foreign/MemoryAddress;ILjdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
-        constants$8.heif_image_handle_get_auxiliary_image_handle$FUNC, false
     );
 }
 

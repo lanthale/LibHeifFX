@@ -9,6 +9,14 @@ import jdk.incubator.foreign.*;
 import static jdk.incubator.foreign.CLinker.*;
 class constants$11 {
 
+    static final FunctionDescriptor heif_nclx_color_profile_free$FUNC = FunctionDescriptor.ofVoid(
+        C_POINTER
+    );
+    static final MethodHandle heif_nclx_color_profile_free$MH = RuntimeHelper.downcallHandle(
+        heif_h.LIBRARIES, "heif_nclx_color_profile_free",
+        "(Ljdk/incubator/foreign/MemoryAddress;)V",
+        constants$11.heif_nclx_color_profile_free$FUNC, false
+    );
     static final FunctionDescriptor heif_image_get_color_profile_type$FUNC = FunctionDescriptor.of(C_INT,
         C_POINTER
     );
@@ -56,14 +64,6 @@ class constants$11 {
         heif_h.LIBRARIES, "heif_decoding_options_alloc",
         "([Ljava/lang/Object;)Ljdk/incubator/foreign/MemoryAddress;",
         constants$11.heif_decoding_options_alloc$FUNC, true
-    );
-    static final FunctionDescriptor heif_decoding_options_free$FUNC = FunctionDescriptor.ofVoid(
-        C_POINTER
-    );
-    static final MethodHandle heif_decoding_options_free$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_decoding_options_free",
-        "(Ljdk/incubator/foreign/MemoryAddress;)V",
-        constants$11.heif_decoding_options_free$FUNC, false
     );
 }
 

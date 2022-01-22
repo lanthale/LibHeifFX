@@ -9,6 +9,14 @@ import jdk.incubator.foreign.*;
 import static jdk.incubator.foreign.CLinker.*;
 class constants$16 {
 
+    static final FunctionDescriptor heif_encoder_descriptor_get_compression_format$FUNC = FunctionDescriptor.of(C_INT,
+        C_POINTER
+    );
+    static final MethodHandle heif_encoder_descriptor_get_compression_format$MH = RuntimeHelper.downcallHandle(
+        heif_h.LIBRARIES, "heif_encoder_descriptor_get_compression_format",
+        "(Ljdk/incubator/foreign/MemoryAddress;)I",
+        constants$16.heif_encoder_descriptor_get_compression_format$FUNC, false
+    );
     static final FunctionDescriptor heif_encoder_descriptor_supports_lossy_compression$FUNC = FunctionDescriptor.of(C_INT,
         C_POINTER
     );
@@ -54,20 +62,6 @@ class constants$16 {
         heif_h.LIBRARIES, "heif_have_encoder_for_format",
         "(I)I",
         constants$16.heif_have_encoder_for_format$FUNC, false
-    );
-    static final FunctionDescriptor heif_context_get_encoder_for_format$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
-    ).withName("heif_error"),
-        C_POINTER,
-        C_INT,
-        C_POINTER
-    );
-    static final MethodHandle heif_context_get_encoder_for_format$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_context_get_encoder_for_format",
-        "(Ljdk/incubator/foreign/MemoryAddress;ILjdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
-        constants$16.heif_context_get_encoder_for_format$FUNC, false
     );
 }
 

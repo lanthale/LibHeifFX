@@ -17,7 +17,7 @@ old_library='libheif.a'
 inherited_linker_flags=' '
 
 # Libraries that this one depends upon.
-dependency_libs=' -L/usr/local/Cellar/libde265/1.0.8/lib -lde265 -L/usr/local/Cellar/x265/3.5/lib -lx265 -lpthread'
+dependency_libs=' -L/usr/local/Cellar/libde265/1.0.8/lib -lde265 -L/usr/local/Cellar/x265/3.5/lib -lx265 -L/System/Volumes/Data/mnt/NAS-ITA/Development/NetBeansProjects/libheif-org-src/third-party/rav1e/dist/lib -lrav1e -lSystem -lresolv -lc -lm -liconv -L/System/Volumes/Data/mnt/NAS-ITA/Development/NetBeansProjects/libheif-org-src/third-party/dav1d/dist/lib -ldav1d -lpthread'
 
 # Names of additional weak libraries provided by this library
 weak_library_names=''

@@ -9,6 +9,15 @@ import jdk.incubator.foreign.*;
 import static jdk.incubator.foreign.CLinker.*;
 class constants$5 {
 
+    static final FunctionDescriptor heif_context_set_max_decoding_threads$FUNC = FunctionDescriptor.ofVoid(
+        C_POINTER,
+        C_INT
+    );
+    static final MethodHandle heif_context_set_max_decoding_threads$MH = RuntimeHelper.downcallHandle(
+        heif_h.LIBRARIES, "heif_context_set_max_decoding_threads",
+        "(Ljdk/incubator/foreign/MemoryAddress;I)V",
+        constants$5.heif_context_set_max_decoding_threads$FUNC, false
+    );
     static final FunctionDescriptor heif_image_handle_release$FUNC = FunctionDescriptor.ofVoid(
         C_POINTER
     );
@@ -48,14 +57,6 @@ class constants$5 {
         heif_h.LIBRARIES, "heif_image_handle_has_alpha_channel",
         "(Ljdk/incubator/foreign/MemoryAddress;)I",
         constants$5.heif_image_handle_has_alpha_channel$FUNC, false
-    );
-    static final FunctionDescriptor heif_image_handle_is_premultiplied_alpha$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER
-    );
-    static final MethodHandle heif_image_handle_is_premultiplied_alpha$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_handle_is_premultiplied_alpha",
-        "(Ljdk/incubator/foreign/MemoryAddress;)I",
-        constants$5.heif_image_handle_is_premultiplied_alpha$FUNC, false
     );
 }
 

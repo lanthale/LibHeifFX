@@ -9,6 +9,14 @@ import jdk.incubator.foreign.*;
 import static jdk.incubator.foreign.CLinker.*;
 class constants$7 {
 
+    static final FunctionDescriptor heif_image_handle_get_number_of_depth_images$FUNC = FunctionDescriptor.of(C_INT,
+        C_POINTER
+    );
+    static final MethodHandle heif_image_handle_get_number_of_depth_images$MH = RuntimeHelper.downcallHandle(
+        heif_h.LIBRARIES, "heif_image_handle_get_number_of_depth_images",
+        "(Ljdk/incubator/foreign/MemoryAddress;)I",
+        constants$7.heif_image_handle_get_number_of_depth_images$FUNC, false
+    );
     static final FunctionDescriptor heif_image_handle_get_list_of_depth_image_IDs$FUNC = FunctionDescriptor.of(C_INT,
         C_POINTER,
         C_POINTER,
@@ -58,16 +66,6 @@ class constants$7 {
         heif_h.LIBRARIES, "heif_image_handle_get_number_of_thumbnails",
         "(Ljdk/incubator/foreign/MemoryAddress;)I",
         constants$7.heif_image_handle_get_number_of_thumbnails$FUNC, false
-    );
-    static final FunctionDescriptor heif_image_handle_get_list_of_thumbnail_IDs$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER,
-        C_POINTER,
-        C_INT
-    );
-    static final MethodHandle heif_image_handle_get_list_of_thumbnail_IDs$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_handle_get_list_of_thumbnail_IDs",
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;I)I",
-        constants$7.heif_image_handle_get_list_of_thumbnail_IDs$FUNC, false
     );
 }
 
