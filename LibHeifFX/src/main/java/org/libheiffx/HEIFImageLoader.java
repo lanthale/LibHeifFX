@@ -17,7 +17,6 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Platform;
 import javafx.stage.Screen;
 
 /**
@@ -155,12 +154,12 @@ public class HEIFImageLoader extends ImageLoaderImpl {
     /**
      * method to handle the interaction with the native lib
      *
-     * @param libraw the instance of the LibheifImage used to update the loading
+     * @param libheif the instance of the LibheifImage used to update the loading
  process
      * @return ByteBuffer of the read image
      * @throws IOException if the input stream cannot be read
      */
-    private synchronized ByteBuffer getImageData(LibheifImage libraw) throws IOException {
+    private synchronized ByteBuffer getImageData(LibheifImage libheif) throws IOException {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         int nRead;
         byte[] datab = new byte[1024];
@@ -170,7 +169,7 @@ public class HEIFImageLoader extends ImageLoaderImpl {
         }
         buffer.flush();
         byte[] targetArray = buffer.toByteArray();
-        byte[] raw = libraw.readPixelDataFromStream(targetArray);
+        byte[] raw = libheif.readPixelDataFromStream(targetArray);
         double diff = (System.currentTimeMillis() - reading) / 1000;
         Logger.getLogger(HEIFImageLoader.class.getName()).log(Level.FINE, null, "Raw convert took: " + diff + "s");        
         return ByteBuffer.wrap(raw);

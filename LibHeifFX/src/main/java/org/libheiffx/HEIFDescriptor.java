@@ -15,10 +15,11 @@ public class HEIFDescriptor extends ImageDescriptor {
 
     private static final String formatName = "HEIC";
 
-    private static final String[] extensions = {"heic"};
+    private static final String[] extensions = {"heic","avif"};
 
     private static final Signature[] signatures = {
-        new Signature(hexStringToByteArray("000000186674797068656963"))
+        new Signature(hexStringToByteArray("000000186674797068656963")),
+        new Signature(hexStringToByteArray("0000001C6674797061760000"))
     };
 
     private static ImageDescriptor theInstance = null;

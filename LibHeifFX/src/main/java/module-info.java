@@ -6,6 +6,5 @@ module org.libheiffx {
     requires jdk.incubator.foreign; 
     requires java.logging;
     exports org.libheiffx;    
-    exports org.libheif.linuxosx;
-    //exports org.libheif.win;
+    exports org.libheif.linuxosx;    
 }

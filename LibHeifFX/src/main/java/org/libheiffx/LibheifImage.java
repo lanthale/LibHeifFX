@@ -5,10 +5,16 @@
  */
 package org.libheiffx;
 
+import com.drew.imaging.ImageMetadataReader;
+import com.drew.imaging.ImageProcessingException;
+import com.drew.imaging.heif.HeifMetadataReader;
+import com.drew.metadata.Directory;
+import com.drew.metadata.Metadata;
+import com.drew.metadata.Tag;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.invoke.VarHandle;
-import java.nio.ByteOrder;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -20,13 +26,10 @@ import static jdk.incubator.foreign.CLinker.C_INT;
 import static jdk.incubator.foreign.CLinker.C_POINTER;
 import jdk.incubator.foreign.MemoryAccess;
 import jdk.incubator.foreign.MemoryAddress;
-import jdk.incubator.foreign.MemoryHandles;
-import jdk.incubator.foreign.MemoryLayout;
 import jdk.incubator.foreign.MemorySegment;
 import jdk.incubator.foreign.ResourceScope;
 import jdk.incubator.foreign.SegmentAllocator;
 import jdk.incubator.foreign.SymbolLookup;
-import jdk.incubator.foreign.ValueLayout;
 
 /**
  * Loads the native libheif lib and process the image in the native space. This
@@ -273,14 +276,11 @@ public class LibheifImage {
                 org.libheif.win.heif_h.heif_context_read_from_file(scope, heif_context_alloc, CLinker.toCString(imageFileURL, scope).address(), MemoryAddress.NULL);
                 int heif_context_get_number_of_top_level_images = org.libheif.win.heif_h.heif_context_get_number_of_top_level_images(heif_context_alloc);
 
-                MemorySegment primary_image_handle_seg = MemorySegment.allocateNative(C_POINTER, scope);
-                org.libheif.win.heif_h.heif_context_get_primary_image_handle(scope, heif_context_alloc, primary_image_handle_seg.address());
-                MemoryAddress primary_image_handle = MemoryAccess.getAddress(primary_image_handle_seg);
+                //MemorySegment heif_image_handle = MemorySegment.globalNativeSegment();
+                MemoryAddress primary_image_handle = org.libheif.win.heif_h.heif_context_get_primary_image_handle_alloc(heif_context_alloc);
                 int heif_image_get_primary_height = org.libheif.win.heif_h.heif_image_get_primary_height(primary_image_handle);
 
-                MemorySegment heif_image_seg = MemorySegment.allocateNative(C_POINTER, scope);
-                org.libheif.win.heif_h.heif_decode_image(scope, primary_image_handle, heif_image_seg.address(), org.libheif.win.heif_h.heif_colorspace_RGB(), org.libheif.win.heif_h.heif_chroma_interleaved_RGBA(), MemoryAddress.NULL);
-                MemoryAddress heif_image = MemoryAccess.getAddress(heif_image_seg);
+                MemoryAddress heif_image = org.libheif.win.heif_h.heif_decode_image_alloc(primary_image_handle, org.libheif.win.heif_h.heif_colorspace_RGB(), org.libheif.win.heif_h.heif_chroma_interleaved_RGBA(), MemoryAddress.NULL);
 
                 imageHeight = org.libheif.win.heif_h.heif_image_get_height(heif_image, org.libheif.win.heif_h.heif_channel_interleaved());
                 imageWidth = org.libheif.win.heif_h.heif_image_get_width(heif_image, org.libheif.win.heif_h.heif_channel_interleaved());
@@ -314,14 +314,11 @@ public class LibheifImage {
                 org.libheif.linuxosx.heif_h.heif_context_read_from_file(scope, heif_context_alloc, CLinker.toCString(imageFileURL, scope).address(), MemoryAddress.NULL);
                 org.libheif.linuxosx.heif_h.heif_context_get_number_of_top_level_images(heif_context_alloc);
 
-                MemorySegment primary_image_handle_seg = MemorySegment.allocateNative(C_POINTER, scope);
-                org.libheif.linuxosx.heif_h.heif_context_get_primary_image_handle(scope, heif_context_alloc, primary_image_handle_seg.address());
-                MemoryAddress primary_image_handle = MemoryAccess.getAddress(primary_image_handle_seg);
+                //MemorySegment heif_image_handle = MemorySegment.globalNativeSegment();                
+                MemoryAddress primary_image_handle = org.libheif.linuxosx.heif_h.heif_context_get_primary_image_handle_alloc(heif_context_alloc);
                 int heif_image_get_primary_height = org.libheif.linuxosx.heif_h.heif_image_get_primary_height(primary_image_handle);
 
-                MemorySegment heif_image_seg = MemorySegment.allocateNative(C_POINTER, scope);
-                org.libheif.linuxosx.heif_h.heif_decode_image(scope, primary_image_handle, heif_image_seg.address(), org.libheif.linuxosx.heif_h.heif_colorspace_RGB(), org.libheif.linuxosx.heif_h.heif_chroma_interleaved_RGBA(), MemoryAddress.NULL);
-                MemoryAddress heif_image = MemoryAccess.getAddress(heif_image_seg);
+                MemoryAddress heif_image = org.libheif.linuxosx.heif_h.heif_decode_image_alloc(primary_image_handle, org.libheif.linuxosx.heif_h.heif_colorspace_RGB(), org.libheif.linuxosx.heif_h.heif_chroma_interleaved_RGBA(), MemoryAddress.NULL);
 
                 imageHeight = org.libheif.linuxosx.heif_h.heif_image_get_height(heif_image, org.libheif.linuxosx.heif_h.heif_channel_interleaved());
                 imageWidth = org.libheif.linuxosx.heif_h.heif_image_get_width(heif_image, org.libheif.linuxosx.heif_h.heif_channel_interleaved());
@@ -390,36 +387,19 @@ public class LibheifImage {
             System.load(strTemp);
             SymbolLookup.loaderLookup();
         }
-        /*if (operatingSystem.contains("WIN")) {
-            libraries = org.libraw.win.RuntimeHelper.lookup();
-        } else {
-            libraries = org.libraw.linuxosx.RuntimeHelper.lookup();
-        }*/
         HashMap<String, String> retMap = new HashMap<>();
-        try ( var scope = ResourceScope.newSharedScope()) {
-            if (operatingSystem.contains("WIN")) {
-
-                return retMap;
-            } else {
-                MemoryAddress heif_context_alloc = org.libheif.linuxosx.heif_h.heif_context_alloc();
-
-                org.libheif.linuxosx.heif_h.heif_context_read_from_file(scope, heif_context_alloc, CLinker.toCString(imageFileURL, scope).address(), MemoryAddress.NULL);
-                org.libheif.linuxosx.heif_h.heif_context_get_number_of_top_level_images(heif_context_alloc);
-
-                MemorySegment primary_image_handle_seg = MemorySegment.allocateNative(C_POINTER, scope);
-                org.libheif.linuxosx.heif_h.heif_context_get_primary_image_handle(scope, heif_context_alloc, primary_image_handle_seg.address());                
-                MemoryAddress primary_image_handle = MemoryAccess.getAddress(primary_image_handle_seg);
-
-                long heif_image_handle_get_metadata_size = org.libheif.linuxosx.heif_h.heif_image_handle_get_list_of_metadata_block_IDs(primary_image_handle, CLinker.toCString("exif", scope).address(), MemoryAddress.NULL, 1);
-                
-                System.out.println("size " + heif_image_handle_get_metadata_size);
-                MemorySegment voidPointerSeg = MemorySegment.allocateNative(C_POINTER, scope);
-                org.libheif.linuxosx.heif_h.heif_image_handle_get_metadata(scope, primary_image_handle, 0, voidPointerSeg.address());
-                MemoryAddress metadataP = MemoryAccess.getAddress(voidPointerSeg);
-                //char[] toCharArray = metadataP.
-                return retMap;
+        Metadata metadata;
+        FileInputStream in = new FileInputStream(new File(imageFileURL));
+        metadata = HeifMetadataReader.readMetadata(in);
+        String invalidTagNames = "Red TRC;Green TRC;Blue TRC";
+        for (Directory directory : metadata.getDirectories()) {
+            for (Tag tag : directory.getTags()) {
+                if (!invalidTagNames.contains(tag.getTagName())) {
+                    retMap.put(tag.getTagName(), tag.getDescription());
+                }
             }
         }
+        return retMap;        
     }
 
     /**
@@ -504,7 +484,7 @@ public class LibheifImage {
      */
     @Override
     public String toString() {
-        return "LibrawImage{" + "imageFileURL=" + imageFileURL + ", imageWidth=" + imageWidth + ", imageHeight=" + imageHeight + ", imageBits=" + imageBits + ", imageColors=" + imageColors + ", stride=" + stride + '}';
+        return "LibHeifImage{" + "imageFileURL=" + imageFileURL + ", imageWidth=" + imageWidth + ", imageHeight=" + imageHeight + ", imageBits=" + imageBits + ", imageColors=" + imageColors + ", stride=" + stride + '}';
     }
 
 }

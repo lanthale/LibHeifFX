@@ -48,7 +48,7 @@ public class TestApp extends Application {
         stack.setSpacing(5);
         stack.setAlignment(Pos.TOP_CENTER);
         loadImagesByStream(stack, file, file2, file3);
-        //loadImagesByFile(stack,"/System/Volumes/Data/mnt/NAS-ITA/Development/NetBeansProjects/LibHeifFX/src/main/ressources/image5.avif");
+        //loadImagesByFile(stack,"/System/Volumes/Data/mnt/NAS-ITA/Development/NetBeansProjects/LibHeifFX/src/main/ressources/image0.heic");
 
         var scene = new Scene(stack, 640, 480);
         stage.setScene(scene);
