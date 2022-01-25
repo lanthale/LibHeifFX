@@ -18,8 +18,6 @@ I have integrated Libheif 1.12.0 (https://github.com/strukturag/libheif/releases
 
 ## Open topics
 - The lib is not resizing the image data before sending back to the image class
-- No meta data is read out actually
-- Not enabled is AVIF support
 
 ## Usage
 Point to the maven coordinates:
@@ -28,7 +26,7 @@ Point to the maven coordinates:
 <dependency>  
     <groupId>org.libheiffx</groupId>    
     <artifactId>LibHeifFX</artifactId>  
-    <version>1.0.0</version>  
+    <version>1.1.0</version>  
 </dependency>  
 ```  
 
