@@ -7,7 +7,7 @@ All flavoris of heif formats can be loaded with the Image class and manipulated 
 **JDK 17 is required** because of the foreign linker API usage and the big changes for threading happenend in Panama in JDK17
 
 ## Status
-Now the lib is in beta status. That means it is tested only on OSX and under different threading scenarious.
+Now the lib is in beta status. That means it is tested on OSX and Windows and under different threading scenarious.
 
 Supported OS:
 - Linux (min. glibc 2.27 which means Ubuntu 18 or later)
@@ -18,6 +18,7 @@ I have integrated Libheif 1.12.0 (https://github.com/strukturag/libheif/releases
 
 ## Open topics
 - The lib is not resizing the image data before sending back to the image class
+- AVIF is not recognized as a valid image file format
 
 ## Usage
 Point to the maven coordinates:
@@ -26,7 +27,7 @@ Point to the maven coordinates:
 <dependency>  
     <groupId>org.libheiffx</groupId>    
     <artifactId>LibHeifFX</artifactId>  
-    <version>1.1.0</version>  
+    <version>1.1.1</version>  
 </dependency>  
 ```  
 
