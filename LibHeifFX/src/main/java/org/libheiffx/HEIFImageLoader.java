@@ -107,8 +107,8 @@ public class HEIFImageLoader extends ImageLoaderImpl {
         Logger.getLogger(HEIFImageLoader.class.getName()).log(Level.FINEST, null, "locked 2: " + accessLock.isLocked());
 
         if (imageData == null) {
-            Logger.getLogger(HEIFImageLoader.class.getName()).log(Level.SEVERE, null, "Error decompressing RAW Image stream!");
-            throw new IOException("Error decompressing RAW Image stream!");
+            Logger.getLogger(HEIFImageLoader.class.getName()).log(Level.SEVERE, null, "Error decompressing HEIF/AVIF Image stream!");
+            throw new IOException("Error decompressing HEIF/AVIF Image stream!");
         }
 
         ImageMetadata md = new ImageMetadata(null, true,

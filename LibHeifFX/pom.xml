@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.libheiffx</groupId>
     <artifactId>LibHeifFX</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     
     <name>LibHeifFX</name>
     <description>This installs the native lib libheif as a JavaFX Image format provider similar to imageIO before on Swing</description>
@@ -72,19 +72,20 @@
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-base</artifactId>
             <version>${javafx.version}</version>
-        </dependency> 
-        <dependency>
-            <groupId>com.drewnoakes</groupId>
-            <artifactId>metadata-extractor</artifactId>
-            <version>2.16.0</version>
-        </dependency>              
+        </dependency>            
     </dependencies>
     <build>
         <resources>
             <resource>
                 <directory>src/main/ressources</directory>
                 <excludes>
-                    <exclude>**/*.heif</exclude>                    
+                    <exclude>**/*.heif</exclude>
+                    <exclude>**/*.heic</exclude>
+                    <exclude>**/*.avif</exclude>
+                    <exclude>**/*.sh</exclude>                    
+                    <exclude>**/*.h</exclude>                    
+                    <exclude>**/*.cc</exclude>
+                    <exclude>**/*.conf</exclude>                    
                 </excludes>
             </resource>
         </resources>

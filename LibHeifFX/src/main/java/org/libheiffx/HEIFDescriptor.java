@@ -13,7 +13,7 @@ import com.sun.javafx.iio.common.ImageDescriptor;
  */
 public class HEIFDescriptor extends ImageDescriptor {
 
-    private static final String formatName = "HEIC";
+    private static final String formatName = "HEIC/AVIF";
 
     private static final String[] extensions = {"heic","avif"};
 
