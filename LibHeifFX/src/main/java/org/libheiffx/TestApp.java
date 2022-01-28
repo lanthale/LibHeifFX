@@ -48,7 +48,7 @@ public class TestApp extends Application {
         stack.setSpacing(5);
         stack.setAlignment(Pos.TOP_CENTER);
         loadImagesByStream(stack, file, file2, file3);
-        //loadImagesByFile(stack,System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "ressources" + File.separator + "image0.heic");
+        //loadImagesByFile(stack,System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "ressources" + File.separator + "image5.avif");
 
         var scene = new Scene(stack, 640, 480);
         stage.setScene(scene);
@@ -220,7 +220,7 @@ public class TestApp extends Application {
         args = new String[3];
         args[2] = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "ressources" + File.separator + "image0.heic";
         args[1] = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "ressources" + File.separator + "image1.heic";
-        args[0] = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "ressources" + File.separator + "image5.avif";
+        args[0] = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "ressources" + File.separator + "image2.heic";
         Logger logger = Logger.getLogger("");
         Handler handler = new ConsoleHandler();
         logger.addHandler(handler);
