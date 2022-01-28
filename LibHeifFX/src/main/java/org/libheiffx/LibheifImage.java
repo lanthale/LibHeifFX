@@ -123,7 +123,7 @@ public class LibheifImage {
                 MemorySegment primary_image_handle_seg = MemorySegment.allocateNative(C_POINTER, scope);
                 org.libheif.win.heif_h.heif_context_get_primary_image_handle(scope, heif_context_alloc, primary_image_handle_seg.address());
                 MemoryAddress primary_image_handle = MemoryAccess.getAddress(primary_image_handle_seg);
-                int heif_image_get_primary_height = org.libheif.win.heif_h.heif_image_get_primary_height(primary_image_handle);
+                //int heif_image_get_primary_height = org.libheif.win.heif_h.heif_image_get_primary_height(primary_image_handle);
 
                 MemorySegment heif_image_seg = MemorySegment.allocateNative(C_POINTER, scope);
                 org.libheif.win.heif_h.heif_decode_image(scope, primary_image_handle, heif_image_seg.address(), org.libheif.win.heif_h.heif_colorspace_RGB(), org.libheif.win.heif_h.heif_chroma_interleaved_RGBA(), MemoryAddress.NULL);
@@ -278,7 +278,7 @@ public class LibheifImage {
 
                 //MemorySegment heif_image_handle = MemorySegment.globalNativeSegment();
                 MemoryAddress primary_image_handle = org.libheif.win.heif_h.heif_context_get_primary_image_handle_alloc(heif_context_alloc);
-                int heif_image_get_primary_height = org.libheif.win.heif_h.heif_image_get_primary_height(primary_image_handle);
+                //int heif_image_get_primary_height = org.libheif.win.heif_h.heif_image_get_primary_height(primary_image_handle);
 
                 MemoryAddress heif_image = org.libheif.win.heif_h.heif_decode_image_alloc(primary_image_handle, org.libheif.win.heif_h.heif_colorspace_RGB(), org.libheif.win.heif_h.heif_chroma_interleaved_RGBA(), MemoryAddress.NULL);
 
