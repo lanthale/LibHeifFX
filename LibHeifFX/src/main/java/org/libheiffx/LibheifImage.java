@@ -5,15 +5,12 @@
  */
 package org.libheiffx;
 
-import com.drew.imaging.ImageMetadataReader;
-import com.drew.imaging.ImageProcessingException;
 import com.drew.imaging.heif.HeifMetadataReader;
 import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -110,7 +107,7 @@ public class LibheifImage {
             System.load(strTemp);
             SymbolLookup.loaderLookup();
         }
-        try ( var scope = ResourceScope.newSharedScope()) {
+        try ( var scope = ResourceScope.newConfinedScope()) {
             if (operatingSystem.contains("WIN")) {
                 MemoryAddress heif_context_alloc = org.libheif.win.heif_h.heif_context_alloc();
 
@@ -273,7 +270,7 @@ public class LibheifImage {
             SymbolLookup.loaderLookup();
         }
 
-        try ( var scope = ResourceScope.newSharedScope()) {
+        try ( var scope = ResourceScope.newConfinedScope()) {
             if (operatingSystem.contains("WIN")) {
                 MemoryAddress heif_context_alloc = org.libheif.win.heif_h.heif_context_alloc();
 
