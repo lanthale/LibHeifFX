@@ -157,7 +157,9 @@ public class LibheifImage {
                 }
                 byte[] retData = new byte[imageWidth * imageHeight * getNumBands()];
                 IntToByte(retData, data, imageWidth * imageHeight);
-
+                org.libheif.win.heif_h.heif_context_free(heif_context_alloc);
+                data = null;
+                heif_context_alloc = null;
                 return retData;
             } else {
                 MemoryAddress heif_context_alloc = org.libheif.linuxosx.heif_h.heif_context_alloc();
@@ -205,7 +207,9 @@ public class LibheifImage {
                 }
                 byte[] retData = new byte[imageWidth * imageHeight * getNumBands()];
                 IntToByte(retData, data, imageWidth * imageHeight);
-
+                org.libheif.linuxosx.heif_h.heif_context_free(heif_context_alloc);
+                data = null;
+                heif_context_alloc = null;
                 return retData;
             }
         }
@@ -309,6 +313,8 @@ public class LibheifImage {
                         pos = pos + 1;
                     }
                 }
+                org.libheif.win.heif_h.heif_context_free(heif_context_alloc);
+                heif_context_alloc = null;
                 return data;
             } else {
                 MemoryAddress heif_context_alloc = org.libheif.linuxosx.heif_h.heif_context_alloc();
@@ -347,6 +353,8 @@ public class LibheifImage {
                         pos = pos + 1;
                     }
                 }
+                org.libheif.linuxosx.heif_h.heif_context_free(heif_context_alloc);
+                heif_context_alloc = null;
                 return data;
             }
         }

@@ -48,7 +48,7 @@ public class TestApp extends Application {
         stack.setSpacing(5);
         stack.setAlignment(Pos.TOP_CENTER);
         loadImagesByStream(stack, file, file2, file3);
-        //loadImagesByFile(stack,System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "ressources" + File.separator + "image5.avif");
+        //loadImagesByFile(stack, System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "ressources" + File.separator + "image0.heic");
 
         var scene = new Scene(stack, 640, 480);
         stage.setScene(scene);
@@ -66,7 +66,7 @@ public class TestApp extends Application {
         loadImages(stack, initialFile, initialFile2, initialFile3);
 
         btn.setOnAction((t) -> {
-            stack.getChildren().clear();            
+            stack.getChildren().clear();
             stack.getChildren().add(btn);
             stack.getChildren().add(new ProgressBar());
             Platform.runLater(() -> {
@@ -88,7 +88,7 @@ public class TestApp extends Application {
         ImageView view3 = new ImageView();
         ProgressIndicator ind = new ProgressIndicator();
         ProgressIndicator ind2 = new ProgressIndicator();
-        ProgressIndicator ind3 = new ProgressIndicator();        
+        ProgressIndicator ind3 = new ProgressIndicator();
         stack.getChildren().add(ind);
         stack.getChildren().add(ind2);
         stack.getChildren().add(ind3);
@@ -199,9 +199,10 @@ public class TestApp extends Application {
     private void loadImagesByFile(VBox stack, String file) throws IOException {
         //stack.getChildren().add(ind);
         //ind.progressProperty().bind(img.progressProperty());
-        for (int i = 0; i < 1; i++) {
-            File initialFile = new File(file);
-            LibheifImage libheif = new LibheifImage(initialFile.getAbsolutePath());
+        File initialFile = new File(file);
+        LibheifImage libheif = new LibheifImage(initialFile.getAbsolutePath());
+        for (int i = 0; i < 5; i++) {
+            System.out.println("i " + i);
             int[] raw = libheif.readPixelData();
             WritableImage img = new WritableImage(libheif.getImageWidth(), libheif.getImageHeight());
             PixelWriter pw = img.getPixelWriter();
@@ -209,10 +210,12 @@ public class TestApp extends Application {
             ImageView view = new ImageView();
             view.setFitHeight(400);
             view.setFitWidth(400);
-            view.setPreserveRatio(true);            
-            stack.getChildren().add(view);            
+            view.setPreserveRatio(true);
+            stack.getChildren().add(view);
             view.setImage(img);
+            raw=null;
         }
+        System.out.println("Finished!");
         //stack.getChildren().remove(ind);
     }
 
