@@ -47,6 +47,7 @@ public class LibheifImage {
     private HEIFImageLoader loader;
     private String cameraModel;
     private LocalDateTime shootingDateTime;
+    private static SymbolLookup loaderLookup;
 
     public LibheifImage(String imageFile) {
         this.imageFileURL = imageFile;
@@ -70,11 +71,11 @@ public class LibheifImage {
         operatingSystem = System.getProperty("os.name").toUpperCase();
         Logger.getLogger(LibheifImage.class.getName()).log(Level.FINEST, null, "OS was: " + operatingSystem);
         if (operatingSystem.contains("WIN")) {
-            loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/win-x86_64/libde265.dll","/lib/win-x86_64/heif.dll");
+            loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/win-x86_64/libde265.dll", "/lib/win-x86_64/heif.dll");
         } else if (operatingSystem.contains("MAC")) {
             loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/osx/libc++.1.dylib", "/lib/osx/libde265.0.dylib", "/lib/osx/libx265.199.dylib", "/lib/osx/libSystem.B.dylib", "/lib/osx/libiconv.2.dylib", "/lib/osx/libresolv.9.dylib", "/lib/osx/libheif.1.dylib");
         } else if (operatingSystem.contains("NUX")) {
-            loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/ld-linux-x86-64.so.2","/lib/linux-x86_64/libc.so.6", "/lib/libdl.so.2","/lib/linux-x86_64/libgcc_s.so.1", "/lib/linux-x86_64/libm.so.6", "/lib/linux-x86_64/libpthread.so.0", "/lib/linux-x86_64/libstdc++.so.6", "/lib/linux-x86_64/libheif.so");
+            loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/ld-linux-x86-64.so.2", "/lib/linux-x86_64/libc.so.6", "/lib/libdl.so.2", "/lib/linux-x86_64/libgcc_s.so.1", "/lib/linux-x86_64/libm.so.6", "/lib/linux-x86_64/libpthread.so.0", "/lib/linux-x86_64/libstdc++.so.6", "/lib/linux-x86_64/libheif.so");
         }
 
         Logger.getLogger(LibheifImage.class.getName()).log(Level.FINEST, null, "loadLibraryFromJar: " + Arrays.toString(loadLibraryFromJar) + " , tempdir: " + tempDir);
@@ -82,7 +83,11 @@ public class LibheifImage {
             //System.out.println("libsarray "+part);
             new File(part).deleteOnExit();
         }
-        Logger.getLogger(LibheifImage.class.getName()).log(Level.FINEST, null, "Init native libs...finished");
+        Logger.getLogger(LibheifImage.class.getName()).log(Level.FINEST, null, "Init native libs...finished");        
+        for (String strTemp : loadLibraryFromJar) {
+            System.load(strTemp);
+            loaderLookup = SymbolLookup.loaderLookup();
+        }
     }
 
     /**
@@ -102,12 +107,8 @@ public class LibheifImage {
         if (loadLibraryFromJar == null) {
             Logger.getLogger(LibheifImage.class.getName()).log(Level.SEVERE, null, "Please call loadLibs as static method first!");
             throw new IllegalArgumentException("Please call loadLibs as static method first!");
-        }
-        for (String strTemp : loadLibraryFromJar) {
-            System.load(strTemp);
-            SymbolLookup.loaderLookup();
-        }
-        try ( var scope = ResourceScope.newConfinedScope()) {
+        }        
+        try ( var scope = ResourceScope.newSharedScope()) {
             if (operatingSystem.contains("WIN")) {
                 MemoryAddress heif_context_alloc = org.libheif.win.heif_h.heif_context_alloc();
 
@@ -264,13 +265,7 @@ public class LibheifImage {
             Logger.getLogger(LibheifImage.class.getName()).log(Level.FINEST, null, "Please call loadLibs as static method first!");
             throw new IllegalArgumentException("Please call loadLibs as static method first!");
         }
-
-        for (String strTemp : loadLibraryFromJar) {
-            System.load(strTemp);
-            SymbolLookup.loaderLookup();
-        }
-
-        try ( var scope = ResourceScope.newConfinedScope()) {
+        try ( var scope = ResourceScope.newSharedScope()) {
             if (operatingSystem.contains("WIN")) {
                 MemoryAddress heif_context_alloc = org.libheif.win.heif_h.heif_context_alloc();
 
@@ -280,11 +275,11 @@ public class LibheifImage {
                 MemorySegment primary_image_handle_seg = MemorySegment.allocateNative(C_POINTER, scope);
                 org.libheif.win.heif_h.heif_context_get_primary_image_handle(scope, heif_context_alloc, primary_image_handle_seg.address());
                 MemoryAddress primary_image_handle = MemoryAccess.getAddress(primary_image_handle_seg);
-                
+
                 MemorySegment heif_image_seg = MemorySegment.allocateNative(C_POINTER, scope);
                 org.libheif.win.heif_h.heif_decode_image(scope, primary_image_handle, heif_image_seg.address(), org.libheif.win.heif_h.heif_colorspace_RGB(), org.libheif.win.heif_h.heif_chroma_interleaved_RGBA(), MemoryAddress.NULL);
                 MemoryAddress heif_image = MemoryAccess.getAddress(heif_image_seg);
-                
+
                 imageHeight = org.libheif.win.heif_h.heif_image_get_height(heif_image, org.libheif.win.heif_h.heif_channel_interleaved());
                 imageWidth = org.libheif.win.heif_h.heif_image_get_width(heif_image, org.libheif.win.heif_h.heif_channel_interleaved());
                 imageBits = org.libheif.win.heif_h.heif_image_get_bits_per_pixel(heif_image, org.libheif.win.heif_h.heif_channel_interleaved());
@@ -406,7 +401,7 @@ public class LibheifImage {
                 }
             }
         }
-        return retMap;        
+        return retMap;
     }
 
     /**
