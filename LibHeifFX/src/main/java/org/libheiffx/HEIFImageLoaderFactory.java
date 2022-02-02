@@ -5,8 +5,8 @@
  */
 package org.libheiffx;
 
-import org.librawfx.dimension.DimensionProvider;
-import org.librawfx.dimension.DefaultDimensionProvider;
+import org.libheiffx.dimension.DimensionProvider;
+import org.libheiffx.dimension.DefaultDimensionProvider;
 import com.sun.javafx.iio.ImageFormatDescription;
 import com.sun.javafx.iio.ImageLoader;
 import com.sun.javafx.iio.ImageLoaderFactory;

@@ -5,8 +5,8 @@
  */
 package org.libheiffx;
 
-import org.librawfx.dimension.DimensionProvider;
-import org.librawfx.dimension.Dimension;
+import org.libheiffx.dimension.DimensionProvider;
+import org.libheiffx.dimension.Dimension;
 
 /**
  *
