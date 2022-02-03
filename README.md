@@ -7,7 +7,7 @@ All flavoris of heif formats can be loaded with the Image class and manipulated 
 **JDK 17 is required** because of the foreign linker API usage and the big changes for threading happenend in Panama in JDK17
 
 ## Status
-Now the lib is in beta status. That means it is tested on OSX and Windows and under different threading scenarious.
+Now the lib is in beta status. That means it is tested on OSX, Windows, Ubuntu 20.4 under different threading scenarious.
 
 Supported OS:
 - Linux (min. glibc 2.27 which means Ubuntu 18 or later)
@@ -27,7 +27,7 @@ Point to the maven coordinates:
 <dependency>  
     <groupId>org.libheiffx</groupId>    
     <artifactId>LibHeifFX</artifactId>  
-    <version>1.1.1</version>  
+    <version>1.1.4</version>  
 </dependency>  
 ```  
 
