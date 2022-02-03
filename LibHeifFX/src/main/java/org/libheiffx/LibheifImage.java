@@ -75,7 +75,7 @@ public class LibheifImage {
         } else if (operatingSystem.contains("MAC")) {
             loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/osx/libc++.1.dylib", "/lib/osx/libde265.0.dylib", "/lib/osx/libx265.199.dylib", "/lib/osx/libSystem.B.dylib", "/lib/osx/libiconv.2.dylib", "/lib/osx/libresolv.9.dylib", "/lib/osx/libheif.1.dylib");
         } else if (operatingSystem.contains("NUX")) {
-            loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/linux-x86_64/ld-linux-x86-64.so.2", "/lib/linux-x86_64/libc.so.6", "/lib/linux-x86_64/libdl.so.2", "/lib/linux-x86_64/libgcc_s.so.1", "/lib/linux-x86_64/libm.so.6", "/lib/linux-x86_64/libpthread.so.0", "/lib/linux-x86_64/libstdc++.so.6", "/lib/linux-x86_64/libheif.so");
+            loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/linux-x86_64/libheif.so");
         }
 
         Logger.getLogger(LibheifImage.class.getName()).log(Level.FINEST, null, "loadLibraryFromJar: " + Arrays.toString(loadLibraryFromJar) + " , tempdir: " + tempDir);

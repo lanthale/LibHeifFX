@@ -127,7 +127,7 @@ public class NativeUtils {
                 throw e;
             } catch (NullPointerException e) {
                 temp.delete();
-                throw new FileNotFoundException("File " + path + " was not found inside JAR.");
+                throw new FileNotFoundException("File " + part + " was not found inside JAR.");
             }
         }
         Logger.getLogger(NativeUtils.class.getName()).log(Level.FINEST, null, "Extracting native lib to " + tempDir + "...finished");
