@@ -83,7 +83,7 @@ public class LibheifImage {
             //System.out.println("libsarray "+part);
             new File(part).deleteOnExit();
         }
-        Logger.getLogger(LibheifImage.class.getName()).log(Level.FINEST, null, "Init native libs...finished");        
+        Logger.getLogger(LibheifImage.class.getName()).log(Level.FINEST, null, "Init native libs...finished");
         for (String strTemp : loadLibraryFromJar) {
             System.load(strTemp);
             loaderLookup = SymbolLookup.loaderLookup();
@@ -107,19 +107,27 @@ public class LibheifImage {
         if (loadLibraryFromJar == null) {
             Logger.getLogger(LibheifImage.class.getName()).log(Level.SEVERE, null, "Please call loadLibs as static method first!");
             throw new IllegalArgumentException("Please call loadLibs as static method first!");
-        }        
+        }
         try ( var scope = ResourceScope.newSharedScope()) {
             if (operatingSystem.contains("WIN")) {
                 MemoryAddress heif_context_alloc = org.libheif.win.heif_h.heif_context_alloc();
 
                 MemorySegment inputStreamBytes = MemorySegment.ofArray(sourceFileAsByteArray);
                 MemorySegment allocateNative = SegmentAllocator.ofScope(scope).allocateArray(C_CHAR, sourceFileAsByteArray);
-                org.libheif.win.heif_h.heif_context_read_from_memory_without_copy(scope, heif_context_alloc.address(), allocateNative.address(), inputStreamBytes.byteSize(), MemoryAddress.NULL);
+                MemorySegment errorOpening = org.libheif.win.heif_h.heif_context_read_from_memory_without_copy(scope, heif_context_alloc.address(), allocateNative.address(), inputStreamBytes.byteSize(), MemoryAddress.NULL);
+                int errorcode = org.libheif.win.heif_error.code$get(errorOpening);
+                if (errorcode > 0) {
+                    throw new IOException("Cannot open image file because reading of file data is not possible  (" + errorcode + ")!");
+                }
 
                 int heif_context_get_number_of_top_level_images = org.libheif.win.heif_h.heif_context_get_number_of_top_level_images(heif_context_alloc);
 
                 MemorySegment primary_image_handle_seg = MemorySegment.allocateNative(C_POINTER, scope);
-                org.libheif.win.heif_h.heif_context_get_primary_image_handle(scope, heif_context_alloc, primary_image_handle_seg.address());
+                MemorySegment errorhandle = org.libheif.win.heif_h.heif_context_get_primary_image_handle(scope, heif_context_alloc, primary_image_handle_seg.address());
+                errorcode = org.libheif.win.heif_error.code$get(errorhandle);
+                if (errorcode > 0) {
+                    throw new IOException("Cannot open image file because codec is not supported (" + errorcode + ")!");
+                }
                 MemoryAddress primary_image_handle = MemoryAccess.getAddress(primary_image_handle_seg);
                 //int heif_image_get_primary_height = org.libheif.win.heif_h.heif_image_get_primary_height(primary_image_handle);
 
@@ -164,12 +172,20 @@ public class LibheifImage {
 
                 MemorySegment inputStreamBytes = MemorySegment.ofArray(sourceFileAsByteArray);
                 MemorySegment allocateNative = SegmentAllocator.ofScope(scope).allocateArray(C_CHAR, sourceFileAsByteArray);
-                org.libheif.linuxosx.heif_h.heif_context_read_from_memory_without_copy(scope, heif_context_alloc.address(), allocateNative.address(), inputStreamBytes.byteSize(), MemoryAddress.NULL);
+                MemorySegment errorOpening = org.libheif.linuxosx.heif_h.heif_context_read_from_memory_without_copy(scope, heif_context_alloc.address(), allocateNative.address(), inputStreamBytes.byteSize(), MemoryAddress.NULL);
+                int errorcode = org.libheif.linuxosx.heif_error.code$get(errorOpening);
+                if (errorcode > 0) {
+                    throw new IOException("Cannot open image file because reading of file data is not possible  (" + errorcode + ")!");
+                }
 
                 int heif_context_get_number_of_top_level_images = org.libheif.linuxosx.heif_h.heif_context_get_number_of_top_level_images(heif_context_alloc);
 
                 MemorySegment primary_image_handle_seg = MemorySegment.allocateNative(C_POINTER, scope);
-                org.libheif.linuxosx.heif_h.heif_context_get_primary_image_handle(scope, heif_context_alloc, primary_image_handle_seg.address());
+                MemorySegment errorhandle = org.libheif.linuxosx.heif_h.heif_context_get_primary_image_handle(scope, heif_context_alloc, primary_image_handle_seg.address());
+                errorcode = org.libheif.win.heif_error.code$get(errorhandle);
+                if (errorcode > 0) {
+                    throw new IOException("Cannot open image file because codec is not supported (" + errorcode + ")!");
+                }
                 MemoryAddress primary_image_handle = MemoryAccess.getAddress(primary_image_handle_seg);
                 int heif_image_get_primary_height = org.libheif.linuxosx.heif_h.heif_image_get_primary_height(primary_image_handle);
 
@@ -269,11 +285,19 @@ public class LibheifImage {
             if (operatingSystem.contains("WIN")) {
                 MemoryAddress heif_context_alloc = org.libheif.win.heif_h.heif_context_alloc();
 
-                org.libheif.win.heif_h.heif_context_read_from_file(scope, heif_context_alloc, CLinker.toCString(imageFileURL, scope).address(), MemoryAddress.NULL);
+                MemorySegment errorOpening = org.libheif.win.heif_h.heif_context_read_from_file(scope, heif_context_alloc, CLinker.toCString(imageFileURL, scope).address(), MemoryAddress.NULL);
+                int errorcode = org.libheif.win.heif_error.code$get(errorOpening);
+                if (errorcode > 0) {
+                    throw new IOException("Cannot open image file because reading of file data is not possible  (" + errorcode + ")!");
+                }
                 int heif_context_get_number_of_top_level_images = org.libheif.win.heif_h.heif_context_get_number_of_top_level_images(heif_context_alloc);
 
                 MemorySegment primary_image_handle_seg = MemorySegment.allocateNative(C_POINTER, scope);
-                org.libheif.win.heif_h.heif_context_get_primary_image_handle(scope, heif_context_alloc, primary_image_handle_seg.address());
+                MemorySegment errorhandle = org.libheif.win.heif_h.heif_context_get_primary_image_handle(scope, heif_context_alloc, primary_image_handle_seg.address());
+                errorcode = org.libheif.win.heif_error.code$get(errorhandle);
+                if (errorcode > 0) {
+                    throw new IOException("Cannot open image file because codec is not supported (" + errorcode + ")!");
+                }
                 MemoryAddress primary_image_handle = MemoryAccess.getAddress(primary_image_handle_seg);
 
                 MemorySegment heif_image_seg = MemorySegment.allocateNative(C_POINTER, scope);
@@ -311,11 +335,20 @@ public class LibheifImage {
             } else {
                 MemoryAddress heif_context_alloc = org.libheif.linuxosx.heif_h.heif_context_alloc();
 
-                org.libheif.linuxosx.heif_h.heif_context_read_from_file(scope, heif_context_alloc, CLinker.toCString(imageFileURL, scope).address(), MemoryAddress.NULL);
+                MemorySegment errorOpening = org.libheif.linuxosx.heif_h.heif_context_read_from_file(scope, heif_context_alloc, CLinker.toCString(imageFileURL, scope).address(), MemoryAddress.NULL);
+                int errorcode = org.libheif.linuxosx.heif_error.code$get(errorOpening);
+                if (errorcode > 0) {
+                    throw new IOException("Cannot open image file because reading of file data is not possible  (" + errorcode + ")!");
+                }
                 org.libheif.linuxosx.heif_h.heif_context_get_number_of_top_level_images(heif_context_alloc);
 
-                //MemorySegment heif_image_handle = MemorySegment.globalNativeSegment();                
-                MemoryAddress primary_image_handle = org.libheif.linuxosx.heif_h.heif_context_get_primary_image_handle_alloc(heif_context_alloc);
+                MemorySegment primary_image_handle_seg = MemorySegment.allocateNative(C_POINTER, scope);
+                MemorySegment errorhandle = org.libheif.linuxosx.heif_h.heif_context_get_primary_image_handle(scope, heif_context_alloc, primary_image_handle_seg.address());
+                errorcode = org.libheif.linuxosx.heif_error.code$get(errorhandle);
+                if (errorcode > 0) {
+                    throw new IOException("Cannot open image file because codec is not supported (" + errorcode + ")!");
+                }
+                MemoryAddress primary_image_handle = MemoryAccess.getAddress(primary_image_handle_seg);
                 int heif_image_get_primary_height = org.libheif.linuxosx.heif_h.heif_image_get_primary_height(primary_image_handle);
 
                 MemoryAddress heif_image = org.libheif.linuxosx.heif_h.heif_decode_image_alloc(primary_image_handle, org.libheif.linuxosx.heif_h.heif_colorspace_RGB(), org.libheif.linuxosx.heif_h.heif_chroma_interleaved_RGBA(), MemoryAddress.NULL);
