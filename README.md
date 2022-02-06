@@ -27,7 +27,7 @@ Point to the maven coordinates:
 <dependency>  
     <groupId>org.libheiffx</groupId>    
     <artifactId>LibHeifFX</artifactId>  
-    <version>1.1.4</version>  
+    <version>1.1.5</version>  
 </dependency>  
 ```  
 
