@@ -92,7 +92,7 @@ public class TestApp extends Application {
         stack.getChildren().add(ind);
         stack.getChildren().add(ind2);
         stack.getChildren().add(ind3);
-        Image img = new Image(initialFile.toURI().toURL().toString(), size, size, true, false, backgroundLoading);
+        Image img = new Image(initialFile.toURI().toURL().toString(), size, size, true, true, backgroundLoading);
         img.progressProperty().addListener((ov, t, t1) -> {
             if (t1.doubleValue() == 1.0) {
                 stack.getChildren().remove(ind);
@@ -122,7 +122,7 @@ public class TestApp extends Application {
             }
         });
         ind.progressProperty().bind(img.progressProperty());
-        Image img2 = new Image(initialFile2.toURI().toURL().toString(), size, size, true, false, backgroundLoading);
+        Image img2 = new Image(initialFile2.toURI().toURL().toString(), size, size, true, true, backgroundLoading);
         img2.progressProperty().addListener((ov, t, t1) -> {
             if (t1.doubleValue() == 1.0) {
                 stack.getChildren().remove(ind2);
@@ -152,7 +152,7 @@ public class TestApp extends Application {
             }
         });
         ind2.progressProperty().bind(img2.progressProperty());
-        Image img3 = new Image(initialFile3.toURI().toURL().toString(), size, size, true, false, backgroundLoading);
+        Image img3 = new Image(initialFile3.toURI().toURL().toString(), size, size, true, true, backgroundLoading);
         img3.progressProperty().addListener((ov, t, t1) -> {
             if (t1.doubleValue() == 1.0) {
                 stack.getChildren().remove(ind3);

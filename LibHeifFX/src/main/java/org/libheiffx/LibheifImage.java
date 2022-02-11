@@ -501,7 +501,7 @@ public class LibheifImage {
      * @return numBands
      */
     public int getNumBands() {
-        return imageColors * (imageBits / 8);
+        return (imageBits / 8);
     }
 
     public String getCameraModel() {
