@@ -6,63 +6,58 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.CLinker.*;
+import static jdk.incubator.foreign.ValueLayout.*;
 class constants$23 {
 
     static final FunctionDescriptor heif_register_decoder$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER,
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_register_decoder$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_register_decoder",
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
+        "heif_register_decoder",
         constants$23.heif_register_decoder$FUNC, false
     );
     static final FunctionDescriptor heif_register_decoder_plugin$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_register_decoder_plugin$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_register_decoder_plugin",
-        "(Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
+        "heif_register_decoder_plugin",
         constants$23.heif_register_decoder_plugin$FUNC, false
     );
     static final FunctionDescriptor heif_register_encoder_plugin$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_register_encoder_plugin$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_register_encoder_plugin",
-        "(Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
+        "heif_register_encoder_plugin",
         constants$23.heif_register_encoder_plugin$FUNC, false
     );
-    static final FunctionDescriptor heif_encoder_descriptor_supportes_lossy_compression$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER
+    static final FunctionDescriptor heif_encoder_descriptor_supportes_lossy_compression$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_encoder_descriptor_supportes_lossy_compression$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_encoder_descriptor_supportes_lossy_compression",
-        "(Ljdk/incubator/foreign/MemoryAddress;)I",
+        "heif_encoder_descriptor_supportes_lossy_compression",
         constants$23.heif_encoder_descriptor_supportes_lossy_compression$FUNC, false
     );
-    static final FunctionDescriptor heif_encoder_descriptor_supportes_lossless_compression$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER
+    static final FunctionDescriptor heif_encoder_descriptor_supportes_lossless_compression$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_encoder_descriptor_supportes_lossless_compression$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_encoder_descriptor_supportes_lossless_compression",
-        "(Ljdk/incubator/foreign/MemoryAddress;)I",
+        "heif_encoder_descriptor_supportes_lossless_compression",
         constants$23.heif_encoder_descriptor_supportes_lossless_compression$FUNC, false
     );
-    static final MemorySegment LIBHEIF_VERSION$SEGMENT = CLinker.toCString("1.12.0", ResourceScope.newImplicitScope());
+    static final MemorySegment LIBHEIF_VERSION$SEGMENT = RuntimeHelper.CONSTANT_ALLOCATOR.allocateUtf8String("1.12.0");
 }
 
 

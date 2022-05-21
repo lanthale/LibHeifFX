@@ -6,83 +6,77 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.CLinker.*;
+import static jdk.incubator.foreign.ValueLayout.*;
 class constants$18 {
 
-    static final FunctionDescriptor heif_encoder_parameter_get_name$FUNC = FunctionDescriptor.of(C_POINTER,
-        C_POINTER
+    static final FunctionDescriptor heif_encoder_parameter_get_name$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_encoder_parameter_get_name$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_encoder_parameter_get_name",
-        "(Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemoryAddress;",
+        "heif_encoder_parameter_get_name",
         constants$18.heif_encoder_parameter_get_name$FUNC, false
     );
-    static final FunctionDescriptor heif_encoder_parameter_get_type$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER
+    static final FunctionDescriptor heif_encoder_parameter_get_type$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_encoder_parameter_get_type$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_encoder_parameter_get_type",
-        "(Ljdk/incubator/foreign/MemoryAddress;)I",
+        "heif_encoder_parameter_get_type",
         constants$18.heif_encoder_parameter_get_type$FUNC, false
     );
     static final FunctionDescriptor heif_encoder_parameter_get_valid_integer_range$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER,
-        C_POINTER,
-        C_POINTER,
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_encoder_parameter_get_valid_integer_range$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_encoder_parameter_get_valid_integer_range",
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
+        "heif_encoder_parameter_get_valid_integer_range",
         constants$18.heif_encoder_parameter_get_valid_integer_range$FUNC, false
     );
     static final FunctionDescriptor heif_encoder_parameter_get_valid_integer_values$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER,
-        C_POINTER,
-        C_POINTER,
-        C_POINTER,
-        C_POINTER,
-        C_POINTER,
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_encoder_parameter_get_valid_integer_values$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_encoder_parameter_get_valid_integer_values",
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
+        "heif_encoder_parameter_get_valid_integer_values",
         constants$18.heif_encoder_parameter_get_valid_integer_values$FUNC, false
     );
     static final FunctionDescriptor heif_encoder_parameter_get_valid_string_values$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER,
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_encoder_parameter_get_valid_string_values$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_encoder_parameter_get_valid_string_values",
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
+        "heif_encoder_parameter_get_valid_string_values",
         constants$18.heif_encoder_parameter_get_valid_string_values$FUNC, false
     );
     static final FunctionDescriptor heif_encoder_set_parameter_integer$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER,
-        C_POINTER,
-        C_INT
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT
     );
     static final MethodHandle heif_encoder_set_parameter_integer$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_encoder_set_parameter_integer",
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;I)Ljdk/incubator/foreign/MemorySegment;",
+        "heif_encoder_set_parameter_integer",
         constants$18.heif_encoder_set_parameter_integer$FUNC, false
     );
 }

@@ -6,55 +6,49 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.CLinker.*;
+import static jdk.incubator.foreign.ValueLayout.*;
 class constants$6 {
 
-    static final FunctionDescriptor heif_image_handle_get_luma_bits_per_pixel$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER
+    static final FunctionDescriptor heif_image_handle_get_luma_bits_per_pixel$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_luma_bits_per_pixel$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_handle_get_luma_bits_per_pixel",
-        "(Ljdk/incubator/foreign/MemoryAddress;)I",
+        "heif_image_handle_get_luma_bits_per_pixel",
         constants$6.heif_image_handle_get_luma_bits_per_pixel$FUNC, false
     );
-    static final FunctionDescriptor heif_image_handle_get_chroma_bits_per_pixel$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER
+    static final FunctionDescriptor heif_image_handle_get_chroma_bits_per_pixel$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_chroma_bits_per_pixel$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_handle_get_chroma_bits_per_pixel",
-        "(Ljdk/incubator/foreign/MemoryAddress;)I",
+        "heif_image_handle_get_chroma_bits_per_pixel",
         constants$6.heif_image_handle_get_chroma_bits_per_pixel$FUNC, false
     );
-    static final FunctionDescriptor heif_image_handle_get_ispe_width$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER
+    static final FunctionDescriptor heif_image_handle_get_ispe_width$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_ispe_width$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_handle_get_ispe_width",
-        "(Ljdk/incubator/foreign/MemoryAddress;)I",
+        "heif_image_handle_get_ispe_width",
         constants$6.heif_image_handle_get_ispe_width$FUNC, false
     );
-    static final FunctionDescriptor heif_image_handle_get_ispe_height$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER
+    static final FunctionDescriptor heif_image_handle_get_ispe_height$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_ispe_height$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_handle_get_ispe_height",
-        "(Ljdk/incubator/foreign/MemoryAddress;)I",
+        "heif_image_handle_get_ispe_height",
         constants$6.heif_image_handle_get_ispe_height$FUNC, false
     );
-    static final FunctionDescriptor heif_image_handle_has_depth_image$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER
+    static final FunctionDescriptor heif_image_handle_has_depth_image$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_has_depth_image$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_handle_has_depth_image",
-        "(Ljdk/incubator/foreign/MemoryAddress;)I",
+        "heif_image_handle_has_depth_image",
         constants$6.heif_image_handle_has_depth_image$FUNC, false
     );
-    static final FunctionDescriptor heif_image_handle_get_number_of_depth_images$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER
+    static final FunctionDescriptor heif_image_handle_get_number_of_depth_images$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_number_of_depth_images$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_handle_get_number_of_depth_images",
-        "(Ljdk/incubator/foreign/MemoryAddress;)I",
+        "heif_image_handle_get_number_of_depth_images",
         constants$6.heif_image_handle_get_number_of_depth_images$FUNC, false
     );
 }

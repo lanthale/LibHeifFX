@@ -6,79 +6,73 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.CLinker.*;
+import static jdk.incubator.foreign.ValueLayout.*;
 class constants$14 {
 
-    static final FunctionDescriptor heif_image_get_plane_readonly$FUNC = FunctionDescriptor.of(C_POINTER,
-        C_POINTER,
-        C_INT,
-        C_POINTER
+    static final FunctionDescriptor heif_image_get_plane_readonly$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_get_plane_readonly$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_get_plane_readonly",
-        "(Ljdk/incubator/foreign/MemoryAddress;ILjdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemoryAddress;",
+        "heif_image_get_plane_readonly",
         constants$14.heif_image_get_plane_readonly$FUNC, false
     );
-    static final FunctionDescriptor heif_image_get_plane$FUNC = FunctionDescriptor.of(C_POINTER,
-        C_POINTER,
-        C_INT,
-        C_POINTER
+    static final FunctionDescriptor heif_image_get_plane$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_get_plane$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_get_plane",
-        "(Ljdk/incubator/foreign/MemoryAddress;ILjdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemoryAddress;",
+        "heif_image_get_plane",
         constants$14.heif_image_get_plane$FUNC, false
     );
     static final FunctionDescriptor heif_image_scale_image$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER,
-        C_POINTER,
-        C_INT,
-        C_INT,
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_scale_image$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_scale_image",
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;IILjdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
+        "heif_image_scale_image",
         constants$14.heif_image_scale_image$FUNC, false
     );
     static final FunctionDescriptor heif_image_set_raw_color_profile$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER,
-        C_POINTER,
-        C_POINTER,
-        C_LONG_LONG
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG_LONG$LAYOUT
     );
     static final MethodHandle heif_image_set_raw_color_profile$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_set_raw_color_profile",
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;J)Ljdk/incubator/foreign/MemorySegment;",
+        "heif_image_set_raw_color_profile",
         constants$14.heif_image_set_raw_color_profile$FUNC, false
     );
     static final FunctionDescriptor heif_image_set_nclx_color_profile$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER,
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_set_nclx_color_profile$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_set_nclx_color_profile",
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
+        "heif_image_set_nclx_color_profile",
         constants$14.heif_image_set_nclx_color_profile$FUNC, false
     );
     static final FunctionDescriptor heif_image_release$FUNC = FunctionDescriptor.ofVoid(
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_release$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_release",
-        "(Ljdk/incubator/foreign/MemoryAddress;)V",
+        "heif_image_release",
         constants$14.heif_image_release$FUNC, false
     );
 }

@@ -6,67 +6,61 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.CLinker.*;
+import static jdk.incubator.foreign.ValueLayout.*;
 class constants$7 {
 
-    static final FunctionDescriptor heif_image_handle_get_list_of_depth_image_IDs$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER,
-        C_POINTER,
-        C_INT
+    static final FunctionDescriptor heif_image_handle_get_list_of_depth_image_IDs$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_list_of_depth_image_IDs$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_handle_get_list_of_depth_image_IDs",
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;I)I",
+        "heif_image_handle_get_list_of_depth_image_IDs",
         constants$7.heif_image_handle_get_list_of_depth_image_IDs$FUNC, false
     );
     static final FunctionDescriptor heif_image_handle_get_depth_image_handle$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER,
-        C_INT,
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_depth_image_handle$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_handle_get_depth_image_handle",
-        "(Ljdk/incubator/foreign/MemoryAddress;ILjdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
+        "heif_image_handle_get_depth_image_handle",
         constants$7.heif_image_handle_get_depth_image_handle$FUNC, false
     );
     static final FunctionDescriptor heif_depth_representation_info_free$FUNC = FunctionDescriptor.ofVoid(
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_depth_representation_info_free$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_depth_representation_info_free",
-        "(Ljdk/incubator/foreign/MemoryAddress;)V",
+        "heif_depth_representation_info_free",
         constants$7.heif_depth_representation_info_free$FUNC, false
     );
-    static final FunctionDescriptor heif_image_handle_get_depth_image_representation_info$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER,
-        C_INT,
-        C_POINTER
+    static final FunctionDescriptor heif_image_handle_get_depth_image_representation_info$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_depth_image_representation_info$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_handle_get_depth_image_representation_info",
-        "(Ljdk/incubator/foreign/MemoryAddress;ILjdk/incubator/foreign/MemoryAddress;)I",
+        "heif_image_handle_get_depth_image_representation_info",
         constants$7.heif_image_handle_get_depth_image_representation_info$FUNC, false
     );
-    static final FunctionDescriptor heif_image_handle_get_number_of_thumbnails$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER
+    static final FunctionDescriptor heif_image_handle_get_number_of_thumbnails$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_number_of_thumbnails$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_handle_get_number_of_thumbnails",
-        "(Ljdk/incubator/foreign/MemoryAddress;)I",
+        "heif_image_handle_get_number_of_thumbnails",
         constants$7.heif_image_handle_get_number_of_thumbnails$FUNC, false
     );
-    static final FunctionDescriptor heif_image_handle_get_list_of_thumbnail_IDs$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER,
-        C_POINTER,
-        C_INT
+    static final FunctionDescriptor heif_image_handle_get_list_of_thumbnail_IDs$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_list_of_thumbnail_IDs$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_handle_get_list_of_thumbnail_IDs",
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;I)I",
+        "heif_image_handle_get_list_of_thumbnail_IDs",
         constants$7.heif_image_handle_get_list_of_thumbnail_IDs$FUNC, false
     );
 }

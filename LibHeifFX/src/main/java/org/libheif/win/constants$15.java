@@ -6,70 +6,64 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.CLinker.*;
+import static jdk.incubator.foreign.ValueLayout.*;
 class constants$15 {
 
     static final FunctionDescriptor heif_context_write_to_file$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER,
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_context_write_to_file$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_context_write_to_file",
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
+        "heif_context_write_to_file",
         constants$15.heif_context_write_to_file$FUNC, false
     );
     static final FunctionDescriptor heif_context_write$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER,
-        C_POINTER,
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_context_write$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_context_write",
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
+        "heif_context_write",
         constants$15.heif_context_write$FUNC, false
     );
-    static final FunctionDescriptor heif_context_get_encoder_descriptors$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER,
-        C_INT,
-        C_POINTER,
-        C_POINTER,
-        C_INT
+    static final FunctionDescriptor heif_context_get_encoder_descriptors$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT
     );
     static final MethodHandle heif_context_get_encoder_descriptors$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_context_get_encoder_descriptors",
-        "(Ljdk/incubator/foreign/MemoryAddress;ILjdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;I)I",
+        "heif_context_get_encoder_descriptors",
         constants$15.heif_context_get_encoder_descriptors$FUNC, false
     );
-    static final FunctionDescriptor heif_encoder_descriptor_get_name$FUNC = FunctionDescriptor.of(C_POINTER,
-        C_POINTER
+    static final FunctionDescriptor heif_encoder_descriptor_get_name$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_encoder_descriptor_get_name$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_encoder_descriptor_get_name",
-        "(Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemoryAddress;",
+        "heif_encoder_descriptor_get_name",
         constants$15.heif_encoder_descriptor_get_name$FUNC, false
     );
-    static final FunctionDescriptor heif_encoder_descriptor_get_id_name$FUNC = FunctionDescriptor.of(C_POINTER,
-        C_POINTER
+    static final FunctionDescriptor heif_encoder_descriptor_get_id_name$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_encoder_descriptor_get_id_name$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_encoder_descriptor_get_id_name",
-        "(Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemoryAddress;",
+        "heif_encoder_descriptor_get_id_name",
         constants$15.heif_encoder_descriptor_get_id_name$FUNC, false
     );
-    static final FunctionDescriptor heif_encoder_descriptor_get_compression_format$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER
+    static final FunctionDescriptor heif_encoder_descriptor_get_compression_format$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_encoder_descriptor_get_compression_format$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_encoder_descriptor_get_compression_format",
-        "(Ljdk/incubator/foreign/MemoryAddress;)I",
+        "heif_encoder_descriptor_get_compression_format",
         constants$15.heif_encoder_descriptor_get_compression_format$FUNC, false
     );
 }

@@ -6,67 +6,61 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.CLinker.*;
+import static jdk.incubator.foreign.ValueLayout.*;
 class constants$2 {
 
     static final FunctionDescriptor heif_free_list_of_compatible_brands$FUNC = FunctionDescriptor.ofVoid(
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_free_list_of_compatible_brands$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_free_list_of_compatible_brands",
-        "(Ljdk/incubator/foreign/MemoryAddress;)V",
+        "heif_free_list_of_compatible_brands",
         constants$2.heif_free_list_of_compatible_brands$FUNC, false
     );
-    static final FunctionDescriptor heif_get_file_mime_type$FUNC = FunctionDescriptor.of(C_POINTER,
-        C_POINTER,
-        C_INT
+    static final FunctionDescriptor heif_get_file_mime_type$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT
     );
     static final MethodHandle heif_get_file_mime_type$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_get_file_mime_type",
-        "(Ljdk/incubator/foreign/MemoryAddress;I)Ljdk/incubator/foreign/MemoryAddress;",
+        "heif_get_file_mime_type",
         constants$2.heif_get_file_mime_type$FUNC, false
     );
-    static final FunctionDescriptor heif_context_alloc$FUNC = FunctionDescriptor.of(C_POINTER);
+    static final FunctionDescriptor heif_context_alloc$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT);
     static final MethodHandle heif_context_alloc$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_context_alloc",
-        "()Ljdk/incubator/foreign/MemoryAddress;",
+        "heif_context_alloc",
         constants$2.heif_context_alloc$FUNC, false
     );
     static final FunctionDescriptor heif_context_free$FUNC = FunctionDescriptor.ofVoid(
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_context_free$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_context_free",
-        "(Ljdk/incubator/foreign/MemoryAddress;)V",
+        "heif_context_free",
         constants$2.heif_context_free$FUNC, false
     );
     static final FunctionDescriptor heif_context_read_from_file$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER,
-        C_POINTER,
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_context_read_from_file$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_context_read_from_file",
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
+        "heif_context_read_from_file",
         constants$2.heif_context_read_from_file$FUNC, false
     );
     static final FunctionDescriptor heif_context_read_from_memory$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER,
-        C_POINTER,
-        C_LONG_LONG,
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_context_read_from_memory$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_context_read_from_memory",
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;JLjdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
+        "heif_context_read_from_memory",
         constants$2.heif_context_read_from_memory$FUNC, false
     );
 }

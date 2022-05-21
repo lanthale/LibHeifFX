@@ -6,18 +6,18 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.CLinker.*;
+import static jdk.incubator.foreign.ValueLayout.*;
 public class heif_error {
 
-    static final MemoryLayout $struct$LAYOUT = MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+    static final  GroupLayout $struct$LAYOUT = MemoryLayout.structLayout(
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error");
     public static MemoryLayout $LAYOUT() {
         return heif_error.$struct$LAYOUT;
     }
-    static final VarHandle code$VH = $struct$LAYOUT.varHandle(int.class, MemoryLayout.PathElement.groupElement("code"));
+    static final VarHandle code$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("code"));
     public static VarHandle code$VH() {
         return heif_error.code$VH;
     }
@@ -33,7 +33,7 @@ public class heif_error {
     public static void code$set(MemorySegment seg, long index, int x) {
         heif_error.code$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle subcode$VH = $struct$LAYOUT.varHandle(int.class, MemoryLayout.PathElement.groupElement("subcode"));
+    static final VarHandle subcode$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("subcode"));
     public static VarHandle subcode$VH() {
         return heif_error.subcode$VH;
     }
@@ -49,7 +49,7 @@ public class heif_error {
     public static void subcode$set(MemorySegment seg, long index, int x) {
         heif_error.subcode$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle message$VH = MemoryHandles.asAddressVarHandle($struct$LAYOUT.varHandle(long.class, MemoryLayout.PathElement.groupElement("message")));
+    static final VarHandle message$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("message"));
     public static VarHandle message$VH() {
         return heif_error.message$VH;
     }
@@ -67,12 +67,12 @@ public class heif_error {
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
     public static MemorySegment allocate(SegmentAllocator allocator) { return allocator.allocate($LAYOUT()); }
-    public static MemorySegment allocate(ResourceScope scope) { return allocate(SegmentAllocator.ofScope(scope)); }
     public static MemorySegment allocateArray(int len, SegmentAllocator allocator) {
         return allocator.allocate(MemoryLayout.sequenceLayout(len, $LAYOUT()));
     }
+    public static MemorySegment allocate(ResourceScope scope) { return allocate(SegmentAllocator.nativeAllocator(scope)); }
     public static MemorySegment allocateArray(int len, ResourceScope scope) {
-        return allocateArray(len, SegmentAllocator.ofScope(scope));
+        return allocateArray(len, SegmentAllocator.nativeAllocator(scope));
     }
     public static MemorySegment ofAddress(MemoryAddress addr, ResourceScope scope) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope); }
 }

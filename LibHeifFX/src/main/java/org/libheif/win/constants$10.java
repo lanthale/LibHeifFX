@@ -6,63 +6,57 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.CLinker.*;
+import static jdk.incubator.foreign.ValueLayout.*;
 class constants$10 {
 
-    static final FunctionDescriptor heif_image_handle_get_color_profile_type$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER
+    static final FunctionDescriptor heif_image_handle_get_color_profile_type$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_color_profile_type$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_handle_get_color_profile_type",
-        "(Ljdk/incubator/foreign/MemoryAddress;)I",
+        "heif_image_handle_get_color_profile_type",
         constants$10.heif_image_handle_get_color_profile_type$FUNC, false
     );
-    static final FunctionDescriptor heif_image_handle_get_raw_color_profile_size$FUNC = FunctionDescriptor.of(C_LONG_LONG,
-        C_POINTER
+    static final FunctionDescriptor heif_image_handle_get_raw_color_profile_size$FUNC = FunctionDescriptor.of(Constants$root.C_LONG_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_raw_color_profile_size$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_handle_get_raw_color_profile_size",
-        "(Ljdk/incubator/foreign/MemoryAddress;)J",
+        "heif_image_handle_get_raw_color_profile_size",
         constants$10.heif_image_handle_get_raw_color_profile_size$FUNC, false
     );
     static final FunctionDescriptor heif_image_handle_get_raw_color_profile$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER,
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_raw_color_profile$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_handle_get_raw_color_profile",
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
+        "heif_image_handle_get_raw_color_profile",
         constants$10.heif_image_handle_get_raw_color_profile$FUNC, false
     );
     static final FunctionDescriptor heif_image_handle_get_nclx_color_profile$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER,
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_nclx_color_profile$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_handle_get_nclx_color_profile",
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
+        "heif_image_handle_get_nclx_color_profile",
         constants$10.heif_image_handle_get_nclx_color_profile$FUNC, false
     );
-    static final FunctionDescriptor heif_nclx_color_profile_alloc$FUNC = FunctionDescriptor.of(C_POINTER);
+    static final FunctionDescriptor heif_nclx_color_profile_alloc$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT);
     static final MethodHandle heif_nclx_color_profile_alloc$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_nclx_color_profile_alloc",
-        "([Ljava/lang/Object;)Ljdk/incubator/foreign/MemoryAddress;",
+        "heif_nclx_color_profile_alloc",
         constants$10.heif_nclx_color_profile_alloc$FUNC, true
     );
     static final FunctionDescriptor heif_nclx_color_profile_free$FUNC = FunctionDescriptor.ofVoid(
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_nclx_color_profile_free$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_nclx_color_profile_free",
-        "(Ljdk/incubator/foreign/MemoryAddress;)V",
+        "heif_nclx_color_profile_free",
         constants$10.heif_nclx_color_profile_free$FUNC, false
     );
 }

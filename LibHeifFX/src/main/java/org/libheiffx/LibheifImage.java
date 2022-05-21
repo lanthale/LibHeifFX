@@ -17,16 +17,12 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import jdk.incubator.foreign.CLinker;
-import static jdk.incubator.foreign.CLinker.C_CHAR;
-import static jdk.incubator.foreign.CLinker.C_INT;
-import static jdk.incubator.foreign.CLinker.C_POINTER;
-import jdk.incubator.foreign.MemoryAccess;
 import jdk.incubator.foreign.MemoryAddress;
 import jdk.incubator.foreign.MemorySegment;
 import jdk.incubator.foreign.ResourceScope;
 import jdk.incubator.foreign.SegmentAllocator;
 import jdk.incubator.foreign.SymbolLookup;
+import jdk.incubator.foreign.ValueLayout;
 
 /**
  * Loads the native libheif lib and process the image in the native space. This
@@ -113,7 +109,7 @@ public class LibheifImage {
                 MemoryAddress heif_context_alloc = org.libheif.win.heif_h.heif_context_alloc();
 
                 MemorySegment inputStreamBytes = MemorySegment.ofArray(sourceFileAsByteArray);
-                MemorySegment allocateNative = SegmentAllocator.ofScope(scope).allocateArray(C_CHAR, sourceFileAsByteArray);
+                MemorySegment allocateNative = SegmentAllocator.nativeAllocator(scope).allocateArray(org.libheif.win.heif_h.C_CHAR, sourceFileAsByteArray);
                 MemorySegment errorOpening = org.libheif.win.heif_h.heif_context_read_from_memory_without_copy(scope, heif_context_alloc.address(), allocateNative.address(), inputStreamBytes.byteSize(), MemoryAddress.NULL);
                 int errorcode = org.libheif.win.heif_error.code$get(errorOpening);
                 if (errorcode > 0) {
@@ -122,34 +118,33 @@ public class LibheifImage {
 
                 int heif_context_get_number_of_top_level_images = org.libheif.win.heif_h.heif_context_get_number_of_top_level_images(heif_context_alloc);
 
-                MemorySegment primary_image_handle_seg = MemorySegment.allocateNative(C_POINTER, scope);
+                MemorySegment primary_image_handle_seg = MemorySegment.allocateNative(org.libheif.win.heif_h.C_POINTER, scope);
                 MemorySegment errorhandle = org.libheif.win.heif_h.heif_context_get_primary_image_handle(scope, heif_context_alloc, primary_image_handle_seg.address());
                 errorcode = org.libheif.win.heif_error.code$get(errorhandle);
                 if (errorcode > 0) {
                     throw new IOException("Cannot open image file because codec is not supported (" + errorcode + ")!");
                 }
-                MemoryAddress primary_image_handle = MemoryAccess.getAddress(primary_image_handle_seg);
-                //int heif_image_get_primary_height = org.libheif.win.heif_h.heif_image_get_primary_height(primary_image_handle);
+                MemoryAddress primary_image_handle = primary_image_handle_seg.get(ValueLayout.ADDRESS, 0);
 
-                MemorySegment heif_image_seg = MemorySegment.allocateNative(C_POINTER, scope);
+                MemorySegment heif_image_seg = MemorySegment.allocateNative(org.libheif.win.heif_h.C_POINTER, scope);
                 org.libheif.win.heif_h.heif_decode_image(scope, primary_image_handle, heif_image_seg.address(), org.libheif.win.heif_h.heif_colorspace_RGB(), org.libheif.win.heif_h.heif_chroma_interleaved_RGBA(), MemoryAddress.NULL);
-                MemoryAddress heif_image = MemoryAccess.getAddress(heif_image_seg);
-
+                MemoryAddress heif_image = heif_image_seg.get(ValueLayout.ADDRESS, 0);
+                
                 imageHeight = org.libheif.win.heif_h.heif_image_get_height(heif_image, org.libheif.win.heif_h.heif_channel_interleaved());
                 imageWidth = org.libheif.win.heif_h.heif_image_get_width(heif_image, org.libheif.win.heif_h.heif_channel_interleaved());
                 imageBits = org.libheif.win.heif_h.heif_image_get_bits_per_pixel(heif_image, org.libheif.win.heif_h.heif_channel_interleaved());
                 imageColors = 4;
 
-                //MemorySegment strideSegm = SegmentAllocator.ofScope(scope).allocate(C_INT.byteSize());
-                MemorySegment strideSegm = MemorySegment.allocateNative(C_INT, scope);
+                MemorySegment strideSegm = MemorySegment.allocateNative(org.libheif.win.heif_h.C_INT, scope);
                 MemoryAddress image_data = org.libheif.win.heif_h.heif_image_get_plane_readonly(heif_image, org.libheif.win.heif_h.heif_channel_interleaved(), strideSegm.address());
-                stride = strideSegm.toIntArray()[0];
+                stride = strideSegm.toArray(ValueLayout.JAVA_INT)[0];
                 int pos = 0;
                 int[] data = new int[imageHeight * imageWidth];
                 for (var i = 0; i < imageHeight; i++) {
                     MemoryAddress addOffset = image_data.address().addOffset(stride * i);
-                    MemorySegment asSegmentRestricted = addOffset.asSegment(stride, scope);
-                    int[] toIntArray = asSegmentRestricted.toIntArray();
+                    //MemorySegment asSegmentRestricted = addOffset.asSegment(stride, scope);
+                    MemorySegment asSegmentRestricted = MemorySegment.ofAddress(addOffset, stride, scope);
+                    int[] toIntArray = asSegmentRestricted.toArray(ValueLayout.JAVA_INT);
                     for (int j = 0; j < toIntArray.length; j = j + 1) {
                         int rgba = toIntArray[j];
                         int r = (rgba) & 0xFF;
@@ -168,10 +163,10 @@ public class LibheifImage {
                 heif_context_alloc = null;
                 return retData;
             } else {
-                MemoryAddress heif_context_alloc = org.libheif.linuxosx.heif_h.heif_context_alloc();
+                /*MemoryAddress heif_context_alloc = org.libheif.linuxosx.heif_h.heif_context_alloc();
 
                 MemorySegment inputStreamBytes = MemorySegment.ofArray(sourceFileAsByteArray);
-                MemorySegment allocateNative = SegmentAllocator.ofScope(scope).allocateArray(C_CHAR, sourceFileAsByteArray);
+                MemorySegment allocateNative = SegmentAllocator.nativeAllocator(scope).allocateArray(org.libheif.linuxosx.heif_h.C_CHAR, sourceFileAsByteArray);
                 MemorySegment errorOpening = org.libheif.linuxosx.heif_h.heif_context_read_from_memory_without_copy(scope, heif_context_alloc.address(), allocateNative.address(), inputStreamBytes.byteSize(), MemoryAddress.NULL);
                 int errorcode = org.libheif.linuxosx.heif_error.code$get(errorOpening);
                 if (errorcode > 0) {
@@ -180,16 +175,16 @@ public class LibheifImage {
 
                 int heif_context_get_number_of_top_level_images = org.libheif.linuxosx.heif_h.heif_context_get_number_of_top_level_images(heif_context_alloc);
 
-                MemorySegment primary_image_handle_seg = MemorySegment.allocateNative(C_POINTER, scope);
+                MemorySegment primary_image_handle_seg = MemorySegment.allocateNative(org.libheif.linuxosx.heif_h.C_POINTER, scope);
                 MemorySegment errorhandle = org.libheif.linuxosx.heif_h.heif_context_get_primary_image_handle(scope, heif_context_alloc, primary_image_handle_seg.address());
-                errorcode = org.libheif.win.heif_error.code$get(errorhandle);
+                errorcode = org.libheif.linuxosx.heif_error.code$get(errorhandle);
                 if (errorcode > 0) {
                     throw new IOException("Cannot open image file because codec is not supported (" + errorcode + ")!");
                 }
                 MemoryAddress primary_image_handle = MemoryAccess.getAddress(primary_image_handle_seg);
                 int heif_image_get_primary_height = org.libheif.linuxosx.heif_h.heif_image_get_primary_height(primary_image_handle);
 
-                MemorySegment heif_image_seg = MemorySegment.allocateNative(C_POINTER, scope);
+                MemorySegment heif_image_seg = MemorySegment.allocateNative(org.libheif.linuxosx.heif_h.C_POINTER, scope);
                 org.libheif.linuxosx.heif_h.heif_decode_image(scope, primary_image_handle, heif_image_seg.address(), org.libheif.linuxosx.heif_h.heif_colorspace_RGB(), org.libheif.linuxosx.heif_h.heif_chroma_interleaved_RGBA(), MemoryAddress.NULL);
                 MemoryAddress heif_image = MemoryAccess.getAddress(heif_image_seg);
 
@@ -199,7 +194,7 @@ public class LibheifImage {
                 imageColors = 4;
 
                 //MemorySegment strideSegm = SegmentAllocator.ofScope(scope).allocate(C_INT.byteSize());
-                MemorySegment strideSegm = MemorySegment.allocateNative(C_INT, scope);
+                MemorySegment strideSegm = MemorySegment.allocateNative(org.libheif.linuxosx.heif_h.C_INT, scope);
                 MemoryAddress image_data = org.libheif.linuxosx.heif_h.heif_image_get_plane_readonly(heif_image, org.libheif.linuxosx.heif_h.heif_channel_interleaved(), strideSegm.address());
                 stride = strideSegm.toIntArray()[0];
                 int pos = 0;
@@ -223,7 +218,7 @@ public class LibheifImage {
                 IntToByte(retData, data, imageWidth * imageHeight);
                 org.libheif.linuxosx.heif_h.heif_context_free(heif_context_alloc);
                 data = null;
-                heif_context_alloc = null;
+                heif_context_alloc = null;*/byte[] retData = new byte[imageWidth * imageHeight * getNumBands()];
                 return retData;
             }
         }
@@ -285,40 +280,39 @@ public class LibheifImage {
             if (operatingSystem.contains("WIN")) {
                 MemoryAddress heif_context_alloc = org.libheif.win.heif_h.heif_context_alloc();
 
-                MemorySegment errorOpening = org.libheif.win.heif_h.heif_context_read_from_file(scope, heif_context_alloc, CLinker.toCString(imageFileURL, scope).address(), MemoryAddress.NULL);
+                MemorySegment errorOpening = org.libheif.win.heif_h.heif_context_read_from_file(scope, heif_context_alloc, SegmentAllocator.nativeAllocator(scope).allocateUtf8String(imageFileURL).address(), MemoryAddress.NULL);
                 int errorcode = org.libheif.win.heif_error.code$get(errorOpening);
                 if (errorcode > 0) {
                     throw new IOException("Cannot open image file because reading of file data is not possible  (" + errorcode + ")!");
                 }
                 int heif_context_get_number_of_top_level_images = org.libheif.win.heif_h.heif_context_get_number_of_top_level_images(heif_context_alloc);
 
-                MemorySegment primary_image_handle_seg = MemorySegment.allocateNative(C_POINTER, scope);
+                MemorySegment primary_image_handle_seg = MemorySegment.allocateNative(org.libheif.win.heif_h.C_POINTER, scope);
                 MemorySegment errorhandle = org.libheif.win.heif_h.heif_context_get_primary_image_handle(scope, heif_context_alloc, primary_image_handle_seg.address());
                 errorcode = org.libheif.win.heif_error.code$get(errorhandle);
                 if (errorcode > 0) {
                     throw new IOException("Cannot open image file because codec is not supported (" + errorcode + ")!");
                 }
-                MemoryAddress primary_image_handle = MemoryAccess.getAddress(primary_image_handle_seg);
+                MemoryAddress primary_image_handle = primary_image_handle_seg.get(ValueLayout.ADDRESS, 0);
 
-                MemorySegment heif_image_seg = MemorySegment.allocateNative(C_POINTER, scope);
+                MemorySegment heif_image_seg = MemorySegment.allocateNative(org.libheif.win.heif_h.C_POINTER, scope);
                 org.libheif.win.heif_h.heif_decode_image(scope, primary_image_handle, heif_image_seg.address(), org.libheif.win.heif_h.heif_colorspace_RGB(), org.libheif.win.heif_h.heif_chroma_interleaved_RGBA(), MemoryAddress.NULL);
-                MemoryAddress heif_image = MemoryAccess.getAddress(heif_image_seg);
+                MemoryAddress heif_image = heif_image_seg.get(ValueLayout.ADDRESS, 0);
 
                 imageHeight = org.libheif.win.heif_h.heif_image_get_height(heif_image, org.libheif.win.heif_h.heif_channel_interleaved());
                 imageWidth = org.libheif.win.heif_h.heif_image_get_width(heif_image, org.libheif.win.heif_h.heif_channel_interleaved());
                 imageBits = org.libheif.win.heif_h.heif_image_get_bits_per_pixel(heif_image, org.libheif.win.heif_h.heif_channel_interleaved());
                 imageColors = 4;
 
-                //MemorySegment strideSegm = SegmentAllocator.ofScope(scope).allocate(C_INT.byteSize());
-                MemorySegment strideSegm = MemorySegment.allocateNative(C_INT, scope);
-                MemoryAddress image_data = org.libheif.win.heif_h.heif_image_get_plane_readonly(heif_image, org.libheif.linuxosx.heif_h.heif_channel_interleaved(), strideSegm.address());
-                stride = strideSegm.toIntArray()[0];
+                MemorySegment strideSegm = MemorySegment.allocateNative(org.libheif.win.heif_h.C_INT, scope);
+                MemoryAddress image_data = org.libheif.win.heif_h.heif_image_get_plane_readonly(heif_image, org.libheif.win.heif_h.heif_channel_interleaved(), strideSegm.address());
+                stride = strideSegm.toArray(ValueLayout.JAVA_INT)[0];
                 int pos = 0;
                 int[] data = new int[imageHeight * imageWidth];
                 for (var i = 0; i < imageHeight; i++) {
                     MemoryAddress addOffset = image_data.address().addOffset(stride * i);
-                    MemorySegment asSegmentRestricted = addOffset.asSegment(stride, scope);
-                    int[] toIntArray = asSegmentRestricted.toIntArray();
+                    MemorySegment asSegmentRestricted = MemorySegment.ofAddress(addOffset, stride, scope);
+                    int[] toIntArray = asSegmentRestricted.toArray(ValueLayout.JAVA_INT);
                     for (int j = 0; j < toIntArray.length; j = j + 1) {
                         int rgba = toIntArray[j];
                         int r = (rgba) & 0xFF;
@@ -333,16 +327,16 @@ public class LibheifImage {
                 heif_context_alloc = null;
                 return data;
             } else {
-                MemoryAddress heif_context_alloc = org.libheif.linuxosx.heif_h.heif_context_alloc();
+                /*MemoryAddress heif_context_alloc = org.libheif.linuxosx.heif_h.heif_context_alloc();
 
-                MemorySegment errorOpening = org.libheif.linuxosx.heif_h.heif_context_read_from_file(scope, heif_context_alloc, CLinker.toCString(imageFileURL, scope).address(), MemoryAddress.NULL);
+                MemorySegment errorOpening = org.libheif.linuxosx.heif_h.heif_context_read_from_file(scope, heif_context_alloc, SegmentAllocator.nativeAllocator(scope).allocateUtf8String(imageFileURL).address(), MemoryAddress.NULL);
                 int errorcode = org.libheif.linuxosx.heif_error.code$get(errorOpening);
                 if (errorcode > 0) {
                     throw new IOException("Cannot open image file because reading of file data is not possible  (" + errorcode + ")!");
                 }
                 org.libheif.linuxosx.heif_h.heif_context_get_number_of_top_level_images(heif_context_alloc);
 
-                MemorySegment primary_image_handle_seg = MemorySegment.allocateNative(C_POINTER, scope);
+                MemorySegment primary_image_handle_seg = MemorySegment.allocateNative(org.libheif.linuxosx.heif_h.C_POINTER, scope);
                 MemorySegment errorhandle = org.libheif.linuxosx.heif_h.heif_context_get_primary_image_handle(scope, heif_context_alloc, primary_image_handle_seg.address());
                 errorcode = org.libheif.linuxosx.heif_error.code$get(errorhandle);
                 if (errorcode > 0) {
@@ -359,7 +353,7 @@ public class LibheifImage {
                 imageColors = 4;
 
                 //MemorySegment strideSegm = SegmentAllocator.ofScope(scope).allocate(C_INT.byteSize());
-                MemorySegment strideSegm = MemorySegment.allocateNative(C_INT, scope);
+                MemorySegment strideSegm = MemorySegment.allocateNative(org.libheif.linuxosx.heif_h.C_INT, scope);
                 MemoryAddress image_data = org.libheif.linuxosx.heif_h.heif_image_get_plane_readonly(heif_image, org.libheif.linuxosx.heif_h.heif_channel_interleaved(), strideSegm.address());
                 stride = strideSegm.toIntArray()[0];
                 int pos = 0;
@@ -379,7 +373,7 @@ public class LibheifImage {
                     }
                 }
                 org.libheif.linuxosx.heif_h.heif_context_free(heif_context_alloc);
-                heif_context_alloc = null;
+                heif_context_alloc = null;*/int[] data = new int[imageHeight * imageWidth];
                 return data;
             }
         }

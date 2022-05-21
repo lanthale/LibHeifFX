@@ -6,21 +6,21 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.CLinker.*;
+import static jdk.incubator.foreign.ValueLayout.*;
 public class heif_reader {
 
-    static final MemoryLayout $struct$LAYOUT = MemoryLayout.structLayout(
-        C_INT.withName("reader_api_version"),
+    static final  GroupLayout $struct$LAYOUT = MemoryLayout.structLayout(
+        Constants$root.C_LONG$LAYOUT.withName("reader_api_version"),
         MemoryLayout.paddingLayout(32),
-        C_POINTER.withName("get_position"),
-        C_POINTER.withName("read"),
-        C_POINTER.withName("seek"),
-        C_POINTER.withName("wait_for_file_size")
+        Constants$root.C_POINTER$LAYOUT.withName("get_position"),
+        Constants$root.C_POINTER$LAYOUT.withName("read"),
+        Constants$root.C_POINTER$LAYOUT.withName("seek"),
+        Constants$root.C_POINTER$LAYOUT.withName("wait_for_file_size")
     ).withName("heif_reader");
     public static MemoryLayout $LAYOUT() {
         return heif_reader.$struct$LAYOUT;
     }
-    static final VarHandle reader_api_version$VH = $struct$LAYOUT.varHandle(int.class, MemoryLayout.PathElement.groupElement("reader_api_version"));
+    static final VarHandle reader_api_version$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("reader_api_version"));
     public static VarHandle reader_api_version$VH() {
         return heif_reader.reader_api_version$VH;
     }
@@ -36,26 +36,23 @@ public class heif_reader {
     public static void reader_api_version$set(MemorySegment seg, long index, int x) {
         heif_reader.reader_api_version$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final FunctionDescriptor get_position$FUNC = FunctionDescriptor.of(C_LONG_LONG,
-        C_POINTER
+    static final FunctionDescriptor get_position$FUNC = FunctionDescriptor.of(Constants$root.C_LONG_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle get_position$MH = RuntimeHelper.downcallHandle(
-        "(Ljdk/incubator/foreign/MemoryAddress;)J",
         heif_reader.get_position$FUNC, false
     );
     public interface get_position {
 
         long apply(jdk.incubator.foreign.MemoryAddress x0);
-        static MemoryAddress allocate(get_position fi) {
-            return RuntimeHelper.upcallStub(get_position.class, fi, heif_reader.get_position$FUNC, "(Ljdk/incubator/foreign/MemoryAddress;)J");
-        }
-        static MemoryAddress allocate(get_position fi, ResourceScope scope) {
+        static NativeSymbol allocate(get_position fi, ResourceScope scope) {
             return RuntimeHelper.upcallStub(get_position.class, fi, heif_reader.get_position$FUNC, "(Ljdk/incubator/foreign/MemoryAddress;)J", scope);
         }
-        static get_position ofAddress(MemoryAddress addr) {
-            return (jdk.incubator.foreign.MemoryAddress x0) -> {
+        static get_position ofAddress(MemoryAddress addr, ResourceScope scope) {
+            NativeSymbol symbol = NativeSymbol.ofAddress("get_position::" + Long.toHexString(addr.toRawLongValue()), addr, scope);
+return (jdk.incubator.foreign.MemoryAddress x0) -> {
                 try {
-                    return (long)heif_reader.get_position$MH.invokeExact((Addressable)addr, x0);
+                    return (long)heif_reader.get_position$MH.invokeExact(symbol, (jdk.incubator.foreign.Addressable)x0);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -63,7 +60,7 @@ public class heif_reader {
         }
     }
 
-    static final VarHandle get_position$VH = MemoryHandles.asAddressVarHandle($struct$LAYOUT.varHandle(long.class, MemoryLayout.PathElement.groupElement("get_position")));
+    static final VarHandle get_position$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("get_position"));
     public static VarHandle get_position$VH() {
         return heif_reader.get_position$VH;
     }
@@ -79,31 +76,28 @@ public class heif_reader {
     public static void get_position$set(MemorySegment seg, long index, MemoryAddress x) {
         heif_reader.get_position$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    public static get_position get_position (MemorySegment segment) {
-        return get_position.ofAddress(get_position$get(segment));
+    public static get_position get_position (MemorySegment segment, ResourceScope scope) {
+        return get_position.ofAddress(get_position$get(segment), scope);
     }
-    static final FunctionDescriptor read$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER,
-        C_LONG_LONG,
-        C_POINTER
+    static final FunctionDescriptor read$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle read$MH = RuntimeHelper.downcallHandle(
-        "(Ljdk/incubator/foreign/MemoryAddress;JLjdk/incubator/foreign/MemoryAddress;)I",
         heif_reader.read$FUNC, false
     );
     public interface read {
 
         int apply(jdk.incubator.foreign.MemoryAddress x0, long x1, jdk.incubator.foreign.MemoryAddress x2);
-        static MemoryAddress allocate(read fi) {
-            return RuntimeHelper.upcallStub(read.class, fi, heif_reader.read$FUNC, "(Ljdk/incubator/foreign/MemoryAddress;JLjdk/incubator/foreign/MemoryAddress;)I");
-        }
-        static MemoryAddress allocate(read fi, ResourceScope scope) {
+        static NativeSymbol allocate(read fi, ResourceScope scope) {
             return RuntimeHelper.upcallStub(read.class, fi, heif_reader.read$FUNC, "(Ljdk/incubator/foreign/MemoryAddress;JLjdk/incubator/foreign/MemoryAddress;)I", scope);
         }
-        static read ofAddress(MemoryAddress addr) {
-            return (jdk.incubator.foreign.MemoryAddress x0, long x1, jdk.incubator.foreign.MemoryAddress x2) -> {
+        static read ofAddress(MemoryAddress addr, ResourceScope scope) {
+            NativeSymbol symbol = NativeSymbol.ofAddress("read::" + Long.toHexString(addr.toRawLongValue()), addr, scope);
+return (jdk.incubator.foreign.MemoryAddress x0, long x1, jdk.incubator.foreign.MemoryAddress x2) -> {
                 try {
-                    return (int)heif_reader.read$MH.invokeExact((Addressable)addr, x0, x1, x2);
+                    return (int)heif_reader.read$MH.invokeExact(symbol, (jdk.incubator.foreign.Addressable)x0, x1, (jdk.incubator.foreign.Addressable)x2);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -111,7 +105,7 @@ public class heif_reader {
         }
     }
 
-    static final VarHandle read$VH = MemoryHandles.asAddressVarHandle($struct$LAYOUT.varHandle(long.class, MemoryLayout.PathElement.groupElement("read")));
+    static final VarHandle read$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("read"));
     public static VarHandle read$VH() {
         return heif_reader.read$VH;
     }
@@ -127,30 +121,27 @@ public class heif_reader {
     public static void read$set(MemorySegment seg, long index, MemoryAddress x) {
         heif_reader.read$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    public static read read (MemorySegment segment) {
-        return read.ofAddress(read$get(segment));
+    public static read read (MemorySegment segment, ResourceScope scope) {
+        return read.ofAddress(read$get(segment), scope);
     }
-    static final FunctionDescriptor seek$FUNC = FunctionDescriptor.of(C_INT,
-        C_LONG_LONG,
-        C_POINTER
+    static final FunctionDescriptor seek$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_LONG_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle seek$MH = RuntimeHelper.downcallHandle(
-        "(JLjdk/incubator/foreign/MemoryAddress;)I",
         heif_reader.seek$FUNC, false
     );
     public interface seek {
 
         int apply(long x0, jdk.incubator.foreign.MemoryAddress x1);
-        static MemoryAddress allocate(seek fi) {
-            return RuntimeHelper.upcallStub(seek.class, fi, heif_reader.seek$FUNC, "(JLjdk/incubator/foreign/MemoryAddress;)I");
-        }
-        static MemoryAddress allocate(seek fi, ResourceScope scope) {
+        static NativeSymbol allocate(seek fi, ResourceScope scope) {
             return RuntimeHelper.upcallStub(seek.class, fi, heif_reader.seek$FUNC, "(JLjdk/incubator/foreign/MemoryAddress;)I", scope);
         }
-        static seek ofAddress(MemoryAddress addr) {
-            return (long x0, jdk.incubator.foreign.MemoryAddress x1) -> {
+        static seek ofAddress(MemoryAddress addr, ResourceScope scope) {
+            NativeSymbol symbol = NativeSymbol.ofAddress("seek::" + Long.toHexString(addr.toRawLongValue()), addr, scope);
+return (long x0, jdk.incubator.foreign.MemoryAddress x1) -> {
                 try {
-                    return (int)heif_reader.seek$MH.invokeExact((Addressable)addr, x0, x1);
+                    return (int)heif_reader.seek$MH.invokeExact(symbol, x0, (jdk.incubator.foreign.Addressable)x1);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -158,7 +149,7 @@ public class heif_reader {
         }
     }
 
-    static final VarHandle seek$VH = MemoryHandles.asAddressVarHandle($struct$LAYOUT.varHandle(long.class, MemoryLayout.PathElement.groupElement("seek")));
+    static final VarHandle seek$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("seek"));
     public static VarHandle seek$VH() {
         return heif_reader.seek$VH;
     }
@@ -174,30 +165,27 @@ public class heif_reader {
     public static void seek$set(MemorySegment seg, long index, MemoryAddress x) {
         heif_reader.seek$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    public static seek seek (MemorySegment segment) {
-        return seek.ofAddress(seek$get(segment));
+    public static seek seek (MemorySegment segment, ResourceScope scope) {
+        return seek.ofAddress(seek$get(segment), scope);
     }
-    static final FunctionDescriptor wait_for_file_size$FUNC = FunctionDescriptor.of(C_INT,
-        C_LONG_LONG,
-        C_POINTER
+    static final FunctionDescriptor wait_for_file_size$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_LONG_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle wait_for_file_size$MH = RuntimeHelper.downcallHandle(
-        "(JLjdk/incubator/foreign/MemoryAddress;)I",
         heif_reader.wait_for_file_size$FUNC, false
     );
     public interface wait_for_file_size {
 
         int apply(long x0, jdk.incubator.foreign.MemoryAddress x1);
-        static MemoryAddress allocate(wait_for_file_size fi) {
-            return RuntimeHelper.upcallStub(wait_for_file_size.class, fi, heif_reader.wait_for_file_size$FUNC, "(JLjdk/incubator/foreign/MemoryAddress;)I");
-        }
-        static MemoryAddress allocate(wait_for_file_size fi, ResourceScope scope) {
+        static NativeSymbol allocate(wait_for_file_size fi, ResourceScope scope) {
             return RuntimeHelper.upcallStub(wait_for_file_size.class, fi, heif_reader.wait_for_file_size$FUNC, "(JLjdk/incubator/foreign/MemoryAddress;)I", scope);
         }
-        static wait_for_file_size ofAddress(MemoryAddress addr) {
-            return (long x0, jdk.incubator.foreign.MemoryAddress x1) -> {
+        static wait_for_file_size ofAddress(MemoryAddress addr, ResourceScope scope) {
+            NativeSymbol symbol = NativeSymbol.ofAddress("wait_for_file_size::" + Long.toHexString(addr.toRawLongValue()), addr, scope);
+return (long x0, jdk.incubator.foreign.MemoryAddress x1) -> {
                 try {
-                    return (int)heif_reader.wait_for_file_size$MH.invokeExact((Addressable)addr, x0, x1);
+                    return (int)heif_reader.wait_for_file_size$MH.invokeExact(symbol, x0, (jdk.incubator.foreign.Addressable)x1);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -205,7 +193,7 @@ public class heif_reader {
         }
     }
 
-    static final VarHandle wait_for_file_size$VH = MemoryHandles.asAddressVarHandle($struct$LAYOUT.varHandle(long.class, MemoryLayout.PathElement.groupElement("wait_for_file_size")));
+    static final VarHandle wait_for_file_size$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("wait_for_file_size"));
     public static VarHandle wait_for_file_size$VH() {
         return heif_reader.wait_for_file_size$VH;
     }
@@ -221,17 +209,17 @@ public class heif_reader {
     public static void wait_for_file_size$set(MemorySegment seg, long index, MemoryAddress x) {
         heif_reader.wait_for_file_size$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    public static wait_for_file_size wait_for_file_size (MemorySegment segment) {
-        return wait_for_file_size.ofAddress(wait_for_file_size$get(segment));
+    public static wait_for_file_size wait_for_file_size (MemorySegment segment, ResourceScope scope) {
+        return wait_for_file_size.ofAddress(wait_for_file_size$get(segment), scope);
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
     public static MemorySegment allocate(SegmentAllocator allocator) { return allocator.allocate($LAYOUT()); }
-    public static MemorySegment allocate(ResourceScope scope) { return allocate(SegmentAllocator.ofScope(scope)); }
     public static MemorySegment allocateArray(int len, SegmentAllocator allocator) {
         return allocator.allocate(MemoryLayout.sequenceLayout(len, $LAYOUT()));
     }
+    public static MemorySegment allocate(ResourceScope scope) { return allocate(SegmentAllocator.nativeAllocator(scope)); }
     public static MemorySegment allocateArray(int len, ResourceScope scope) {
-        return allocateArray(len, SegmentAllocator.ofScope(scope));
+        return allocateArray(len, SegmentAllocator.nativeAllocator(scope));
     }
     public static MemorySegment ofAddress(MemoryAddress addr, ResourceScope scope) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope); }
 }

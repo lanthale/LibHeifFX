@@ -6,66 +6,60 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.CLinker.*;
+import static jdk.incubator.foreign.ValueLayout.*;
 class constants$13 {
 
-    static final FunctionDescriptor heif_image_get_primary_width$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER
+    static final FunctionDescriptor heif_image_get_primary_width$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_get_primary_width$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_get_primary_width",
-        "(Ljdk/incubator/foreign/MemoryAddress;)I",
+        "heif_image_get_primary_width",
         constants$13.heif_image_get_primary_width$FUNC, false
     );
-    static final FunctionDescriptor heif_image_get_primary_height$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER
+    static final FunctionDescriptor heif_image_get_primary_height$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_get_primary_height$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_get_primary_height",
-        "(Ljdk/incubator/foreign/MemoryAddress;)I",
+        "heif_image_get_primary_height",
         constants$13.heif_image_get_primary_height$FUNC, false
     );
     static final FunctionDescriptor heif_image_crop$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER,
-        C_INT,
-        C_INT,
-        C_INT,
-        C_INT
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_LONG$LAYOUT
     );
     static final MethodHandle heif_image_crop$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_crop",
-        "(Ljdk/incubator/foreign/MemoryAddress;IIII)Ljdk/incubator/foreign/MemorySegment;",
+        "heif_image_crop",
         constants$13.heif_image_crop$FUNC, false
     );
-    static final FunctionDescriptor heif_image_get_bits_per_pixel$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER,
-        C_INT
+    static final FunctionDescriptor heif_image_get_bits_per_pixel$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT
     );
     static final MethodHandle heif_image_get_bits_per_pixel$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_get_bits_per_pixel",
-        "(Ljdk/incubator/foreign/MemoryAddress;I)I",
+        "heif_image_get_bits_per_pixel",
         constants$13.heif_image_get_bits_per_pixel$FUNC, false
     );
-    static final FunctionDescriptor heif_image_get_bits_per_pixel_range$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER,
-        C_INT
+    static final FunctionDescriptor heif_image_get_bits_per_pixel_range$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT
     );
     static final MethodHandle heif_image_get_bits_per_pixel_range$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_get_bits_per_pixel_range",
-        "(Ljdk/incubator/foreign/MemoryAddress;I)I",
+        "heif_image_get_bits_per_pixel_range",
         constants$13.heif_image_get_bits_per_pixel_range$FUNC, false
     );
-    static final FunctionDescriptor heif_image_has_channel$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER,
-        C_INT
+    static final FunctionDescriptor heif_image_has_channel$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT
     );
     static final MethodHandle heif_image_has_channel$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_image_has_channel",
-        "(Ljdk/incubator/foreign/MemoryAddress;I)I",
+        "heif_image_has_channel",
         constants$13.heif_image_has_channel$FUNC, false
     );
 }

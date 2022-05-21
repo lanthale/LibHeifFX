@@ -6,18 +6,18 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.CLinker.*;
+import static jdk.incubator.foreign.ValueLayout.*;
 public class heif_writer {
 
-    static final MemoryLayout $struct$LAYOUT = MemoryLayout.structLayout(
-        C_INT.withName("writer_api_version"),
+    static final  GroupLayout $struct$LAYOUT = MemoryLayout.structLayout(
+        Constants$root.C_LONG$LAYOUT.withName("writer_api_version"),
         MemoryLayout.paddingLayout(32),
-        C_POINTER.withName("write")
+        Constants$root.C_POINTER$LAYOUT.withName("write")
     ).withName("heif_writer");
     public static MemoryLayout $LAYOUT() {
         return heif_writer.$struct$LAYOUT;
     }
-    static final VarHandle writer_api_version$VH = $struct$LAYOUT.varHandle(int.class, MemoryLayout.PathElement.groupElement("writer_api_version"));
+    static final VarHandle writer_api_version$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("writer_api_version"));
     public static VarHandle writer_api_version$VH() {
         return heif_writer.writer_api_version$VH;
     }
@@ -34,32 +34,29 @@ public class heif_writer {
         heif_writer.writer_api_version$VH.set(seg.asSlice(index*sizeof()), x);
     }
     static final FunctionDescriptor write$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER,
-        C_POINTER,
-        C_LONG_LONG,
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle write$MH = RuntimeHelper.downcallHandle(
-        "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;JLjdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
         heif_writer.write$FUNC, false
     );
     public interface write {
 
         jdk.incubator.foreign.MemorySegment apply(jdk.incubator.foreign.MemoryAddress x0, jdk.incubator.foreign.MemoryAddress x1, long x2, jdk.incubator.foreign.MemoryAddress x3);
-        static MemoryAddress allocate(write fi) {
-            return RuntimeHelper.upcallStub(write.class, fi, heif_writer.write$FUNC, "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;JLjdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;");
-        }
-        static MemoryAddress allocate(write fi, ResourceScope scope) {
+        static NativeSymbol allocate(write fi, ResourceScope scope) {
             return RuntimeHelper.upcallStub(write.class, fi, heif_writer.write$FUNC, "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;JLjdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;", scope);
         }
-        static write ofAddress(MemoryAddress addr) {
-            return (jdk.incubator.foreign.MemoryAddress x0, jdk.incubator.foreign.MemoryAddress x1, long x2, jdk.incubator.foreign.MemoryAddress x3) -> {
+        static write ofAddress(MemoryAddress addr, ResourceScope scope) {
+            NativeSymbol symbol = NativeSymbol.ofAddress("write::" + Long.toHexString(addr.toRawLongValue()), addr, scope);
+return (jdk.incubator.foreign.MemoryAddress x0, jdk.incubator.foreign.MemoryAddress x1, long x2, jdk.incubator.foreign.MemoryAddress x3) -> {
                 try {
-                    return (jdk.incubator.foreign.MemorySegment)heif_writer.write$MH.invokeExact((Addressable)addr, x0, x1, x2, x3);
+                    return (jdk.incubator.foreign.MemorySegment)heif_writer.write$MH.invokeExact(symbol, (jdk.incubator.foreign.Addressable)x0, (jdk.incubator.foreign.Addressable)x1, x2, (jdk.incubator.foreign.Addressable)x3);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -67,7 +64,7 @@ public class heif_writer {
         }
     }
 
-    static final VarHandle write$VH = MemoryHandles.asAddressVarHandle($struct$LAYOUT.varHandle(long.class, MemoryLayout.PathElement.groupElement("write")));
+    static final VarHandle write$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("write"));
     public static VarHandle write$VH() {
         return heif_writer.write$VH;
     }
@@ -83,17 +80,17 @@ public class heif_writer {
     public static void write$set(MemorySegment seg, long index, MemoryAddress x) {
         heif_writer.write$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    public static write write (MemorySegment segment) {
-        return write.ofAddress(write$get(segment));
+    public static write write (MemorySegment segment, ResourceScope scope) {
+        return write.ofAddress(write$get(segment), scope);
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
     public static MemorySegment allocate(SegmentAllocator allocator) { return allocator.allocate($LAYOUT()); }
-    public static MemorySegment allocate(ResourceScope scope) { return allocate(SegmentAllocator.ofScope(scope)); }
     public static MemorySegment allocateArray(int len, SegmentAllocator allocator) {
         return allocator.allocate(MemoryLayout.sequenceLayout(len, $LAYOUT()));
     }
+    public static MemorySegment allocate(ResourceScope scope) { return allocate(SegmentAllocator.nativeAllocator(scope)); }
     public static MemorySegment allocateArray(int len, ResourceScope scope) {
-        return allocateArray(len, SegmentAllocator.ofScope(scope));
+        return allocateArray(len, SegmentAllocator.nativeAllocator(scope));
     }
     public static MemorySegment ofAddress(MemoryAddress addr, ResourceScope scope) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope); }
 }

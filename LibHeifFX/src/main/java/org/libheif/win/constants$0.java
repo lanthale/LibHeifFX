@@ -6,46 +6,40 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.CLinker.*;
+import static jdk.incubator.foreign.ValueLayout.*;
 class constants$0 {
 
-    static final FunctionDescriptor heif_get_version$FUNC = FunctionDescriptor.of(C_POINTER);
+    static final FunctionDescriptor heif_get_version$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT);
     static final MethodHandle heif_get_version$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_get_version",
-        "()Ljdk/incubator/foreign/MemoryAddress;",
+        "heif_get_version",
         constants$0.heif_get_version$FUNC, false
     );
-    static final FunctionDescriptor heif_get_version_number$FUNC = FunctionDescriptor.of(C_INT);
+    static final FunctionDescriptor heif_get_version_number$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT);
     static final MethodHandle heif_get_version_number$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_get_version_number",
-        "()I",
+        "heif_get_version_number",
         constants$0.heif_get_version_number$FUNC, false
     );
-    static final FunctionDescriptor heif_get_version_number_major$FUNC = FunctionDescriptor.of(C_INT);
+    static final FunctionDescriptor heif_get_version_number_major$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT);
     static final MethodHandle heif_get_version_number_major$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_get_version_number_major",
-        "()I",
+        "heif_get_version_number_major",
         constants$0.heif_get_version_number_major$FUNC, false
     );
-    static final FunctionDescriptor heif_get_version_number_minor$FUNC = FunctionDescriptor.of(C_INT);
+    static final FunctionDescriptor heif_get_version_number_minor$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT);
     static final MethodHandle heif_get_version_number_minor$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_get_version_number_minor",
-        "()I",
+        "heif_get_version_number_minor",
         constants$0.heif_get_version_number_minor$FUNC, false
     );
-    static final FunctionDescriptor heif_get_version_number_maintenance$FUNC = FunctionDescriptor.of(C_INT);
+    static final FunctionDescriptor heif_get_version_number_maintenance$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT);
     static final MethodHandle heif_get_version_number_maintenance$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_get_version_number_maintenance",
-        "()I",
+        "heif_get_version_number_maintenance",
         constants$0.heif_get_version_number_maintenance$FUNC, false
     );
-    static final FunctionDescriptor heif_check_filetype$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER,
-        C_INT
+    static final FunctionDescriptor heif_check_filetype$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT
     );
     static final MethodHandle heif_check_filetype$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_check_filetype",
-        "(Ljdk/incubator/foreign/MemoryAddress;I)I",
+        "heif_check_filetype",
         constants$0.heif_check_filetype$FUNC, false
     );
 }

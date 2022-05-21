@@ -6,30 +6,30 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.CLinker.*;
+import static jdk.incubator.foreign.ValueLayout.*;
 public class heif_color_profile_nclx {
 
-    static final MemoryLayout $struct$LAYOUT = MemoryLayout.structLayout(
-        C_CHAR.withName("version"),
+    static final  GroupLayout $struct$LAYOUT = MemoryLayout.structLayout(
+        Constants$root.C_CHAR$LAYOUT.withName("version"),
         MemoryLayout.paddingLayout(24),
-        C_INT.withName("color_primaries"),
-        C_INT.withName("transfer_characteristics"),
-        C_INT.withName("matrix_coefficients"),
-        C_CHAR.withName("full_range_flag"),
+        Constants$root.C_LONG$LAYOUT.withName("color_primaries"),
+        Constants$root.C_LONG$LAYOUT.withName("transfer_characteristics"),
+        Constants$root.C_LONG$LAYOUT.withName("matrix_coefficients"),
+        Constants$root.C_CHAR$LAYOUT.withName("full_range_flag"),
         MemoryLayout.paddingLayout(24),
-        C_FLOAT.withName("color_primary_red_x"),
-        C_FLOAT.withName("color_primary_red_y"),
-        C_FLOAT.withName("color_primary_green_x"),
-        C_FLOAT.withName("color_primary_green_y"),
-        C_FLOAT.withName("color_primary_blue_x"),
-        C_FLOAT.withName("color_primary_blue_y"),
-        C_FLOAT.withName("color_primary_white_x"),
-        C_FLOAT.withName("color_primary_white_y")
+        Constants$root.C_FLOAT$LAYOUT.withName("color_primary_red_x"),
+        Constants$root.C_FLOAT$LAYOUT.withName("color_primary_red_y"),
+        Constants$root.C_FLOAT$LAYOUT.withName("color_primary_green_x"),
+        Constants$root.C_FLOAT$LAYOUT.withName("color_primary_green_y"),
+        Constants$root.C_FLOAT$LAYOUT.withName("color_primary_blue_x"),
+        Constants$root.C_FLOAT$LAYOUT.withName("color_primary_blue_y"),
+        Constants$root.C_FLOAT$LAYOUT.withName("color_primary_white_x"),
+        Constants$root.C_FLOAT$LAYOUT.withName("color_primary_white_y")
     ).withName("heif_color_profile_nclx");
     public static MemoryLayout $LAYOUT() {
         return heif_color_profile_nclx.$struct$LAYOUT;
     }
-    static final VarHandle version$VH = $struct$LAYOUT.varHandle(byte.class, MemoryLayout.PathElement.groupElement("version"));
+    static final VarHandle version$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("version"));
     public static VarHandle version$VH() {
         return heif_color_profile_nclx.version$VH;
     }
@@ -45,7 +45,7 @@ public class heif_color_profile_nclx {
     public static void version$set(MemorySegment seg, long index, byte x) {
         heif_color_profile_nclx.version$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle color_primaries$VH = $struct$LAYOUT.varHandle(int.class, MemoryLayout.PathElement.groupElement("color_primaries"));
+    static final VarHandle color_primaries$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("color_primaries"));
     public static VarHandle color_primaries$VH() {
         return heif_color_profile_nclx.color_primaries$VH;
     }
@@ -61,7 +61,7 @@ public class heif_color_profile_nclx {
     public static void color_primaries$set(MemorySegment seg, long index, int x) {
         heif_color_profile_nclx.color_primaries$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle transfer_characteristics$VH = $struct$LAYOUT.varHandle(int.class, MemoryLayout.PathElement.groupElement("transfer_characteristics"));
+    static final VarHandle transfer_characteristics$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("transfer_characteristics"));
     public static VarHandle transfer_characteristics$VH() {
         return heif_color_profile_nclx.transfer_characteristics$VH;
     }
@@ -77,7 +77,7 @@ public class heif_color_profile_nclx {
     public static void transfer_characteristics$set(MemorySegment seg, long index, int x) {
         heif_color_profile_nclx.transfer_characteristics$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle matrix_coefficients$VH = $struct$LAYOUT.varHandle(int.class, MemoryLayout.PathElement.groupElement("matrix_coefficients"));
+    static final VarHandle matrix_coefficients$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("matrix_coefficients"));
     public static VarHandle matrix_coefficients$VH() {
         return heif_color_profile_nclx.matrix_coefficients$VH;
     }
@@ -93,7 +93,7 @@ public class heif_color_profile_nclx {
     public static void matrix_coefficients$set(MemorySegment seg, long index, int x) {
         heif_color_profile_nclx.matrix_coefficients$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle full_range_flag$VH = $struct$LAYOUT.varHandle(byte.class, MemoryLayout.PathElement.groupElement("full_range_flag"));
+    static final VarHandle full_range_flag$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("full_range_flag"));
     public static VarHandle full_range_flag$VH() {
         return heif_color_profile_nclx.full_range_flag$VH;
     }
@@ -109,7 +109,7 @@ public class heif_color_profile_nclx {
     public static void full_range_flag$set(MemorySegment seg, long index, byte x) {
         heif_color_profile_nclx.full_range_flag$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle color_primary_red_x$VH = $struct$LAYOUT.varHandle(float.class, MemoryLayout.PathElement.groupElement("color_primary_red_x"));
+    static final VarHandle color_primary_red_x$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("color_primary_red_x"));
     public static VarHandle color_primary_red_x$VH() {
         return heif_color_profile_nclx.color_primary_red_x$VH;
     }
@@ -125,7 +125,7 @@ public class heif_color_profile_nclx {
     public static void color_primary_red_x$set(MemorySegment seg, long index, float x) {
         heif_color_profile_nclx.color_primary_red_x$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle color_primary_red_y$VH = $struct$LAYOUT.varHandle(float.class, MemoryLayout.PathElement.groupElement("color_primary_red_y"));
+    static final VarHandle color_primary_red_y$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("color_primary_red_y"));
     public static VarHandle color_primary_red_y$VH() {
         return heif_color_profile_nclx.color_primary_red_y$VH;
     }
@@ -141,7 +141,7 @@ public class heif_color_profile_nclx {
     public static void color_primary_red_y$set(MemorySegment seg, long index, float x) {
         heif_color_profile_nclx.color_primary_red_y$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle color_primary_green_x$VH = $struct$LAYOUT.varHandle(float.class, MemoryLayout.PathElement.groupElement("color_primary_green_x"));
+    static final VarHandle color_primary_green_x$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("color_primary_green_x"));
     public static VarHandle color_primary_green_x$VH() {
         return heif_color_profile_nclx.color_primary_green_x$VH;
     }
@@ -157,7 +157,7 @@ public class heif_color_profile_nclx {
     public static void color_primary_green_x$set(MemorySegment seg, long index, float x) {
         heif_color_profile_nclx.color_primary_green_x$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle color_primary_green_y$VH = $struct$LAYOUT.varHandle(float.class, MemoryLayout.PathElement.groupElement("color_primary_green_y"));
+    static final VarHandle color_primary_green_y$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("color_primary_green_y"));
     public static VarHandle color_primary_green_y$VH() {
         return heif_color_profile_nclx.color_primary_green_y$VH;
     }
@@ -173,7 +173,7 @@ public class heif_color_profile_nclx {
     public static void color_primary_green_y$set(MemorySegment seg, long index, float x) {
         heif_color_profile_nclx.color_primary_green_y$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle color_primary_blue_x$VH = $struct$LAYOUT.varHandle(float.class, MemoryLayout.PathElement.groupElement("color_primary_blue_x"));
+    static final VarHandle color_primary_blue_x$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("color_primary_blue_x"));
     public static VarHandle color_primary_blue_x$VH() {
         return heif_color_profile_nclx.color_primary_blue_x$VH;
     }
@@ -189,7 +189,7 @@ public class heif_color_profile_nclx {
     public static void color_primary_blue_x$set(MemorySegment seg, long index, float x) {
         heif_color_profile_nclx.color_primary_blue_x$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle color_primary_blue_y$VH = $struct$LAYOUT.varHandle(float.class, MemoryLayout.PathElement.groupElement("color_primary_blue_y"));
+    static final VarHandle color_primary_blue_y$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("color_primary_blue_y"));
     public static VarHandle color_primary_blue_y$VH() {
         return heif_color_profile_nclx.color_primary_blue_y$VH;
     }
@@ -205,7 +205,7 @@ public class heif_color_profile_nclx {
     public static void color_primary_blue_y$set(MemorySegment seg, long index, float x) {
         heif_color_profile_nclx.color_primary_blue_y$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle color_primary_white_x$VH = $struct$LAYOUT.varHandle(float.class, MemoryLayout.PathElement.groupElement("color_primary_white_x"));
+    static final VarHandle color_primary_white_x$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("color_primary_white_x"));
     public static VarHandle color_primary_white_x$VH() {
         return heif_color_profile_nclx.color_primary_white_x$VH;
     }
@@ -221,7 +221,7 @@ public class heif_color_profile_nclx {
     public static void color_primary_white_x$set(MemorySegment seg, long index, float x) {
         heif_color_profile_nclx.color_primary_white_x$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle color_primary_white_y$VH = $struct$LAYOUT.varHandle(float.class, MemoryLayout.PathElement.groupElement("color_primary_white_y"));
+    static final VarHandle color_primary_white_y$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("color_primary_white_y"));
     public static VarHandle color_primary_white_y$VH() {
         return heif_color_profile_nclx.color_primary_white_y$VH;
     }
@@ -239,12 +239,12 @@ public class heif_color_profile_nclx {
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
     public static MemorySegment allocate(SegmentAllocator allocator) { return allocator.allocate($LAYOUT()); }
-    public static MemorySegment allocate(ResourceScope scope) { return allocate(SegmentAllocator.ofScope(scope)); }
     public static MemorySegment allocateArray(int len, SegmentAllocator allocator) {
         return allocator.allocate(MemoryLayout.sequenceLayout(len, $LAYOUT()));
     }
+    public static MemorySegment allocate(ResourceScope scope) { return allocate(SegmentAllocator.nativeAllocator(scope)); }
     public static MemorySegment allocateArray(int len, ResourceScope scope) {
-        return allocateArray(len, SegmentAllocator.ofScope(scope));
+        return allocateArray(len, SegmentAllocator.nativeAllocator(scope));
     }
     public static MemorySegment ofAddress(MemoryAddress addr, ResourceScope scope) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope); }
 }

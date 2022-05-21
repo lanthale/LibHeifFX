@@ -6,30 +6,30 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.CLinker.*;
+import static jdk.incubator.foreign.ValueLayout.*;
 public class heif_depth_representation_info {
 
-    static final MemoryLayout $struct$LAYOUT = MemoryLayout.structLayout(
-        C_CHAR.withName("version"),
-        C_CHAR.withName("has_z_near"),
-        C_CHAR.withName("has_z_far"),
-        C_CHAR.withName("has_d_min"),
-        C_CHAR.withName("has_d_max"),
+    static final  GroupLayout $struct$LAYOUT = MemoryLayout.structLayout(
+        Constants$root.C_CHAR$LAYOUT.withName("version"),
+        Constants$root.C_CHAR$LAYOUT.withName("has_z_near"),
+        Constants$root.C_CHAR$LAYOUT.withName("has_z_far"),
+        Constants$root.C_CHAR$LAYOUT.withName("has_d_min"),
+        Constants$root.C_CHAR$LAYOUT.withName("has_d_max"),
         MemoryLayout.paddingLayout(24),
-        C_DOUBLE.withName("z_near"),
-        C_DOUBLE.withName("z_far"),
-        C_DOUBLE.withName("d_min"),
-        C_DOUBLE.withName("d_max"),
-        C_INT.withName("depth_representation_type"),
-        C_INT.withName("disparity_reference_view"),
-        C_INT.withName("depth_nonlinear_representation_model_size"),
+        Constants$root.C_DOUBLE$LAYOUT.withName("z_near"),
+        Constants$root.C_DOUBLE$LAYOUT.withName("z_far"),
+        Constants$root.C_DOUBLE$LAYOUT.withName("d_min"),
+        Constants$root.C_DOUBLE$LAYOUT.withName("d_max"),
+        Constants$root.C_LONG$LAYOUT.withName("depth_representation_type"),
+        Constants$root.C_LONG$LAYOUT.withName("disparity_reference_view"),
+        Constants$root.C_LONG$LAYOUT.withName("depth_nonlinear_representation_model_size"),
         MemoryLayout.paddingLayout(32),
-        C_POINTER.withName("depth_nonlinear_representation_model")
+        Constants$root.C_POINTER$LAYOUT.withName("depth_nonlinear_representation_model")
     ).withName("heif_depth_representation_info");
     public static MemoryLayout $LAYOUT() {
         return heif_depth_representation_info.$struct$LAYOUT;
     }
-    static final VarHandle version$VH = $struct$LAYOUT.varHandle(byte.class, MemoryLayout.PathElement.groupElement("version"));
+    static final VarHandle version$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("version"));
     public static VarHandle version$VH() {
         return heif_depth_representation_info.version$VH;
     }
@@ -45,7 +45,7 @@ public class heif_depth_representation_info {
     public static void version$set(MemorySegment seg, long index, byte x) {
         heif_depth_representation_info.version$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle has_z_near$VH = $struct$LAYOUT.varHandle(byte.class, MemoryLayout.PathElement.groupElement("has_z_near"));
+    static final VarHandle has_z_near$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("has_z_near"));
     public static VarHandle has_z_near$VH() {
         return heif_depth_representation_info.has_z_near$VH;
     }
@@ -61,7 +61,7 @@ public class heif_depth_representation_info {
     public static void has_z_near$set(MemorySegment seg, long index, byte x) {
         heif_depth_representation_info.has_z_near$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle has_z_far$VH = $struct$LAYOUT.varHandle(byte.class, MemoryLayout.PathElement.groupElement("has_z_far"));
+    static final VarHandle has_z_far$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("has_z_far"));
     public static VarHandle has_z_far$VH() {
         return heif_depth_representation_info.has_z_far$VH;
     }
@@ -77,7 +77,7 @@ public class heif_depth_representation_info {
     public static void has_z_far$set(MemorySegment seg, long index, byte x) {
         heif_depth_representation_info.has_z_far$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle has_d_min$VH = $struct$LAYOUT.varHandle(byte.class, MemoryLayout.PathElement.groupElement("has_d_min"));
+    static final VarHandle has_d_min$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("has_d_min"));
     public static VarHandle has_d_min$VH() {
         return heif_depth_representation_info.has_d_min$VH;
     }
@@ -93,7 +93,7 @@ public class heif_depth_representation_info {
     public static void has_d_min$set(MemorySegment seg, long index, byte x) {
         heif_depth_representation_info.has_d_min$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle has_d_max$VH = $struct$LAYOUT.varHandle(byte.class, MemoryLayout.PathElement.groupElement("has_d_max"));
+    static final VarHandle has_d_max$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("has_d_max"));
     public static VarHandle has_d_max$VH() {
         return heif_depth_representation_info.has_d_max$VH;
     }
@@ -109,7 +109,7 @@ public class heif_depth_representation_info {
     public static void has_d_max$set(MemorySegment seg, long index, byte x) {
         heif_depth_representation_info.has_d_max$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle z_near$VH = $struct$LAYOUT.varHandle(double.class, MemoryLayout.PathElement.groupElement("z_near"));
+    static final VarHandle z_near$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("z_near"));
     public static VarHandle z_near$VH() {
         return heif_depth_representation_info.z_near$VH;
     }
@@ -125,7 +125,7 @@ public class heif_depth_representation_info {
     public static void z_near$set(MemorySegment seg, long index, double x) {
         heif_depth_representation_info.z_near$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle z_far$VH = $struct$LAYOUT.varHandle(double.class, MemoryLayout.PathElement.groupElement("z_far"));
+    static final VarHandle z_far$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("z_far"));
     public static VarHandle z_far$VH() {
         return heif_depth_representation_info.z_far$VH;
     }
@@ -141,7 +141,7 @@ public class heif_depth_representation_info {
     public static void z_far$set(MemorySegment seg, long index, double x) {
         heif_depth_representation_info.z_far$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle d_min$VH = $struct$LAYOUT.varHandle(double.class, MemoryLayout.PathElement.groupElement("d_min"));
+    static final VarHandle d_min$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("d_min"));
     public static VarHandle d_min$VH() {
         return heif_depth_representation_info.d_min$VH;
     }
@@ -157,7 +157,7 @@ public class heif_depth_representation_info {
     public static void d_min$set(MemorySegment seg, long index, double x) {
         heif_depth_representation_info.d_min$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle d_max$VH = $struct$LAYOUT.varHandle(double.class, MemoryLayout.PathElement.groupElement("d_max"));
+    static final VarHandle d_max$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("d_max"));
     public static VarHandle d_max$VH() {
         return heif_depth_representation_info.d_max$VH;
     }
@@ -173,7 +173,7 @@ public class heif_depth_representation_info {
     public static void d_max$set(MemorySegment seg, long index, double x) {
         heif_depth_representation_info.d_max$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle depth_representation_type$VH = $struct$LAYOUT.varHandle(int.class, MemoryLayout.PathElement.groupElement("depth_representation_type"));
+    static final VarHandle depth_representation_type$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("depth_representation_type"));
     public static VarHandle depth_representation_type$VH() {
         return heif_depth_representation_info.depth_representation_type$VH;
     }
@@ -189,7 +189,7 @@ public class heif_depth_representation_info {
     public static void depth_representation_type$set(MemorySegment seg, long index, int x) {
         heif_depth_representation_info.depth_representation_type$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle disparity_reference_view$VH = $struct$LAYOUT.varHandle(int.class, MemoryLayout.PathElement.groupElement("disparity_reference_view"));
+    static final VarHandle disparity_reference_view$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("disparity_reference_view"));
     public static VarHandle disparity_reference_view$VH() {
         return heif_depth_representation_info.disparity_reference_view$VH;
     }
@@ -205,7 +205,7 @@ public class heif_depth_representation_info {
     public static void disparity_reference_view$set(MemorySegment seg, long index, int x) {
         heif_depth_representation_info.disparity_reference_view$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle depth_nonlinear_representation_model_size$VH = $struct$LAYOUT.varHandle(int.class, MemoryLayout.PathElement.groupElement("depth_nonlinear_representation_model_size"));
+    static final VarHandle depth_nonlinear_representation_model_size$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("depth_nonlinear_representation_model_size"));
     public static VarHandle depth_nonlinear_representation_model_size$VH() {
         return heif_depth_representation_info.depth_nonlinear_representation_model_size$VH;
     }
@@ -221,7 +221,7 @@ public class heif_depth_representation_info {
     public static void depth_nonlinear_representation_model_size$set(MemorySegment seg, long index, int x) {
         heif_depth_representation_info.depth_nonlinear_representation_model_size$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle depth_nonlinear_representation_model$VH = MemoryHandles.asAddressVarHandle($struct$LAYOUT.varHandle(long.class, MemoryLayout.PathElement.groupElement("depth_nonlinear_representation_model")));
+    static final VarHandle depth_nonlinear_representation_model$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("depth_nonlinear_representation_model"));
     public static VarHandle depth_nonlinear_representation_model$VH() {
         return heif_depth_representation_info.depth_nonlinear_representation_model$VH;
     }
@@ -239,12 +239,12 @@ public class heif_depth_representation_info {
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
     public static MemorySegment allocate(SegmentAllocator allocator) { return allocator.allocate($LAYOUT()); }
-    public static MemorySegment allocate(ResourceScope scope) { return allocate(SegmentAllocator.ofScope(scope)); }
     public static MemorySegment allocateArray(int len, SegmentAllocator allocator) {
         return allocator.allocate(MemoryLayout.sequenceLayout(len, $LAYOUT()));
     }
+    public static MemorySegment allocate(ResourceScope scope) { return allocate(SegmentAllocator.nativeAllocator(scope)); }
     public static MemorySegment allocateArray(int len, ResourceScope scope) {
-        return allocateArray(len, SegmentAllocator.ofScope(scope));
+        return allocateArray(len, SegmentAllocator.nativeAllocator(scope));
     }
     public static MemorySegment ofAddress(MemoryAddress addr, ResourceScope scope) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope); }
 }

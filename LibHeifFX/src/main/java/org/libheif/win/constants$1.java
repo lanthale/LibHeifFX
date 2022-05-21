@@ -6,67 +6,61 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.CLinker.*;
+import static jdk.incubator.foreign.ValueLayout.*;
 class constants$1 {
 
-    static final FunctionDescriptor heif_main_brand$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER,
-        C_INT
+    static final FunctionDescriptor heif_main_brand$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT
     );
     static final MethodHandle heif_main_brand$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_main_brand",
-        "(Ljdk/incubator/foreign/MemoryAddress;I)I",
+        "heif_main_brand",
         constants$1.heif_main_brand$FUNC, false
     );
-    static final FunctionDescriptor heif_read_main_brand$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER,
-        C_INT
+    static final FunctionDescriptor heif_read_main_brand$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT
     );
     static final MethodHandle heif_read_main_brand$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_read_main_brand",
-        "(Ljdk/incubator/foreign/MemoryAddress;I)I",
+        "heif_read_main_brand",
         constants$1.heif_read_main_brand$FUNC, false
     );
-    static final FunctionDescriptor heif_fourcc_to_brand$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER
+    static final FunctionDescriptor heif_fourcc_to_brand$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_fourcc_to_brand$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_fourcc_to_brand",
-        "(Ljdk/incubator/foreign/MemoryAddress;)I",
+        "heif_fourcc_to_brand",
         constants$1.heif_fourcc_to_brand$FUNC, false
     );
     static final FunctionDescriptor heif_brand_to_fourcc$FUNC = FunctionDescriptor.ofVoid(
-        C_INT,
-        C_POINTER
+        Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_brand_to_fourcc$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_brand_to_fourcc",
-        "(ILjdk/incubator/foreign/MemoryAddress;)V",
+        "heif_brand_to_fourcc",
         constants$1.heif_brand_to_fourcc$FUNC, false
     );
-    static final FunctionDescriptor heif_has_compatible_brand$FUNC = FunctionDescriptor.of(C_INT,
-        C_POINTER,
-        C_INT,
-        C_POINTER
+    static final FunctionDescriptor heif_has_compatible_brand$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_has_compatible_brand$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_has_compatible_brand",
-        "(Ljdk/incubator/foreign/MemoryAddress;ILjdk/incubator/foreign/MemoryAddress;)I",
+        "heif_has_compatible_brand",
         constants$1.heif_has_compatible_brand$FUNC, false
     );
     static final FunctionDescriptor heif_list_compatible_brands$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        C_INT.withName("code"),
-        C_INT.withName("subcode"),
-        C_POINTER.withName("message")
+        Constants$root.C_LONG$LAYOUT.withName("code"),
+        Constants$root.C_LONG$LAYOUT.withName("subcode"),
+        Constants$root.C_POINTER$LAYOUT.withName("message")
     ).withName("heif_error"),
-        C_POINTER,
-        C_INT,
-        C_POINTER,
-        C_POINTER
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_list_compatible_brands$MH = RuntimeHelper.downcallHandle(
-        heif_h.LIBRARIES, "heif_list_compatible_brands",
-        "(Ljdk/incubator/foreign/MemoryAddress;ILjdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;",
+        "heif_list_compatible_brands",
         constants$1.heif_list_compatible_brands$FUNC, false
     );
 }
