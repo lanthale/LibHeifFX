@@ -32,6 +32,8 @@ import jdk.incubator.foreign.ValueLayout;
  */
 public class LibheifImage {
 
+    private static String arch;
+
     private final String imageFileURL;
     private int imageWidth;
     private int imageHeight;
@@ -65,11 +67,14 @@ public class LibheifImage {
     public static void loadLibs(String tempDir) throws IOException {
         Logger.getLogger(LibheifImage.class.getName()).log(Level.FINEST, null, "Init native libs...");
         operatingSystem = System.getProperty("os.name").toUpperCase();
+        arch = System.getProperty("os.arch").toUpperCase();        
         Logger.getLogger(LibheifImage.class.getName()).log(Level.FINEST, null, "OS was: " + operatingSystem);
         if (operatingSystem.contains("WIN")) {
             loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/win-x86_64/libde265.dll", "/lib/win-x86_64/heif.dll");
-        } else if (operatingSystem.contains("MAC")) {
-            loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/osx/libc++.1.dylib", "/lib/osx/libde265.0.dylib", "/lib/osx/libx265.199.dylib", "/lib/osx/libSystem.B.dylib", "/lib/osx/libiconv.2.dylib", "/lib/osx/libresolv.9.dylib", "/lib/osx/libheif.1.dylib");
+        } else if (operatingSystem.contains("MAC") && !arch.contains("AARCH64")) {
+            loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/osx-x86_64/libc++.1.dylib", "/lib/osx-x86_64/libde265.0.dylib", "/lib/osx-x86_64/libx265.199.dylib", "/lib/osx-x86_64/libSystem.B.dylib", "/lib/osx-x86_64/libiconv.2.dylib", "/lib/osx-x86_64/libresolv.9.dylib", "/lib/osx-x86_64/libheif.1.dylib");
+        } else if (operatingSystem.contains("MAC") && arch.contains("AARCH64")) {
+            loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/osx-arm64/libde265.0.dylib", "/lib/osx-arm64/libx265.199.dylib", "/lib/osx-arm64/libaom.3.dylib", "/lib/osx-arm64/libjxl.0.6.dylib", "/lib/osx-arm64/libvmaf.1.dylib","/lib/osx-arm64/libheif.1.dylib");
         } else if (operatingSystem.contains("NUX")) {
             loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/linux-x86_64/libheif.so");
         }
