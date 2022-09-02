@@ -5,8 +5,8 @@ package org.libheif.win;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
-import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.ValueLayout.*;
+import java.lang.foreign.*;
+import static java.lang.foreign.ValueLayout.*;
 public class heif_writer {
 
     static final  GroupLayout $struct$LAYOUT = MemoryLayout.structLayout(
@@ -44,19 +44,19 @@ public class heif_writer {
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle write$MH = RuntimeHelper.downcallHandle(
-        heif_writer.write$FUNC, false
+        heif_writer.write$FUNC
     );
     public interface write {
 
-        jdk.incubator.foreign.MemorySegment apply(jdk.incubator.foreign.MemoryAddress x0, jdk.incubator.foreign.MemoryAddress x1, long x2, jdk.incubator.foreign.MemoryAddress x3);
-        static NativeSymbol allocate(write fi, ResourceScope scope) {
-            return RuntimeHelper.upcallStub(write.class, fi, heif_writer.write$FUNC, "(Ljdk/incubator/foreign/MemoryAddress;Ljdk/incubator/foreign/MemoryAddress;JLjdk/incubator/foreign/MemoryAddress;)Ljdk/incubator/foreign/MemorySegment;", scope);
+        java.lang.foreign.MemorySegment apply(java.lang.foreign.MemoryAddress _x0, java.lang.foreign.MemoryAddress _x1, long _x2, java.lang.foreign.MemoryAddress _x3);
+        static MemorySegment allocate(write fi, MemorySession session) {
+            return RuntimeHelper.upcallStub(write.class, fi, heif_writer.write$FUNC, session);
         }
-        static write ofAddress(MemoryAddress addr, ResourceScope scope) {
-            NativeSymbol symbol = NativeSymbol.ofAddress("write::" + Long.toHexString(addr.toRawLongValue()), addr, scope);
-return (jdk.incubator.foreign.MemoryAddress x0, jdk.incubator.foreign.MemoryAddress x1, long x2, jdk.incubator.foreign.MemoryAddress x3) -> {
+        static write ofAddress(MemoryAddress addr, MemorySession session) {
+            MemorySegment symbol = MemorySegment.ofAddress(addr, 0, session);
+            return (java.lang.foreign.MemoryAddress __x0, java.lang.foreign.MemoryAddress __x1, long __x2, java.lang.foreign.MemoryAddress __x3) -> {
                 try {
-                    return (jdk.incubator.foreign.MemorySegment)heif_writer.write$MH.invokeExact(symbol, (jdk.incubator.foreign.Addressable)x0, (jdk.incubator.foreign.Addressable)x1, x2, (jdk.incubator.foreign.Addressable)x3);
+                    return (java.lang.foreign.MemorySegment)heif_writer.write$MH.invokeExact((Addressable)symbol, (java.lang.foreign.Addressable)__x0, (java.lang.foreign.Addressable)__x1, __x2, (java.lang.foreign.Addressable)__x3);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -69,30 +69,26 @@ return (jdk.incubator.foreign.MemoryAddress x0, jdk.incubator.foreign.MemoryAddr
         return heif_writer.write$VH;
     }
     public static MemoryAddress write$get(MemorySegment seg) {
-        return (jdk.incubator.foreign.MemoryAddress)heif_writer.write$VH.get(seg);
+        return (java.lang.foreign.MemoryAddress)heif_writer.write$VH.get(seg);
     }
     public static void write$set( MemorySegment seg, MemoryAddress x) {
         heif_writer.write$VH.set(seg, x);
     }
     public static MemoryAddress write$get(MemorySegment seg, long index) {
-        return (jdk.incubator.foreign.MemoryAddress)heif_writer.write$VH.get(seg.asSlice(index*sizeof()));
+        return (java.lang.foreign.MemoryAddress)heif_writer.write$VH.get(seg.asSlice(index*sizeof()));
     }
     public static void write$set(MemorySegment seg, long index, MemoryAddress x) {
         heif_writer.write$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    public static write write (MemorySegment segment, ResourceScope scope) {
-        return write.ofAddress(write$get(segment), scope);
+    public static write write (MemorySegment segment, MemorySession session) {
+        return write.ofAddress(write$get(segment), session);
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
     public static MemorySegment allocate(SegmentAllocator allocator) { return allocator.allocate($LAYOUT()); }
     public static MemorySegment allocateArray(int len, SegmentAllocator allocator) {
         return allocator.allocate(MemoryLayout.sequenceLayout(len, $LAYOUT()));
     }
-    public static MemorySegment allocate(ResourceScope scope) { return allocate(SegmentAllocator.nativeAllocator(scope)); }
-    public static MemorySegment allocateArray(int len, ResourceScope scope) {
-        return allocateArray(len, SegmentAllocator.nativeAllocator(scope));
-    }
-    public static MemorySegment ofAddress(MemoryAddress addr, ResourceScope scope) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope); }
+    public static MemorySegment ofAddress(MemoryAddress addr, MemorySession session) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, session); }
 }
 
 

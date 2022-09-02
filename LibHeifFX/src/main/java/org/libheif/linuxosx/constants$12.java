@@ -5,8 +5,8 @@ package org.libheif.linuxosx;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
-import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.ValueLayout.*;
+import java.lang.foreign.*;
+import static java.lang.foreign.ValueLayout.*;
 class constants$12 {
 
     static final FunctionDescriptor heif_decoding_options_free$FUNC = FunctionDescriptor.ofVoid(
@@ -14,7 +14,7 @@ class constants$12 {
     );
     static final MethodHandle heif_decoding_options_free$MH = RuntimeHelper.downcallHandle(
         "heif_decoding_options_free",
-        constants$12.heif_decoding_options_free$FUNC, false
+        constants$12.heif_decoding_options_free$FUNC
     );
     static final FunctionDescriptor heif_decode_image$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_INT$LAYOUT.withName("code"),
@@ -29,7 +29,7 @@ class constants$12 {
     );
     static final MethodHandle heif_decode_image$MH = RuntimeHelper.downcallHandle(
         "heif_decode_image",
-        constants$12.heif_decode_image$FUNC, false
+        constants$12.heif_decode_image$FUNC
     );
     static final FunctionDescriptor heif_decode_image_alloc$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
         Constants$root.C_POINTER$LAYOUT,
@@ -39,21 +39,21 @@ class constants$12 {
     );
     static final MethodHandle heif_decode_image_alloc$MH = RuntimeHelper.downcallHandle(
         "heif_decode_image_alloc",
-        constants$12.heif_decode_image_alloc$FUNC, false
+        constants$12.heif_decode_image_alloc$FUNC
     );
     static final FunctionDescriptor heif_image_get_colorspace$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_get_colorspace$MH = RuntimeHelper.downcallHandle(
         "heif_image_get_colorspace",
-        constants$12.heif_image_get_colorspace$FUNC, false
+        constants$12.heif_image_get_colorspace$FUNC
     );
     static final FunctionDescriptor heif_image_get_chroma_format$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_get_chroma_format$MH = RuntimeHelper.downcallHandle(
         "heif_image_get_chroma_format",
-        constants$12.heif_image_get_chroma_format$FUNC, false
+        constants$12.heif_image_get_chroma_format$FUNC
     );
     static final FunctionDescriptor heif_image_get_width$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
         Constants$root.C_POINTER$LAYOUT,
@@ -61,7 +61,7 @@ class constants$12 {
     );
     static final MethodHandle heif_image_get_width$MH = RuntimeHelper.downcallHandle(
         "heif_image_get_width",
-        constants$12.heif_image_get_width$FUNC, false
+        constants$12.heif_image_get_width$FUNC
     );
 }
 

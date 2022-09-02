@@ -5,8 +5,8 @@ package org.libheif.win;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
-import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.ValueLayout.*;
+import java.lang.foreign.*;
+import static java.lang.foreign.ValueLayout.*;
 class constants$23 {
 
     static final FunctionDescriptor heif_register_decoder$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
@@ -19,7 +19,7 @@ class constants$23 {
     );
     static final MethodHandle heif_register_decoder$MH = RuntimeHelper.downcallHandle(
         "heif_register_decoder",
-        constants$23.heif_register_decoder$FUNC, false
+        constants$23.heif_register_decoder$FUNC
     );
     static final FunctionDescriptor heif_register_decoder_plugin$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_LONG$LAYOUT.withName("code"),
@@ -30,7 +30,7 @@ class constants$23 {
     );
     static final MethodHandle heif_register_decoder_plugin$MH = RuntimeHelper.downcallHandle(
         "heif_register_decoder_plugin",
-        constants$23.heif_register_decoder_plugin$FUNC, false
+        constants$23.heif_register_decoder_plugin$FUNC
     );
     static final FunctionDescriptor heif_register_encoder_plugin$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_LONG$LAYOUT.withName("code"),
@@ -41,21 +41,21 @@ class constants$23 {
     );
     static final MethodHandle heif_register_encoder_plugin$MH = RuntimeHelper.downcallHandle(
         "heif_register_encoder_plugin",
-        constants$23.heif_register_encoder_plugin$FUNC, false
+        constants$23.heif_register_encoder_plugin$FUNC
     );
     static final FunctionDescriptor heif_encoder_descriptor_supportes_lossy_compression$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_encoder_descriptor_supportes_lossy_compression$MH = RuntimeHelper.downcallHandle(
         "heif_encoder_descriptor_supportes_lossy_compression",
-        constants$23.heif_encoder_descriptor_supportes_lossy_compression$FUNC, false
+        constants$23.heif_encoder_descriptor_supportes_lossy_compression$FUNC
     );
     static final FunctionDescriptor heif_encoder_descriptor_supportes_lossless_compression$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_encoder_descriptor_supportes_lossless_compression$MH = RuntimeHelper.downcallHandle(
         "heif_encoder_descriptor_supportes_lossless_compression",
-        constants$23.heif_encoder_descriptor_supportes_lossless_compression$FUNC, false
+        constants$23.heif_encoder_descriptor_supportes_lossless_compression$FUNC
     );
     static final MemorySegment LIBHEIF_VERSION$SEGMENT = RuntimeHelper.CONSTANT_ALLOCATOR.allocateUtf8String("1.12.0");
 }

@@ -5,8 +5,8 @@ package org.libheif.win;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
-import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.ValueLayout.*;
+import java.lang.foreign.*;
+import static java.lang.foreign.ValueLayout.*;
 public class heif_h  {
 
     /* package-private */ heif_h() {}
@@ -22,9 +22,9 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$0.heif_get_version$MH,"heif_get_version");
     }
     public static MemoryAddress heif_get_version () {
-        var mh$ = RuntimeHelper.requireNonNull(constants$0.heif_get_version$MH, "heif_get_version");
+        var mh$ = heif_get_version$MH();
         try {
-            return (jdk.incubator.foreign.MemoryAddress)mh$.invokeExact();
+            return (java.lang.foreign.MemoryAddress)mh$.invokeExact();
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -33,7 +33,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$0.heif_get_version_number$MH,"heif_get_version_number");
     }
     public static int heif_get_version_number () {
-        var mh$ = RuntimeHelper.requireNonNull(constants$0.heif_get_version_number$MH, "heif_get_version_number");
+        var mh$ = heif_get_version_number$MH();
         try {
             return (int)mh$.invokeExact();
         } catch (Throwable ex$) {
@@ -44,7 +44,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$0.heif_get_version_number_major$MH,"heif_get_version_number_major");
     }
     public static int heif_get_version_number_major () {
-        var mh$ = RuntimeHelper.requireNonNull(constants$0.heif_get_version_number_major$MH, "heif_get_version_number_major");
+        var mh$ = heif_get_version_number_major$MH();
         try {
             return (int)mh$.invokeExact();
         } catch (Throwable ex$) {
@@ -55,7 +55,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$0.heif_get_version_number_minor$MH,"heif_get_version_number_minor");
     }
     public static int heif_get_version_number_minor () {
-        var mh$ = RuntimeHelper.requireNonNull(constants$0.heif_get_version_number_minor$MH, "heif_get_version_number_minor");
+        var mh$ = heif_get_version_number_minor$MH();
         try {
             return (int)mh$.invokeExact();
         } catch (Throwable ex$) {
@@ -66,7 +66,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$0.heif_get_version_number_maintenance$MH,"heif_get_version_number_maintenance");
     }
     public static int heif_get_version_number_maintenance () {
-        var mh$ = RuntimeHelper.requireNonNull(constants$0.heif_get_version_number_maintenance$MH, "heif_get_version_number_maintenance");
+        var mh$ = heif_get_version_number_maintenance$MH();
         try {
             return (int)mh$.invokeExact();
         } catch (Throwable ex$) {
@@ -269,7 +269,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$0.heif_check_filetype$MH,"heif_check_filetype");
     }
     public static int heif_check_filetype ( Addressable data,  int len) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$0.heif_check_filetype$MH, "heif_check_filetype");
+        var mh$ = heif_check_filetype$MH();
         try {
             return (int)mh$.invokeExact(data, len);
         } catch (Throwable ex$) {
@@ -319,7 +319,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$1.heif_main_brand$MH,"heif_main_brand");
     }
     public static int heif_main_brand ( Addressable data,  int len) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$1.heif_main_brand$MH, "heif_main_brand");
+        var mh$ = heif_main_brand$MH();
         try {
             return (int)mh$.invokeExact(data, len);
         } catch (Throwable ex$) {
@@ -330,7 +330,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$1.heif_read_main_brand$MH,"heif_read_main_brand");
     }
     public static int heif_read_main_brand ( Addressable data,  int len) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$1.heif_read_main_brand$MH, "heif_read_main_brand");
+        var mh$ = heif_read_main_brand$MH();
         try {
             return (int)mh$.invokeExact(data, len);
         } catch (Throwable ex$) {
@@ -341,7 +341,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$1.heif_fourcc_to_brand$MH,"heif_fourcc_to_brand");
     }
     public static int heif_fourcc_to_brand ( Addressable brand_fourcc) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$1.heif_fourcc_to_brand$MH, "heif_fourcc_to_brand");
+        var mh$ = heif_fourcc_to_brand$MH();
         try {
             return (int)mh$.invokeExact(brand_fourcc);
         } catch (Throwable ex$) {
@@ -352,7 +352,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$1.heif_brand_to_fourcc$MH,"heif_brand_to_fourcc");
     }
     public static void heif_brand_to_fourcc ( int brand,  Addressable out_fourcc) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$1.heif_brand_to_fourcc$MH, "heif_brand_to_fourcc");
+        var mh$ = heif_brand_to_fourcc$MH();
         try {
             mh$.invokeExact(brand, out_fourcc);
         } catch (Throwable ex$) {
@@ -363,7 +363,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$1.heif_has_compatible_brand$MH,"heif_has_compatible_brand");
     }
     public static int heif_has_compatible_brand ( Addressable data,  int len,  Addressable brand_fourcc) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$1.heif_has_compatible_brand$MH, "heif_has_compatible_brand");
+        var mh$ = heif_has_compatible_brand$MH();
         try {
             return (int)mh$.invokeExact(data, len, brand_fourcc);
         } catch (Throwable ex$) {
@@ -374,21 +374,18 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$1.heif_list_compatible_brands$MH,"heif_list_compatible_brands");
     }
     public static MemorySegment heif_list_compatible_brands ( SegmentAllocator allocator,  Addressable data,  int len,  Addressable out_brands,  Addressable out_size) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$1.heif_list_compatible_brands$MH, "heif_list_compatible_brands");
+        var mh$ = heif_list_compatible_brands$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, data, len, out_brands, out_size);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, data, len, out_brands, out_size);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_list_compatible_brands ( ResourceScope scope,  Addressable data,  int len,  Addressable out_brands,  Addressable out_size) {
-        return heif_list_compatible_brands(SegmentAllocator.nativeAllocator(scope), data, len, out_brands, out_size);
     }
     public static MethodHandle heif_free_list_of_compatible_brands$MH() {
         return RuntimeHelper.requireNonNull(constants$2.heif_free_list_of_compatible_brands$MH,"heif_free_list_of_compatible_brands");
     }
     public static void heif_free_list_of_compatible_brands ( Addressable brands_list) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$2.heif_free_list_of_compatible_brands$MH, "heif_free_list_of_compatible_brands");
+        var mh$ = heif_free_list_of_compatible_brands$MH();
         try {
             mh$.invokeExact(brands_list);
         } catch (Throwable ex$) {
@@ -399,9 +396,9 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$2.heif_get_file_mime_type$MH,"heif_get_file_mime_type");
     }
     public static MemoryAddress heif_get_file_mime_type ( Addressable data,  int len) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$2.heif_get_file_mime_type$MH, "heif_get_file_mime_type");
+        var mh$ = heif_get_file_mime_type$MH();
         try {
-            return (jdk.incubator.foreign.MemoryAddress)mh$.invokeExact(data, len);
+            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(data, len);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -410,9 +407,9 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$2.heif_context_alloc$MH,"heif_context_alloc");
     }
     public static MemoryAddress heif_context_alloc () {
-        var mh$ = RuntimeHelper.requireNonNull(constants$2.heif_context_alloc$MH, "heif_context_alloc");
+        var mh$ = heif_context_alloc$MH();
         try {
-            return (jdk.incubator.foreign.MemoryAddress)mh$.invokeExact();
+            return (java.lang.foreign.MemoryAddress)mh$.invokeExact();
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -421,7 +418,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$2.heif_context_free$MH,"heif_context_free");
     }
     public static void heif_context_free ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$2.heif_context_free$MH, "heif_context_free");
+        var mh$ = heif_context_free$MH();
         try {
             mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -441,63 +438,51 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$2.heif_context_read_from_file$MH,"heif_context_read_from_file");
     }
     public static MemorySegment heif_context_read_from_file ( SegmentAllocator allocator,  Addressable x1,  Addressable filename,  Addressable x3) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$2.heif_context_read_from_file$MH, "heif_context_read_from_file");
+        var mh$ = heif_context_read_from_file$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, filename, x3);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, filename, x3);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_context_read_from_file ( ResourceScope scope,  Addressable x1,  Addressable filename,  Addressable x3) {
-        return heif_context_read_from_file(SegmentAllocator.nativeAllocator(scope), x1, filename, x3);
     }
     public static MethodHandle heif_context_read_from_memory$MH() {
         return RuntimeHelper.requireNonNull(constants$2.heif_context_read_from_memory$MH,"heif_context_read_from_memory");
     }
     public static MemorySegment heif_context_read_from_memory ( SegmentAllocator allocator,  Addressable x1,  Addressable mem,  long size,  Addressable x4) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$2.heif_context_read_from_memory$MH, "heif_context_read_from_memory");
+        var mh$ = heif_context_read_from_memory$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, mem, size, x4);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, mem, size, x4);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_context_read_from_memory ( ResourceScope scope,  Addressable x1,  Addressable mem,  long size,  Addressable x4) {
-        return heif_context_read_from_memory(SegmentAllocator.nativeAllocator(scope), x1, mem, size, x4);
     }
     public static MethodHandle heif_context_read_from_memory_without_copy$MH() {
         return RuntimeHelper.requireNonNull(constants$3.heif_context_read_from_memory_without_copy$MH,"heif_context_read_from_memory_without_copy");
     }
     public static MemorySegment heif_context_read_from_memory_without_copy ( SegmentAllocator allocator,  Addressable x1,  Addressable mem,  long size,  Addressable x4) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$3.heif_context_read_from_memory_without_copy$MH, "heif_context_read_from_memory_without_copy");
+        var mh$ = heif_context_read_from_memory_without_copy$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, mem, size, x4);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, mem, size, x4);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_context_read_from_memory_without_copy ( ResourceScope scope,  Addressable x1,  Addressable mem,  long size,  Addressable x4) {
-        return heif_context_read_from_memory_without_copy(SegmentAllocator.nativeAllocator(scope), x1, mem, size, x4);
     }
     public static MethodHandle heif_context_read_from_reader$MH() {
         return RuntimeHelper.requireNonNull(constants$3.heif_context_read_from_reader$MH,"heif_context_read_from_reader");
     }
     public static MemorySegment heif_context_read_from_reader ( SegmentAllocator allocator,  Addressable x1,  Addressable reader,  Addressable userdata,  Addressable x4) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$3.heif_context_read_from_reader$MH, "heif_context_read_from_reader");
+        var mh$ = heif_context_read_from_reader$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, reader, userdata, x4);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, reader, userdata, x4);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_context_read_from_reader ( ResourceScope scope,  Addressable x1,  Addressable reader,  Addressable userdata,  Addressable x4) {
-        return heif_context_read_from_reader(SegmentAllocator.nativeAllocator(scope), x1, reader, userdata, x4);
     }
     public static MethodHandle heif_context_get_number_of_top_level_images$MH() {
         return RuntimeHelper.requireNonNull(constants$3.heif_context_get_number_of_top_level_images$MH,"heif_context_get_number_of_top_level_images");
     }
     public static int heif_context_get_number_of_top_level_images ( Addressable ctx) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$3.heif_context_get_number_of_top_level_images$MH, "heif_context_get_number_of_top_level_images");
+        var mh$ = heif_context_get_number_of_top_level_images$MH();
         try {
             return (int)mh$.invokeExact(ctx);
         } catch (Throwable ex$) {
@@ -508,7 +493,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$3.heif_context_is_top_level_image_ID$MH,"heif_context_is_top_level_image_ID");
     }
     public static int heif_context_is_top_level_image_ID ( Addressable ctx,  int id) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$3.heif_context_is_top_level_image_ID$MH, "heif_context_is_top_level_image_ID");
+        var mh$ = heif_context_is_top_level_image_ID$MH();
         try {
             return (int)mh$.invokeExact(ctx, id);
         } catch (Throwable ex$) {
@@ -519,7 +504,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$3.heif_context_get_list_of_top_level_image_IDs$MH,"heif_context_get_list_of_top_level_image_IDs");
     }
     public static int heif_context_get_list_of_top_level_image_IDs ( Addressable ctx,  Addressable ID_array,  int count) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$3.heif_context_get_list_of_top_level_image_IDs$MH, "heif_context_get_list_of_top_level_image_IDs");
+        var mh$ = heif_context_get_list_of_top_level_image_IDs$MH();
         try {
             return (int)mh$.invokeExact(ctx, ID_array, count);
         } catch (Throwable ex$) {
@@ -530,37 +515,31 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$3.heif_context_get_primary_image_ID$MH,"heif_context_get_primary_image_ID");
     }
     public static MemorySegment heif_context_get_primary_image_ID ( SegmentAllocator allocator,  Addressable ctx,  Addressable id) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$3.heif_context_get_primary_image_ID$MH, "heif_context_get_primary_image_ID");
+        var mh$ = heif_context_get_primary_image_ID$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, ctx, id);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, ctx, id);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_context_get_primary_image_ID ( ResourceScope scope,  Addressable ctx,  Addressable id) {
-        return heif_context_get_primary_image_ID(SegmentAllocator.nativeAllocator(scope), ctx, id);
     }
     public static MethodHandle heif_context_get_primary_image_handle$MH() {
         return RuntimeHelper.requireNonNull(constants$4.heif_context_get_primary_image_handle$MH,"heif_context_get_primary_image_handle");
     }
     public static MemorySegment heif_context_get_primary_image_handle ( SegmentAllocator allocator,  Addressable ctx,  Addressable x2) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$4.heif_context_get_primary_image_handle$MH, "heif_context_get_primary_image_handle");
+        var mh$ = heif_context_get_primary_image_handle$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, ctx, x2);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, ctx, x2);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_context_get_primary_image_handle ( ResourceScope scope,  Addressable ctx,  Addressable x2) {
-        return heif_context_get_primary_image_handle(SegmentAllocator.nativeAllocator(scope), ctx, x2);
     }
     public static MethodHandle heif_context_get_primary_image_handle_alloc$MH() {
         return RuntimeHelper.requireNonNull(constants$4.heif_context_get_primary_image_handle_alloc$MH,"heif_context_get_primary_image_handle_alloc");
     }
     public static MemoryAddress heif_context_get_primary_image_handle_alloc ( Addressable ctx) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$4.heif_context_get_primary_image_handle_alloc$MH, "heif_context_get_primary_image_handle_alloc");
+        var mh$ = heif_context_get_primary_image_handle_alloc$MH();
         try {
-            return (jdk.incubator.foreign.MemoryAddress)mh$.invokeExact(ctx);
+            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(ctx);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -569,21 +548,18 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$4.heif_context_get_image_handle$MH,"heif_context_get_image_handle");
     }
     public static MemorySegment heif_context_get_image_handle ( SegmentAllocator allocator,  Addressable ctx,  int id,  Addressable x3) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$4.heif_context_get_image_handle$MH, "heif_context_get_image_handle");
+        var mh$ = heif_context_get_image_handle$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, ctx, id, x3);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, ctx, id, x3);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_context_get_image_handle ( ResourceScope scope,  Addressable ctx,  int id,  Addressable x3) {
-        return heif_context_get_image_handle(SegmentAllocator.nativeAllocator(scope), ctx, id, x3);
     }
     public static MethodHandle heif_context_debug_dump_boxes_to_file$MH() {
         return RuntimeHelper.requireNonNull(constants$4.heif_context_debug_dump_boxes_to_file$MH,"heif_context_debug_dump_boxes_to_file");
     }
     public static void heif_context_debug_dump_boxes_to_file ( Addressable ctx,  int fd) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$4.heif_context_debug_dump_boxes_to_file$MH, "heif_context_debug_dump_boxes_to_file");
+        var mh$ = heif_context_debug_dump_boxes_to_file$MH();
         try {
             mh$.invokeExact(ctx, fd);
         } catch (Throwable ex$) {
@@ -594,7 +570,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$4.heif_context_set_maximum_image_size_limit$MH,"heif_context_set_maximum_image_size_limit");
     }
     public static void heif_context_set_maximum_image_size_limit ( Addressable ctx,  int maximum_width) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$4.heif_context_set_maximum_image_size_limit$MH, "heif_context_set_maximum_image_size_limit");
+        var mh$ = heif_context_set_maximum_image_size_limit$MH();
         try {
             mh$.invokeExact(ctx, maximum_width);
         } catch (Throwable ex$) {
@@ -605,7 +581,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$4.heif_context_set_max_decoding_threads$MH,"heif_context_set_max_decoding_threads");
     }
     public static void heif_context_set_max_decoding_threads ( Addressable ctx,  int max_threads) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$4.heif_context_set_max_decoding_threads$MH, "heif_context_set_max_decoding_threads");
+        var mh$ = heif_context_set_max_decoding_threads$MH();
         try {
             mh$.invokeExact(ctx, max_threads);
         } catch (Throwable ex$) {
@@ -616,7 +592,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$5.heif_image_handle_release$MH,"heif_image_handle_release");
     }
     public static void heif_image_handle_release ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$5.heif_image_handle_release$MH, "heif_image_handle_release");
+        var mh$ = heif_image_handle_release$MH();
         try {
             mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -627,7 +603,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$5.heif_image_handle_is_primary_image$MH,"heif_image_handle_is_primary_image");
     }
     public static int heif_image_handle_is_primary_image ( Addressable handle) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$5.heif_image_handle_is_primary_image$MH, "heif_image_handle_is_primary_image");
+        var mh$ = heif_image_handle_is_primary_image$MH();
         try {
             return (int)mh$.invokeExact(handle);
         } catch (Throwable ex$) {
@@ -638,7 +614,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$5.heif_image_handle_get_width$MH,"heif_image_handle_get_width");
     }
     public static int heif_image_handle_get_width ( Addressable handle) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$5.heif_image_handle_get_width$MH, "heif_image_handle_get_width");
+        var mh$ = heif_image_handle_get_width$MH();
         try {
             return (int)mh$.invokeExact(handle);
         } catch (Throwable ex$) {
@@ -649,7 +625,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$5.heif_image_handle_get_height$MH,"heif_image_handle_get_height");
     }
     public static int heif_image_handle_get_height ( Addressable handle) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$5.heif_image_handle_get_height$MH, "heif_image_handle_get_height");
+        var mh$ = heif_image_handle_get_height$MH();
         try {
             return (int)mh$.invokeExact(handle);
         } catch (Throwable ex$) {
@@ -660,7 +636,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$5.heif_image_handle_has_alpha_channel$MH,"heif_image_handle_has_alpha_channel");
     }
     public static int heif_image_handle_has_alpha_channel ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$5.heif_image_handle_has_alpha_channel$MH, "heif_image_handle_has_alpha_channel");
+        var mh$ = heif_image_handle_has_alpha_channel$MH();
         try {
             return (int)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -671,7 +647,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$5.heif_image_handle_is_premultiplied_alpha$MH,"heif_image_handle_is_premultiplied_alpha");
     }
     public static int heif_image_handle_is_premultiplied_alpha ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$5.heif_image_handle_is_premultiplied_alpha$MH, "heif_image_handle_is_premultiplied_alpha");
+        var mh$ = heif_image_handle_is_premultiplied_alpha$MH();
         try {
             return (int)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -682,7 +658,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$6.heif_image_handle_get_luma_bits_per_pixel$MH,"heif_image_handle_get_luma_bits_per_pixel");
     }
     public static int heif_image_handle_get_luma_bits_per_pixel ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$6.heif_image_handle_get_luma_bits_per_pixel$MH, "heif_image_handle_get_luma_bits_per_pixel");
+        var mh$ = heif_image_handle_get_luma_bits_per_pixel$MH();
         try {
             return (int)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -693,7 +669,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$6.heif_image_handle_get_chroma_bits_per_pixel$MH,"heif_image_handle_get_chroma_bits_per_pixel");
     }
     public static int heif_image_handle_get_chroma_bits_per_pixel ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$6.heif_image_handle_get_chroma_bits_per_pixel$MH, "heif_image_handle_get_chroma_bits_per_pixel");
+        var mh$ = heif_image_handle_get_chroma_bits_per_pixel$MH();
         try {
             return (int)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -704,7 +680,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$6.heif_image_handle_get_ispe_width$MH,"heif_image_handle_get_ispe_width");
     }
     public static int heif_image_handle_get_ispe_width ( Addressable handle) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$6.heif_image_handle_get_ispe_width$MH, "heif_image_handle_get_ispe_width");
+        var mh$ = heif_image_handle_get_ispe_width$MH();
         try {
             return (int)mh$.invokeExact(handle);
         } catch (Throwable ex$) {
@@ -715,7 +691,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$6.heif_image_handle_get_ispe_height$MH,"heif_image_handle_get_ispe_height");
     }
     public static int heif_image_handle_get_ispe_height ( Addressable handle) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$6.heif_image_handle_get_ispe_height$MH, "heif_image_handle_get_ispe_height");
+        var mh$ = heif_image_handle_get_ispe_height$MH();
         try {
             return (int)mh$.invokeExact(handle);
         } catch (Throwable ex$) {
@@ -726,7 +702,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$6.heif_image_handle_has_depth_image$MH,"heif_image_handle_has_depth_image");
     }
     public static int heif_image_handle_has_depth_image ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$6.heif_image_handle_has_depth_image$MH, "heif_image_handle_has_depth_image");
+        var mh$ = heif_image_handle_has_depth_image$MH();
         try {
             return (int)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -737,7 +713,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$6.heif_image_handle_get_number_of_depth_images$MH,"heif_image_handle_get_number_of_depth_images");
     }
     public static int heif_image_handle_get_number_of_depth_images ( Addressable handle) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$6.heif_image_handle_get_number_of_depth_images$MH, "heif_image_handle_get_number_of_depth_images");
+        var mh$ = heif_image_handle_get_number_of_depth_images$MH();
         try {
             return (int)mh$.invokeExact(handle);
         } catch (Throwable ex$) {
@@ -748,7 +724,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_list_of_depth_image_IDs$MH,"heif_image_handle_get_list_of_depth_image_IDs");
     }
     public static int heif_image_handle_get_list_of_depth_image_IDs ( Addressable handle,  Addressable ids,  int count) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_list_of_depth_image_IDs$MH, "heif_image_handle_get_list_of_depth_image_IDs");
+        var mh$ = heif_image_handle_get_list_of_depth_image_IDs$MH();
         try {
             return (int)mh$.invokeExact(handle, ids, count);
         } catch (Throwable ex$) {
@@ -759,15 +735,12 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_depth_image_handle$MH,"heif_image_handle_get_depth_image_handle");
     }
     public static MemorySegment heif_image_handle_get_depth_image_handle ( SegmentAllocator allocator,  Addressable handle,  int depth_image_id,  Addressable out_depth_handle) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_depth_image_handle$MH, "heif_image_handle_get_depth_image_handle");
+        var mh$ = heif_image_handle_get_depth_image_handle$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, handle, depth_image_id, out_depth_handle);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, handle, depth_image_id, out_depth_handle);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_image_handle_get_depth_image_handle ( ResourceScope scope,  Addressable handle,  int depth_image_id,  Addressable out_depth_handle) {
-        return heif_image_handle_get_depth_image_handle(SegmentAllocator.nativeAllocator(scope), handle, depth_image_id, out_depth_handle);
     }
     public static int heif_depth_representation_type_uniform_inverse_Z() {
         return (int)0L;
@@ -785,7 +758,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$7.heif_depth_representation_info_free$MH,"heif_depth_representation_info_free");
     }
     public static void heif_depth_representation_info_free ( Addressable info) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$7.heif_depth_representation_info_free$MH, "heif_depth_representation_info_free");
+        var mh$ = heif_depth_representation_info_free$MH();
         try {
             mh$.invokeExact(info);
         } catch (Throwable ex$) {
@@ -796,7 +769,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_depth_image_representation_info$MH,"heif_image_handle_get_depth_image_representation_info");
     }
     public static int heif_image_handle_get_depth_image_representation_info ( Addressable handle,  int depth_image_id,  Addressable out) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_depth_image_representation_info$MH, "heif_image_handle_get_depth_image_representation_info");
+        var mh$ = heif_image_handle_get_depth_image_representation_info$MH();
         try {
             return (int)mh$.invokeExact(handle, depth_image_id, out);
         } catch (Throwable ex$) {
@@ -807,7 +780,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_number_of_thumbnails$MH,"heif_image_handle_get_number_of_thumbnails");
     }
     public static int heif_image_handle_get_number_of_thumbnails ( Addressable handle) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_number_of_thumbnails$MH, "heif_image_handle_get_number_of_thumbnails");
+        var mh$ = heif_image_handle_get_number_of_thumbnails$MH();
         try {
             return (int)mh$.invokeExact(handle);
         } catch (Throwable ex$) {
@@ -818,7 +791,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_list_of_thumbnail_IDs$MH,"heif_image_handle_get_list_of_thumbnail_IDs");
     }
     public static int heif_image_handle_get_list_of_thumbnail_IDs ( Addressable handle,  Addressable ids,  int count) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_list_of_thumbnail_IDs$MH, "heif_image_handle_get_list_of_thumbnail_IDs");
+        var mh$ = heif_image_handle_get_list_of_thumbnail_IDs$MH();
         try {
             return (int)mh$.invokeExact(handle, ids, count);
         } catch (Throwable ex$) {
@@ -829,21 +802,18 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_thumbnail$MH,"heif_image_handle_get_thumbnail");
     }
     public static MemorySegment heif_image_handle_get_thumbnail ( SegmentAllocator allocator,  Addressable main_image_handle,  int thumbnail_id,  Addressable out_thumbnail_handle) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_thumbnail$MH, "heif_image_handle_get_thumbnail");
+        var mh$ = heif_image_handle_get_thumbnail$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, main_image_handle, thumbnail_id, out_thumbnail_handle);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, main_image_handle, thumbnail_id, out_thumbnail_handle);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_image_handle_get_thumbnail ( ResourceScope scope,  Addressable main_image_handle,  int thumbnail_id,  Addressable out_thumbnail_handle) {
-        return heif_image_handle_get_thumbnail(SegmentAllocator.nativeAllocator(scope), main_image_handle, thumbnail_id, out_thumbnail_handle);
     }
     public static MethodHandle heif_image_handle_get_number_of_auxiliary_images$MH() {
         return RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_number_of_auxiliary_images$MH,"heif_image_handle_get_number_of_auxiliary_images");
     }
     public static int heif_image_handle_get_number_of_auxiliary_images ( Addressable handle,  int aux_filter) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_number_of_auxiliary_images$MH, "heif_image_handle_get_number_of_auxiliary_images");
+        var mh$ = heif_image_handle_get_number_of_auxiliary_images$MH();
         try {
             return (int)mh$.invokeExact(handle, aux_filter);
         } catch (Throwable ex$) {
@@ -854,7 +824,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_list_of_auxiliary_image_IDs$MH,"heif_image_handle_get_list_of_auxiliary_image_IDs");
     }
     public static int heif_image_handle_get_list_of_auxiliary_image_IDs ( Addressable handle,  int aux_filter,  Addressable ids,  int count) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_list_of_auxiliary_image_IDs$MH, "heif_image_handle_get_list_of_auxiliary_image_IDs");
+        var mh$ = heif_image_handle_get_list_of_auxiliary_image_IDs$MH();
         try {
             return (int)mh$.invokeExact(handle, aux_filter, ids, count);
         } catch (Throwable ex$) {
@@ -865,21 +835,18 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_auxiliary_type$MH,"heif_image_handle_get_auxiliary_type");
     }
     public static MemorySegment heif_image_handle_get_auxiliary_type ( SegmentAllocator allocator,  Addressable handle,  Addressable out_type) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_auxiliary_type$MH, "heif_image_handle_get_auxiliary_type");
+        var mh$ = heif_image_handle_get_auxiliary_type$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, handle, out_type);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, handle, out_type);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_image_handle_get_auxiliary_type ( ResourceScope scope,  Addressable handle,  Addressable out_type) {
-        return heif_image_handle_get_auxiliary_type(SegmentAllocator.nativeAllocator(scope), handle, out_type);
     }
     public static MethodHandle heif_image_handle_free_auxiliary_types$MH() {
         return RuntimeHelper.requireNonNull(constants$8.heif_image_handle_free_auxiliary_types$MH,"heif_image_handle_free_auxiliary_types");
     }
     public static void heif_image_handle_free_auxiliary_types ( Addressable handle,  Addressable out_type) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$8.heif_image_handle_free_auxiliary_types$MH, "heif_image_handle_free_auxiliary_types");
+        var mh$ = heif_image_handle_free_auxiliary_types$MH();
         try {
             mh$.invokeExact(handle, out_type);
         } catch (Throwable ex$) {
@@ -890,21 +857,18 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_auxiliary_image_handle$MH,"heif_image_handle_get_auxiliary_image_handle");
     }
     public static MemorySegment heif_image_handle_get_auxiliary_image_handle ( SegmentAllocator allocator,  Addressable main_image_handle,  int auxiliary_id,  Addressable out_auxiliary_handle) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_auxiliary_image_handle$MH, "heif_image_handle_get_auxiliary_image_handle");
+        var mh$ = heif_image_handle_get_auxiliary_image_handle$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, main_image_handle, auxiliary_id, out_auxiliary_handle);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, main_image_handle, auxiliary_id, out_auxiliary_handle);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_image_handle_get_auxiliary_image_handle ( ResourceScope scope,  Addressable main_image_handle,  int auxiliary_id,  Addressable out_auxiliary_handle) {
-        return heif_image_handle_get_auxiliary_image_handle(SegmentAllocator.nativeAllocator(scope), main_image_handle, auxiliary_id, out_auxiliary_handle);
     }
     public static MethodHandle heif_image_handle_get_number_of_metadata_blocks$MH() {
         return RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_number_of_metadata_blocks$MH,"heif_image_handle_get_number_of_metadata_blocks");
     }
     public static int heif_image_handle_get_number_of_metadata_blocks ( Addressable handle,  Addressable type_filter) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_number_of_metadata_blocks$MH, "heif_image_handle_get_number_of_metadata_blocks");
+        var mh$ = heif_image_handle_get_number_of_metadata_blocks$MH();
         try {
             return (int)mh$.invokeExact(handle, type_filter);
         } catch (Throwable ex$) {
@@ -915,7 +879,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_list_of_metadata_block_IDs$MH,"heif_image_handle_get_list_of_metadata_block_IDs");
     }
     public static int heif_image_handle_get_list_of_metadata_block_IDs ( Addressable handle,  Addressable type_filter,  Addressable ids,  int count) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_list_of_metadata_block_IDs$MH, "heif_image_handle_get_list_of_metadata_block_IDs");
+        var mh$ = heif_image_handle_get_list_of_metadata_block_IDs$MH();
         try {
             return (int)mh$.invokeExact(handle, type_filter, ids, count);
         } catch (Throwable ex$) {
@@ -926,9 +890,9 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_metadata_type$MH,"heif_image_handle_get_metadata_type");
     }
     public static MemoryAddress heif_image_handle_get_metadata_type ( Addressable handle,  int metadata_id) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_metadata_type$MH, "heif_image_handle_get_metadata_type");
+        var mh$ = heif_image_handle_get_metadata_type$MH();
         try {
-            return (jdk.incubator.foreign.MemoryAddress)mh$.invokeExact(handle, metadata_id);
+            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(handle, metadata_id);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -937,9 +901,9 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_metadata_content_type$MH,"heif_image_handle_get_metadata_content_type");
     }
     public static MemoryAddress heif_image_handle_get_metadata_content_type ( Addressable handle,  int metadata_id) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_metadata_content_type$MH, "heif_image_handle_get_metadata_content_type");
+        var mh$ = heif_image_handle_get_metadata_content_type$MH();
         try {
-            return (jdk.incubator.foreign.MemoryAddress)mh$.invokeExact(handle, metadata_id);
+            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(handle, metadata_id);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -948,7 +912,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_metadata_size$MH,"heif_image_handle_get_metadata_size");
     }
     public static long heif_image_handle_get_metadata_size ( Addressable handle,  int metadata_id) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_metadata_size$MH, "heif_image_handle_get_metadata_size");
+        var mh$ = heif_image_handle_get_metadata_size$MH();
         try {
             return (long)mh$.invokeExact(handle, metadata_id);
         } catch (Throwable ex$) {
@@ -959,15 +923,12 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_metadata$MH,"heif_image_handle_get_metadata");
     }
     public static MemorySegment heif_image_handle_get_metadata ( SegmentAllocator allocator,  Addressable handle,  int metadata_id,  Addressable out_data) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_metadata$MH, "heif_image_handle_get_metadata");
+        var mh$ = heif_image_handle_get_metadata$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, handle, metadata_id, out_data);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, handle, metadata_id, out_data);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_image_handle_get_metadata ( ResourceScope scope,  Addressable handle,  int metadata_id,  Addressable out_data) {
-        return heif_image_handle_get_metadata(SegmentAllocator.nativeAllocator(scope), handle, metadata_id, out_data);
     }
     public static int heif_color_profile_type_not_present() {
         return (int)0L;
@@ -985,7 +946,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$10.heif_image_handle_get_color_profile_type$MH,"heif_image_handle_get_color_profile_type");
     }
     public static int heif_image_handle_get_color_profile_type ( Addressable handle) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$10.heif_image_handle_get_color_profile_type$MH, "heif_image_handle_get_color_profile_type");
+        var mh$ = heif_image_handle_get_color_profile_type$MH();
         try {
             return (int)mh$.invokeExact(handle);
         } catch (Throwable ex$) {
@@ -996,7 +957,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$10.heif_image_handle_get_raw_color_profile_size$MH,"heif_image_handle_get_raw_color_profile_size");
     }
     public static long heif_image_handle_get_raw_color_profile_size ( Addressable handle) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$10.heif_image_handle_get_raw_color_profile_size$MH, "heif_image_handle_get_raw_color_profile_size");
+        var mh$ = heif_image_handle_get_raw_color_profile_size$MH();
         try {
             return (long)mh$.invokeExact(handle);
         } catch (Throwable ex$) {
@@ -1007,15 +968,12 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$10.heif_image_handle_get_raw_color_profile$MH,"heif_image_handle_get_raw_color_profile");
     }
     public static MemorySegment heif_image_handle_get_raw_color_profile ( SegmentAllocator allocator,  Addressable handle,  Addressable out_data) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$10.heif_image_handle_get_raw_color_profile$MH, "heif_image_handle_get_raw_color_profile");
+        var mh$ = heif_image_handle_get_raw_color_profile$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, handle, out_data);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, handle, out_data);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_image_handle_get_raw_color_profile ( ResourceScope scope,  Addressable handle,  Addressable out_data) {
-        return heif_image_handle_get_raw_color_profile(SegmentAllocator.nativeAllocator(scope), handle, out_data);
     }
     public static int heif_color_primaries_ITU_R_BT_709_5() {
         return (int)1L;
@@ -1150,23 +1108,20 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$10.heif_image_handle_get_nclx_color_profile$MH,"heif_image_handle_get_nclx_color_profile");
     }
     public static MemorySegment heif_image_handle_get_nclx_color_profile ( SegmentAllocator allocator,  Addressable handle,  Addressable out_data) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$10.heif_image_handle_get_nclx_color_profile$MH, "heif_image_handle_get_nclx_color_profile");
+        var mh$ = heif_image_handle_get_nclx_color_profile$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, handle, out_data);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, handle, out_data);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_image_handle_get_nclx_color_profile ( ResourceScope scope,  Addressable handle,  Addressable out_data) {
-        return heif_image_handle_get_nclx_color_profile(SegmentAllocator.nativeAllocator(scope), handle, out_data);
     }
     public static MethodHandle heif_nclx_color_profile_alloc$MH() {
         return RuntimeHelper.requireNonNull(constants$10.heif_nclx_color_profile_alloc$MH,"heif_nclx_color_profile_alloc");
     }
     public static MemoryAddress heif_nclx_color_profile_alloc (Object... x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$10.heif_nclx_color_profile_alloc$MH, "heif_nclx_color_profile_alloc");
+        var mh$ = heif_nclx_color_profile_alloc$MH();
         try {
-            return (jdk.incubator.foreign.MemoryAddress)mh$.invokeExact(x0);
+            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1175,7 +1130,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$10.heif_nclx_color_profile_free$MH,"heif_nclx_color_profile_free");
     }
     public static void heif_nclx_color_profile_free ( Addressable nclx_profile) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$10.heif_nclx_color_profile_free$MH, "heif_nclx_color_profile_free");
+        var mh$ = heif_nclx_color_profile_free$MH();
         try {
             mh$.invokeExact(nclx_profile);
         } catch (Throwable ex$) {
@@ -1186,7 +1141,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$11.heif_image_get_color_profile_type$MH,"heif_image_get_color_profile_type");
     }
     public static int heif_image_get_color_profile_type ( Addressable image) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$11.heif_image_get_color_profile_type$MH, "heif_image_get_color_profile_type");
+        var mh$ = heif_image_get_color_profile_type$MH();
         try {
             return (int)mh$.invokeExact(image);
         } catch (Throwable ex$) {
@@ -1197,7 +1152,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$11.heif_image_get_raw_color_profile_size$MH,"heif_image_get_raw_color_profile_size");
     }
     public static long heif_image_get_raw_color_profile_size ( Addressable image) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$11.heif_image_get_raw_color_profile_size$MH, "heif_image_get_raw_color_profile_size");
+        var mh$ = heif_image_get_raw_color_profile_size$MH();
         try {
             return (long)mh$.invokeExact(image);
         } catch (Throwable ex$) {
@@ -1208,29 +1163,23 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$11.heif_image_get_raw_color_profile$MH,"heif_image_get_raw_color_profile");
     }
     public static MemorySegment heif_image_get_raw_color_profile ( SegmentAllocator allocator,  Addressable image,  Addressable out_data) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$11.heif_image_get_raw_color_profile$MH, "heif_image_get_raw_color_profile");
+        var mh$ = heif_image_get_raw_color_profile$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, image, out_data);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, image, out_data);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_image_get_raw_color_profile ( ResourceScope scope,  Addressable image,  Addressable out_data) {
-        return heif_image_get_raw_color_profile(SegmentAllocator.nativeAllocator(scope), image, out_data);
     }
     public static MethodHandle heif_image_get_nclx_color_profile$MH() {
         return RuntimeHelper.requireNonNull(constants$11.heif_image_get_nclx_color_profile$MH,"heif_image_get_nclx_color_profile");
     }
     public static MemorySegment heif_image_get_nclx_color_profile ( SegmentAllocator allocator,  Addressable image,  Addressable out_data) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$11.heif_image_get_nclx_color_profile$MH, "heif_image_get_nclx_color_profile");
+        var mh$ = heif_image_get_nclx_color_profile$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, image, out_data);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, image, out_data);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_image_get_nclx_color_profile ( ResourceScope scope,  Addressable image,  Addressable out_data) {
-        return heif_image_get_nclx_color_profile(SegmentAllocator.nativeAllocator(scope), image, out_data);
     }
     public static int heif_compression_undefined() {
         return (int)0L;
@@ -1326,9 +1275,9 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$11.heif_decoding_options_alloc$MH,"heif_decoding_options_alloc");
     }
     public static MemoryAddress heif_decoding_options_alloc (Object... x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$11.heif_decoding_options_alloc$MH, "heif_decoding_options_alloc");
+        var mh$ = heif_decoding_options_alloc$MH();
         try {
-            return (jdk.incubator.foreign.MemoryAddress)mh$.invokeExact(x0);
+            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1337,7 +1286,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$11.heif_decoding_options_free$MH,"heif_decoding_options_free");
     }
     public static void heif_decoding_options_free ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$11.heif_decoding_options_free$MH, "heif_decoding_options_free");
+        var mh$ = heif_decoding_options_free$MH();
         try {
             mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -1348,23 +1297,20 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$12.heif_decode_image$MH,"heif_decode_image");
     }
     public static MemorySegment heif_decode_image ( SegmentAllocator allocator,  Addressable in_handle,  Addressable out_img,  int colorspace,  int chroma,  Addressable options) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$12.heif_decode_image$MH, "heif_decode_image");
+        var mh$ = heif_decode_image$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, in_handle, out_img, colorspace, chroma, options);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, in_handle, out_img, colorspace, chroma, options);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_decode_image ( ResourceScope scope,  Addressable in_handle,  Addressable out_img,  int colorspace,  int chroma,  Addressable options) {
-        return heif_decode_image(SegmentAllocator.nativeAllocator(scope), in_handle, out_img, colorspace, chroma, options);
     }
     public static MethodHandle heif_decode_image_alloc$MH() {
         return RuntimeHelper.requireNonNull(constants$12.heif_decode_image_alloc$MH,"heif_decode_image_alloc");
     }
     public static MemoryAddress heif_decode_image_alloc ( Addressable in_handle,  int colorspace,  int chroma,  Addressable options) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$12.heif_decode_image_alloc$MH, "heif_decode_image_alloc");
+        var mh$ = heif_decode_image_alloc$MH();
         try {
-            return (jdk.incubator.foreign.MemoryAddress)mh$.invokeExact(in_handle, colorspace, chroma, options);
+            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(in_handle, colorspace, chroma, options);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1373,7 +1319,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$12.heif_image_get_colorspace$MH,"heif_image_get_colorspace");
     }
     public static int heif_image_get_colorspace ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$12.heif_image_get_colorspace$MH, "heif_image_get_colorspace");
+        var mh$ = heif_image_get_colorspace$MH();
         try {
             return (int)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -1384,7 +1330,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$12.heif_image_get_chroma_format$MH,"heif_image_get_chroma_format");
     }
     public static int heif_image_get_chroma_format ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$12.heif_image_get_chroma_format$MH, "heif_image_get_chroma_format");
+        var mh$ = heif_image_get_chroma_format$MH();
         try {
             return (int)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -1395,7 +1341,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$12.heif_image_get_width$MH,"heif_image_get_width");
     }
     public static int heif_image_get_width ( Addressable x0,  int channel) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$12.heif_image_get_width$MH, "heif_image_get_width");
+        var mh$ = heif_image_get_width$MH();
         try {
             return (int)mh$.invokeExact(x0, channel);
         } catch (Throwable ex$) {
@@ -1406,7 +1352,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$12.heif_image_get_height$MH,"heif_image_get_height");
     }
     public static int heif_image_get_height ( Addressable x0,  int channel) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$12.heif_image_get_height$MH, "heif_image_get_height");
+        var mh$ = heif_image_get_height$MH();
         try {
             return (int)mh$.invokeExact(x0, channel);
         } catch (Throwable ex$) {
@@ -1417,7 +1363,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$13.heif_image_get_primary_width$MH,"heif_image_get_primary_width");
     }
     public static int heif_image_get_primary_width ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$13.heif_image_get_primary_width$MH, "heif_image_get_primary_width");
+        var mh$ = heif_image_get_primary_width$MH();
         try {
             return (int)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -1428,7 +1374,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$13.heif_image_get_primary_height$MH,"heif_image_get_primary_height");
     }
     public static int heif_image_get_primary_height ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$13.heif_image_get_primary_height$MH, "heif_image_get_primary_height");
+        var mh$ = heif_image_get_primary_height$MH();
         try {
             return (int)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -1439,21 +1385,18 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$13.heif_image_crop$MH,"heif_image_crop");
     }
     public static MemorySegment heif_image_crop ( SegmentAllocator allocator,  Addressable img,  int left,  int right,  int top,  int bottom) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$13.heif_image_crop$MH, "heif_image_crop");
+        var mh$ = heif_image_crop$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, img, left, right, top, bottom);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, img, left, right, top, bottom);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_image_crop ( ResourceScope scope,  Addressable img,  int left,  int right,  int top,  int bottom) {
-        return heif_image_crop(SegmentAllocator.nativeAllocator(scope), img, left, right, top, bottom);
     }
     public static MethodHandle heif_image_get_bits_per_pixel$MH() {
         return RuntimeHelper.requireNonNull(constants$13.heif_image_get_bits_per_pixel$MH,"heif_image_get_bits_per_pixel");
     }
     public static int heif_image_get_bits_per_pixel ( Addressable x0,  int channel) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$13.heif_image_get_bits_per_pixel$MH, "heif_image_get_bits_per_pixel");
+        var mh$ = heif_image_get_bits_per_pixel$MH();
         try {
             return (int)mh$.invokeExact(x0, channel);
         } catch (Throwable ex$) {
@@ -1464,7 +1407,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$13.heif_image_get_bits_per_pixel_range$MH,"heif_image_get_bits_per_pixel_range");
     }
     public static int heif_image_get_bits_per_pixel_range ( Addressable x0,  int channel) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$13.heif_image_get_bits_per_pixel_range$MH, "heif_image_get_bits_per_pixel_range");
+        var mh$ = heif_image_get_bits_per_pixel_range$MH();
         try {
             return (int)mh$.invokeExact(x0, channel);
         } catch (Throwable ex$) {
@@ -1475,7 +1418,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$13.heif_image_has_channel$MH,"heif_image_has_channel");
     }
     public static int heif_image_has_channel ( Addressable x0,  int channel) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$13.heif_image_has_channel$MH, "heif_image_has_channel");
+        var mh$ = heif_image_has_channel$MH();
         try {
             return (int)mh$.invokeExact(x0, channel);
         } catch (Throwable ex$) {
@@ -1486,9 +1429,9 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$14.heif_image_get_plane_readonly$MH,"heif_image_get_plane_readonly");
     }
     public static MemoryAddress heif_image_get_plane_readonly ( Addressable x0,  int channel,  Addressable out_stride) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$14.heif_image_get_plane_readonly$MH, "heif_image_get_plane_readonly");
+        var mh$ = heif_image_get_plane_readonly$MH();
         try {
-            return (jdk.incubator.foreign.MemoryAddress)mh$.invokeExact(x0, channel, out_stride);
+            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0, channel, out_stride);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1497,9 +1440,9 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$14.heif_image_get_plane$MH,"heif_image_get_plane");
     }
     public static MemoryAddress heif_image_get_plane ( Addressable x0,  int channel,  Addressable out_stride) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$14.heif_image_get_plane$MH, "heif_image_get_plane");
+        var mh$ = heif_image_get_plane$MH();
         try {
-            return (jdk.incubator.foreign.MemoryAddress)mh$.invokeExact(x0, channel, out_stride);
+            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0, channel, out_stride);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1508,49 +1451,40 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$14.heif_image_scale_image$MH,"heif_image_scale_image");
     }
     public static MemorySegment heif_image_scale_image ( SegmentAllocator allocator,  Addressable input,  Addressable output,  int width,  int height,  Addressable options) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$14.heif_image_scale_image$MH, "heif_image_scale_image");
+        var mh$ = heif_image_scale_image$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, input, output, width, height, options);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, input, output, width, height, options);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_image_scale_image ( ResourceScope scope,  Addressable input,  Addressable output,  int width,  int height,  Addressable options) {
-        return heif_image_scale_image(SegmentAllocator.nativeAllocator(scope), input, output, width, height, options);
     }
     public static MethodHandle heif_image_set_raw_color_profile$MH() {
         return RuntimeHelper.requireNonNull(constants$14.heif_image_set_raw_color_profile$MH,"heif_image_set_raw_color_profile");
     }
     public static MemorySegment heif_image_set_raw_color_profile ( SegmentAllocator allocator,  Addressable image,  Addressable profile_type_fourcc_string,  Addressable profile_data,  long profile_size) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$14.heif_image_set_raw_color_profile$MH, "heif_image_set_raw_color_profile");
+        var mh$ = heif_image_set_raw_color_profile$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, image, profile_type_fourcc_string, profile_data, profile_size);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, image, profile_type_fourcc_string, profile_data, profile_size);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_image_set_raw_color_profile ( ResourceScope scope,  Addressable image,  Addressable profile_type_fourcc_string,  Addressable profile_data,  long profile_size) {
-        return heif_image_set_raw_color_profile(SegmentAllocator.nativeAllocator(scope), image, profile_type_fourcc_string, profile_data, profile_size);
     }
     public static MethodHandle heif_image_set_nclx_color_profile$MH() {
         return RuntimeHelper.requireNonNull(constants$14.heif_image_set_nclx_color_profile$MH,"heif_image_set_nclx_color_profile");
     }
     public static MemorySegment heif_image_set_nclx_color_profile ( SegmentAllocator allocator,  Addressable image,  Addressable color_profile) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$14.heif_image_set_nclx_color_profile$MH, "heif_image_set_nclx_color_profile");
+        var mh$ = heif_image_set_nclx_color_profile$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, image, color_profile);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, image, color_profile);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_image_set_nclx_color_profile ( ResourceScope scope,  Addressable image,  Addressable color_profile) {
-        return heif_image_set_nclx_color_profile(SegmentAllocator.nativeAllocator(scope), image, color_profile);
     }
     public static MethodHandle heif_image_release$MH() {
         return RuntimeHelper.requireNonNull(constants$14.heif_image_release$MH,"heif_image_release");
     }
     public static void heif_image_release ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$14.heif_image_release$MH, "heif_image_release");
+        var mh$ = heif_image_release$MH();
         try {
             mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -1561,35 +1495,29 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$15.heif_context_write_to_file$MH,"heif_context_write_to_file");
     }
     public static MemorySegment heif_context_write_to_file ( SegmentAllocator allocator,  Addressable x1,  Addressable filename) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$15.heif_context_write_to_file$MH, "heif_context_write_to_file");
+        var mh$ = heif_context_write_to_file$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, filename);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, filename);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_context_write_to_file ( ResourceScope scope,  Addressable x1,  Addressable filename) {
-        return heif_context_write_to_file(SegmentAllocator.nativeAllocator(scope), x1, filename);
     }
     public static MethodHandle heif_context_write$MH() {
         return RuntimeHelper.requireNonNull(constants$15.heif_context_write$MH,"heif_context_write");
     }
     public static MemorySegment heif_context_write ( SegmentAllocator allocator,  Addressable x1,  Addressable writer,  Addressable userdata) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$15.heif_context_write$MH, "heif_context_write");
+        var mh$ = heif_context_write$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, writer, userdata);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, writer, userdata);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_context_write ( ResourceScope scope,  Addressable x1,  Addressable writer,  Addressable userdata) {
-        return heif_context_write(SegmentAllocator.nativeAllocator(scope), x1, writer, userdata);
     }
     public static MethodHandle heif_context_get_encoder_descriptors$MH() {
         return RuntimeHelper.requireNonNull(constants$15.heif_context_get_encoder_descriptors$MH,"heif_context_get_encoder_descriptors");
     }
     public static int heif_context_get_encoder_descriptors ( Addressable x0,  int format_filter,  Addressable name_filter,  Addressable out_encoders,  int count) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$15.heif_context_get_encoder_descriptors$MH, "heif_context_get_encoder_descriptors");
+        var mh$ = heif_context_get_encoder_descriptors$MH();
         try {
             return (int)mh$.invokeExact(x0, format_filter, name_filter, out_encoders, count);
         } catch (Throwable ex$) {
@@ -1600,9 +1528,9 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$15.heif_encoder_descriptor_get_name$MH,"heif_encoder_descriptor_get_name");
     }
     public static MemoryAddress heif_encoder_descriptor_get_name ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$15.heif_encoder_descriptor_get_name$MH, "heif_encoder_descriptor_get_name");
+        var mh$ = heif_encoder_descriptor_get_name$MH();
         try {
-            return (jdk.incubator.foreign.MemoryAddress)mh$.invokeExact(x0);
+            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1611,9 +1539,9 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$15.heif_encoder_descriptor_get_id_name$MH,"heif_encoder_descriptor_get_id_name");
     }
     public static MemoryAddress heif_encoder_descriptor_get_id_name ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$15.heif_encoder_descriptor_get_id_name$MH, "heif_encoder_descriptor_get_id_name");
+        var mh$ = heif_encoder_descriptor_get_id_name$MH();
         try {
-            return (jdk.incubator.foreign.MemoryAddress)mh$.invokeExact(x0);
+            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1622,7 +1550,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$15.heif_encoder_descriptor_get_compression_format$MH,"heif_encoder_descriptor_get_compression_format");
     }
     public static int heif_encoder_descriptor_get_compression_format ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$15.heif_encoder_descriptor_get_compression_format$MH, "heif_encoder_descriptor_get_compression_format");
+        var mh$ = heif_encoder_descriptor_get_compression_format$MH();
         try {
             return (int)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -1633,7 +1561,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$16.heif_encoder_descriptor_supports_lossy_compression$MH,"heif_encoder_descriptor_supports_lossy_compression");
     }
     public static int heif_encoder_descriptor_supports_lossy_compression ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$16.heif_encoder_descriptor_supports_lossy_compression$MH, "heif_encoder_descriptor_supports_lossy_compression");
+        var mh$ = heif_encoder_descriptor_supports_lossy_compression$MH();
         try {
             return (int)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -1644,7 +1572,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$16.heif_encoder_descriptor_supports_lossless_compression$MH,"heif_encoder_descriptor_supports_lossless_compression");
     }
     public static int heif_encoder_descriptor_supports_lossless_compression ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$16.heif_encoder_descriptor_supports_lossless_compression$MH, "heif_encoder_descriptor_supports_lossless_compression");
+        var mh$ = heif_encoder_descriptor_supports_lossless_compression$MH();
         try {
             return (int)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -1655,21 +1583,18 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$16.heif_context_get_encoder$MH,"heif_context_get_encoder");
     }
     public static MemorySegment heif_context_get_encoder ( SegmentAllocator allocator,  Addressable context,  Addressable x2,  Addressable out_encoder) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$16.heif_context_get_encoder$MH, "heif_context_get_encoder");
+        var mh$ = heif_context_get_encoder$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, context, x2, out_encoder);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, context, x2, out_encoder);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_context_get_encoder ( ResourceScope scope,  Addressable context,  Addressable x2,  Addressable out_encoder) {
-        return heif_context_get_encoder(SegmentAllocator.nativeAllocator(scope), context, x2, out_encoder);
     }
     public static MethodHandle heif_have_decoder_for_format$MH() {
         return RuntimeHelper.requireNonNull(constants$16.heif_have_decoder_for_format$MH,"heif_have_decoder_for_format");
     }
     public static int heif_have_decoder_for_format ( int format) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$16.heif_have_decoder_for_format$MH, "heif_have_decoder_for_format");
+        var mh$ = heif_have_decoder_for_format$MH();
         try {
             return (int)mh$.invokeExact(format);
         } catch (Throwable ex$) {
@@ -1680,7 +1605,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$16.heif_have_encoder_for_format$MH,"heif_have_encoder_for_format");
     }
     public static int heif_have_encoder_for_format ( int format) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$16.heif_have_encoder_for_format$MH, "heif_have_encoder_for_format");
+        var mh$ = heif_have_encoder_for_format$MH();
         try {
             return (int)mh$.invokeExact(format);
         } catch (Throwable ex$) {
@@ -1691,21 +1616,18 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$16.heif_context_get_encoder_for_format$MH,"heif_context_get_encoder_for_format");
     }
     public static MemorySegment heif_context_get_encoder_for_format ( SegmentAllocator allocator,  Addressable context,  int format,  Addressable x3) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$16.heif_context_get_encoder_for_format$MH, "heif_context_get_encoder_for_format");
+        var mh$ = heif_context_get_encoder_for_format$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, context, format, x3);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, context, format, x3);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_context_get_encoder_for_format ( ResourceScope scope,  Addressable context,  int format,  Addressable x3) {
-        return heif_context_get_encoder_for_format(SegmentAllocator.nativeAllocator(scope), context, format, x3);
     }
     public static MethodHandle heif_encoder_release$MH() {
         return RuntimeHelper.requireNonNull(constants$17.heif_encoder_release$MH,"heif_encoder_release");
     }
     public static void heif_encoder_release ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$17.heif_encoder_release$MH, "heif_encoder_release");
+        var mh$ = heif_encoder_release$MH();
         try {
             mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -1716,9 +1638,9 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$17.heif_encoder_get_name$MH,"heif_encoder_get_name");
     }
     public static MemoryAddress heif_encoder_get_name ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$17.heif_encoder_get_name$MH, "heif_encoder_get_name");
+        var mh$ = heif_encoder_get_name$MH();
         try {
-            return (jdk.incubator.foreign.MemoryAddress)mh$.invokeExact(x0);
+            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1727,51 +1649,42 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$17.heif_encoder_set_lossy_quality$MH,"heif_encoder_set_lossy_quality");
     }
     public static MemorySegment heif_encoder_set_lossy_quality ( SegmentAllocator allocator,  Addressable x1,  int quality) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$17.heif_encoder_set_lossy_quality$MH, "heif_encoder_set_lossy_quality");
+        var mh$ = heif_encoder_set_lossy_quality$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, quality);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, quality);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_encoder_set_lossy_quality ( ResourceScope scope,  Addressable x1,  int quality) {
-        return heif_encoder_set_lossy_quality(SegmentAllocator.nativeAllocator(scope), x1, quality);
     }
     public static MethodHandle heif_encoder_set_lossless$MH() {
         return RuntimeHelper.requireNonNull(constants$17.heif_encoder_set_lossless$MH,"heif_encoder_set_lossless");
     }
     public static MemorySegment heif_encoder_set_lossless ( SegmentAllocator allocator,  Addressable x1,  int enable) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$17.heif_encoder_set_lossless$MH, "heif_encoder_set_lossless");
+        var mh$ = heif_encoder_set_lossless$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, enable);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, enable);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_encoder_set_lossless ( ResourceScope scope,  Addressable x1,  int enable) {
-        return heif_encoder_set_lossless(SegmentAllocator.nativeAllocator(scope), x1, enable);
     }
     public static MethodHandle heif_encoder_set_logging_level$MH() {
         return RuntimeHelper.requireNonNull(constants$17.heif_encoder_set_logging_level$MH,"heif_encoder_set_logging_level");
     }
     public static MemorySegment heif_encoder_set_logging_level ( SegmentAllocator allocator,  Addressable x1,  int level) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$17.heif_encoder_set_logging_level$MH, "heif_encoder_set_logging_level");
+        var mh$ = heif_encoder_set_logging_level$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, level);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, level);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_encoder_set_logging_level ( ResourceScope scope,  Addressable x1,  int level) {
-        return heif_encoder_set_logging_level(SegmentAllocator.nativeAllocator(scope), x1, level);
     }
     public static MethodHandle heif_encoder_list_parameters$MH() {
         return RuntimeHelper.requireNonNull(constants$17.heif_encoder_list_parameters$MH,"heif_encoder_list_parameters");
     }
     public static MemoryAddress heif_encoder_list_parameters ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$17.heif_encoder_list_parameters$MH, "heif_encoder_list_parameters");
+        var mh$ = heif_encoder_list_parameters$MH();
         try {
-            return (jdk.incubator.foreign.MemoryAddress)mh$.invokeExact(x0);
+            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1780,9 +1693,9 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_name$MH,"heif_encoder_parameter_get_name");
     }
     public static MemoryAddress heif_encoder_parameter_get_name ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_name$MH, "heif_encoder_parameter_get_name");
+        var mh$ = heif_encoder_parameter_get_name$MH();
         try {
-            return (jdk.incubator.foreign.MemoryAddress)mh$.invokeExact(x0);
+            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1800,7 +1713,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_type$MH,"heif_encoder_parameter_get_type");
     }
     public static int heif_encoder_parameter_get_type ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_type$MH, "heif_encoder_parameter_get_type");
+        var mh$ = heif_encoder_parameter_get_type$MH();
         try {
             return (int)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -1811,203 +1724,161 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_valid_integer_range$MH,"heif_encoder_parameter_get_valid_integer_range");
     }
     public static MemorySegment heif_encoder_parameter_get_valid_integer_range ( SegmentAllocator allocator,  Addressable x1,  Addressable have_minimum_maximum,  Addressable minimum,  Addressable maximum) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_valid_integer_range$MH, "heif_encoder_parameter_get_valid_integer_range");
+        var mh$ = heif_encoder_parameter_get_valid_integer_range$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, have_minimum_maximum, minimum, maximum);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, have_minimum_maximum, minimum, maximum);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_encoder_parameter_get_valid_integer_range ( ResourceScope scope,  Addressable x1,  Addressable have_minimum_maximum,  Addressable minimum,  Addressable maximum) {
-        return heif_encoder_parameter_get_valid_integer_range(SegmentAllocator.nativeAllocator(scope), x1, have_minimum_maximum, minimum, maximum);
     }
     public static MethodHandle heif_encoder_parameter_get_valid_integer_values$MH() {
         return RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_valid_integer_values$MH,"heif_encoder_parameter_get_valid_integer_values");
     }
     public static MemorySegment heif_encoder_parameter_get_valid_integer_values ( SegmentAllocator allocator,  Addressable x1,  Addressable have_minimum,  Addressable have_maximum,  Addressable minimum,  Addressable maximum,  Addressable num_valid_values,  Addressable out_integer_array) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_valid_integer_values$MH, "heif_encoder_parameter_get_valid_integer_values");
+        var mh$ = heif_encoder_parameter_get_valid_integer_values$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, have_minimum, have_maximum, minimum, maximum, num_valid_values, out_integer_array);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, have_minimum, have_maximum, minimum, maximum, num_valid_values, out_integer_array);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_encoder_parameter_get_valid_integer_values ( ResourceScope scope,  Addressable x1,  Addressable have_minimum,  Addressable have_maximum,  Addressable minimum,  Addressable maximum,  Addressable num_valid_values,  Addressable out_integer_array) {
-        return heif_encoder_parameter_get_valid_integer_values(SegmentAllocator.nativeAllocator(scope), x1, have_minimum, have_maximum, minimum, maximum, num_valid_values, out_integer_array);
     }
     public static MethodHandle heif_encoder_parameter_get_valid_string_values$MH() {
         return RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_valid_string_values$MH,"heif_encoder_parameter_get_valid_string_values");
     }
     public static MemorySegment heif_encoder_parameter_get_valid_string_values ( SegmentAllocator allocator,  Addressable x1,  Addressable out_stringarray) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_valid_string_values$MH, "heif_encoder_parameter_get_valid_string_values");
+        var mh$ = heif_encoder_parameter_get_valid_string_values$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, out_stringarray);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, out_stringarray);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_encoder_parameter_get_valid_string_values ( ResourceScope scope,  Addressable x1,  Addressable out_stringarray) {
-        return heif_encoder_parameter_get_valid_string_values(SegmentAllocator.nativeAllocator(scope), x1, out_stringarray);
     }
     public static MethodHandle heif_encoder_set_parameter_integer$MH() {
         return RuntimeHelper.requireNonNull(constants$18.heif_encoder_set_parameter_integer$MH,"heif_encoder_set_parameter_integer");
     }
     public static MemorySegment heif_encoder_set_parameter_integer ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  int value) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$18.heif_encoder_set_parameter_integer$MH, "heif_encoder_set_parameter_integer");
+        var mh$ = heif_encoder_set_parameter_integer$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_encoder_set_parameter_integer ( ResourceScope scope,  Addressable x1,  Addressable parameter_name,  int value) {
-        return heif_encoder_set_parameter_integer(SegmentAllocator.nativeAllocator(scope), x1, parameter_name, value);
     }
     public static MethodHandle heif_encoder_get_parameter_integer$MH() {
         return RuntimeHelper.requireNonNull(constants$19.heif_encoder_get_parameter_integer$MH,"heif_encoder_get_parameter_integer");
     }
     public static MemorySegment heif_encoder_get_parameter_integer ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  Addressable value) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$19.heif_encoder_get_parameter_integer$MH, "heif_encoder_get_parameter_integer");
+        var mh$ = heif_encoder_get_parameter_integer$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_encoder_get_parameter_integer ( ResourceScope scope,  Addressable x1,  Addressable parameter_name,  Addressable value) {
-        return heif_encoder_get_parameter_integer(SegmentAllocator.nativeAllocator(scope), x1, parameter_name, value);
     }
     public static MethodHandle heif_encoder_parameter_integer_valid_range$MH() {
         return RuntimeHelper.requireNonNull(constants$19.heif_encoder_parameter_integer_valid_range$MH,"heif_encoder_parameter_integer_valid_range");
     }
     public static MemorySegment heif_encoder_parameter_integer_valid_range ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  Addressable have_minimum_maximum,  Addressable minimum,  Addressable maximum) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$19.heif_encoder_parameter_integer_valid_range$MH, "heif_encoder_parameter_integer_valid_range");
+        var mh$ = heif_encoder_parameter_integer_valid_range$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, have_minimum_maximum, minimum, maximum);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, have_minimum_maximum, minimum, maximum);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_encoder_parameter_integer_valid_range ( ResourceScope scope,  Addressable x1,  Addressable parameter_name,  Addressable have_minimum_maximum,  Addressable minimum,  Addressable maximum) {
-        return heif_encoder_parameter_integer_valid_range(SegmentAllocator.nativeAllocator(scope), x1, parameter_name, have_minimum_maximum, minimum, maximum);
     }
     public static MethodHandle heif_encoder_set_parameter_boolean$MH() {
         return RuntimeHelper.requireNonNull(constants$19.heif_encoder_set_parameter_boolean$MH,"heif_encoder_set_parameter_boolean");
     }
     public static MemorySegment heif_encoder_set_parameter_boolean ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  int value) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$19.heif_encoder_set_parameter_boolean$MH, "heif_encoder_set_parameter_boolean");
+        var mh$ = heif_encoder_set_parameter_boolean$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_encoder_set_parameter_boolean ( ResourceScope scope,  Addressable x1,  Addressable parameter_name,  int value) {
-        return heif_encoder_set_parameter_boolean(SegmentAllocator.nativeAllocator(scope), x1, parameter_name, value);
     }
     public static MethodHandle heif_encoder_get_parameter_boolean$MH() {
         return RuntimeHelper.requireNonNull(constants$19.heif_encoder_get_parameter_boolean$MH,"heif_encoder_get_parameter_boolean");
     }
     public static MemorySegment heif_encoder_get_parameter_boolean ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  Addressable value) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$19.heif_encoder_get_parameter_boolean$MH, "heif_encoder_get_parameter_boolean");
+        var mh$ = heif_encoder_get_parameter_boolean$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_encoder_get_parameter_boolean ( ResourceScope scope,  Addressable x1,  Addressable parameter_name,  Addressable value) {
-        return heif_encoder_get_parameter_boolean(SegmentAllocator.nativeAllocator(scope), x1, parameter_name, value);
     }
     public static MethodHandle heif_encoder_set_parameter_string$MH() {
         return RuntimeHelper.requireNonNull(constants$19.heif_encoder_set_parameter_string$MH,"heif_encoder_set_parameter_string");
     }
     public static MemorySegment heif_encoder_set_parameter_string ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  Addressable value) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$19.heif_encoder_set_parameter_string$MH, "heif_encoder_set_parameter_string");
+        var mh$ = heif_encoder_set_parameter_string$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_encoder_set_parameter_string ( ResourceScope scope,  Addressable x1,  Addressable parameter_name,  Addressable value) {
-        return heif_encoder_set_parameter_string(SegmentAllocator.nativeAllocator(scope), x1, parameter_name, value);
     }
     public static MethodHandle heif_encoder_get_parameter_string$MH() {
         return RuntimeHelper.requireNonNull(constants$19.heif_encoder_get_parameter_string$MH,"heif_encoder_get_parameter_string");
     }
     public static MemorySegment heif_encoder_get_parameter_string ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  Addressable value,  int value_size) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$19.heif_encoder_get_parameter_string$MH, "heif_encoder_get_parameter_string");
+        var mh$ = heif_encoder_get_parameter_string$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value, value_size);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value, value_size);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_encoder_get_parameter_string ( ResourceScope scope,  Addressable x1,  Addressable parameter_name,  Addressable value,  int value_size) {
-        return heif_encoder_get_parameter_string(SegmentAllocator.nativeAllocator(scope), x1, parameter_name, value, value_size);
     }
     public static MethodHandle heif_encoder_parameter_string_valid_values$MH() {
         return RuntimeHelper.requireNonNull(constants$20.heif_encoder_parameter_string_valid_values$MH,"heif_encoder_parameter_string_valid_values");
     }
     public static MemorySegment heif_encoder_parameter_string_valid_values ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  Addressable out_stringarray) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$20.heif_encoder_parameter_string_valid_values$MH, "heif_encoder_parameter_string_valid_values");
+        var mh$ = heif_encoder_parameter_string_valid_values$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, out_stringarray);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, out_stringarray);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_encoder_parameter_string_valid_values ( ResourceScope scope,  Addressable x1,  Addressable parameter_name,  Addressable out_stringarray) {
-        return heif_encoder_parameter_string_valid_values(SegmentAllocator.nativeAllocator(scope), x1, parameter_name, out_stringarray);
     }
     public static MethodHandle heif_encoder_parameter_integer_valid_values$MH() {
         return RuntimeHelper.requireNonNull(constants$20.heif_encoder_parameter_integer_valid_values$MH,"heif_encoder_parameter_integer_valid_values");
     }
     public static MemorySegment heif_encoder_parameter_integer_valid_values ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  Addressable have_minimum,  Addressable have_maximum,  Addressable minimum,  Addressable maximum,  Addressable num_valid_values,  Addressable out_integer_array) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$20.heif_encoder_parameter_integer_valid_values$MH, "heif_encoder_parameter_integer_valid_values");
+        var mh$ = heif_encoder_parameter_integer_valid_values$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, have_minimum, have_maximum, minimum, maximum, num_valid_values, out_integer_array);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, have_minimum, have_maximum, minimum, maximum, num_valid_values, out_integer_array);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_encoder_parameter_integer_valid_values ( ResourceScope scope,  Addressable x1,  Addressable parameter_name,  Addressable have_minimum,  Addressable have_maximum,  Addressable minimum,  Addressable maximum,  Addressable num_valid_values,  Addressable out_integer_array) {
-        return heif_encoder_parameter_integer_valid_values(SegmentAllocator.nativeAllocator(scope), x1, parameter_name, have_minimum, have_maximum, minimum, maximum, num_valid_values, out_integer_array);
     }
     public static MethodHandle heif_encoder_set_parameter$MH() {
         return RuntimeHelper.requireNonNull(constants$20.heif_encoder_set_parameter$MH,"heif_encoder_set_parameter");
     }
     public static MemorySegment heif_encoder_set_parameter ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  Addressable value) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$20.heif_encoder_set_parameter$MH, "heif_encoder_set_parameter");
+        var mh$ = heif_encoder_set_parameter$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_encoder_set_parameter ( ResourceScope scope,  Addressable x1,  Addressable parameter_name,  Addressable value) {
-        return heif_encoder_set_parameter(SegmentAllocator.nativeAllocator(scope), x1, parameter_name, value);
     }
     public static MethodHandle heif_encoder_get_parameter$MH() {
         return RuntimeHelper.requireNonNull(constants$20.heif_encoder_get_parameter$MH,"heif_encoder_get_parameter");
     }
     public static MemorySegment heif_encoder_get_parameter ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  Addressable value_ptr,  int value_size) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$20.heif_encoder_get_parameter$MH, "heif_encoder_get_parameter");
+        var mh$ = heif_encoder_get_parameter$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value_ptr, value_size);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value_ptr, value_size);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_encoder_get_parameter ( ResourceScope scope,  Addressable x1,  Addressable parameter_name,  Addressable value_ptr,  int value_size) {
-        return heif_encoder_get_parameter(SegmentAllocator.nativeAllocator(scope), x1, parameter_name, value_ptr, value_size);
     }
     public static MethodHandle heif_encoder_has_default$MH() {
         return RuntimeHelper.requireNonNull(constants$20.heif_encoder_has_default$MH,"heif_encoder_has_default");
     }
     public static int heif_encoder_has_default ( Addressable x0,  Addressable parameter_name) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$20.heif_encoder_has_default$MH, "heif_encoder_has_default");
+        var mh$ = heif_encoder_has_default$MH();
         try {
             return (int)mh$.invokeExact(x0, parameter_name);
         } catch (Throwable ex$) {
@@ -2018,9 +1889,9 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$20.heif_encoding_options_alloc$MH,"heif_encoding_options_alloc");
     }
     public static MemoryAddress heif_encoding_options_alloc (Object... x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$20.heif_encoding_options_alloc$MH, "heif_encoding_options_alloc");
+        var mh$ = heif_encoding_options_alloc$MH();
         try {
-            return (jdk.incubator.foreign.MemoryAddress)mh$.invokeExact(x0);
+            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -2029,7 +1900,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$21.heif_encoding_options_free$MH,"heif_encoding_options_free");
     }
     public static void heif_encoding_options_free ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$21.heif_encoding_options_free$MH, "heif_encoding_options_free");
+        var mh$ = heif_encoding_options_free$MH();
         try {
             mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -2040,133 +1911,106 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$21.heif_context_encode_image$MH,"heif_context_encode_image");
     }
     public static MemorySegment heif_context_encode_image ( SegmentAllocator allocator,  Addressable x1,  Addressable image,  Addressable encoder,  Addressable options,  Addressable out_image_handle) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$21.heif_context_encode_image$MH, "heif_context_encode_image");
+        var mh$ = heif_context_encode_image$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, image, encoder, options, out_image_handle);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, image, encoder, options, out_image_handle);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_context_encode_image ( ResourceScope scope,  Addressable x1,  Addressable image,  Addressable encoder,  Addressable options,  Addressable out_image_handle) {
-        return heif_context_encode_image(SegmentAllocator.nativeAllocator(scope), x1, image, encoder, options, out_image_handle);
     }
     public static MethodHandle heif_context_set_primary_image$MH() {
         return RuntimeHelper.requireNonNull(constants$21.heif_context_set_primary_image$MH,"heif_context_set_primary_image");
     }
     public static MemorySegment heif_context_set_primary_image ( SegmentAllocator allocator,  Addressable x1,  Addressable image_handle) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$21.heif_context_set_primary_image$MH, "heif_context_set_primary_image");
+        var mh$ = heif_context_set_primary_image$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, image_handle);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, image_handle);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_context_set_primary_image ( ResourceScope scope,  Addressable x1,  Addressable image_handle) {
-        return heif_context_set_primary_image(SegmentAllocator.nativeAllocator(scope), x1, image_handle);
     }
     public static MethodHandle heif_context_encode_thumbnail$MH() {
         return RuntimeHelper.requireNonNull(constants$21.heif_context_encode_thumbnail$MH,"heif_context_encode_thumbnail");
     }
     public static MemorySegment heif_context_encode_thumbnail ( SegmentAllocator allocator,  Addressable x1,  Addressable image,  Addressable master_image_handle,  Addressable encoder,  Addressable options,  int bbox_size,  Addressable out_thumb_image_handle) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$21.heif_context_encode_thumbnail$MH, "heif_context_encode_thumbnail");
+        var mh$ = heif_context_encode_thumbnail$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, image, master_image_handle, encoder, options, bbox_size, out_thumb_image_handle);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, image, master_image_handle, encoder, options, bbox_size, out_thumb_image_handle);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_context_encode_thumbnail ( ResourceScope scope,  Addressable x1,  Addressable image,  Addressable master_image_handle,  Addressable encoder,  Addressable options,  int bbox_size,  Addressable out_thumb_image_handle) {
-        return heif_context_encode_thumbnail(SegmentAllocator.nativeAllocator(scope), x1, image, master_image_handle, encoder, options, bbox_size, out_thumb_image_handle);
     }
     public static MethodHandle heif_context_assign_thumbnail$MH() {
         return RuntimeHelper.requireNonNull(constants$21.heif_context_assign_thumbnail$MH,"heif_context_assign_thumbnail");
     }
     public static MemorySegment heif_context_assign_thumbnail ( SegmentAllocator allocator,  Addressable x1,  Addressable master_image,  Addressable thumbnail_image) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$21.heif_context_assign_thumbnail$MH, "heif_context_assign_thumbnail");
+        var mh$ = heif_context_assign_thumbnail$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, master_image, thumbnail_image);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, master_image, thumbnail_image);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_context_assign_thumbnail ( ResourceScope scope,  Addressable x1,  Addressable master_image,  Addressable thumbnail_image) {
-        return heif_context_assign_thumbnail(SegmentAllocator.nativeAllocator(scope), x1, master_image, thumbnail_image);
     }
     public static MethodHandle heif_context_add_exif_metadata$MH() {
         return RuntimeHelper.requireNonNull(constants$21.heif_context_add_exif_metadata$MH,"heif_context_add_exif_metadata");
     }
     public static MemorySegment heif_context_add_exif_metadata ( SegmentAllocator allocator,  Addressable x1,  Addressable image_handle,  Addressable data,  int size) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$21.heif_context_add_exif_metadata$MH, "heif_context_add_exif_metadata");
+        var mh$ = heif_context_add_exif_metadata$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, image_handle, data, size);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, image_handle, data, size);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_context_add_exif_metadata ( ResourceScope scope,  Addressable x1,  Addressable image_handle,  Addressable data,  int size) {
-        return heif_context_add_exif_metadata(SegmentAllocator.nativeAllocator(scope), x1, image_handle, data, size);
     }
     public static MethodHandle heif_context_add_XMP_metadata$MH() {
         return RuntimeHelper.requireNonNull(constants$22.heif_context_add_XMP_metadata$MH,"heif_context_add_XMP_metadata");
     }
     public static MemorySegment heif_context_add_XMP_metadata ( SegmentAllocator allocator,  Addressable x1,  Addressable image_handle,  Addressable data,  int size) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$22.heif_context_add_XMP_metadata$MH, "heif_context_add_XMP_metadata");
+        var mh$ = heif_context_add_XMP_metadata$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1, image_handle, data, size);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, image_handle, data, size);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_context_add_XMP_metadata ( ResourceScope scope,  Addressable x1,  Addressable image_handle,  Addressable data,  int size) {
-        return heif_context_add_XMP_metadata(SegmentAllocator.nativeAllocator(scope), x1, image_handle, data, size);
     }
     public static MethodHandle heif_context_add_generic_metadata$MH() {
         return RuntimeHelper.requireNonNull(constants$22.heif_context_add_generic_metadata$MH,"heif_context_add_generic_metadata");
     }
     public static MemorySegment heif_context_add_generic_metadata ( SegmentAllocator allocator,  Addressable ctx,  Addressable image_handle,  Addressable data,  int size,  Addressable item_type,  Addressable content_type) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$22.heif_context_add_generic_metadata$MH, "heif_context_add_generic_metadata");
+        var mh$ = heif_context_add_generic_metadata$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, ctx, image_handle, data, size, item_type, content_type);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, ctx, image_handle, data, size, item_type, content_type);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_context_add_generic_metadata ( ResourceScope scope,  Addressable ctx,  Addressable image_handle,  Addressable data,  int size,  Addressable item_type,  Addressable content_type) {
-        return heif_context_add_generic_metadata(SegmentAllocator.nativeAllocator(scope), ctx, image_handle, data, size, item_type, content_type);
     }
     public static MethodHandle heif_image_create$MH() {
         return RuntimeHelper.requireNonNull(constants$22.heif_image_create$MH,"heif_image_create");
     }
     public static MemorySegment heif_image_create ( SegmentAllocator allocator,  int width,  int height,  int colorspace,  int chroma,  Addressable out_image) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$22.heif_image_create$MH, "heif_image_create");
+        var mh$ = heif_image_create$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, width, height, colorspace, chroma, out_image);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, width, height, colorspace, chroma, out_image);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_image_create ( ResourceScope scope,  int width,  int height,  int colorspace,  int chroma,  Addressable out_image) {
-        return heif_image_create(SegmentAllocator.nativeAllocator(scope), width, height, colorspace, chroma, out_image);
     }
     public static MethodHandle heif_image_add_plane$MH() {
         return RuntimeHelper.requireNonNull(constants$22.heif_image_add_plane$MH,"heif_image_add_plane");
     }
     public static MemorySegment heif_image_add_plane ( SegmentAllocator allocator,  Addressable image,  int channel,  int width,  int height,  int bit_depth) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$22.heif_image_add_plane$MH, "heif_image_add_plane");
+        var mh$ = heif_image_add_plane$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, image, channel, width, height, bit_depth);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, image, channel, width, height, bit_depth);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_image_add_plane ( ResourceScope scope,  Addressable image,  int channel,  int width,  int height,  int bit_depth) {
-        return heif_image_add_plane(SegmentAllocator.nativeAllocator(scope), image, channel, width, height, bit_depth);
     }
     public static MethodHandle heif_image_set_premultiplied_alpha$MH() {
         return RuntimeHelper.requireNonNull(constants$22.heif_image_set_premultiplied_alpha$MH,"heif_image_set_premultiplied_alpha");
     }
     public static void heif_image_set_premultiplied_alpha ( Addressable image,  int is_premultiplied_alpha) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$22.heif_image_set_premultiplied_alpha$MH, "heif_image_set_premultiplied_alpha");
+        var mh$ = heif_image_set_premultiplied_alpha$MH();
         try {
             mh$.invokeExact(image, is_premultiplied_alpha);
         } catch (Throwable ex$) {
@@ -2177,7 +2021,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$22.heif_image_is_premultiplied_alpha$MH,"heif_image_is_premultiplied_alpha");
     }
     public static int heif_image_is_premultiplied_alpha ( Addressable image) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$22.heif_image_is_premultiplied_alpha$MH, "heif_image_is_premultiplied_alpha");
+        var mh$ = heif_image_is_premultiplied_alpha$MH();
         try {
             return (int)mh$.invokeExact(image);
         } catch (Throwable ex$) {
@@ -2188,49 +2032,40 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$23.heif_register_decoder$MH,"heif_register_decoder");
     }
     public static MemorySegment heif_register_decoder ( SegmentAllocator allocator,  Addressable heif,  Addressable x2) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$23.heif_register_decoder$MH, "heif_register_decoder");
+        var mh$ = heif_register_decoder$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, heif, x2);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, heif, x2);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_register_decoder ( ResourceScope scope,  Addressable heif,  Addressable x2) {
-        return heif_register_decoder(SegmentAllocator.nativeAllocator(scope), heif, x2);
     }
     public static MethodHandle heif_register_decoder_plugin$MH() {
         return RuntimeHelper.requireNonNull(constants$23.heif_register_decoder_plugin$MH,"heif_register_decoder_plugin");
     }
     public static MemorySegment heif_register_decoder_plugin ( SegmentAllocator allocator,  Addressable x1) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$23.heif_register_decoder_plugin$MH, "heif_register_decoder_plugin");
+        var mh$ = heif_register_decoder_plugin$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_register_decoder_plugin ( ResourceScope scope,  Addressable x1) {
-        return heif_register_decoder_plugin(SegmentAllocator.nativeAllocator(scope), x1);
     }
     public static MethodHandle heif_register_encoder_plugin$MH() {
         return RuntimeHelper.requireNonNull(constants$23.heif_register_encoder_plugin$MH,"heif_register_encoder_plugin");
     }
     public static MemorySegment heif_register_encoder_plugin ( SegmentAllocator allocator,  Addressable x1) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$23.heif_register_encoder_plugin$MH, "heif_register_encoder_plugin");
+        var mh$ = heif_register_encoder_plugin$MH();
         try {
-            return (jdk.incubator.foreign.MemorySegment)mh$.invokeExact(allocator, x1);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
-    }
-    public static MemorySegment heif_register_encoder_plugin ( ResourceScope scope,  Addressable x1) {
-        return heif_register_encoder_plugin(SegmentAllocator.nativeAllocator(scope), x1);
     }
     public static MethodHandle heif_encoder_descriptor_supportes_lossy_compression$MH() {
         return RuntimeHelper.requireNonNull(constants$23.heif_encoder_descriptor_supportes_lossy_compression$MH,"heif_encoder_descriptor_supportes_lossy_compression");
     }
     public static int heif_encoder_descriptor_supportes_lossy_compression ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$23.heif_encoder_descriptor_supportes_lossy_compression$MH, "heif_encoder_descriptor_supportes_lossy_compression");
+        var mh$ = heif_encoder_descriptor_supportes_lossy_compression$MH();
         try {
             return (int)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
@@ -2241,7 +2076,7 @@ public class heif_h  {
         return RuntimeHelper.requireNonNull(constants$23.heif_encoder_descriptor_supportes_lossless_compression$MH,"heif_encoder_descriptor_supportes_lossless_compression");
     }
     public static int heif_encoder_descriptor_supportes_lossless_compression ( Addressable x0) {
-        var mh$ = RuntimeHelper.requireNonNull(constants$23.heif_encoder_descriptor_supportes_lossless_compression$MH, "heif_encoder_descriptor_supportes_lossless_compression");
+        var mh$ = heif_encoder_descriptor_supportes_lossless_compression$MH();
         try {
             return (int)mh$.invokeExact(x0);
         } catch (Throwable ex$) {

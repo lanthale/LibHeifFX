@@ -5,8 +5,8 @@ package org.libheif.win;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
-import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.ValueLayout.*;
+import java.lang.foreign.*;
+import static java.lang.foreign.ValueLayout.*;
 class constants$4 {
 
     static final FunctionDescriptor heif_context_get_primary_image_handle$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
@@ -19,14 +19,14 @@ class constants$4 {
     );
     static final MethodHandle heif_context_get_primary_image_handle$MH = RuntimeHelper.downcallHandle(
         "heif_context_get_primary_image_handle",
-        constants$4.heif_context_get_primary_image_handle$FUNC, false
+        constants$4.heif_context_get_primary_image_handle$FUNC
     );
     static final FunctionDescriptor heif_context_get_primary_image_handle_alloc$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_context_get_primary_image_handle_alloc$MH = RuntimeHelper.downcallHandle(
         "heif_context_get_primary_image_handle_alloc",
-        constants$4.heif_context_get_primary_image_handle_alloc$FUNC, false
+        constants$4.heif_context_get_primary_image_handle_alloc$FUNC
     );
     static final FunctionDescriptor heif_context_get_image_handle$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_LONG$LAYOUT.withName("code"),
@@ -39,7 +39,7 @@ class constants$4 {
     );
     static final MethodHandle heif_context_get_image_handle$MH = RuntimeHelper.downcallHandle(
         "heif_context_get_image_handle",
-        constants$4.heif_context_get_image_handle$FUNC, false
+        constants$4.heif_context_get_image_handle$FUNC
     );
     static final FunctionDescriptor heif_context_debug_dump_boxes_to_file$FUNC = FunctionDescriptor.ofVoid(
         Constants$root.C_POINTER$LAYOUT,
@@ -47,7 +47,7 @@ class constants$4 {
     );
     static final MethodHandle heif_context_debug_dump_boxes_to_file$MH = RuntimeHelper.downcallHandle(
         "heif_context_debug_dump_boxes_to_file",
-        constants$4.heif_context_debug_dump_boxes_to_file$FUNC, false
+        constants$4.heif_context_debug_dump_boxes_to_file$FUNC
     );
     static final FunctionDescriptor heif_context_set_maximum_image_size_limit$FUNC = FunctionDescriptor.ofVoid(
         Constants$root.C_POINTER$LAYOUT,
@@ -55,7 +55,7 @@ class constants$4 {
     );
     static final MethodHandle heif_context_set_maximum_image_size_limit$MH = RuntimeHelper.downcallHandle(
         "heif_context_set_maximum_image_size_limit",
-        constants$4.heif_context_set_maximum_image_size_limit$FUNC, false
+        constants$4.heif_context_set_maximum_image_size_limit$FUNC
     );
     static final FunctionDescriptor heif_context_set_max_decoding_threads$FUNC = FunctionDescriptor.ofVoid(
         Constants$root.C_POINTER$LAYOUT,
@@ -63,7 +63,7 @@ class constants$4 {
     );
     static final MethodHandle heif_context_set_max_decoding_threads$MH = RuntimeHelper.downcallHandle(
         "heif_context_set_max_decoding_threads",
-        constants$4.heif_context_set_max_decoding_threads$FUNC, false
+        constants$4.heif_context_set_max_decoding_threads$FUNC
     );
 }
 

@@ -5,8 +5,8 @@ package org.libheif.win;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
-import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.ValueLayout.*;
+import java.lang.foreign.*;
+import static java.lang.foreign.ValueLayout.*;
 class constants$9 {
 
     static final FunctionDescriptor heif_image_handle_get_number_of_metadata_blocks$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
@@ -15,7 +15,7 @@ class constants$9 {
     );
     static final MethodHandle heif_image_handle_get_number_of_metadata_blocks$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_get_number_of_metadata_blocks",
-        constants$9.heif_image_handle_get_number_of_metadata_blocks$FUNC, false
+        constants$9.heif_image_handle_get_number_of_metadata_blocks$FUNC
     );
     static final FunctionDescriptor heif_image_handle_get_list_of_metadata_block_IDs$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT,
@@ -25,7 +25,7 @@ class constants$9 {
     );
     static final MethodHandle heif_image_handle_get_list_of_metadata_block_IDs$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_get_list_of_metadata_block_IDs",
-        constants$9.heif_image_handle_get_list_of_metadata_block_IDs$FUNC, false
+        constants$9.heif_image_handle_get_list_of_metadata_block_IDs$FUNC
     );
     static final FunctionDescriptor heif_image_handle_get_metadata_type$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
         Constants$root.C_POINTER$LAYOUT,
@@ -33,7 +33,7 @@ class constants$9 {
     );
     static final MethodHandle heif_image_handle_get_metadata_type$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_get_metadata_type",
-        constants$9.heif_image_handle_get_metadata_type$FUNC, false
+        constants$9.heif_image_handle_get_metadata_type$FUNC
     );
     static final FunctionDescriptor heif_image_handle_get_metadata_content_type$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
         Constants$root.C_POINTER$LAYOUT,
@@ -41,7 +41,7 @@ class constants$9 {
     );
     static final MethodHandle heif_image_handle_get_metadata_content_type$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_get_metadata_content_type",
-        constants$9.heif_image_handle_get_metadata_content_type$FUNC, false
+        constants$9.heif_image_handle_get_metadata_content_type$FUNC
     );
     static final FunctionDescriptor heif_image_handle_get_metadata_size$FUNC = FunctionDescriptor.of(Constants$root.C_LONG_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT,
@@ -49,7 +49,7 @@ class constants$9 {
     );
     static final MethodHandle heif_image_handle_get_metadata_size$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_get_metadata_size",
-        constants$9.heif_image_handle_get_metadata_size$FUNC, false
+        constants$9.heif_image_handle_get_metadata_size$FUNC
     );
     static final FunctionDescriptor heif_image_handle_get_metadata$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_LONG$LAYOUT.withName("code"),
@@ -62,7 +62,7 @@ class constants$9 {
     );
     static final MethodHandle heif_image_handle_get_metadata$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_get_metadata",
-        constants$9.heif_image_handle_get_metadata$FUNC, false
+        constants$9.heif_image_handle_get_metadata$FUNC
     );
 }
 

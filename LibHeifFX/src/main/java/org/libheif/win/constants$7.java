@@ -5,8 +5,8 @@ package org.libheif.win;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
-import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.ValueLayout.*;
+import java.lang.foreign.*;
+import static java.lang.foreign.ValueLayout.*;
 class constants$7 {
 
     static final FunctionDescriptor heif_image_handle_get_list_of_depth_image_IDs$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
@@ -16,7 +16,7 @@ class constants$7 {
     );
     static final MethodHandle heif_image_handle_get_list_of_depth_image_IDs$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_get_list_of_depth_image_IDs",
-        constants$7.heif_image_handle_get_list_of_depth_image_IDs$FUNC, false
+        constants$7.heif_image_handle_get_list_of_depth_image_IDs$FUNC
     );
     static final FunctionDescriptor heif_image_handle_get_depth_image_handle$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_LONG$LAYOUT.withName("code"),
@@ -29,14 +29,14 @@ class constants$7 {
     );
     static final MethodHandle heif_image_handle_get_depth_image_handle$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_get_depth_image_handle",
-        constants$7.heif_image_handle_get_depth_image_handle$FUNC, false
+        constants$7.heif_image_handle_get_depth_image_handle$FUNC
     );
     static final FunctionDescriptor heif_depth_representation_info_free$FUNC = FunctionDescriptor.ofVoid(
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_depth_representation_info_free$MH = RuntimeHelper.downcallHandle(
         "heif_depth_representation_info_free",
-        constants$7.heif_depth_representation_info_free$FUNC, false
+        constants$7.heif_depth_representation_info_free$FUNC
     );
     static final FunctionDescriptor heif_image_handle_get_depth_image_representation_info$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT,
@@ -45,14 +45,14 @@ class constants$7 {
     );
     static final MethodHandle heif_image_handle_get_depth_image_representation_info$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_get_depth_image_representation_info",
-        constants$7.heif_image_handle_get_depth_image_representation_info$FUNC, false
+        constants$7.heif_image_handle_get_depth_image_representation_info$FUNC
     );
     static final FunctionDescriptor heif_image_handle_get_number_of_thumbnails$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_number_of_thumbnails$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_get_number_of_thumbnails",
-        constants$7.heif_image_handle_get_number_of_thumbnails$FUNC, false
+        constants$7.heif_image_handle_get_number_of_thumbnails$FUNC
     );
     static final FunctionDescriptor heif_image_handle_get_list_of_thumbnail_IDs$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT,
@@ -61,7 +61,7 @@ class constants$7 {
     );
     static final MethodHandle heif_image_handle_get_list_of_thumbnail_IDs$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_get_list_of_thumbnail_IDs",
-        constants$7.heif_image_handle_get_list_of_thumbnail_IDs$FUNC, false
+        constants$7.heif_image_handle_get_list_of_thumbnail_IDs$FUNC
     );
 }
 

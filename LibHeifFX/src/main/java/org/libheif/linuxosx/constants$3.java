@@ -5,8 +5,8 @@ package org.libheif.linuxosx;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
-import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.ValueLayout.*;
+import java.lang.foreign.*;
+import static java.lang.foreign.ValueLayout.*;
 class constants$3 {
 
     static final FunctionDescriptor heif_context_read_from_memory_without_copy$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
@@ -21,7 +21,7 @@ class constants$3 {
     );
     static final MethodHandle heif_context_read_from_memory_without_copy$MH = RuntimeHelper.downcallHandle(
         "heif_context_read_from_memory_without_copy",
-        constants$3.heif_context_read_from_memory_without_copy$FUNC, false
+        constants$3.heif_context_read_from_memory_without_copy$FUNC
     );
     static final FunctionDescriptor heif_context_read_from_reader$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_INT$LAYOUT.withName("code"),
@@ -35,14 +35,14 @@ class constants$3 {
     );
     static final MethodHandle heif_context_read_from_reader$MH = RuntimeHelper.downcallHandle(
         "heif_context_read_from_reader",
-        constants$3.heif_context_read_from_reader$FUNC, false
+        constants$3.heif_context_read_from_reader$FUNC
     );
     static final FunctionDescriptor heif_context_get_number_of_top_level_images$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_context_get_number_of_top_level_images$MH = RuntimeHelper.downcallHandle(
         "heif_context_get_number_of_top_level_images",
-        constants$3.heif_context_get_number_of_top_level_images$FUNC, false
+        constants$3.heif_context_get_number_of_top_level_images$FUNC
     );
     static final FunctionDescriptor heif_context_is_top_level_image_ID$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
         Constants$root.C_POINTER$LAYOUT,
@@ -50,7 +50,7 @@ class constants$3 {
     );
     static final MethodHandle heif_context_is_top_level_image_ID$MH = RuntimeHelper.downcallHandle(
         "heif_context_is_top_level_image_ID",
-        constants$3.heif_context_is_top_level_image_ID$FUNC, false
+        constants$3.heif_context_is_top_level_image_ID$FUNC
     );
     static final FunctionDescriptor heif_context_get_list_of_top_level_image_IDs$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
         Constants$root.C_POINTER$LAYOUT,
@@ -59,7 +59,7 @@ class constants$3 {
     );
     static final MethodHandle heif_context_get_list_of_top_level_image_IDs$MH = RuntimeHelper.downcallHandle(
         "heif_context_get_list_of_top_level_image_IDs",
-        constants$3.heif_context_get_list_of_top_level_image_IDs$FUNC, false
+        constants$3.heif_context_get_list_of_top_level_image_IDs$FUNC
     );
     static final FunctionDescriptor heif_context_get_primary_image_ID$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_INT$LAYOUT.withName("code"),
@@ -71,7 +71,7 @@ class constants$3 {
     );
     static final MethodHandle heif_context_get_primary_image_ID$MH = RuntimeHelper.downcallHandle(
         "heif_context_get_primary_image_ID",
-        constants$3.heif_context_get_primary_image_ID$FUNC, false
+        constants$3.heif_context_get_primary_image_ID$FUNC
     );
 }
 

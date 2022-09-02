@@ -5,8 +5,8 @@ package org.libheif.win;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
-import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.ValueLayout.*;
+import java.lang.foreign.*;
+import static java.lang.foreign.ValueLayout.*;
 class constants$19 {
 
     static final FunctionDescriptor heif_encoder_get_parameter_integer$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
@@ -20,7 +20,7 @@ class constants$19 {
     );
     static final MethodHandle heif_encoder_get_parameter_integer$MH = RuntimeHelper.downcallHandle(
         "heif_encoder_get_parameter_integer",
-        constants$19.heif_encoder_get_parameter_integer$FUNC, false
+        constants$19.heif_encoder_get_parameter_integer$FUNC
     );
     static final FunctionDescriptor heif_encoder_parameter_integer_valid_range$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_LONG$LAYOUT.withName("code"),
@@ -35,7 +35,7 @@ class constants$19 {
     );
     static final MethodHandle heif_encoder_parameter_integer_valid_range$MH = RuntimeHelper.downcallHandle(
         "heif_encoder_parameter_integer_valid_range",
-        constants$19.heif_encoder_parameter_integer_valid_range$FUNC, false
+        constants$19.heif_encoder_parameter_integer_valid_range$FUNC
     );
     static final FunctionDescriptor heif_encoder_set_parameter_boolean$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_LONG$LAYOUT.withName("code"),
@@ -48,7 +48,7 @@ class constants$19 {
     );
     static final MethodHandle heif_encoder_set_parameter_boolean$MH = RuntimeHelper.downcallHandle(
         "heif_encoder_set_parameter_boolean",
-        constants$19.heif_encoder_set_parameter_boolean$FUNC, false
+        constants$19.heif_encoder_set_parameter_boolean$FUNC
     );
     static final FunctionDescriptor heif_encoder_get_parameter_boolean$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_LONG$LAYOUT.withName("code"),
@@ -61,7 +61,7 @@ class constants$19 {
     );
     static final MethodHandle heif_encoder_get_parameter_boolean$MH = RuntimeHelper.downcallHandle(
         "heif_encoder_get_parameter_boolean",
-        constants$19.heif_encoder_get_parameter_boolean$FUNC, false
+        constants$19.heif_encoder_get_parameter_boolean$FUNC
     );
     static final FunctionDescriptor heif_encoder_set_parameter_string$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_LONG$LAYOUT.withName("code"),
@@ -74,7 +74,7 @@ class constants$19 {
     );
     static final MethodHandle heif_encoder_set_parameter_string$MH = RuntimeHelper.downcallHandle(
         "heif_encoder_set_parameter_string",
-        constants$19.heif_encoder_set_parameter_string$FUNC, false
+        constants$19.heif_encoder_set_parameter_string$FUNC
     );
     static final FunctionDescriptor heif_encoder_get_parameter_string$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_LONG$LAYOUT.withName("code"),
@@ -88,7 +88,7 @@ class constants$19 {
     );
     static final MethodHandle heif_encoder_get_parameter_string$MH = RuntimeHelper.downcallHandle(
         "heif_encoder_get_parameter_string",
-        constants$19.heif_encoder_get_parameter_string$FUNC, false
+        constants$19.heif_encoder_get_parameter_string$FUNC
     );
 }
 

@@ -5,8 +5,8 @@ package org.libheif.win;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
-import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.ValueLayout.*;
+import java.lang.foreign.*;
+import static java.lang.foreign.ValueLayout.*;
 class constants$14 {
 
     static final FunctionDescriptor heif_image_get_plane_readonly$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
@@ -16,7 +16,7 @@ class constants$14 {
     );
     static final MethodHandle heif_image_get_plane_readonly$MH = RuntimeHelper.downcallHandle(
         "heif_image_get_plane_readonly",
-        constants$14.heif_image_get_plane_readonly$FUNC, false
+        constants$14.heif_image_get_plane_readonly$FUNC
     );
     static final FunctionDescriptor heif_image_get_plane$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
         Constants$root.C_POINTER$LAYOUT,
@@ -25,7 +25,7 @@ class constants$14 {
     );
     static final MethodHandle heif_image_get_plane$MH = RuntimeHelper.downcallHandle(
         "heif_image_get_plane",
-        constants$14.heif_image_get_plane$FUNC, false
+        constants$14.heif_image_get_plane$FUNC
     );
     static final FunctionDescriptor heif_image_scale_image$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_LONG$LAYOUT.withName("code"),
@@ -40,7 +40,7 @@ class constants$14 {
     );
     static final MethodHandle heif_image_scale_image$MH = RuntimeHelper.downcallHandle(
         "heif_image_scale_image",
-        constants$14.heif_image_scale_image$FUNC, false
+        constants$14.heif_image_scale_image$FUNC
     );
     static final FunctionDescriptor heif_image_set_raw_color_profile$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_LONG$LAYOUT.withName("code"),
@@ -54,7 +54,7 @@ class constants$14 {
     );
     static final MethodHandle heif_image_set_raw_color_profile$MH = RuntimeHelper.downcallHandle(
         "heif_image_set_raw_color_profile",
-        constants$14.heif_image_set_raw_color_profile$FUNC, false
+        constants$14.heif_image_set_raw_color_profile$FUNC
     );
     static final FunctionDescriptor heif_image_set_nclx_color_profile$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_LONG$LAYOUT.withName("code"),
@@ -66,14 +66,14 @@ class constants$14 {
     );
     static final MethodHandle heif_image_set_nclx_color_profile$MH = RuntimeHelper.downcallHandle(
         "heif_image_set_nclx_color_profile",
-        constants$14.heif_image_set_nclx_color_profile$FUNC, false
+        constants$14.heif_image_set_nclx_color_profile$FUNC
     );
     static final FunctionDescriptor heif_image_release$FUNC = FunctionDescriptor.ofVoid(
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_release$MH = RuntimeHelper.downcallHandle(
         "heif_image_release",
-        constants$14.heif_image_release$FUNC, false
+        constants$14.heif_image_release$FUNC
     );
 }
 

@@ -5,8 +5,8 @@ package org.libheif.win;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
-import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.ValueLayout.*;
+import java.lang.foreign.*;
+import static java.lang.foreign.ValueLayout.*;
 public class heif_error {
 
     static final  GroupLayout $struct$LAYOUT = MemoryLayout.structLayout(
@@ -54,13 +54,13 @@ public class heif_error {
         return heif_error.message$VH;
     }
     public static MemoryAddress message$get(MemorySegment seg) {
-        return (jdk.incubator.foreign.MemoryAddress)heif_error.message$VH.get(seg);
+        return (java.lang.foreign.MemoryAddress)heif_error.message$VH.get(seg);
     }
     public static void message$set( MemorySegment seg, MemoryAddress x) {
         heif_error.message$VH.set(seg, x);
     }
     public static MemoryAddress message$get(MemorySegment seg, long index) {
-        return (jdk.incubator.foreign.MemoryAddress)heif_error.message$VH.get(seg.asSlice(index*sizeof()));
+        return (java.lang.foreign.MemoryAddress)heif_error.message$VH.get(seg.asSlice(index*sizeof()));
     }
     public static void message$set(MemorySegment seg, long index, MemoryAddress x) {
         heif_error.message$VH.set(seg.asSlice(index*sizeof()), x);
@@ -70,11 +70,7 @@ public class heif_error {
     public static MemorySegment allocateArray(int len, SegmentAllocator allocator) {
         return allocator.allocate(MemoryLayout.sequenceLayout(len, $LAYOUT()));
     }
-    public static MemorySegment allocate(ResourceScope scope) { return allocate(SegmentAllocator.nativeAllocator(scope)); }
-    public static MemorySegment allocateArray(int len, ResourceScope scope) {
-        return allocateArray(len, SegmentAllocator.nativeAllocator(scope));
-    }
-    public static MemorySegment ofAddress(MemoryAddress addr, ResourceScope scope) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope); }
+    public static MemorySegment ofAddress(MemoryAddress addr, MemorySession session) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, session); }
 }
 
 

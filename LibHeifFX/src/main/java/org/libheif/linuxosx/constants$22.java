@@ -5,8 +5,8 @@ package org.libheif.linuxosx;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
-import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.ValueLayout.*;
+import java.lang.foreign.*;
+import static java.lang.foreign.ValueLayout.*;
 class constants$22 {
 
     static final FunctionDescriptor heif_context_add_exif_metadata$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
@@ -21,7 +21,7 @@ class constants$22 {
     );
     static final MethodHandle heif_context_add_exif_metadata$MH = RuntimeHelper.downcallHandle(
         "heif_context_add_exif_metadata",
-        constants$22.heif_context_add_exif_metadata$FUNC, false
+        constants$22.heif_context_add_exif_metadata$FUNC
     );
     static final FunctionDescriptor heif_context_add_XMP_metadata$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_INT$LAYOUT.withName("code"),
@@ -35,7 +35,7 @@ class constants$22 {
     );
     static final MethodHandle heif_context_add_XMP_metadata$MH = RuntimeHelper.downcallHandle(
         "heif_context_add_XMP_metadata",
-        constants$22.heif_context_add_XMP_metadata$FUNC, false
+        constants$22.heif_context_add_XMP_metadata$FUNC
     );
     static final FunctionDescriptor heif_context_add_generic_metadata$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_INT$LAYOUT.withName("code"),
@@ -51,7 +51,7 @@ class constants$22 {
     );
     static final MethodHandle heif_context_add_generic_metadata$MH = RuntimeHelper.downcallHandle(
         "heif_context_add_generic_metadata",
-        constants$22.heif_context_add_generic_metadata$FUNC, false
+        constants$22.heif_context_add_generic_metadata$FUNC
     );
     static final FunctionDescriptor heif_image_create$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_INT$LAYOUT.withName("code"),
@@ -66,7 +66,7 @@ class constants$22 {
     );
     static final MethodHandle heif_image_create$MH = RuntimeHelper.downcallHandle(
         "heif_image_create",
-        constants$22.heif_image_create$FUNC, false
+        constants$22.heif_image_create$FUNC
     );
     static final FunctionDescriptor heif_image_add_plane$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_INT$LAYOUT.withName("code"),
@@ -81,7 +81,7 @@ class constants$22 {
     );
     static final MethodHandle heif_image_add_plane$MH = RuntimeHelper.downcallHandle(
         "heif_image_add_plane",
-        constants$22.heif_image_add_plane$FUNC, false
+        constants$22.heif_image_add_plane$FUNC
     );
     static final FunctionDescriptor heif_image_set_premultiplied_alpha$FUNC = FunctionDescriptor.ofVoid(
         Constants$root.C_POINTER$LAYOUT,
@@ -89,7 +89,7 @@ class constants$22 {
     );
     static final MethodHandle heif_image_set_premultiplied_alpha$MH = RuntimeHelper.downcallHandle(
         "heif_image_set_premultiplied_alpha",
-        constants$22.heif_image_set_premultiplied_alpha$FUNC, false
+        constants$22.heif_image_set_premultiplied_alpha$FUNC
     );
 }
 

@@ -5,21 +5,21 @@ package org.libheif.linuxosx;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
-import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.ValueLayout.*;
+import java.lang.foreign.*;
+import static java.lang.foreign.ValueLayout.*;
 class constants$21 {
 
     static final FunctionDescriptor heif_encoding_options_alloc$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT);
-    static final MethodHandle heif_encoding_options_alloc$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle heif_encoding_options_alloc$MH = RuntimeHelper.downcallHandleVariadic(
         "heif_encoding_options_alloc",
-        constants$21.heif_encoding_options_alloc$FUNC, true
+        constants$21.heif_encoding_options_alloc$FUNC
     );
     static final FunctionDescriptor heif_encoding_options_free$FUNC = FunctionDescriptor.ofVoid(
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_encoding_options_free$MH = RuntimeHelper.downcallHandle(
         "heif_encoding_options_free",
-        constants$21.heif_encoding_options_free$FUNC, false
+        constants$21.heif_encoding_options_free$FUNC
     );
     static final FunctionDescriptor heif_context_encode_image$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_INT$LAYOUT.withName("code"),
@@ -34,7 +34,7 @@ class constants$21 {
     );
     static final MethodHandle heif_context_encode_image$MH = RuntimeHelper.downcallHandle(
         "heif_context_encode_image",
-        constants$21.heif_context_encode_image$FUNC, false
+        constants$21.heif_context_encode_image$FUNC
     );
     static final FunctionDescriptor heif_context_set_primary_image$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_INT$LAYOUT.withName("code"),
@@ -46,7 +46,7 @@ class constants$21 {
     );
     static final MethodHandle heif_context_set_primary_image$MH = RuntimeHelper.downcallHandle(
         "heif_context_set_primary_image",
-        constants$21.heif_context_set_primary_image$FUNC, false
+        constants$21.heif_context_set_primary_image$FUNC
     );
     static final FunctionDescriptor heif_context_encode_thumbnail$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_INT$LAYOUT.withName("code"),
@@ -63,7 +63,7 @@ class constants$21 {
     );
     static final MethodHandle heif_context_encode_thumbnail$MH = RuntimeHelper.downcallHandle(
         "heif_context_encode_thumbnail",
-        constants$21.heif_context_encode_thumbnail$FUNC, false
+        constants$21.heif_context_encode_thumbnail$FUNC
     );
     static final FunctionDescriptor heif_context_assign_thumbnail$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_INT$LAYOUT.withName("code"),
@@ -76,7 +76,7 @@ class constants$21 {
     );
     static final MethodHandle heif_context_assign_thumbnail$MH = RuntimeHelper.downcallHandle(
         "heif_context_assign_thumbnail",
-        constants$21.heif_context_assign_thumbnail$FUNC, false
+        constants$21.heif_context_assign_thumbnail$FUNC
     );
 }
 

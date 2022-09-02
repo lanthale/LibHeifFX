@@ -5,8 +5,8 @@ package org.libheif.linuxosx;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
-import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.ValueLayout.*;
+import java.lang.foreign.*;
+import static java.lang.foreign.ValueLayout.*;
 class constants$17 {
 
     static final FunctionDescriptor heif_context_get_encoder_for_format$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
@@ -20,21 +20,21 @@ class constants$17 {
     );
     static final MethodHandle heif_context_get_encoder_for_format$MH = RuntimeHelper.downcallHandle(
         "heif_context_get_encoder_for_format",
-        constants$17.heif_context_get_encoder_for_format$FUNC, false
+        constants$17.heif_context_get_encoder_for_format$FUNC
     );
     static final FunctionDescriptor heif_encoder_release$FUNC = FunctionDescriptor.ofVoid(
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_encoder_release$MH = RuntimeHelper.downcallHandle(
         "heif_encoder_release",
-        constants$17.heif_encoder_release$FUNC, false
+        constants$17.heif_encoder_release$FUNC
     );
     static final FunctionDescriptor heif_encoder_get_name$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_encoder_get_name$MH = RuntimeHelper.downcallHandle(
         "heif_encoder_get_name",
-        constants$17.heif_encoder_get_name$FUNC, false
+        constants$17.heif_encoder_get_name$FUNC
     );
     static final FunctionDescriptor heif_encoder_set_lossy_quality$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_INT$LAYOUT.withName("code"),
@@ -46,7 +46,7 @@ class constants$17 {
     );
     static final MethodHandle heif_encoder_set_lossy_quality$MH = RuntimeHelper.downcallHandle(
         "heif_encoder_set_lossy_quality",
-        constants$17.heif_encoder_set_lossy_quality$FUNC, false
+        constants$17.heif_encoder_set_lossy_quality$FUNC
     );
     static final FunctionDescriptor heif_encoder_set_lossless$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_INT$LAYOUT.withName("code"),
@@ -58,7 +58,7 @@ class constants$17 {
     );
     static final MethodHandle heif_encoder_set_lossless$MH = RuntimeHelper.downcallHandle(
         "heif_encoder_set_lossless",
-        constants$17.heif_encoder_set_lossless$FUNC, false
+        constants$17.heif_encoder_set_lossless$FUNC
     );
     static final FunctionDescriptor heif_encoder_set_logging_level$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_INT$LAYOUT.withName("code"),
@@ -70,7 +70,7 @@ class constants$17 {
     );
     static final MethodHandle heif_encoder_set_logging_level$MH = RuntimeHelper.downcallHandle(
         "heif_encoder_set_logging_level",
-        constants$17.heif_encoder_set_logging_level$FUNC, false
+        constants$17.heif_encoder_set_logging_level$FUNC
     );
 }
 

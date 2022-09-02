@@ -5,8 +5,8 @@ package org.libheif.win;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
-import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.ValueLayout.*;
+import java.lang.foreign.*;
+import static java.lang.foreign.ValueLayout.*;
 class constants$10 {
 
     static final FunctionDescriptor heif_image_handle_get_color_profile_type$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
@@ -14,14 +14,14 @@ class constants$10 {
     );
     static final MethodHandle heif_image_handle_get_color_profile_type$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_get_color_profile_type",
-        constants$10.heif_image_handle_get_color_profile_type$FUNC, false
+        constants$10.heif_image_handle_get_color_profile_type$FUNC
     );
     static final FunctionDescriptor heif_image_handle_get_raw_color_profile_size$FUNC = FunctionDescriptor.of(Constants$root.C_LONG_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_raw_color_profile_size$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_get_raw_color_profile_size",
-        constants$10.heif_image_handle_get_raw_color_profile_size$FUNC, false
+        constants$10.heif_image_handle_get_raw_color_profile_size$FUNC
     );
     static final FunctionDescriptor heif_image_handle_get_raw_color_profile$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_LONG$LAYOUT.withName("code"),
@@ -33,7 +33,7 @@ class constants$10 {
     );
     static final MethodHandle heif_image_handle_get_raw_color_profile$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_get_raw_color_profile",
-        constants$10.heif_image_handle_get_raw_color_profile$FUNC, false
+        constants$10.heif_image_handle_get_raw_color_profile$FUNC
     );
     static final FunctionDescriptor heif_image_handle_get_nclx_color_profile$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_LONG$LAYOUT.withName("code"),
@@ -45,19 +45,19 @@ class constants$10 {
     );
     static final MethodHandle heif_image_handle_get_nclx_color_profile$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_get_nclx_color_profile",
-        constants$10.heif_image_handle_get_nclx_color_profile$FUNC, false
+        constants$10.heif_image_handle_get_nclx_color_profile$FUNC
     );
     static final FunctionDescriptor heif_nclx_color_profile_alloc$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT);
-    static final MethodHandle heif_nclx_color_profile_alloc$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle heif_nclx_color_profile_alloc$MH = RuntimeHelper.downcallHandleVariadic(
         "heif_nclx_color_profile_alloc",
-        constants$10.heif_nclx_color_profile_alloc$FUNC, true
+        constants$10.heif_nclx_color_profile_alloc$FUNC
     );
     static final FunctionDescriptor heif_nclx_color_profile_free$FUNC = FunctionDescriptor.ofVoid(
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_nclx_color_profile_free$MH = RuntimeHelper.downcallHandle(
         "heif_nclx_color_profile_free",
-        constants$10.heif_nclx_color_profile_free$FUNC, false
+        constants$10.heif_nclx_color_profile_free$FUNC
     );
 }
 

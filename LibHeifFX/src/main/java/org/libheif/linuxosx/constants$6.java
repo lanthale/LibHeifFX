@@ -5,8 +5,8 @@ package org.libheif.linuxosx;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
-import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.ValueLayout.*;
+import java.lang.foreign.*;
+import static java.lang.foreign.ValueLayout.*;
 class constants$6 {
 
     static final FunctionDescriptor heif_image_handle_is_premultiplied_alpha$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
@@ -14,42 +14,42 @@ class constants$6 {
     );
     static final MethodHandle heif_image_handle_is_premultiplied_alpha$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_is_premultiplied_alpha",
-        constants$6.heif_image_handle_is_premultiplied_alpha$FUNC, false
+        constants$6.heif_image_handle_is_premultiplied_alpha$FUNC
     );
     static final FunctionDescriptor heif_image_handle_get_luma_bits_per_pixel$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_luma_bits_per_pixel$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_get_luma_bits_per_pixel",
-        constants$6.heif_image_handle_get_luma_bits_per_pixel$FUNC, false
+        constants$6.heif_image_handle_get_luma_bits_per_pixel$FUNC
     );
     static final FunctionDescriptor heif_image_handle_get_chroma_bits_per_pixel$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_chroma_bits_per_pixel$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_get_chroma_bits_per_pixel",
-        constants$6.heif_image_handle_get_chroma_bits_per_pixel$FUNC, false
+        constants$6.heif_image_handle_get_chroma_bits_per_pixel$FUNC
     );
     static final FunctionDescriptor heif_image_handle_get_ispe_width$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_ispe_width$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_get_ispe_width",
-        constants$6.heif_image_handle_get_ispe_width$FUNC, false
+        constants$6.heif_image_handle_get_ispe_width$FUNC
     );
     static final FunctionDescriptor heif_image_handle_get_ispe_height$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_get_ispe_height$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_get_ispe_height",
-        constants$6.heif_image_handle_get_ispe_height$FUNC, false
+        constants$6.heif_image_handle_get_ispe_height$FUNC
     );
     static final FunctionDescriptor heif_image_handle_has_depth_image$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_handle_has_depth_image$MH = RuntimeHelper.downcallHandle(
         "heif_image_handle_has_depth_image",
-        constants$6.heif_image_handle_has_depth_image$FUNC, false
+        constants$6.heif_image_handle_has_depth_image$FUNC
     );
 }
 

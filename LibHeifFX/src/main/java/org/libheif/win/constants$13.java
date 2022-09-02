@@ -5,8 +5,8 @@ package org.libheif.win;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
-import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.ValueLayout.*;
+import java.lang.foreign.*;
+import static java.lang.foreign.ValueLayout.*;
 class constants$13 {
 
     static final FunctionDescriptor heif_image_get_primary_width$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
@@ -14,14 +14,14 @@ class constants$13 {
     );
     static final MethodHandle heif_image_get_primary_width$MH = RuntimeHelper.downcallHandle(
         "heif_image_get_primary_width",
-        constants$13.heif_image_get_primary_width$FUNC, false
+        constants$13.heif_image_get_primary_width$FUNC
     );
     static final FunctionDescriptor heif_image_get_primary_height$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_image_get_primary_height$MH = RuntimeHelper.downcallHandle(
         "heif_image_get_primary_height",
-        constants$13.heif_image_get_primary_height$FUNC, false
+        constants$13.heif_image_get_primary_height$FUNC
     );
     static final FunctionDescriptor heif_image_crop$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_LONG$LAYOUT.withName("code"),
@@ -36,7 +36,7 @@ class constants$13 {
     );
     static final MethodHandle heif_image_crop$MH = RuntimeHelper.downcallHandle(
         "heif_image_crop",
-        constants$13.heif_image_crop$FUNC, false
+        constants$13.heif_image_crop$FUNC
     );
     static final FunctionDescriptor heif_image_get_bits_per_pixel$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT,
@@ -44,7 +44,7 @@ class constants$13 {
     );
     static final MethodHandle heif_image_get_bits_per_pixel$MH = RuntimeHelper.downcallHandle(
         "heif_image_get_bits_per_pixel",
-        constants$13.heif_image_get_bits_per_pixel$FUNC, false
+        constants$13.heif_image_get_bits_per_pixel$FUNC
     );
     static final FunctionDescriptor heif_image_get_bits_per_pixel_range$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT,
@@ -52,7 +52,7 @@ class constants$13 {
     );
     static final MethodHandle heif_image_get_bits_per_pixel_range$MH = RuntimeHelper.downcallHandle(
         "heif_image_get_bits_per_pixel_range",
-        constants$13.heif_image_get_bits_per_pixel_range$FUNC, false
+        constants$13.heif_image_get_bits_per_pixel_range$FUNC
     );
     static final FunctionDescriptor heif_image_has_channel$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT,
@@ -60,7 +60,7 @@ class constants$13 {
     );
     static final MethodHandle heif_image_has_channel$MH = RuntimeHelper.downcallHandle(
         "heif_image_has_channel",
-        constants$13.heif_image_has_channel$FUNC, false
+        constants$13.heif_image_has_channel$FUNC
     );
 }
 

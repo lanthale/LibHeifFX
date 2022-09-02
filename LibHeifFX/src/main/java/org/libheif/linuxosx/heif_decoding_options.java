@@ -5,8 +5,8 @@ package org.libheif.linuxosx;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
-import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.ValueLayout.*;
+import java.lang.foreign.*;
+import static java.lang.foreign.ValueLayout.*;
 public class heif_decoding_options {
 
     static final  GroupLayout $struct$LAYOUT = MemoryLayout.structLayout(
@@ -61,19 +61,19 @@ public class heif_decoding_options {
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle start_progress$MH = RuntimeHelper.downcallHandle(
-        heif_decoding_options.start_progress$FUNC, false
+        heif_decoding_options.start_progress$FUNC
     );
     public interface start_progress {
 
-        void apply(int x0, int x1, jdk.incubator.foreign.MemoryAddress x2);
-        static NativeSymbol allocate(start_progress fi, ResourceScope scope) {
-            return RuntimeHelper.upcallStub(start_progress.class, fi, heif_decoding_options.start_progress$FUNC, "(IILjdk/incubator/foreign/MemoryAddress;)V", scope);
+        void apply(int _x0, int _x1, java.lang.foreign.MemoryAddress _x2);
+        static MemorySegment allocate(start_progress fi, MemorySession session) {
+            return RuntimeHelper.upcallStub(start_progress.class, fi, heif_decoding_options.start_progress$FUNC, session);
         }
-        static start_progress ofAddress(MemoryAddress addr, ResourceScope scope) {
-            NativeSymbol symbol = NativeSymbol.ofAddress("start_progress::" + Long.toHexString(addr.toRawLongValue()), addr, scope);
-return (int x0, int x1, jdk.incubator.foreign.MemoryAddress x2) -> {
+        static start_progress ofAddress(MemoryAddress addr, MemorySession session) {
+            MemorySegment symbol = MemorySegment.ofAddress(addr, 0, session);
+            return (int __x0, int __x1, java.lang.foreign.MemoryAddress __x2) -> {
                 try {
-                    heif_decoding_options.start_progress$MH.invokeExact(symbol, x0, x1, (jdk.incubator.foreign.Addressable)x2);
+                    heif_decoding_options.start_progress$MH.invokeExact((Addressable)symbol, __x0, __x1, (java.lang.foreign.Addressable)__x2);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -86,19 +86,19 @@ return (int x0, int x1, jdk.incubator.foreign.MemoryAddress x2) -> {
         return heif_decoding_options.start_progress$VH;
     }
     public static MemoryAddress start_progress$get(MemorySegment seg) {
-        return (jdk.incubator.foreign.MemoryAddress)heif_decoding_options.start_progress$VH.get(seg);
+        return (java.lang.foreign.MemoryAddress)heif_decoding_options.start_progress$VH.get(seg);
     }
     public static void start_progress$set( MemorySegment seg, MemoryAddress x) {
         heif_decoding_options.start_progress$VH.set(seg, x);
     }
     public static MemoryAddress start_progress$get(MemorySegment seg, long index) {
-        return (jdk.incubator.foreign.MemoryAddress)heif_decoding_options.start_progress$VH.get(seg.asSlice(index*sizeof()));
+        return (java.lang.foreign.MemoryAddress)heif_decoding_options.start_progress$VH.get(seg.asSlice(index*sizeof()));
     }
     public static void start_progress$set(MemorySegment seg, long index, MemoryAddress x) {
         heif_decoding_options.start_progress$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    public static start_progress start_progress (MemorySegment segment, ResourceScope scope) {
-        return start_progress.ofAddress(start_progress$get(segment), scope);
+    public static start_progress start_progress (MemorySegment segment, MemorySession session) {
+        return start_progress.ofAddress(start_progress$get(segment), session);
     }
     static final FunctionDescriptor on_progress$FUNC = FunctionDescriptor.ofVoid(
         Constants$root.C_INT$LAYOUT,
@@ -106,19 +106,19 @@ return (int x0, int x1, jdk.incubator.foreign.MemoryAddress x2) -> {
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle on_progress$MH = RuntimeHelper.downcallHandle(
-        heif_decoding_options.on_progress$FUNC, false
+        heif_decoding_options.on_progress$FUNC
     );
     public interface on_progress {
 
-        void apply(int x0, int x1, jdk.incubator.foreign.MemoryAddress x2);
-        static NativeSymbol allocate(on_progress fi, ResourceScope scope) {
-            return RuntimeHelper.upcallStub(on_progress.class, fi, heif_decoding_options.on_progress$FUNC, "(IILjdk/incubator/foreign/MemoryAddress;)V", scope);
+        void apply(int _x0, int _x1, java.lang.foreign.MemoryAddress _x2);
+        static MemorySegment allocate(on_progress fi, MemorySession session) {
+            return RuntimeHelper.upcallStub(on_progress.class, fi, heif_decoding_options.on_progress$FUNC, session);
         }
-        static on_progress ofAddress(MemoryAddress addr, ResourceScope scope) {
-            NativeSymbol symbol = NativeSymbol.ofAddress("on_progress::" + Long.toHexString(addr.toRawLongValue()), addr, scope);
-return (int x0, int x1, jdk.incubator.foreign.MemoryAddress x2) -> {
+        static on_progress ofAddress(MemoryAddress addr, MemorySession session) {
+            MemorySegment symbol = MemorySegment.ofAddress(addr, 0, session);
+            return (int __x0, int __x1, java.lang.foreign.MemoryAddress __x2) -> {
                 try {
-                    heif_decoding_options.on_progress$MH.invokeExact(symbol, x0, x1, (jdk.incubator.foreign.Addressable)x2);
+                    heif_decoding_options.on_progress$MH.invokeExact((Addressable)symbol, __x0, __x1, (java.lang.foreign.Addressable)__x2);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -131,38 +131,38 @@ return (int x0, int x1, jdk.incubator.foreign.MemoryAddress x2) -> {
         return heif_decoding_options.on_progress$VH;
     }
     public static MemoryAddress on_progress$get(MemorySegment seg) {
-        return (jdk.incubator.foreign.MemoryAddress)heif_decoding_options.on_progress$VH.get(seg);
+        return (java.lang.foreign.MemoryAddress)heif_decoding_options.on_progress$VH.get(seg);
     }
     public static void on_progress$set( MemorySegment seg, MemoryAddress x) {
         heif_decoding_options.on_progress$VH.set(seg, x);
     }
     public static MemoryAddress on_progress$get(MemorySegment seg, long index) {
-        return (jdk.incubator.foreign.MemoryAddress)heif_decoding_options.on_progress$VH.get(seg.asSlice(index*sizeof()));
+        return (java.lang.foreign.MemoryAddress)heif_decoding_options.on_progress$VH.get(seg.asSlice(index*sizeof()));
     }
     public static void on_progress$set(MemorySegment seg, long index, MemoryAddress x) {
         heif_decoding_options.on_progress$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    public static on_progress on_progress (MemorySegment segment, ResourceScope scope) {
-        return on_progress.ofAddress(on_progress$get(segment), scope);
+    public static on_progress on_progress (MemorySegment segment, MemorySession session) {
+        return on_progress.ofAddress(on_progress$get(segment), session);
     }
     static final FunctionDescriptor end_progress$FUNC = FunctionDescriptor.ofVoid(
         Constants$root.C_INT$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle end_progress$MH = RuntimeHelper.downcallHandle(
-        heif_decoding_options.end_progress$FUNC, false
+        heif_decoding_options.end_progress$FUNC
     );
     public interface end_progress {
 
-        void apply(int x0, jdk.incubator.foreign.MemoryAddress x1);
-        static NativeSymbol allocate(end_progress fi, ResourceScope scope) {
-            return RuntimeHelper.upcallStub(end_progress.class, fi, heif_decoding_options.end_progress$FUNC, "(ILjdk/incubator/foreign/MemoryAddress;)V", scope);
+        void apply(int _x0, java.lang.foreign.MemoryAddress _x1);
+        static MemorySegment allocate(end_progress fi, MemorySession session) {
+            return RuntimeHelper.upcallStub(end_progress.class, fi, heif_decoding_options.end_progress$FUNC, session);
         }
-        static end_progress ofAddress(MemoryAddress addr, ResourceScope scope) {
-            NativeSymbol symbol = NativeSymbol.ofAddress("end_progress::" + Long.toHexString(addr.toRawLongValue()), addr, scope);
-return (int x0, jdk.incubator.foreign.MemoryAddress x1) -> {
+        static end_progress ofAddress(MemoryAddress addr, MemorySession session) {
+            MemorySegment symbol = MemorySegment.ofAddress(addr, 0, session);
+            return (int __x0, java.lang.foreign.MemoryAddress __x1) -> {
                 try {
-                    heif_decoding_options.end_progress$MH.invokeExact(symbol, x0, (jdk.incubator.foreign.Addressable)x1);
+                    heif_decoding_options.end_progress$MH.invokeExact((Addressable)symbol, __x0, (java.lang.foreign.Addressable)__x1);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -175,32 +175,32 @@ return (int x0, jdk.incubator.foreign.MemoryAddress x1) -> {
         return heif_decoding_options.end_progress$VH;
     }
     public static MemoryAddress end_progress$get(MemorySegment seg) {
-        return (jdk.incubator.foreign.MemoryAddress)heif_decoding_options.end_progress$VH.get(seg);
+        return (java.lang.foreign.MemoryAddress)heif_decoding_options.end_progress$VH.get(seg);
     }
     public static void end_progress$set( MemorySegment seg, MemoryAddress x) {
         heif_decoding_options.end_progress$VH.set(seg, x);
     }
     public static MemoryAddress end_progress$get(MemorySegment seg, long index) {
-        return (jdk.incubator.foreign.MemoryAddress)heif_decoding_options.end_progress$VH.get(seg.asSlice(index*sizeof()));
+        return (java.lang.foreign.MemoryAddress)heif_decoding_options.end_progress$VH.get(seg.asSlice(index*sizeof()));
     }
     public static void end_progress$set(MemorySegment seg, long index, MemoryAddress x) {
         heif_decoding_options.end_progress$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    public static end_progress end_progress (MemorySegment segment, ResourceScope scope) {
-        return end_progress.ofAddress(end_progress$get(segment), scope);
+    public static end_progress end_progress (MemorySegment segment, MemorySession session) {
+        return end_progress.ofAddress(end_progress$get(segment), session);
     }
     static final VarHandle progress_user_data$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("progress_user_data"));
     public static VarHandle progress_user_data$VH() {
         return heif_decoding_options.progress_user_data$VH;
     }
     public static MemoryAddress progress_user_data$get(MemorySegment seg) {
-        return (jdk.incubator.foreign.MemoryAddress)heif_decoding_options.progress_user_data$VH.get(seg);
+        return (java.lang.foreign.MemoryAddress)heif_decoding_options.progress_user_data$VH.get(seg);
     }
     public static void progress_user_data$set( MemorySegment seg, MemoryAddress x) {
         heif_decoding_options.progress_user_data$VH.set(seg, x);
     }
     public static MemoryAddress progress_user_data$get(MemorySegment seg, long index) {
-        return (jdk.incubator.foreign.MemoryAddress)heif_decoding_options.progress_user_data$VH.get(seg.asSlice(index*sizeof()));
+        return (java.lang.foreign.MemoryAddress)heif_decoding_options.progress_user_data$VH.get(seg.asSlice(index*sizeof()));
     }
     public static void progress_user_data$set(MemorySegment seg, long index, MemoryAddress x) {
         heif_decoding_options.progress_user_data$VH.set(seg.asSlice(index*sizeof()), x);
@@ -226,11 +226,7 @@ return (int x0, jdk.incubator.foreign.MemoryAddress x1) -> {
     public static MemorySegment allocateArray(int len, SegmentAllocator allocator) {
         return allocator.allocate(MemoryLayout.sequenceLayout(len, $LAYOUT()));
     }
-    public static MemorySegment allocate(ResourceScope scope) { return allocate(SegmentAllocator.nativeAllocator(scope)); }
-    public static MemorySegment allocateArray(int len, ResourceScope scope) {
-        return allocateArray(len, SegmentAllocator.nativeAllocator(scope));
-    }
-    public static MemorySegment ofAddress(MemoryAddress addr, ResourceScope scope) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope); }
+    public static MemorySegment ofAddress(MemoryAddress addr, MemorySession session) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, session); }
 }
 
 

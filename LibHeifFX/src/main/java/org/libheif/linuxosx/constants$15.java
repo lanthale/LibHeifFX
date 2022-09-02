@@ -5,8 +5,8 @@ package org.libheif.linuxosx;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
-import jdk.incubator.foreign.*;
-import static jdk.incubator.foreign.ValueLayout.*;
+import java.lang.foreign.*;
+import static java.lang.foreign.ValueLayout.*;
 class constants$15 {
 
     static final FunctionDescriptor heif_image_release$FUNC = FunctionDescriptor.ofVoid(
@@ -14,7 +14,7 @@ class constants$15 {
     );
     static final MethodHandle heif_image_release$MH = RuntimeHelper.downcallHandle(
         "heif_image_release",
-        constants$15.heif_image_release$FUNC, false
+        constants$15.heif_image_release$FUNC
     );
     static final FunctionDescriptor heif_context_write_to_file$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_INT$LAYOUT.withName("code"),
@@ -26,7 +26,7 @@ class constants$15 {
     );
     static final MethodHandle heif_context_write_to_file$MH = RuntimeHelper.downcallHandle(
         "heif_context_write_to_file",
-        constants$15.heif_context_write_to_file$FUNC, false
+        constants$15.heif_context_write_to_file$FUNC
     );
     static final FunctionDescriptor heif_context_write$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_INT$LAYOUT.withName("code"),
@@ -39,7 +39,7 @@ class constants$15 {
     );
     static final MethodHandle heif_context_write$MH = RuntimeHelper.downcallHandle(
         "heif_context_write",
-        constants$15.heif_context_write$FUNC, false
+        constants$15.heif_context_write$FUNC
     );
     static final FunctionDescriptor heif_context_get_encoder_descriptors$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
         Constants$root.C_POINTER$LAYOUT,
@@ -50,21 +50,21 @@ class constants$15 {
     );
     static final MethodHandle heif_context_get_encoder_descriptors$MH = RuntimeHelper.downcallHandle(
         "heif_context_get_encoder_descriptors",
-        constants$15.heif_context_get_encoder_descriptors$FUNC, false
+        constants$15.heif_context_get_encoder_descriptors$FUNC
     );
     static final FunctionDescriptor heif_encoder_descriptor_get_name$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_encoder_descriptor_get_name$MH = RuntimeHelper.downcallHandle(
         "heif_encoder_descriptor_get_name",
-        constants$15.heif_encoder_descriptor_get_name$FUNC, false
+        constants$15.heif_encoder_descriptor_get_name$FUNC
     );
     static final FunctionDescriptor heif_encoder_descriptor_get_id_name$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle heif_encoder_descriptor_get_id_name$MH = RuntimeHelper.downcallHandle(
         "heif_encoder_descriptor_get_id_name",
-        constants$15.heif_encoder_descriptor_get_id_name$FUNC, false
+        constants$15.heif_encoder_descriptor_get_id_name$FUNC
     );
 }
 
