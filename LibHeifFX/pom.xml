@@ -95,14 +95,23 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <release>18</release>
+                    <release>19</release>
                     <fork>true</fork>
                     <compilerArgs>                        
+                        <arg>--enable-preview</arg>
                         <arg>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</arg>                                
                         <arg>--add-exports=javafx.graphics/com.sun.javafx.iio.common=org.libheiffx</arg>
                     </compilerArgs>                                        
                 </configuration>
-            </plugin>            
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M7</version>
+                <configuration>
+                    <argLine>--enable-preview</argLine>
+                </configuration>
+            </plugin>             
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
@@ -116,7 +125,8 @@
                             <mainClass>org.libheiffx.TestApp</mainClass>  
                             <options>                                   
                                 <option>--enable-native-access org.libheiffx</option>
-                                <option>--add-modules jdk.incubator.foreign</option>                                
+                                <option>--enable-preview</option>
+                                <option>--add-modules java.se</option>                                
                                 <option>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</option>                                
                                 <option>--add-exports=javafx.graphics/com.sun.javafx.iio.common=org.libheiffx</option>
                             </options>
@@ -130,7 +140,9 @@
                             <mainClass>org.libheiffx.TestApp</mainClass>  
                             <options> 
                                 <option>--enable-native-access org.libheiffx</option>                               
-                                <option>--add-modules jdk.incubator.foreign -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=localhost:8000</option>
+                                <option>--enable-preview</option>
+                                <option>--add-modules java.se</option>
+                                <option>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=localhost:8000</option>
                                 <option>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</option>                                
                                 <option>--add-exports=javafx.graphics/com.sun.javafx.iio.common=org.libheiffx</option>
                             </options>
@@ -142,8 +154,10 @@
                         <configuration>
                             <mainClass>org.libheiffx.TestApp</mainClass>  
                             <options> 
-                                <option>--enable-native-access org.libheiffx</option>                               
-                                <option>--add-modules jdk.incubator.foreign -agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</option>
+                                <option>--enable-native-access org.libheiffx</option> 
+                                <option>--enable-preview</option>
+                                <option>--add-modules java.se</option>                                                              
+                                <option>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</option>
                                 <option>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</option>                                
                                 <option>--add-exports=javafx.graphics/com.sun.javafx.iio.common=org.libheiffx</option>
                             </options>
@@ -160,8 +174,9 @@
                                 <option>${profiler.jvmargs.arg3}</option>
                                 <option>${profiler.jvmargs.arg4}</option>
                                 <option>${profiler.jvmargs.arg5}</option>
-                                <option>--enable-native-access org.libheiffx</option>                               
-                                <option>--add-modules jdk.incubator.foreign</option>
+                                <option>--enable-native-access org.libheiffx</option>    
+                                <option>--enable-preview</option>
+                                <option>--add-modules java.se</option>                                                                                           
                                 <option>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</option>                                
                                 <option>--add-exports=javafx.graphics/com.sun.javafx.iio.common=org.libheiffx</option>
                             </options>

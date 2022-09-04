@@ -17,12 +17,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import jdk.incubator.foreign.MemoryAddress;
-import jdk.incubator.foreign.MemorySegment;
-import jdk.incubator.foreign.ResourceScope;
-import jdk.incubator.foreign.SegmentAllocator;
-import jdk.incubator.foreign.SymbolLookup;
-import jdk.incubator.foreign.ValueLayout;
+import java.lang.foreign.*;
 
 /**
  * Loads the native libheif lib and process the image in the native space. This
@@ -109,12 +104,12 @@ public class LibheifImage {
             Logger.getLogger(LibheifImage.class.getName()).log(Level.SEVERE, null, "Please call loadLibs as static method first!");
             throw new IllegalArgumentException("Please call loadLibs as static method first!");
         }
-        try ( var scope = ResourceScope.newSharedScope()) {
+        try ( var scope = MemorySession.openShared()) {
             if (operatingSystem.contains("WIN")) {
                 MemoryAddress heif_context_alloc = org.libheif.win.heif_h.heif_context_alloc();
 
                 MemorySegment inputStreamBytes = MemorySegment.ofArray(sourceFileAsByteArray);
-                MemorySegment allocateNative = SegmentAllocator.nativeAllocator(scope).allocateArray(org.libheif.win.heif_h.C_CHAR, sourceFileAsByteArray);
+                MemorySegment allocateNative = SegmentAllocator.newNativeArena(scope).allocateArray(org.libheif.win.heif_h.C_CHAR, sourceFileAsByteArray);
                 MemorySegment errorOpening = org.libheif.win.heif_h.heif_context_read_from_memory_without_copy(scope, heif_context_alloc.address(), allocateNative.address(), inputStreamBytes.byteSize(), MemoryAddress.NULL);
                 int errorcode = org.libheif.win.heif_error.code$get(errorOpening);
                 if (errorcode > 0) {
@@ -171,7 +166,7 @@ public class LibheifImage {
                 MemoryAddress heif_context_alloc = org.libheif.linuxosx.heif_h.heif_context_alloc();
 
                 MemorySegment inputStreamBytes = MemorySegment.ofArray(sourceFileAsByteArray);
-                MemorySegment allocateNative = SegmentAllocator.nativeAllocator(scope).allocateArray(org.libheif.linuxosx.heif_h.C_CHAR, sourceFileAsByteArray);
+                MemorySegment allocateNative = SegmentAllocator.newNativeArena(scope).allocateArray(org.libheif.linuxosx.heif_h.C_CHAR, sourceFileAsByteArray);
                 MemorySegment errorOpening = org.libheif.linuxosx.heif_h.heif_context_read_from_memory_without_copy(scope, heif_context_alloc.address(), allocateNative.address(), inputStreamBytes.byteSize(), MemoryAddress.NULL);
                 int errorcode = org.libheif.linuxosx.heif_error.code$get(errorOpening);
                 if (errorcode > 0) {
@@ -281,11 +276,11 @@ public class LibheifImage {
             Logger.getLogger(LibheifImage.class.getName()).log(Level.FINEST, null, "Please call loadLibs as static method first!");
             throw new IllegalArgumentException("Please call loadLibs as static method first!");
         }
-        try ( var scope = ResourceScope.newSharedScope()) {
+        try ( var scope = MemorySession.openShared()) {
             if (operatingSystem.contains("WIN")) {
                 MemoryAddress heif_context_alloc = org.libheif.win.heif_h.heif_context_alloc();
 
-                MemorySegment errorOpening = org.libheif.win.heif_h.heif_context_read_from_file(scope, heif_context_alloc, SegmentAllocator.nativeAllocator(scope).allocateUtf8String(imageFileURL).address(), MemoryAddress.NULL);
+                MemorySegment errorOpening = org.libheif.win.heif_h.heif_context_read_from_file(scope, heif_context_alloc, SegmentAllocator.newNativeArena(scope).allocateUtf8String(imageFileURL).address(), MemoryAddress.NULL);
                 int errorcode = org.libheif.win.heif_error.code$get(errorOpening);
                 if (errorcode > 0) {
                     throw new IOException("Cannot open image file because reading of file data is not possible  (" + errorcode + ")!");
@@ -334,7 +329,7 @@ public class LibheifImage {
             } else {
                 MemoryAddress heif_context_alloc = org.libheif.linuxosx.heif_h.heif_context_alloc();
 
-                MemorySegment errorOpening = org.libheif.linuxosx.heif_h.heif_context_read_from_file(scope, heif_context_alloc, SegmentAllocator.nativeAllocator(scope).allocateUtf8String(imageFileURL).address(), MemoryAddress.NULL);
+                MemorySegment errorOpening = org.libheif.linuxosx.heif_h.heif_context_read_from_file(scope, heif_context_alloc, SegmentAllocator.newNativeArena(scope).allocateUtf8String(imageFileURL).address(), MemoryAddress.NULL);
                 int errorcode = org.libheif.linuxosx.heif_error.code$get(errorOpening);
                 if (errorcode > 0) {
                     throw new IOException("Cannot open image file because reading of file data is not possible  (" + errorcode + ")!");
