@@ -24,7 +24,7 @@ I have integrated Libheif 1.12.0 (https://github.com/strukturag/libheif/releases
 ## Usage
 Point to the maven coordinates:
 
-**JDK18
+**JDK18**
 ```
 <dependency>  
     <groupId>org.libheiffx</groupId>    
@@ -32,7 +32,7 @@ Point to the maven coordinates:
     <version>1.1.9</version>  
 </dependency>  
 ```
-**JDK19
+**JDK19**
 ```
 <dependency>  
     <groupId>org.libheiffx</groupId>    
