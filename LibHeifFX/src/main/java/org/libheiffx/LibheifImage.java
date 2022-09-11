@@ -65,7 +65,7 @@ public class LibheifImage {
         arch = System.getProperty("os.arch").toUpperCase();        
         Logger.getLogger(LibheifImage.class.getName()).log(Level.FINEST, null, "OS was: " + operatingSystem);
         if (operatingSystem.contains("WIN")) {
-            loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/win-x86_64/libde265.dll", "/lib/win-x86_64/heif.dll");
+            loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/win-x86_64/libx265.dll", "/lib/win-x86_64/libde265.dll", "/lib/win-x86_64/heif.dll");
         } else if (operatingSystem.contains("MAC") && !arch.contains("AARCH64")) {
             loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/osx-x86_64/libc++.1.dylib", "/lib/osx-x86_64/libde265.0.dylib", "/lib/osx-x86_64/libx265.199.dylib", "/lib/osx-x86_64/libSystem.B.dylib", "/lib/osx-x86_64/libiconv.2.dylib", "/lib/osx-x86_64/libresolv.9.dylib", "/lib/osx-x86_64/libheif.1.dylib");
         } else if (operatingSystem.contains("MAC") && arch.contains("AARCH64")) {

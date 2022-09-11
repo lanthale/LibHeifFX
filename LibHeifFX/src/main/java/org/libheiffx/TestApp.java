@@ -47,8 +47,9 @@ public class TestApp extends Application {
         stack.setPadding(new Insets(10));
         stack.setSpacing(5);
         stack.setAlignment(Pos.TOP_CENTER);
-        loadImagesByStream(stack, file, file2, file3);
+        //loadImagesByStream(stack, file, file2, file3);
         //loadImagesByFile(stack, System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "ressources" + File.separator + "image0.heic");
+        loadImagesByFile(stack, "\\\\pl-station\\photo\\2022\\heic - single" + File.separator + "image4.heic");
 
         var scene = new Scene(stack, 640, 480);
         stage.setScene(scene);
