@@ -53,7 +53,7 @@ public class HEIFImageLoaderFactory implements ImageLoaderFactory {
         }
         HEIFImageLoaderFactory.dimensionProvider = dimensionProvider;
 
-        ImageStorage.addImageLoaderFactory(instance);        
+        ImageStorage.getInstance().addImageLoaderFactory(instance);        
     }
 
     public static final ImageLoaderFactory getInstance() {

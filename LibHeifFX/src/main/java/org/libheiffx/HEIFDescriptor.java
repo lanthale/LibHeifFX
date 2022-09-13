@@ -21,11 +21,13 @@ public class HEIFDescriptor extends ImageDescriptor {
         new Signature(hexStringToByteArray("000000186674797068656963")),
         new Signature(hexStringToByteArray("0000001C6674797061760000"))
     };
+    
+    private static final String[] mimeSubtypes = { "heic","avif" };
 
     private static ImageDescriptor theInstance = null;
 
     private HEIFDescriptor() {
-        super(formatName, extensions, signatures);
+        super(formatName, extensions, signatures, mimeSubtypes);
     }
 
     public static synchronized ImageDescriptor getInstance() {
