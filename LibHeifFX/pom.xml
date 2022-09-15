@@ -247,7 +247,9 @@
                                 <goals>
                                     <goal>jar</goal>
                                 </goals>
-                                <configuration>                            
+                                <configuration>  
+                                    <release>19</release>
+                                    <additionalOptions>--enable-preview</additionalOptions>                          
                                     <additionalJOptions>                                
                                         <additionalJOption>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</additionalJOption>                                
                                         <additionalJOption>--add-exports=javafx.graphics/com.sun.javafx.iio.common=org.libheiffx</additionalJOption>
