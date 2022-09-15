@@ -4,7 +4,7 @@ All flavoris of heif formats can be loaded with the Image class and manipulated 
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?hosted_button_id=CXWX6CAQ5MMV4)
 
-**JDK 19 is required for v1.2.0** because of the foreign linker API usage and important changes (Windows) for threading happenend in Panama in JDK19
+**JDK 19 and JavaFX 19 is required for v1.2.1** because of the foreign linker API usage and important changes (Windows) for threading happenend in Panama in JDK19
 
 **JDK 18 is required for v1.1.9** because of the foreign linker API usage and the big changes for threading happenend in Panama in JDK18
 
@@ -29,7 +29,7 @@ Point to the maven coordinates:
 <dependency>  
     <groupId>org.libheiffx</groupId>    
     <artifactId>LibHeifFX</artifactId>  
-    <version>1.1.9</version>  
+    <version>1.2.1</version>  
 </dependency>  
 ```
 **JDK19**
