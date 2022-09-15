@@ -29,7 +29,7 @@ Point to the maven coordinates:
 <dependency>  
     <groupId>org.libheiffx</groupId>    
     <artifactId>LibHeifFX</artifactId>  
-    <version>1.2.1</version>  
+    <version>1.1.9</version>  
 </dependency>  
 ```
 **JDK19**
@@ -37,7 +37,7 @@ Point to the maven coordinates:
 <dependency>  
     <groupId>org.libheiffx</groupId>    
     <artifactId>LibHeifFX</artifactId>  
-    <version>1.2.0</version>  
+    <version>1.2.1</version>  
 </dependency>  
 ```
 
@@ -45,9 +45,17 @@ Point to the maven coordinates:
 
      `HEIFImageLoaderFactory.install();`  
 
-- and add the following lines to your java config:
+- and add the following lines to your java config for JDK18:
 ```
 --add-modules jdk.incubator.foreign --enable-native-access=org.libheiffx  
+--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx 
+--add-exports=javafx.graphics/com.sun.javafx.iio.common=org.libheiffx
+```
+
+- add the following lines to your java config for JDK19:
+```
+--enable-preview
+--enable-native-access=org.libheiffx
 --add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx 
 --add-exports=javafx.graphics/com.sun.javafx.iio.common=org.libheiffx
 ```
