@@ -7,8 +7,10 @@ import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import java.lang.foreign.*;
 import static java.lang.foreign.ValueLayout.*;
-class constants$11 {
+final class constants$11 {
 
+    // Suppresses default constructor, ensuring non-instantiability.
+    private constants$11() {}
     static final FunctionDescriptor heif_image_get_color_profile_type$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );

@@ -7,9 +7,22 @@ import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import java.lang.foreign.*;
 import static java.lang.foreign.ValueLayout.*;
+/**
+ * {@snippet :
+ * struct heif_decoding_options {
+ *     unsigned char version;
+ *     unsigned char ignore_transformations;
+ *     void (*start_progress)(enum heif_progress_step,int,void*);
+ *     void (*on_progress)(enum heif_progress_step,int,void*);
+ *     void (*end_progress)(enum heif_progress_step,void*);
+ *     void* progress_user_data;
+ *     unsigned char convert_hdr_to_8bit;
+ * };
+ * }
+ */
 public class heif_decoding_options {
 
-    static final  GroupLayout $struct$LAYOUT = MemoryLayout.structLayout(
+    static final StructLayout $struct$LAYOUT = MemoryLayout.structLayout(
         Constants$root.C_CHAR$LAYOUT.withName("version"),
         Constants$root.C_CHAR$LAYOUT.withName("ignore_transformations"),
         MemoryLayout.paddingLayout(48),
@@ -27,10 +40,22 @@ public class heif_decoding_options {
     public static VarHandle version$VH() {
         return heif_decoding_options.version$VH;
     }
+    /**
+     * Getter for field:
+     * {@snippet :
+     * unsigned char version;
+     * }
+     */
     public static byte version$get(MemorySegment seg) {
         return (byte)heif_decoding_options.version$VH.get(seg);
     }
-    public static void version$set( MemorySegment seg, byte x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * unsigned char version;
+     * }
+     */
+    public static void version$set(MemorySegment seg, byte x) {
         heif_decoding_options.version$VH.set(seg, x);
     }
     public static byte version$get(MemorySegment seg, long index) {
@@ -43,10 +68,22 @@ public class heif_decoding_options {
     public static VarHandle ignore_transformations$VH() {
         return heif_decoding_options.ignore_transformations$VH;
     }
+    /**
+     * Getter for field:
+     * {@snippet :
+     * unsigned char ignore_transformations;
+     * }
+     */
     public static byte ignore_transformations$get(MemorySegment seg) {
         return (byte)heif_decoding_options.ignore_transformations$VH.get(seg);
     }
-    public static void ignore_transformations$set( MemorySegment seg, byte x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * unsigned char ignore_transformations;
+     * }
+     */
+    public static void ignore_transformations$set(MemorySegment seg, byte x) {
         heif_decoding_options.ignore_transformations$VH.set(seg, x);
     }
     public static byte ignore_transformations$get(MemorySegment seg, long index) {
@@ -60,20 +97,36 @@ public class heif_decoding_options {
         Constants$root.C_INT$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle start_progress$MH = RuntimeHelper.downcallHandle(
-        heif_decoding_options.start_progress$FUNC
+    static final FunctionDescriptor start_progress_UP$FUNC = FunctionDescriptor.ofVoid(
+        Constants$root.C_INT$LAYOUT,
+        Constants$root.C_INT$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
+    static final MethodHandle start_progress_UP$MH = RuntimeHelper.upcallHandle(start_progress.class, "apply", heif_decoding_options.start_progress_UP$FUNC);
+    static final FunctionDescriptor start_progress_DOWN$FUNC = FunctionDescriptor.ofVoid(
+        Constants$root.C_INT$LAYOUT,
+        Constants$root.C_INT$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
+    );
+    static final MethodHandle start_progress_DOWN$MH = RuntimeHelper.downcallHandle(
+        heif_decoding_options.start_progress_DOWN$FUNC
+    );
+    /**
+     * {@snippet :
+ * void (*start_progress)(enum heif_progress_step,int,void*);
+     * }
+     */
     public interface start_progress {
 
-        void apply(int _x0, int _x1, java.lang.foreign.MemoryAddress _x2);
-        static MemorySegment allocate(start_progress fi, MemorySession session) {
-            return RuntimeHelper.upcallStub(start_progress.class, fi, heif_decoding_options.start_progress$FUNC, session);
+        void apply(int _x0, int _x1, java.lang.foreign.MemorySegment _x2);
+        static MemorySegment allocate(start_progress fi, SegmentScope scope) {
+            return RuntimeHelper.upcallStub(heif_decoding_options.start_progress_UP$MH, fi, heif_decoding_options.start_progress$FUNC, scope);
         }
-        static start_progress ofAddress(MemoryAddress addr, MemorySession session) {
-            MemorySegment symbol = MemorySegment.ofAddress(addr, 0, session);
-            return (int __x0, int __x1, java.lang.foreign.MemoryAddress __x2) -> {
+        static start_progress ofAddress(MemorySegment addr, SegmentScope scope) {
+            MemorySegment symbol = MemorySegment.ofAddress(addr.address(), 0, scope);
+            return (int __x0, int __x1, java.lang.foreign.MemorySegment __x2) -> {
                 try {
-                    heif_decoding_options.start_progress$MH.invokeExact((Addressable)symbol, __x0, __x1, (java.lang.foreign.Addressable)__x2);
+                    heif_decoding_options.start_progress_DOWN$MH.invokeExact(symbol, __x0, __x1, __x2);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -85,40 +138,68 @@ public class heif_decoding_options {
     public static VarHandle start_progress$VH() {
         return heif_decoding_options.start_progress$VH;
     }
-    public static MemoryAddress start_progress$get(MemorySegment seg) {
-        return (java.lang.foreign.MemoryAddress)heif_decoding_options.start_progress$VH.get(seg);
+    /**
+     * Getter for field:
+     * {@snippet :
+     * void (*start_progress)(enum heif_progress_step,int,void*);
+     * }
+     */
+    public static MemorySegment start_progress$get(MemorySegment seg) {
+        return (java.lang.foreign.MemorySegment)heif_decoding_options.start_progress$VH.get(seg);
     }
-    public static void start_progress$set( MemorySegment seg, MemoryAddress x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * void (*start_progress)(enum heif_progress_step,int,void*);
+     * }
+     */
+    public static void start_progress$set(MemorySegment seg, MemorySegment x) {
         heif_decoding_options.start_progress$VH.set(seg, x);
     }
-    public static MemoryAddress start_progress$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemoryAddress)heif_decoding_options.start_progress$VH.get(seg.asSlice(index*sizeof()));
+    public static MemorySegment start_progress$get(MemorySegment seg, long index) {
+        return (java.lang.foreign.MemorySegment)heif_decoding_options.start_progress$VH.get(seg.asSlice(index*sizeof()));
     }
-    public static void start_progress$set(MemorySegment seg, long index, MemoryAddress x) {
+    public static void start_progress$set(MemorySegment seg, long index, MemorySegment x) {
         heif_decoding_options.start_progress$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    public static start_progress start_progress (MemorySegment segment, MemorySession session) {
-        return start_progress.ofAddress(start_progress$get(segment), session);
+    public static start_progress start_progress(MemorySegment segment, SegmentScope scope) {
+        return start_progress.ofAddress(start_progress$get(segment), scope);
     }
     static final FunctionDescriptor on_progress$FUNC = FunctionDescriptor.ofVoid(
         Constants$root.C_INT$LAYOUT,
         Constants$root.C_INT$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle on_progress$MH = RuntimeHelper.downcallHandle(
-        heif_decoding_options.on_progress$FUNC
+    static final FunctionDescriptor on_progress_UP$FUNC = FunctionDescriptor.ofVoid(
+        Constants$root.C_INT$LAYOUT,
+        Constants$root.C_INT$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
+    static final MethodHandle on_progress_UP$MH = RuntimeHelper.upcallHandle(on_progress.class, "apply", heif_decoding_options.on_progress_UP$FUNC);
+    static final FunctionDescriptor on_progress_DOWN$FUNC = FunctionDescriptor.ofVoid(
+        Constants$root.C_INT$LAYOUT,
+        Constants$root.C_INT$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
+    );
+    static final MethodHandle on_progress_DOWN$MH = RuntimeHelper.downcallHandle(
+        heif_decoding_options.on_progress_DOWN$FUNC
+    );
+    /**
+     * {@snippet :
+ * void (*on_progress)(enum heif_progress_step,int,void*);
+     * }
+     */
     public interface on_progress {
 
-        void apply(int _x0, int _x1, java.lang.foreign.MemoryAddress _x2);
-        static MemorySegment allocate(on_progress fi, MemorySession session) {
-            return RuntimeHelper.upcallStub(on_progress.class, fi, heif_decoding_options.on_progress$FUNC, session);
+        void apply(int _x0, int _x1, java.lang.foreign.MemorySegment _x2);
+        static MemorySegment allocate(on_progress fi, SegmentScope scope) {
+            return RuntimeHelper.upcallStub(heif_decoding_options.on_progress_UP$MH, fi, heif_decoding_options.on_progress$FUNC, scope);
         }
-        static on_progress ofAddress(MemoryAddress addr, MemorySession session) {
-            MemorySegment symbol = MemorySegment.ofAddress(addr, 0, session);
-            return (int __x0, int __x1, java.lang.foreign.MemoryAddress __x2) -> {
+        static on_progress ofAddress(MemorySegment addr, SegmentScope scope) {
+            MemorySegment symbol = MemorySegment.ofAddress(addr.address(), 0, scope);
+            return (int __x0, int __x1, java.lang.foreign.MemorySegment __x2) -> {
                 try {
-                    heif_decoding_options.on_progress$MH.invokeExact((Addressable)symbol, __x0, __x1, (java.lang.foreign.Addressable)__x2);
+                    heif_decoding_options.on_progress_DOWN$MH.invokeExact(symbol, __x0, __x1, __x2);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -130,39 +211,65 @@ public class heif_decoding_options {
     public static VarHandle on_progress$VH() {
         return heif_decoding_options.on_progress$VH;
     }
-    public static MemoryAddress on_progress$get(MemorySegment seg) {
-        return (java.lang.foreign.MemoryAddress)heif_decoding_options.on_progress$VH.get(seg);
+    /**
+     * Getter for field:
+     * {@snippet :
+     * void (*on_progress)(enum heif_progress_step,int,void*);
+     * }
+     */
+    public static MemorySegment on_progress$get(MemorySegment seg) {
+        return (java.lang.foreign.MemorySegment)heif_decoding_options.on_progress$VH.get(seg);
     }
-    public static void on_progress$set( MemorySegment seg, MemoryAddress x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * void (*on_progress)(enum heif_progress_step,int,void*);
+     * }
+     */
+    public static void on_progress$set(MemorySegment seg, MemorySegment x) {
         heif_decoding_options.on_progress$VH.set(seg, x);
     }
-    public static MemoryAddress on_progress$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemoryAddress)heif_decoding_options.on_progress$VH.get(seg.asSlice(index*sizeof()));
+    public static MemorySegment on_progress$get(MemorySegment seg, long index) {
+        return (java.lang.foreign.MemorySegment)heif_decoding_options.on_progress$VH.get(seg.asSlice(index*sizeof()));
     }
-    public static void on_progress$set(MemorySegment seg, long index, MemoryAddress x) {
+    public static void on_progress$set(MemorySegment seg, long index, MemorySegment x) {
         heif_decoding_options.on_progress$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    public static on_progress on_progress (MemorySegment segment, MemorySession session) {
-        return on_progress.ofAddress(on_progress$get(segment), session);
+    public static on_progress on_progress(MemorySegment segment, SegmentScope scope) {
+        return on_progress.ofAddress(on_progress$get(segment), scope);
     }
     static final FunctionDescriptor end_progress$FUNC = FunctionDescriptor.ofVoid(
         Constants$root.C_INT$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle end_progress$MH = RuntimeHelper.downcallHandle(
-        heif_decoding_options.end_progress$FUNC
+    static final FunctionDescriptor end_progress_UP$FUNC = FunctionDescriptor.ofVoid(
+        Constants$root.C_INT$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
+    static final MethodHandle end_progress_UP$MH = RuntimeHelper.upcallHandle(end_progress.class, "apply", heif_decoding_options.end_progress_UP$FUNC);
+    static final FunctionDescriptor end_progress_DOWN$FUNC = FunctionDescriptor.ofVoid(
+        Constants$root.C_INT$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
+    );
+    static final MethodHandle end_progress_DOWN$MH = RuntimeHelper.downcallHandle(
+        heif_decoding_options.end_progress_DOWN$FUNC
+    );
+    /**
+     * {@snippet :
+ * void (*end_progress)(enum heif_progress_step,void*);
+     * }
+     */
     public interface end_progress {
 
-        void apply(int _x0, java.lang.foreign.MemoryAddress _x1);
-        static MemorySegment allocate(end_progress fi, MemorySession session) {
-            return RuntimeHelper.upcallStub(end_progress.class, fi, heif_decoding_options.end_progress$FUNC, session);
+        void apply(int _x0, java.lang.foreign.MemorySegment _x1);
+        static MemorySegment allocate(end_progress fi, SegmentScope scope) {
+            return RuntimeHelper.upcallStub(heif_decoding_options.end_progress_UP$MH, fi, heif_decoding_options.end_progress$FUNC, scope);
         }
-        static end_progress ofAddress(MemoryAddress addr, MemorySession session) {
-            MemorySegment symbol = MemorySegment.ofAddress(addr, 0, session);
-            return (int __x0, java.lang.foreign.MemoryAddress __x1) -> {
+        static end_progress ofAddress(MemorySegment addr, SegmentScope scope) {
+            MemorySegment symbol = MemorySegment.ofAddress(addr.address(), 0, scope);
+            return (int __x0, java.lang.foreign.MemorySegment __x1) -> {
                 try {
-                    heif_decoding_options.end_progress$MH.invokeExact((Addressable)symbol, __x0, (java.lang.foreign.Addressable)__x1);
+                    heif_decoding_options.end_progress_DOWN$MH.invokeExact(symbol, __x0, __x1);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -174,45 +281,81 @@ public class heif_decoding_options {
     public static VarHandle end_progress$VH() {
         return heif_decoding_options.end_progress$VH;
     }
-    public static MemoryAddress end_progress$get(MemorySegment seg) {
-        return (java.lang.foreign.MemoryAddress)heif_decoding_options.end_progress$VH.get(seg);
+    /**
+     * Getter for field:
+     * {@snippet :
+     * void (*end_progress)(enum heif_progress_step,void*);
+     * }
+     */
+    public static MemorySegment end_progress$get(MemorySegment seg) {
+        return (java.lang.foreign.MemorySegment)heif_decoding_options.end_progress$VH.get(seg);
     }
-    public static void end_progress$set( MemorySegment seg, MemoryAddress x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * void (*end_progress)(enum heif_progress_step,void*);
+     * }
+     */
+    public static void end_progress$set(MemorySegment seg, MemorySegment x) {
         heif_decoding_options.end_progress$VH.set(seg, x);
     }
-    public static MemoryAddress end_progress$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemoryAddress)heif_decoding_options.end_progress$VH.get(seg.asSlice(index*sizeof()));
+    public static MemorySegment end_progress$get(MemorySegment seg, long index) {
+        return (java.lang.foreign.MemorySegment)heif_decoding_options.end_progress$VH.get(seg.asSlice(index*sizeof()));
     }
-    public static void end_progress$set(MemorySegment seg, long index, MemoryAddress x) {
+    public static void end_progress$set(MemorySegment seg, long index, MemorySegment x) {
         heif_decoding_options.end_progress$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    public static end_progress end_progress (MemorySegment segment, MemorySession session) {
-        return end_progress.ofAddress(end_progress$get(segment), session);
+    public static end_progress end_progress(MemorySegment segment, SegmentScope scope) {
+        return end_progress.ofAddress(end_progress$get(segment), scope);
     }
     static final VarHandle progress_user_data$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("progress_user_data"));
     public static VarHandle progress_user_data$VH() {
         return heif_decoding_options.progress_user_data$VH;
     }
-    public static MemoryAddress progress_user_data$get(MemorySegment seg) {
-        return (java.lang.foreign.MemoryAddress)heif_decoding_options.progress_user_data$VH.get(seg);
+    /**
+     * Getter for field:
+     * {@snippet :
+     * void* progress_user_data;
+     * }
+     */
+    public static MemorySegment progress_user_data$get(MemorySegment seg) {
+        return (java.lang.foreign.MemorySegment)heif_decoding_options.progress_user_data$VH.get(seg);
     }
-    public static void progress_user_data$set( MemorySegment seg, MemoryAddress x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * void* progress_user_data;
+     * }
+     */
+    public static void progress_user_data$set(MemorySegment seg, MemorySegment x) {
         heif_decoding_options.progress_user_data$VH.set(seg, x);
     }
-    public static MemoryAddress progress_user_data$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemoryAddress)heif_decoding_options.progress_user_data$VH.get(seg.asSlice(index*sizeof()));
+    public static MemorySegment progress_user_data$get(MemorySegment seg, long index) {
+        return (java.lang.foreign.MemorySegment)heif_decoding_options.progress_user_data$VH.get(seg.asSlice(index*sizeof()));
     }
-    public static void progress_user_data$set(MemorySegment seg, long index, MemoryAddress x) {
+    public static void progress_user_data$set(MemorySegment seg, long index, MemorySegment x) {
         heif_decoding_options.progress_user_data$VH.set(seg.asSlice(index*sizeof()), x);
     }
     static final VarHandle convert_hdr_to_8bit$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("convert_hdr_to_8bit"));
     public static VarHandle convert_hdr_to_8bit$VH() {
         return heif_decoding_options.convert_hdr_to_8bit$VH;
     }
+    /**
+     * Getter for field:
+     * {@snippet :
+     * unsigned char convert_hdr_to_8bit;
+     * }
+     */
     public static byte convert_hdr_to_8bit$get(MemorySegment seg) {
         return (byte)heif_decoding_options.convert_hdr_to_8bit$VH.get(seg);
     }
-    public static void convert_hdr_to_8bit$set( MemorySegment seg, byte x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * unsigned char convert_hdr_to_8bit;
+     * }
+     */
+    public static void convert_hdr_to_8bit$set(MemorySegment seg, byte x) {
         heif_decoding_options.convert_hdr_to_8bit$VH.set(seg, x);
     }
     public static byte convert_hdr_to_8bit$get(MemorySegment seg, long index) {
@@ -223,10 +366,10 @@ public class heif_decoding_options {
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
     public static MemorySegment allocate(SegmentAllocator allocator) { return allocator.allocate($LAYOUT()); }
-    public static MemorySegment allocateArray(int len, SegmentAllocator allocator) {
+    public static MemorySegment allocateArray(long len, SegmentAllocator allocator) {
         return allocator.allocate(MemoryLayout.sequenceLayout(len, $LAYOUT()));
     }
-    public static MemorySegment ofAddress(MemoryAddress addr, MemorySession session) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, session); }
+    public static MemorySegment ofAddress(MemorySegment addr, SegmentScope scope) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope); }
 }
 
 

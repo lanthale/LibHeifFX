@@ -7,8 +7,10 @@ import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import java.lang.foreign.*;
 import static java.lang.foreign.ValueLayout.*;
-class constants$23 {
+final class constants$23 {
 
+    // Suppresses default constructor, ensuring non-instantiability.
+    private constants$23() {}
     static final FunctionDescriptor heif_image_is_premultiplied_alpha$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );

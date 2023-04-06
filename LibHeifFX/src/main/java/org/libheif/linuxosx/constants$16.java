@@ -7,8 +7,10 @@ import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import java.lang.foreign.*;
 import static java.lang.foreign.ValueLayout.*;
-class constants$16 {
+final class constants$16 {
 
+    // Suppresses default constructor, ensuring non-instantiability.
+    private constants$16() {}
     static final FunctionDescriptor heif_encoder_descriptor_get_compression_format$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );

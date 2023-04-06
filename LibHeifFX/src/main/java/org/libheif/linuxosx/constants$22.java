@@ -7,8 +7,10 @@ import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import java.lang.foreign.*;
 import static java.lang.foreign.ValueLayout.*;
-class constants$22 {
+final class constants$22 {
 
+    // Suppresses default constructor, ensuring non-instantiability.
+    private constants$22() {}
     static final FunctionDescriptor heif_context_add_exif_metadata$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_INT$LAYOUT.withName("code"),
         Constants$root.C_INT$LAYOUT.withName("subcode"),

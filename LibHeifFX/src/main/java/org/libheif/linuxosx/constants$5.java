@@ -7,8 +7,10 @@ import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import java.lang.foreign.*;
 import static java.lang.foreign.ValueLayout.*;
-class constants$5 {
+final class constants$5 {
 
+    // Suppresses default constructor, ensuring non-instantiability.
+    private constants$5() {}
     static final FunctionDescriptor heif_context_set_max_decoding_threads$FUNC = FunctionDescriptor.ofVoid(
         Constants$root.C_POINTER$LAYOUT,
         Constants$root.C_INT$LAYOUT

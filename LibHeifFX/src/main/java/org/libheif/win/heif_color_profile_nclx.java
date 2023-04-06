@@ -7,9 +7,28 @@ import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import java.lang.foreign.*;
 import static java.lang.foreign.ValueLayout.*;
+/**
+ * {@snippet :
+ * struct heif_color_profile_nclx {
+ *     unsigned char version;
+ *     enum heif_color_primaries color_primaries;
+ *     enum heif_transfer_characteristics transfer_characteristics;
+ *     enum heif_matrix_coefficients matrix_coefficients;
+ *     unsigned char full_range_flag;
+ *     float color_primary_red_x;
+ *     float color_primary_red_y;
+ *     float color_primary_green_x;
+ *     float color_primary_green_y;
+ *     float color_primary_blue_x;
+ *     float color_primary_blue_y;
+ *     float color_primary_white_x;
+ *     float color_primary_white_y;
+ * };
+ * }
+ */
 public class heif_color_profile_nclx {
 
-    static final  GroupLayout $struct$LAYOUT = MemoryLayout.structLayout(
+    static final StructLayout $struct$LAYOUT = MemoryLayout.structLayout(
         Constants$root.C_CHAR$LAYOUT.withName("version"),
         MemoryLayout.paddingLayout(24),
         Constants$root.C_LONG$LAYOUT.withName("color_primaries"),
@@ -33,10 +52,22 @@ public class heif_color_profile_nclx {
     public static VarHandle version$VH() {
         return heif_color_profile_nclx.version$VH;
     }
+    /**
+     * Getter for field:
+     * {@snippet :
+     * unsigned char version;
+     * }
+     */
     public static byte version$get(MemorySegment seg) {
         return (byte)heif_color_profile_nclx.version$VH.get(seg);
     }
-    public static void version$set( MemorySegment seg, byte x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * unsigned char version;
+     * }
+     */
+    public static void version$set(MemorySegment seg, byte x) {
         heif_color_profile_nclx.version$VH.set(seg, x);
     }
     public static byte version$get(MemorySegment seg, long index) {
@@ -49,10 +80,22 @@ public class heif_color_profile_nclx {
     public static VarHandle color_primaries$VH() {
         return heif_color_profile_nclx.color_primaries$VH;
     }
+    /**
+     * Getter for field:
+     * {@snippet :
+     * enum heif_color_primaries color_primaries;
+     * }
+     */
     public static int color_primaries$get(MemorySegment seg) {
         return (int)heif_color_profile_nclx.color_primaries$VH.get(seg);
     }
-    public static void color_primaries$set( MemorySegment seg, int x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * enum heif_color_primaries color_primaries;
+     * }
+     */
+    public static void color_primaries$set(MemorySegment seg, int x) {
         heif_color_profile_nclx.color_primaries$VH.set(seg, x);
     }
     public static int color_primaries$get(MemorySegment seg, long index) {
@@ -65,10 +108,22 @@ public class heif_color_profile_nclx {
     public static VarHandle transfer_characteristics$VH() {
         return heif_color_profile_nclx.transfer_characteristics$VH;
     }
+    /**
+     * Getter for field:
+     * {@snippet :
+     * enum heif_transfer_characteristics transfer_characteristics;
+     * }
+     */
     public static int transfer_characteristics$get(MemorySegment seg) {
         return (int)heif_color_profile_nclx.transfer_characteristics$VH.get(seg);
     }
-    public static void transfer_characteristics$set( MemorySegment seg, int x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * enum heif_transfer_characteristics transfer_characteristics;
+     * }
+     */
+    public static void transfer_characteristics$set(MemorySegment seg, int x) {
         heif_color_profile_nclx.transfer_characteristics$VH.set(seg, x);
     }
     public static int transfer_characteristics$get(MemorySegment seg, long index) {
@@ -81,10 +136,22 @@ public class heif_color_profile_nclx {
     public static VarHandle matrix_coefficients$VH() {
         return heif_color_profile_nclx.matrix_coefficients$VH;
     }
+    /**
+     * Getter for field:
+     * {@snippet :
+     * enum heif_matrix_coefficients matrix_coefficients;
+     * }
+     */
     public static int matrix_coefficients$get(MemorySegment seg) {
         return (int)heif_color_profile_nclx.matrix_coefficients$VH.get(seg);
     }
-    public static void matrix_coefficients$set( MemorySegment seg, int x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * enum heif_matrix_coefficients matrix_coefficients;
+     * }
+     */
+    public static void matrix_coefficients$set(MemorySegment seg, int x) {
         heif_color_profile_nclx.matrix_coefficients$VH.set(seg, x);
     }
     public static int matrix_coefficients$get(MemorySegment seg, long index) {
@@ -97,10 +164,22 @@ public class heif_color_profile_nclx {
     public static VarHandle full_range_flag$VH() {
         return heif_color_profile_nclx.full_range_flag$VH;
     }
+    /**
+     * Getter for field:
+     * {@snippet :
+     * unsigned char full_range_flag;
+     * }
+     */
     public static byte full_range_flag$get(MemorySegment seg) {
         return (byte)heif_color_profile_nclx.full_range_flag$VH.get(seg);
     }
-    public static void full_range_flag$set( MemorySegment seg, byte x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * unsigned char full_range_flag;
+     * }
+     */
+    public static void full_range_flag$set(MemorySegment seg, byte x) {
         heif_color_profile_nclx.full_range_flag$VH.set(seg, x);
     }
     public static byte full_range_flag$get(MemorySegment seg, long index) {
@@ -113,10 +192,22 @@ public class heif_color_profile_nclx {
     public static VarHandle color_primary_red_x$VH() {
         return heif_color_profile_nclx.color_primary_red_x$VH;
     }
+    /**
+     * Getter for field:
+     * {@snippet :
+     * float color_primary_red_x;
+     * }
+     */
     public static float color_primary_red_x$get(MemorySegment seg) {
         return (float)heif_color_profile_nclx.color_primary_red_x$VH.get(seg);
     }
-    public static void color_primary_red_x$set( MemorySegment seg, float x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * float color_primary_red_x;
+     * }
+     */
+    public static void color_primary_red_x$set(MemorySegment seg, float x) {
         heif_color_profile_nclx.color_primary_red_x$VH.set(seg, x);
     }
     public static float color_primary_red_x$get(MemorySegment seg, long index) {
@@ -129,10 +220,22 @@ public class heif_color_profile_nclx {
     public static VarHandle color_primary_red_y$VH() {
         return heif_color_profile_nclx.color_primary_red_y$VH;
     }
+    /**
+     * Getter for field:
+     * {@snippet :
+     * float color_primary_red_y;
+     * }
+     */
     public static float color_primary_red_y$get(MemorySegment seg) {
         return (float)heif_color_profile_nclx.color_primary_red_y$VH.get(seg);
     }
-    public static void color_primary_red_y$set( MemorySegment seg, float x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * float color_primary_red_y;
+     * }
+     */
+    public static void color_primary_red_y$set(MemorySegment seg, float x) {
         heif_color_profile_nclx.color_primary_red_y$VH.set(seg, x);
     }
     public static float color_primary_red_y$get(MemorySegment seg, long index) {
@@ -145,10 +248,22 @@ public class heif_color_profile_nclx {
     public static VarHandle color_primary_green_x$VH() {
         return heif_color_profile_nclx.color_primary_green_x$VH;
     }
+    /**
+     * Getter for field:
+     * {@snippet :
+     * float color_primary_green_x;
+     * }
+     */
     public static float color_primary_green_x$get(MemorySegment seg) {
         return (float)heif_color_profile_nclx.color_primary_green_x$VH.get(seg);
     }
-    public static void color_primary_green_x$set( MemorySegment seg, float x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * float color_primary_green_x;
+     * }
+     */
+    public static void color_primary_green_x$set(MemorySegment seg, float x) {
         heif_color_profile_nclx.color_primary_green_x$VH.set(seg, x);
     }
     public static float color_primary_green_x$get(MemorySegment seg, long index) {
@@ -161,10 +276,22 @@ public class heif_color_profile_nclx {
     public static VarHandle color_primary_green_y$VH() {
         return heif_color_profile_nclx.color_primary_green_y$VH;
     }
+    /**
+     * Getter for field:
+     * {@snippet :
+     * float color_primary_green_y;
+     * }
+     */
     public static float color_primary_green_y$get(MemorySegment seg) {
         return (float)heif_color_profile_nclx.color_primary_green_y$VH.get(seg);
     }
-    public static void color_primary_green_y$set( MemorySegment seg, float x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * float color_primary_green_y;
+     * }
+     */
+    public static void color_primary_green_y$set(MemorySegment seg, float x) {
         heif_color_profile_nclx.color_primary_green_y$VH.set(seg, x);
     }
     public static float color_primary_green_y$get(MemorySegment seg, long index) {
@@ -177,10 +304,22 @@ public class heif_color_profile_nclx {
     public static VarHandle color_primary_blue_x$VH() {
         return heif_color_profile_nclx.color_primary_blue_x$VH;
     }
+    /**
+     * Getter for field:
+     * {@snippet :
+     * float color_primary_blue_x;
+     * }
+     */
     public static float color_primary_blue_x$get(MemorySegment seg) {
         return (float)heif_color_profile_nclx.color_primary_blue_x$VH.get(seg);
     }
-    public static void color_primary_blue_x$set( MemorySegment seg, float x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * float color_primary_blue_x;
+     * }
+     */
+    public static void color_primary_blue_x$set(MemorySegment seg, float x) {
         heif_color_profile_nclx.color_primary_blue_x$VH.set(seg, x);
     }
     public static float color_primary_blue_x$get(MemorySegment seg, long index) {
@@ -193,10 +332,22 @@ public class heif_color_profile_nclx {
     public static VarHandle color_primary_blue_y$VH() {
         return heif_color_profile_nclx.color_primary_blue_y$VH;
     }
+    /**
+     * Getter for field:
+     * {@snippet :
+     * float color_primary_blue_y;
+     * }
+     */
     public static float color_primary_blue_y$get(MemorySegment seg) {
         return (float)heif_color_profile_nclx.color_primary_blue_y$VH.get(seg);
     }
-    public static void color_primary_blue_y$set( MemorySegment seg, float x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * float color_primary_blue_y;
+     * }
+     */
+    public static void color_primary_blue_y$set(MemorySegment seg, float x) {
         heif_color_profile_nclx.color_primary_blue_y$VH.set(seg, x);
     }
     public static float color_primary_blue_y$get(MemorySegment seg, long index) {
@@ -209,10 +360,22 @@ public class heif_color_profile_nclx {
     public static VarHandle color_primary_white_x$VH() {
         return heif_color_profile_nclx.color_primary_white_x$VH;
     }
+    /**
+     * Getter for field:
+     * {@snippet :
+     * float color_primary_white_x;
+     * }
+     */
     public static float color_primary_white_x$get(MemorySegment seg) {
         return (float)heif_color_profile_nclx.color_primary_white_x$VH.get(seg);
     }
-    public static void color_primary_white_x$set( MemorySegment seg, float x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * float color_primary_white_x;
+     * }
+     */
+    public static void color_primary_white_x$set(MemorySegment seg, float x) {
         heif_color_profile_nclx.color_primary_white_x$VH.set(seg, x);
     }
     public static float color_primary_white_x$get(MemorySegment seg, long index) {
@@ -225,10 +388,22 @@ public class heif_color_profile_nclx {
     public static VarHandle color_primary_white_y$VH() {
         return heif_color_profile_nclx.color_primary_white_y$VH;
     }
+    /**
+     * Getter for field:
+     * {@snippet :
+     * float color_primary_white_y;
+     * }
+     */
     public static float color_primary_white_y$get(MemorySegment seg) {
         return (float)heif_color_profile_nclx.color_primary_white_y$VH.get(seg);
     }
-    public static void color_primary_white_y$set( MemorySegment seg, float x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * float color_primary_white_y;
+     * }
+     */
+    public static void color_primary_white_y$set(MemorySegment seg, float x) {
         heif_color_profile_nclx.color_primary_white_y$VH.set(seg, x);
     }
     public static float color_primary_white_y$get(MemorySegment seg, long index) {
@@ -239,10 +414,10 @@ public class heif_color_profile_nclx {
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
     public static MemorySegment allocate(SegmentAllocator allocator) { return allocator.allocate($LAYOUT()); }
-    public static MemorySegment allocateArray(int len, SegmentAllocator allocator) {
+    public static MemorySegment allocateArray(long len, SegmentAllocator allocator) {
         return allocator.allocate(MemoryLayout.sequenceLayout(len, $LAYOUT()));
     }
-    public static MemorySegment ofAddress(MemoryAddress addr, MemorySession session) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, session); }
+    public static MemorySegment ofAddress(MemorySegment addr, SegmentScope scope) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope); }
 }
 
 

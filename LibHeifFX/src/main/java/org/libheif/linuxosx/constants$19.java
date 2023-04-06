@@ -7,8 +7,10 @@ import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import java.lang.foreign.*;
 import static java.lang.foreign.ValueLayout.*;
-class constants$19 {
+final class constants$19 {
 
+    // Suppresses default constructor, ensuring non-instantiability.
+    private constants$19() {}
     static final FunctionDescriptor heif_encoder_set_parameter_integer$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_INT$LAYOUT.withName("code"),
         Constants$root.C_INT$LAYOUT.withName("subcode"),

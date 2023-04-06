@@ -9,22 +9,50 @@ import java.lang.foreign.*;
 import static java.lang.foreign.ValueLayout.*;
 public class heif_h  {
 
-    /* package-private */ heif_h() {}
-    public static OfByte C_CHAR = Constants$root.C_CHAR$LAYOUT;
-    public static OfShort C_SHORT = Constants$root.C_SHORT$LAYOUT;
-    public static OfInt C_INT = Constants$root.C_LONG$LAYOUT;
-    public static OfInt C_LONG = Constants$root.C_LONG$LAYOUT;
-    public static OfLong C_LONG_LONG = Constants$root.C_LONG_LONG$LAYOUT;
-    public static OfFloat C_FLOAT = Constants$root.C_FLOAT$LAYOUT;
-    public static OfDouble C_DOUBLE = Constants$root.C_DOUBLE$LAYOUT;
-    public static OfAddress C_POINTER = Constants$root.C_POINTER$LAYOUT;
+    public static final OfByte C_CHAR = Constants$root.C_CHAR$LAYOUT;
+    public static final OfShort C_SHORT = Constants$root.C_SHORT$LAYOUT;
+    public static final OfInt C_INT = Constants$root.C_LONG$LAYOUT;
+    public static final OfInt C_LONG = Constants$root.C_LONG$LAYOUT;
+    public static final OfLong C_LONG_LONG = Constants$root.C_LONG_LONG$LAYOUT;
+    public static final OfFloat C_FLOAT = Constants$root.C_FLOAT$LAYOUT;
+    public static final OfDouble C_DOUBLE = Constants$root.C_DOUBLE$LAYOUT;
+    public static final OfAddress C_POINTER = Constants$root.C_POINTER$LAYOUT;
+    /**
+     * {@snippet :
+     * typedef long long ptrdiff_t;
+     * }
+     */
+    public static final OfLong ptrdiff_t = Constants$root.C_LONG_LONG$LAYOUT;
+    /**
+     * {@snippet :
+     * typedef unsigned long long size_t;
+     * }
+     */
+    public static final OfLong size_t = Constants$root.C_LONG_LONG$LAYOUT;
+    /**
+     * {@snippet :
+     * typedef unsigned short wchar_t;
+     * }
+     */
+    public static final OfShort wchar_t = Constants$root.C_SHORT$LAYOUT;
+    /**
+     * {@snippet :
+     * typedef double max_align_t;
+     * }
+     */
+    public static final OfDouble max_align_t = Constants$root.C_DOUBLE$LAYOUT;
     public static MethodHandle heif_get_version$MH() {
         return RuntimeHelper.requireNonNull(constants$0.heif_get_version$MH,"heif_get_version");
     }
-    public static MemoryAddress heif_get_version () {
+    /**
+     * {@snippet :
+     * char* heif_get_version();
+     * }
+     */
+    public static MemorySegment heif_get_version() {
         var mh$ = heif_get_version$MH();
         try {
-            return (java.lang.foreign.MemoryAddress)mh$.invokeExact();
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact();
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -32,7 +60,12 @@ public class heif_h  {
     public static MethodHandle heif_get_version_number$MH() {
         return RuntimeHelper.requireNonNull(constants$0.heif_get_version_number$MH,"heif_get_version_number");
     }
-    public static int heif_get_version_number () {
+    /**
+     * {@snippet :
+     * unsigned int heif_get_version_number();
+     * }
+     */
+    public static int heif_get_version_number() {
         var mh$ = heif_get_version_number$MH();
         try {
             return (int)mh$.invokeExact();
@@ -43,7 +76,12 @@ public class heif_h  {
     public static MethodHandle heif_get_version_number_major$MH() {
         return RuntimeHelper.requireNonNull(constants$0.heif_get_version_number_major$MH,"heif_get_version_number_major");
     }
-    public static int heif_get_version_number_major () {
+    /**
+     * {@snippet :
+     * int heif_get_version_number_major();
+     * }
+     */
+    public static int heif_get_version_number_major() {
         var mh$ = heif_get_version_number_major$MH();
         try {
             return (int)mh$.invokeExact();
@@ -54,7 +92,12 @@ public class heif_h  {
     public static MethodHandle heif_get_version_number_minor$MH() {
         return RuntimeHelper.requireNonNull(constants$0.heif_get_version_number_minor$MH,"heif_get_version_number_minor");
     }
-    public static int heif_get_version_number_minor () {
+    /**
+     * {@snippet :
+     * int heif_get_version_number_minor();
+     * }
+     */
+    public static int heif_get_version_number_minor() {
         var mh$ = heif_get_version_number_minor$MH();
         try {
             return (int)mh$.invokeExact();
@@ -65,7 +108,12 @@ public class heif_h  {
     public static MethodHandle heif_get_version_number_maintenance$MH() {
         return RuntimeHelper.requireNonNull(constants$0.heif_get_version_number_maintenance$MH,"heif_get_version_number_maintenance");
     }
-    public static int heif_get_version_number_maintenance () {
+    /**
+     * {@snippet :
+     * int heif_get_version_number_maintenance();
+     * }
+     */
+    public static int heif_get_version_number_maintenance() {
         var mh$ = heif_get_version_number_maintenance$MH();
         try {
             return (int)mh$.invokeExact();
@@ -73,202 +121,533 @@ public class heif_h  {
             throw new AssertionError("should not reach here", ex$);
         }
     }
+    /**
+     * {@snippet :
+     * enum heif_error_code.heif_error_Ok = 0;
+     * }
+     */
     public static int heif_error_Ok() {
         return (int)0L;
     }
+    /**
+     * {@snippet :
+     * enum heif_error_code.heif_error_Input_does_not_exist = 1;
+     * }
+     */
     public static int heif_error_Input_does_not_exist() {
         return (int)1L;
     }
+    /**
+     * {@snippet :
+     * enum heif_error_code.heif_error_Invalid_input = 2;
+     * }
+     */
     public static int heif_error_Invalid_input() {
         return (int)2L;
     }
+    /**
+     * {@snippet :
+     * enum heif_error_code.heif_error_Unsupported_filetype = 3;
+     * }
+     */
     public static int heif_error_Unsupported_filetype() {
         return (int)3L;
     }
+    /**
+     * {@snippet :
+     * enum heif_error_code.heif_error_Unsupported_feature = 4;
+     * }
+     */
     public static int heif_error_Unsupported_feature() {
         return (int)4L;
     }
+    /**
+     * {@snippet :
+     * enum heif_error_code.heif_error_Usage_error = 5;
+     * }
+     */
     public static int heif_error_Usage_error() {
         return (int)5L;
     }
+    /**
+     * {@snippet :
+     * enum heif_error_code.heif_error_Memory_allocation_error = 6;
+     * }
+     */
     public static int heif_error_Memory_allocation_error() {
         return (int)6L;
     }
+    /**
+     * {@snippet :
+     * enum heif_error_code.heif_error_Decoder_plugin_error = 7;
+     * }
+     */
     public static int heif_error_Decoder_plugin_error() {
         return (int)7L;
     }
+    /**
+     * {@snippet :
+     * enum heif_error_code.heif_error_Encoder_plugin_error = 8;
+     * }
+     */
     public static int heif_error_Encoder_plugin_error() {
         return (int)8L;
     }
+    /**
+     * {@snippet :
+     * enum heif_error_code.heif_error_Encoding_error = 9;
+     * }
+     */
     public static int heif_error_Encoding_error() {
         return (int)9L;
     }
+    /**
+     * {@snippet :
+     * enum heif_error_code.heif_error_Color_profile_does_not_exist = 10;
+     * }
+     */
     public static int heif_error_Color_profile_does_not_exist() {
         return (int)10L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Unspecified = 0;
+     * }
+     */
     public static int heif_suberror_Unspecified() {
         return (int)0L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_End_of_data = 100;
+     * }
+     */
     public static int heif_suberror_End_of_data() {
         return (int)100L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Invalid_box_size = 101;
+     * }
+     */
     public static int heif_suberror_Invalid_box_size() {
         return (int)101L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_No_ftyp_box = 102;
+     * }
+     */
     public static int heif_suberror_No_ftyp_box() {
         return (int)102L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_No_idat_box = 103;
+     * }
+     */
     public static int heif_suberror_No_idat_box() {
         return (int)103L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_No_meta_box = 104;
+     * }
+     */
     public static int heif_suberror_No_meta_box() {
         return (int)104L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_No_hdlr_box = 105;
+     * }
+     */
     public static int heif_suberror_No_hdlr_box() {
         return (int)105L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_No_hvcC_box = 106;
+     * }
+     */
     public static int heif_suberror_No_hvcC_box() {
         return (int)106L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_No_pitm_box = 107;
+     * }
+     */
     public static int heif_suberror_No_pitm_box() {
         return (int)107L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_No_ipco_box = 108;
+     * }
+     */
     public static int heif_suberror_No_ipco_box() {
         return (int)108L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_No_ipma_box = 109;
+     * }
+     */
     public static int heif_suberror_No_ipma_box() {
         return (int)109L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_No_iloc_box = 110;
+     * }
+     */
     public static int heif_suberror_No_iloc_box() {
         return (int)110L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_No_iinf_box = 111;
+     * }
+     */
     public static int heif_suberror_No_iinf_box() {
         return (int)111L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_No_iprp_box = 112;
+     * }
+     */
     public static int heif_suberror_No_iprp_box() {
         return (int)112L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_No_iref_box = 113;
+     * }
+     */
     public static int heif_suberror_No_iref_box() {
         return (int)113L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_No_pict_handler = 114;
+     * }
+     */
     public static int heif_suberror_No_pict_handler() {
         return (int)114L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Ipma_box_references_nonexisting_property = 115;
+     * }
+     */
     public static int heif_suberror_Ipma_box_references_nonexisting_property() {
         return (int)115L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_No_properties_assigned_to_item = 116;
+     * }
+     */
     public static int heif_suberror_No_properties_assigned_to_item() {
         return (int)116L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_No_item_data = 117;
+     * }
+     */
     public static int heif_suberror_No_item_data() {
         return (int)117L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Invalid_grid_data = 118;
+     * }
+     */
     public static int heif_suberror_Invalid_grid_data() {
         return (int)118L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Missing_grid_images = 119;
+     * }
+     */
     public static int heif_suberror_Missing_grid_images() {
         return (int)119L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Invalid_clean_aperture = 120;
+     * }
+     */
     public static int heif_suberror_Invalid_clean_aperture() {
         return (int)120L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Invalid_overlay_data = 121;
+     * }
+     */
     public static int heif_suberror_Invalid_overlay_data() {
         return (int)121L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Overlay_image_outside_of_canvas = 122;
+     * }
+     */
     public static int heif_suberror_Overlay_image_outside_of_canvas() {
         return (int)122L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Auxiliary_image_type_unspecified = 123;
+     * }
+     */
     public static int heif_suberror_Auxiliary_image_type_unspecified() {
         return (int)123L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_No_or_invalid_primary_item = 124;
+     * }
+     */
     public static int heif_suberror_No_or_invalid_primary_item() {
         return (int)124L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_No_infe_box = 125;
+     * }
+     */
     public static int heif_suberror_No_infe_box() {
         return (int)125L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Unknown_color_profile_type = 126;
+     * }
+     */
     public static int heif_suberror_Unknown_color_profile_type() {
         return (int)126L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Wrong_tile_image_chroma_format = 127;
+     * }
+     */
     public static int heif_suberror_Wrong_tile_image_chroma_format() {
         return (int)127L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Invalid_fractional_number = 128;
+     * }
+     */
     public static int heif_suberror_Invalid_fractional_number() {
         return (int)128L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Invalid_image_size = 129;
+     * }
+     */
     public static int heif_suberror_Invalid_image_size() {
         return (int)129L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Invalid_pixi_box = 130;
+     * }
+     */
     public static int heif_suberror_Invalid_pixi_box() {
         return (int)130L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_No_av1C_box = 131;
+     * }
+     */
     public static int heif_suberror_No_av1C_box() {
         return (int)131L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Wrong_tile_image_pixel_depth = 132;
+     * }
+     */
     public static int heif_suberror_Wrong_tile_image_pixel_depth() {
         return (int)132L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Security_limit_exceeded = 1000;
+     * }
+     */
     public static int heif_suberror_Security_limit_exceeded() {
         return (int)1000L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Nonexisting_item_referenced = 2000;
+     * }
+     */
     public static int heif_suberror_Nonexisting_item_referenced() {
         return (int)2000L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Null_pointer_argument = 2001;
+     * }
+     */
     public static int heif_suberror_Null_pointer_argument() {
         return (int)2001L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Nonexisting_image_channel_referenced = 2002;
+     * }
+     */
     public static int heif_suberror_Nonexisting_image_channel_referenced() {
         return (int)2002L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Unsupported_plugin_version = 2003;
+     * }
+     */
     public static int heif_suberror_Unsupported_plugin_version() {
         return (int)2003L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Unsupported_writer_version = 2004;
+     * }
+     */
     public static int heif_suberror_Unsupported_writer_version() {
         return (int)2004L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Unsupported_parameter = 2005;
+     * }
+     */
     public static int heif_suberror_Unsupported_parameter() {
         return (int)2005L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Invalid_parameter_value = 2006;
+     * }
+     */
     public static int heif_suberror_Invalid_parameter_value() {
         return (int)2006L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Unsupported_codec = 3000;
+     * }
+     */
     public static int heif_suberror_Unsupported_codec() {
         return (int)3000L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Unsupported_image_type = 3001;
+     * }
+     */
     public static int heif_suberror_Unsupported_image_type() {
         return (int)3001L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Unsupported_data_version = 3002;
+     * }
+     */
     public static int heif_suberror_Unsupported_data_version() {
         return (int)3002L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Unsupported_color_conversion = 3003;
+     * }
+     */
     public static int heif_suberror_Unsupported_color_conversion() {
         return (int)3003L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Unsupported_item_construction_method = 3004;
+     * }
+     */
     public static int heif_suberror_Unsupported_item_construction_method() {
         return (int)3004L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Unsupported_bit_depth = 4000;
+     * }
+     */
     public static int heif_suberror_Unsupported_bit_depth() {
         return (int)4000L;
     }
+    /**
+     * {@snippet :
+     * enum heif_suberror_code.heif_suberror_Cannot_write_output_data = 5000;
+     * }
+     */
     public static int heif_suberror_Cannot_write_output_data() {
         return (int)5000L;
     }
+    /**
+     * {@snippet :
+     * typedef unsigned int heif_item_id;
+     * }
+     */
+    public static final OfInt heif_item_id = Constants$root.C_LONG$LAYOUT;
+    /**
+     * {@snippet :
+     * enum heif_filetype_result.heif_filetype_no = 0;
+     * }
+     */
     public static int heif_filetype_no() {
         return (int)0L;
     }
+    /**
+     * {@snippet :
+     * enum heif_filetype_result.heif_filetype_yes_supported = 1;
+     * }
+     */
     public static int heif_filetype_yes_supported() {
         return (int)1L;
     }
+    /**
+     * {@snippet :
+     * enum heif_filetype_result.heif_filetype_yes_unsupported = 2;
+     * }
+     */
     public static int heif_filetype_yes_unsupported() {
         return (int)2L;
     }
+    /**
+     * {@snippet :
+     * enum heif_filetype_result.heif_filetype_maybe = 3;
+     * }
+     */
     public static int heif_filetype_maybe() {
         return (int)3L;
     }
     public static MethodHandle heif_check_filetype$MH() {
         return RuntimeHelper.requireNonNull(constants$0.heif_check_filetype$MH,"heif_check_filetype");
     }
-    public static int heif_check_filetype ( Addressable data,  int len) {
+    /**
+     * {@snippet :
+     * enum heif_filetype_result heif_check_filetype(unsigned char* data, int len);
+     * }
+     */
+    public static int heif_check_filetype(MemorySegment data, int len) {
         var mh$ = heif_check_filetype$MH();
         try {
             return (int)mh$.invokeExact(data, len);
@@ -276,49 +655,119 @@ public class heif_h  {
             throw new AssertionError("should not reach here", ex$);
         }
     }
+    /**
+     * {@snippet :
+     * enum heif_brand.heif_unknown_brand = 0;
+     * }
+     */
     public static int heif_unknown_brand() {
         return (int)0L;
     }
+    /**
+     * {@snippet :
+     * enum heif_brand.heif_heic = 1;
+     * }
+     */
     public static int heif_heic() {
         return (int)1L;
     }
+    /**
+     * {@snippet :
+     * enum heif_brand.heif_heix = 2;
+     * }
+     */
     public static int heif_heix() {
         return (int)2L;
     }
+    /**
+     * {@snippet :
+     * enum heif_brand.heif_hevc = 3;
+     * }
+     */
     public static int heif_hevc() {
         return (int)3L;
     }
+    /**
+     * {@snippet :
+     * enum heif_brand.heif_hevx = 4;
+     * }
+     */
     public static int heif_hevx() {
         return (int)4L;
     }
+    /**
+     * {@snippet :
+     * enum heif_brand.heif_heim = 5;
+     * }
+     */
     public static int heif_heim() {
         return (int)5L;
     }
+    /**
+     * {@snippet :
+     * enum heif_brand.heif_heis = 6;
+     * }
+     */
     public static int heif_heis() {
         return (int)6L;
     }
+    /**
+     * {@snippet :
+     * enum heif_brand.heif_hevm = 7;
+     * }
+     */
     public static int heif_hevm() {
         return (int)7L;
     }
+    /**
+     * {@snippet :
+     * enum heif_brand.heif_hevs = 8;
+     * }
+     */
     public static int heif_hevs() {
         return (int)8L;
     }
+    /**
+     * {@snippet :
+     * enum heif_brand.heif_mif1 = 9;
+     * }
+     */
     public static int heif_mif1() {
         return (int)9L;
     }
+    /**
+     * {@snippet :
+     * enum heif_brand.heif_msf1 = 10;
+     * }
+     */
     public static int heif_msf1() {
         return (int)10L;
     }
+    /**
+     * {@snippet :
+     * enum heif_brand.heif_avif = 11;
+     * }
+     */
     public static int heif_avif() {
         return (int)11L;
     }
+    /**
+     * {@snippet :
+     * enum heif_brand.heif_avis = 12;
+     * }
+     */
     public static int heif_avis() {
         return (int)12L;
     }
     public static MethodHandle heif_main_brand$MH() {
         return RuntimeHelper.requireNonNull(constants$1.heif_main_brand$MH,"heif_main_brand");
     }
-    public static int heif_main_brand ( Addressable data,  int len) {
+    /**
+     * {@snippet :
+     * enum heif_brand heif_main_brand(unsigned char* data, int len);
+     * }
+     */
+    public static int heif_main_brand(MemorySegment data, int len) {
         var mh$ = heif_main_brand$MH();
         try {
             return (int)mh$.invokeExact(data, len);
@@ -326,10 +775,21 @@ public class heif_h  {
             throw new AssertionError("should not reach here", ex$);
         }
     }
+    /**
+     * {@snippet :
+     * typedef unsigned int heif_brand2;
+     * }
+     */
+    public static final OfInt heif_brand2 = Constants$root.C_LONG$LAYOUT;
     public static MethodHandle heif_read_main_brand$MH() {
         return RuntimeHelper.requireNonNull(constants$1.heif_read_main_brand$MH,"heif_read_main_brand");
     }
-    public static int heif_read_main_brand ( Addressable data,  int len) {
+    /**
+     * {@snippet :
+     * unsigned int heif_read_main_brand(unsigned char* data, int len);
+     * }
+     */
+    public static int heif_read_main_brand(MemorySegment data, int len) {
         var mh$ = heif_read_main_brand$MH();
         try {
             return (int)mh$.invokeExact(data, len);
@@ -340,7 +800,12 @@ public class heif_h  {
     public static MethodHandle heif_fourcc_to_brand$MH() {
         return RuntimeHelper.requireNonNull(constants$1.heif_fourcc_to_brand$MH,"heif_fourcc_to_brand");
     }
-    public static int heif_fourcc_to_brand ( Addressable brand_fourcc) {
+    /**
+     * {@snippet :
+     * unsigned int heif_fourcc_to_brand(char* brand_fourcc);
+     * }
+     */
+    public static int heif_fourcc_to_brand(MemorySegment brand_fourcc) {
         var mh$ = heif_fourcc_to_brand$MH();
         try {
             return (int)mh$.invokeExact(brand_fourcc);
@@ -351,7 +816,12 @@ public class heif_h  {
     public static MethodHandle heif_brand_to_fourcc$MH() {
         return RuntimeHelper.requireNonNull(constants$1.heif_brand_to_fourcc$MH,"heif_brand_to_fourcc");
     }
-    public static void heif_brand_to_fourcc ( int brand,  Addressable out_fourcc) {
+    /**
+     * {@snippet :
+     * void heif_brand_to_fourcc(unsigned int brand, char* out_fourcc);
+     * }
+     */
+    public static void heif_brand_to_fourcc(int brand, MemorySegment out_fourcc) {
         var mh$ = heif_brand_to_fourcc$MH();
         try {
             mh$.invokeExact(brand, out_fourcc);
@@ -362,7 +832,12 @@ public class heif_h  {
     public static MethodHandle heif_has_compatible_brand$MH() {
         return RuntimeHelper.requireNonNull(constants$1.heif_has_compatible_brand$MH,"heif_has_compatible_brand");
     }
-    public static int heif_has_compatible_brand ( Addressable data,  int len,  Addressable brand_fourcc) {
+    /**
+     * {@snippet :
+     * int heif_has_compatible_brand(unsigned char* data, int len, char* brand_fourcc);
+     * }
+     */
+    public static int heif_has_compatible_brand(MemorySegment data, int len, MemorySegment brand_fourcc) {
         var mh$ = heif_has_compatible_brand$MH();
         try {
             return (int)mh$.invokeExact(data, len, brand_fourcc);
@@ -373,7 +848,12 @@ public class heif_h  {
     public static MethodHandle heif_list_compatible_brands$MH() {
         return RuntimeHelper.requireNonNull(constants$1.heif_list_compatible_brands$MH,"heif_list_compatible_brands");
     }
-    public static MemorySegment heif_list_compatible_brands ( SegmentAllocator allocator,  Addressable data,  int len,  Addressable out_brands,  Addressable out_size) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_list_compatible_brands(unsigned char* data, int len, unsigned int** out_brands, int* out_size);
+     * }
+     */
+    public static MemorySegment heif_list_compatible_brands(SegmentAllocator allocator, MemorySegment data, int len, MemorySegment out_brands, MemorySegment out_size) {
         var mh$ = heif_list_compatible_brands$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, data, len, out_brands, out_size);
@@ -384,7 +864,12 @@ public class heif_h  {
     public static MethodHandle heif_free_list_of_compatible_brands$MH() {
         return RuntimeHelper.requireNonNull(constants$2.heif_free_list_of_compatible_brands$MH,"heif_free_list_of_compatible_brands");
     }
-    public static void heif_free_list_of_compatible_brands ( Addressable brands_list) {
+    /**
+     * {@snippet :
+     * void heif_free_list_of_compatible_brands(unsigned int* brands_list);
+     * }
+     */
+    public static void heif_free_list_of_compatible_brands(MemorySegment brands_list) {
         var mh$ = heif_free_list_of_compatible_brands$MH();
         try {
             mh$.invokeExact(brands_list);
@@ -395,10 +880,15 @@ public class heif_h  {
     public static MethodHandle heif_get_file_mime_type$MH() {
         return RuntimeHelper.requireNonNull(constants$2.heif_get_file_mime_type$MH,"heif_get_file_mime_type");
     }
-    public static MemoryAddress heif_get_file_mime_type ( Addressable data,  int len) {
+    /**
+     * {@snippet :
+     * char* heif_get_file_mime_type(unsigned char* data, int len);
+     * }
+     */
+    public static MemorySegment heif_get_file_mime_type(MemorySegment data, int len) {
         var mh$ = heif_get_file_mime_type$MH();
         try {
-            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(data, len);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(data, len);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -406,10 +896,15 @@ public class heif_h  {
     public static MethodHandle heif_context_alloc$MH() {
         return RuntimeHelper.requireNonNull(constants$2.heif_context_alloc$MH,"heif_context_alloc");
     }
-    public static MemoryAddress heif_context_alloc () {
+    /**
+     * {@snippet :
+     * struct heif_context* heif_context_alloc();
+     * }
+     */
+    public static MemorySegment heif_context_alloc() {
         var mh$ = heif_context_alloc$MH();
         try {
-            return (java.lang.foreign.MemoryAddress)mh$.invokeExact();
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact();
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -417,7 +912,12 @@ public class heif_h  {
     public static MethodHandle heif_context_free$MH() {
         return RuntimeHelper.requireNonNull(constants$2.heif_context_free$MH,"heif_context_free");
     }
-    public static void heif_context_free ( Addressable x0) {
+    /**
+     * {@snippet :
+     * void heif_context_free(struct heif_context*);
+     * }
+     */
+    public static void heif_context_free(MemorySegment x0) {
         var mh$ = heif_context_free$MH();
         try {
             mh$.invokeExact(x0);
@@ -425,19 +925,39 @@ public class heif_h  {
             throw new AssertionError("should not reach here", ex$);
         }
     }
+    /**
+     * {@snippet :
+     * enum heif_reader_grow_status.heif_reader_grow_status_size_reached = 0;
+     * }
+     */
     public static int heif_reader_grow_status_size_reached() {
         return (int)0L;
     }
+    /**
+     * {@snippet :
+     * enum heif_reader_grow_status.heif_reader_grow_status_timeout = 1;
+     * }
+     */
     public static int heif_reader_grow_status_timeout() {
         return (int)1L;
     }
+    /**
+     * {@snippet :
+     * enum heif_reader_grow_status.heif_reader_grow_status_size_beyond_eof = 2;
+     * }
+     */
     public static int heif_reader_grow_status_size_beyond_eof() {
         return (int)2L;
     }
     public static MethodHandle heif_context_read_from_file$MH() {
         return RuntimeHelper.requireNonNull(constants$2.heif_context_read_from_file$MH,"heif_context_read_from_file");
     }
-    public static MemorySegment heif_context_read_from_file ( SegmentAllocator allocator,  Addressable x1,  Addressable filename,  Addressable x3) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_context_read_from_file(struct heif_context*, char* filename, struct heif_reading_options*);
+     * }
+     */
+    public static MemorySegment heif_context_read_from_file(SegmentAllocator allocator, MemorySegment x1, MemorySegment filename, MemorySegment x3) {
         var mh$ = heif_context_read_from_file$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, filename, x3);
@@ -448,7 +968,12 @@ public class heif_h  {
     public static MethodHandle heif_context_read_from_memory$MH() {
         return RuntimeHelper.requireNonNull(constants$2.heif_context_read_from_memory$MH,"heif_context_read_from_memory");
     }
-    public static MemorySegment heif_context_read_from_memory ( SegmentAllocator allocator,  Addressable x1,  Addressable mem,  long size,  Addressable x4) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_context_read_from_memory(struct heif_context*, void* mem, unsigned long long size, struct heif_reading_options*);
+     * }
+     */
+    public static MemorySegment heif_context_read_from_memory(SegmentAllocator allocator, MemorySegment x1, MemorySegment mem, long size, MemorySegment x4) {
         var mh$ = heif_context_read_from_memory$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, mem, size, x4);
@@ -459,7 +984,12 @@ public class heif_h  {
     public static MethodHandle heif_context_read_from_memory_without_copy$MH() {
         return RuntimeHelper.requireNonNull(constants$3.heif_context_read_from_memory_without_copy$MH,"heif_context_read_from_memory_without_copy");
     }
-    public static MemorySegment heif_context_read_from_memory_without_copy ( SegmentAllocator allocator,  Addressable x1,  Addressable mem,  long size,  Addressable x4) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_context_read_from_memory_without_copy(struct heif_context*, void* mem, unsigned long long size, struct heif_reading_options*);
+     * }
+     */
+    public static MemorySegment heif_context_read_from_memory_without_copy(SegmentAllocator allocator, MemorySegment x1, MemorySegment mem, long size, MemorySegment x4) {
         var mh$ = heif_context_read_from_memory_without_copy$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, mem, size, x4);
@@ -470,7 +1000,12 @@ public class heif_h  {
     public static MethodHandle heif_context_read_from_reader$MH() {
         return RuntimeHelper.requireNonNull(constants$3.heif_context_read_from_reader$MH,"heif_context_read_from_reader");
     }
-    public static MemorySegment heif_context_read_from_reader ( SegmentAllocator allocator,  Addressable x1,  Addressable reader,  Addressable userdata,  Addressable x4) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_context_read_from_reader(struct heif_context*, struct heif_reader* reader, void* userdata, struct heif_reading_options*);
+     * }
+     */
+    public static MemorySegment heif_context_read_from_reader(SegmentAllocator allocator, MemorySegment x1, MemorySegment reader, MemorySegment userdata, MemorySegment x4) {
         var mh$ = heif_context_read_from_reader$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, reader, userdata, x4);
@@ -481,7 +1016,12 @@ public class heif_h  {
     public static MethodHandle heif_context_get_number_of_top_level_images$MH() {
         return RuntimeHelper.requireNonNull(constants$3.heif_context_get_number_of_top_level_images$MH,"heif_context_get_number_of_top_level_images");
     }
-    public static int heif_context_get_number_of_top_level_images ( Addressable ctx) {
+    /**
+     * {@snippet :
+     * int heif_context_get_number_of_top_level_images(struct heif_context* ctx);
+     * }
+     */
+    public static int heif_context_get_number_of_top_level_images(MemorySegment ctx) {
         var mh$ = heif_context_get_number_of_top_level_images$MH();
         try {
             return (int)mh$.invokeExact(ctx);
@@ -492,7 +1032,12 @@ public class heif_h  {
     public static MethodHandle heif_context_is_top_level_image_ID$MH() {
         return RuntimeHelper.requireNonNull(constants$3.heif_context_is_top_level_image_ID$MH,"heif_context_is_top_level_image_ID");
     }
-    public static int heif_context_is_top_level_image_ID ( Addressable ctx,  int id) {
+    /**
+     * {@snippet :
+     * int heif_context_is_top_level_image_ID(struct heif_context* ctx, unsigned int id);
+     * }
+     */
+    public static int heif_context_is_top_level_image_ID(MemorySegment ctx, int id) {
         var mh$ = heif_context_is_top_level_image_ID$MH();
         try {
             return (int)mh$.invokeExact(ctx, id);
@@ -503,7 +1048,12 @@ public class heif_h  {
     public static MethodHandle heif_context_get_list_of_top_level_image_IDs$MH() {
         return RuntimeHelper.requireNonNull(constants$3.heif_context_get_list_of_top_level_image_IDs$MH,"heif_context_get_list_of_top_level_image_IDs");
     }
-    public static int heif_context_get_list_of_top_level_image_IDs ( Addressable ctx,  Addressable ID_array,  int count) {
+    /**
+     * {@snippet :
+     * int heif_context_get_list_of_top_level_image_IDs(struct heif_context* ctx, unsigned int* ID_array, int count);
+     * }
+     */
+    public static int heif_context_get_list_of_top_level_image_IDs(MemorySegment ctx, MemorySegment ID_array, int count) {
         var mh$ = heif_context_get_list_of_top_level_image_IDs$MH();
         try {
             return (int)mh$.invokeExact(ctx, ID_array, count);
@@ -514,7 +1064,12 @@ public class heif_h  {
     public static MethodHandle heif_context_get_primary_image_ID$MH() {
         return RuntimeHelper.requireNonNull(constants$3.heif_context_get_primary_image_ID$MH,"heif_context_get_primary_image_ID");
     }
-    public static MemorySegment heif_context_get_primary_image_ID ( SegmentAllocator allocator,  Addressable ctx,  Addressable id) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_context_get_primary_image_ID(struct heif_context* ctx, unsigned int* id);
+     * }
+     */
+    public static MemorySegment heif_context_get_primary_image_ID(SegmentAllocator allocator, MemorySegment ctx, MemorySegment id) {
         var mh$ = heif_context_get_primary_image_ID$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, ctx, id);
@@ -525,7 +1080,12 @@ public class heif_h  {
     public static MethodHandle heif_context_get_primary_image_handle$MH() {
         return RuntimeHelper.requireNonNull(constants$4.heif_context_get_primary_image_handle$MH,"heif_context_get_primary_image_handle");
     }
-    public static MemorySegment heif_context_get_primary_image_handle ( SegmentAllocator allocator,  Addressable ctx,  Addressable x2) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_context_get_primary_image_handle(struct heif_context* ctx, struct heif_image_handle**);
+     * }
+     */
+    public static MemorySegment heif_context_get_primary_image_handle(SegmentAllocator allocator, MemorySegment ctx, MemorySegment x2) {
         var mh$ = heif_context_get_primary_image_handle$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, ctx, x2);
@@ -536,10 +1096,15 @@ public class heif_h  {
     public static MethodHandle heif_context_get_primary_image_handle_alloc$MH() {
         return RuntimeHelper.requireNonNull(constants$4.heif_context_get_primary_image_handle_alloc$MH,"heif_context_get_primary_image_handle_alloc");
     }
-    public static MemoryAddress heif_context_get_primary_image_handle_alloc ( Addressable ctx) {
+    /**
+     * {@snippet :
+     * struct heif_image_handle* heif_context_get_primary_image_handle_alloc(struct heif_context* ctx);
+     * }
+     */
+    public static MemorySegment heif_context_get_primary_image_handle_alloc(MemorySegment ctx) {
         var mh$ = heif_context_get_primary_image_handle_alloc$MH();
         try {
-            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(ctx);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(ctx);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -547,7 +1112,12 @@ public class heif_h  {
     public static MethodHandle heif_context_get_image_handle$MH() {
         return RuntimeHelper.requireNonNull(constants$4.heif_context_get_image_handle$MH,"heif_context_get_image_handle");
     }
-    public static MemorySegment heif_context_get_image_handle ( SegmentAllocator allocator,  Addressable ctx,  int id,  Addressable x3) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_context_get_image_handle(struct heif_context* ctx, unsigned int id, struct heif_image_handle**);
+     * }
+     */
+    public static MemorySegment heif_context_get_image_handle(SegmentAllocator allocator, MemorySegment ctx, int id, MemorySegment x3) {
         var mh$ = heif_context_get_image_handle$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, ctx, id, x3);
@@ -558,7 +1128,12 @@ public class heif_h  {
     public static MethodHandle heif_context_debug_dump_boxes_to_file$MH() {
         return RuntimeHelper.requireNonNull(constants$4.heif_context_debug_dump_boxes_to_file$MH,"heif_context_debug_dump_boxes_to_file");
     }
-    public static void heif_context_debug_dump_boxes_to_file ( Addressable ctx,  int fd) {
+    /**
+     * {@snippet :
+     * void heif_context_debug_dump_boxes_to_file(struct heif_context* ctx, int fd);
+     * }
+     */
+    public static void heif_context_debug_dump_boxes_to_file(MemorySegment ctx, int fd) {
         var mh$ = heif_context_debug_dump_boxes_to_file$MH();
         try {
             mh$.invokeExact(ctx, fd);
@@ -569,7 +1144,12 @@ public class heif_h  {
     public static MethodHandle heif_context_set_maximum_image_size_limit$MH() {
         return RuntimeHelper.requireNonNull(constants$4.heif_context_set_maximum_image_size_limit$MH,"heif_context_set_maximum_image_size_limit");
     }
-    public static void heif_context_set_maximum_image_size_limit ( Addressable ctx,  int maximum_width) {
+    /**
+     * {@snippet :
+     * void heif_context_set_maximum_image_size_limit(struct heif_context* ctx, int maximum_width);
+     * }
+     */
+    public static void heif_context_set_maximum_image_size_limit(MemorySegment ctx, int maximum_width) {
         var mh$ = heif_context_set_maximum_image_size_limit$MH();
         try {
             mh$.invokeExact(ctx, maximum_width);
@@ -580,7 +1160,12 @@ public class heif_h  {
     public static MethodHandle heif_context_set_max_decoding_threads$MH() {
         return RuntimeHelper.requireNonNull(constants$4.heif_context_set_max_decoding_threads$MH,"heif_context_set_max_decoding_threads");
     }
-    public static void heif_context_set_max_decoding_threads ( Addressable ctx,  int max_threads) {
+    /**
+     * {@snippet :
+     * void heif_context_set_max_decoding_threads(struct heif_context* ctx, int max_threads);
+     * }
+     */
+    public static void heif_context_set_max_decoding_threads(MemorySegment ctx, int max_threads) {
         var mh$ = heif_context_set_max_decoding_threads$MH();
         try {
             mh$.invokeExact(ctx, max_threads);
@@ -591,7 +1176,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_release$MH() {
         return RuntimeHelper.requireNonNull(constants$5.heif_image_handle_release$MH,"heif_image_handle_release");
     }
-    public static void heif_image_handle_release ( Addressable x0) {
+    /**
+     * {@snippet :
+     * void heif_image_handle_release(struct heif_image_handle*);
+     * }
+     */
+    public static void heif_image_handle_release(MemorySegment x0) {
         var mh$ = heif_image_handle_release$MH();
         try {
             mh$.invokeExact(x0);
@@ -602,7 +1192,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_is_primary_image$MH() {
         return RuntimeHelper.requireNonNull(constants$5.heif_image_handle_is_primary_image$MH,"heif_image_handle_is_primary_image");
     }
-    public static int heif_image_handle_is_primary_image ( Addressable handle) {
+    /**
+     * {@snippet :
+     * int heif_image_handle_is_primary_image(struct heif_image_handle* handle);
+     * }
+     */
+    public static int heif_image_handle_is_primary_image(MemorySegment handle) {
         var mh$ = heif_image_handle_is_primary_image$MH();
         try {
             return (int)mh$.invokeExact(handle);
@@ -613,7 +1208,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_width$MH() {
         return RuntimeHelper.requireNonNull(constants$5.heif_image_handle_get_width$MH,"heif_image_handle_get_width");
     }
-    public static int heif_image_handle_get_width ( Addressable handle) {
+    /**
+     * {@snippet :
+     * int heif_image_handle_get_width(struct heif_image_handle* handle);
+     * }
+     */
+    public static int heif_image_handle_get_width(MemorySegment handle) {
         var mh$ = heif_image_handle_get_width$MH();
         try {
             return (int)mh$.invokeExact(handle);
@@ -624,7 +1224,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_height$MH() {
         return RuntimeHelper.requireNonNull(constants$5.heif_image_handle_get_height$MH,"heif_image_handle_get_height");
     }
-    public static int heif_image_handle_get_height ( Addressable handle) {
+    /**
+     * {@snippet :
+     * int heif_image_handle_get_height(struct heif_image_handle* handle);
+     * }
+     */
+    public static int heif_image_handle_get_height(MemorySegment handle) {
         var mh$ = heif_image_handle_get_height$MH();
         try {
             return (int)mh$.invokeExact(handle);
@@ -635,7 +1240,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_has_alpha_channel$MH() {
         return RuntimeHelper.requireNonNull(constants$5.heif_image_handle_has_alpha_channel$MH,"heif_image_handle_has_alpha_channel");
     }
-    public static int heif_image_handle_has_alpha_channel ( Addressable x0) {
+    /**
+     * {@snippet :
+     * int heif_image_handle_has_alpha_channel(struct heif_image_handle*);
+     * }
+     */
+    public static int heif_image_handle_has_alpha_channel(MemorySegment x0) {
         var mh$ = heif_image_handle_has_alpha_channel$MH();
         try {
             return (int)mh$.invokeExact(x0);
@@ -646,7 +1256,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_is_premultiplied_alpha$MH() {
         return RuntimeHelper.requireNonNull(constants$5.heif_image_handle_is_premultiplied_alpha$MH,"heif_image_handle_is_premultiplied_alpha");
     }
-    public static int heif_image_handle_is_premultiplied_alpha ( Addressable x0) {
+    /**
+     * {@snippet :
+     * int heif_image_handle_is_premultiplied_alpha(struct heif_image_handle*);
+     * }
+     */
+    public static int heif_image_handle_is_premultiplied_alpha(MemorySegment x0) {
         var mh$ = heif_image_handle_is_premultiplied_alpha$MH();
         try {
             return (int)mh$.invokeExact(x0);
@@ -657,7 +1272,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_luma_bits_per_pixel$MH() {
         return RuntimeHelper.requireNonNull(constants$6.heif_image_handle_get_luma_bits_per_pixel$MH,"heif_image_handle_get_luma_bits_per_pixel");
     }
-    public static int heif_image_handle_get_luma_bits_per_pixel ( Addressable x0) {
+    /**
+     * {@snippet :
+     * int heif_image_handle_get_luma_bits_per_pixel(struct heif_image_handle*);
+     * }
+     */
+    public static int heif_image_handle_get_luma_bits_per_pixel(MemorySegment x0) {
         var mh$ = heif_image_handle_get_luma_bits_per_pixel$MH();
         try {
             return (int)mh$.invokeExact(x0);
@@ -668,7 +1288,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_chroma_bits_per_pixel$MH() {
         return RuntimeHelper.requireNonNull(constants$6.heif_image_handle_get_chroma_bits_per_pixel$MH,"heif_image_handle_get_chroma_bits_per_pixel");
     }
-    public static int heif_image_handle_get_chroma_bits_per_pixel ( Addressable x0) {
+    /**
+     * {@snippet :
+     * int heif_image_handle_get_chroma_bits_per_pixel(struct heif_image_handle*);
+     * }
+     */
+    public static int heif_image_handle_get_chroma_bits_per_pixel(MemorySegment x0) {
         var mh$ = heif_image_handle_get_chroma_bits_per_pixel$MH();
         try {
             return (int)mh$.invokeExact(x0);
@@ -679,7 +1304,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_ispe_width$MH() {
         return RuntimeHelper.requireNonNull(constants$6.heif_image_handle_get_ispe_width$MH,"heif_image_handle_get_ispe_width");
     }
-    public static int heif_image_handle_get_ispe_width ( Addressable handle) {
+    /**
+     * {@snippet :
+     * int heif_image_handle_get_ispe_width(struct heif_image_handle* handle);
+     * }
+     */
+    public static int heif_image_handle_get_ispe_width(MemorySegment handle) {
         var mh$ = heif_image_handle_get_ispe_width$MH();
         try {
             return (int)mh$.invokeExact(handle);
@@ -690,7 +1320,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_ispe_height$MH() {
         return RuntimeHelper.requireNonNull(constants$6.heif_image_handle_get_ispe_height$MH,"heif_image_handle_get_ispe_height");
     }
-    public static int heif_image_handle_get_ispe_height ( Addressable handle) {
+    /**
+     * {@snippet :
+     * int heif_image_handle_get_ispe_height(struct heif_image_handle* handle);
+     * }
+     */
+    public static int heif_image_handle_get_ispe_height(MemorySegment handle) {
         var mh$ = heif_image_handle_get_ispe_height$MH();
         try {
             return (int)mh$.invokeExact(handle);
@@ -701,7 +1336,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_has_depth_image$MH() {
         return RuntimeHelper.requireNonNull(constants$6.heif_image_handle_has_depth_image$MH,"heif_image_handle_has_depth_image");
     }
-    public static int heif_image_handle_has_depth_image ( Addressable x0) {
+    /**
+     * {@snippet :
+     * int heif_image_handle_has_depth_image(struct heif_image_handle*);
+     * }
+     */
+    public static int heif_image_handle_has_depth_image(MemorySegment x0) {
         var mh$ = heif_image_handle_has_depth_image$MH();
         try {
             return (int)mh$.invokeExact(x0);
@@ -712,7 +1352,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_number_of_depth_images$MH() {
         return RuntimeHelper.requireNonNull(constants$6.heif_image_handle_get_number_of_depth_images$MH,"heif_image_handle_get_number_of_depth_images");
     }
-    public static int heif_image_handle_get_number_of_depth_images ( Addressable handle) {
+    /**
+     * {@snippet :
+     * int heif_image_handle_get_number_of_depth_images(struct heif_image_handle* handle);
+     * }
+     */
+    public static int heif_image_handle_get_number_of_depth_images(MemorySegment handle) {
         var mh$ = heif_image_handle_get_number_of_depth_images$MH();
         try {
             return (int)mh$.invokeExact(handle);
@@ -723,7 +1368,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_list_of_depth_image_IDs$MH() {
         return RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_list_of_depth_image_IDs$MH,"heif_image_handle_get_list_of_depth_image_IDs");
     }
-    public static int heif_image_handle_get_list_of_depth_image_IDs ( Addressable handle,  Addressable ids,  int count) {
+    /**
+     * {@snippet :
+     * int heif_image_handle_get_list_of_depth_image_IDs(struct heif_image_handle* handle, unsigned int* ids, int count);
+     * }
+     */
+    public static int heif_image_handle_get_list_of_depth_image_IDs(MemorySegment handle, MemorySegment ids, int count) {
         var mh$ = heif_image_handle_get_list_of_depth_image_IDs$MH();
         try {
             return (int)mh$.invokeExact(handle, ids, count);
@@ -734,7 +1384,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_depth_image_handle$MH() {
         return RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_depth_image_handle$MH,"heif_image_handle_get_depth_image_handle");
     }
-    public static MemorySegment heif_image_handle_get_depth_image_handle ( SegmentAllocator allocator,  Addressable handle,  int depth_image_id,  Addressable out_depth_handle) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_image_handle_get_depth_image_handle(struct heif_image_handle* handle, unsigned int depth_image_id, struct heif_image_handle** out_depth_handle);
+     * }
+     */
+    public static MemorySegment heif_image_handle_get_depth_image_handle(SegmentAllocator allocator, MemorySegment handle, int depth_image_id, MemorySegment out_depth_handle) {
         var mh$ = heif_image_handle_get_depth_image_handle$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, handle, depth_image_id, out_depth_handle);
@@ -742,22 +1397,47 @@ public class heif_h  {
             throw new AssertionError("should not reach here", ex$);
         }
     }
+    /**
+     * {@snippet :
+     * enum heif_depth_representation_type.heif_depth_representation_type_uniform_inverse_Z = 0;
+     * }
+     */
     public static int heif_depth_representation_type_uniform_inverse_Z() {
         return (int)0L;
     }
+    /**
+     * {@snippet :
+     * enum heif_depth_representation_type.heif_depth_representation_type_uniform_disparity = 1;
+     * }
+     */
     public static int heif_depth_representation_type_uniform_disparity() {
         return (int)1L;
     }
+    /**
+     * {@snippet :
+     * enum heif_depth_representation_type.heif_depth_representation_type_uniform_Z = 2;
+     * }
+     */
     public static int heif_depth_representation_type_uniform_Z() {
         return (int)2L;
     }
+    /**
+     * {@snippet :
+     * enum heif_depth_representation_type.heif_depth_representation_type_nonuniform_disparity = 3;
+     * }
+     */
     public static int heif_depth_representation_type_nonuniform_disparity() {
         return (int)3L;
     }
     public static MethodHandle heif_depth_representation_info_free$MH() {
         return RuntimeHelper.requireNonNull(constants$7.heif_depth_representation_info_free$MH,"heif_depth_representation_info_free");
     }
-    public static void heif_depth_representation_info_free ( Addressable info) {
+    /**
+     * {@snippet :
+     * void heif_depth_representation_info_free(struct heif_depth_representation_info* info);
+     * }
+     */
+    public static void heif_depth_representation_info_free(MemorySegment info) {
         var mh$ = heif_depth_representation_info_free$MH();
         try {
             mh$.invokeExact(info);
@@ -768,7 +1448,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_depth_image_representation_info$MH() {
         return RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_depth_image_representation_info$MH,"heif_image_handle_get_depth_image_representation_info");
     }
-    public static int heif_image_handle_get_depth_image_representation_info ( Addressable handle,  int depth_image_id,  Addressable out) {
+    /**
+     * {@snippet :
+     * int heif_image_handle_get_depth_image_representation_info(struct heif_image_handle* handle, unsigned int depth_image_id, struct heif_depth_representation_info** out);
+     * }
+     */
+    public static int heif_image_handle_get_depth_image_representation_info(MemorySegment handle, int depth_image_id, MemorySegment out) {
         var mh$ = heif_image_handle_get_depth_image_representation_info$MH();
         try {
             return (int)mh$.invokeExact(handle, depth_image_id, out);
@@ -779,7 +1464,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_number_of_thumbnails$MH() {
         return RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_number_of_thumbnails$MH,"heif_image_handle_get_number_of_thumbnails");
     }
-    public static int heif_image_handle_get_number_of_thumbnails ( Addressable handle) {
+    /**
+     * {@snippet :
+     * int heif_image_handle_get_number_of_thumbnails(struct heif_image_handle* handle);
+     * }
+     */
+    public static int heif_image_handle_get_number_of_thumbnails(MemorySegment handle) {
         var mh$ = heif_image_handle_get_number_of_thumbnails$MH();
         try {
             return (int)mh$.invokeExact(handle);
@@ -790,7 +1480,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_list_of_thumbnail_IDs$MH() {
         return RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_list_of_thumbnail_IDs$MH,"heif_image_handle_get_list_of_thumbnail_IDs");
     }
-    public static int heif_image_handle_get_list_of_thumbnail_IDs ( Addressable handle,  Addressable ids,  int count) {
+    /**
+     * {@snippet :
+     * int heif_image_handle_get_list_of_thumbnail_IDs(struct heif_image_handle* handle, unsigned int* ids, int count);
+     * }
+     */
+    public static int heif_image_handle_get_list_of_thumbnail_IDs(MemorySegment handle, MemorySegment ids, int count) {
         var mh$ = heif_image_handle_get_list_of_thumbnail_IDs$MH();
         try {
             return (int)mh$.invokeExact(handle, ids, count);
@@ -801,7 +1496,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_thumbnail$MH() {
         return RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_thumbnail$MH,"heif_image_handle_get_thumbnail");
     }
-    public static MemorySegment heif_image_handle_get_thumbnail ( SegmentAllocator allocator,  Addressable main_image_handle,  int thumbnail_id,  Addressable out_thumbnail_handle) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_image_handle_get_thumbnail(struct heif_image_handle* main_image_handle, unsigned int thumbnail_id, struct heif_image_handle** out_thumbnail_handle);
+     * }
+     */
+    public static MemorySegment heif_image_handle_get_thumbnail(SegmentAllocator allocator, MemorySegment main_image_handle, int thumbnail_id, MemorySegment out_thumbnail_handle) {
         var mh$ = heif_image_handle_get_thumbnail$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, main_image_handle, thumbnail_id, out_thumbnail_handle);
@@ -812,7 +1512,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_number_of_auxiliary_images$MH() {
         return RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_number_of_auxiliary_images$MH,"heif_image_handle_get_number_of_auxiliary_images");
     }
-    public static int heif_image_handle_get_number_of_auxiliary_images ( Addressable handle,  int aux_filter) {
+    /**
+     * {@snippet :
+     * int heif_image_handle_get_number_of_auxiliary_images(struct heif_image_handle* handle, int aux_filter);
+     * }
+     */
+    public static int heif_image_handle_get_number_of_auxiliary_images(MemorySegment handle, int aux_filter) {
         var mh$ = heif_image_handle_get_number_of_auxiliary_images$MH();
         try {
             return (int)mh$.invokeExact(handle, aux_filter);
@@ -823,7 +1528,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_list_of_auxiliary_image_IDs$MH() {
         return RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_list_of_auxiliary_image_IDs$MH,"heif_image_handle_get_list_of_auxiliary_image_IDs");
     }
-    public static int heif_image_handle_get_list_of_auxiliary_image_IDs ( Addressable handle,  int aux_filter,  Addressable ids,  int count) {
+    /**
+     * {@snippet :
+     * int heif_image_handle_get_list_of_auxiliary_image_IDs(struct heif_image_handle* handle, int aux_filter, unsigned int* ids, int count);
+     * }
+     */
+    public static int heif_image_handle_get_list_of_auxiliary_image_IDs(MemorySegment handle, int aux_filter, MemorySegment ids, int count) {
         var mh$ = heif_image_handle_get_list_of_auxiliary_image_IDs$MH();
         try {
             return (int)mh$.invokeExact(handle, aux_filter, ids, count);
@@ -834,7 +1544,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_auxiliary_type$MH() {
         return RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_auxiliary_type$MH,"heif_image_handle_get_auxiliary_type");
     }
-    public static MemorySegment heif_image_handle_get_auxiliary_type ( SegmentAllocator allocator,  Addressable handle,  Addressable out_type) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_image_handle_get_auxiliary_type(struct heif_image_handle* handle, char** out_type);
+     * }
+     */
+    public static MemorySegment heif_image_handle_get_auxiliary_type(SegmentAllocator allocator, MemorySegment handle, MemorySegment out_type) {
         var mh$ = heif_image_handle_get_auxiliary_type$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, handle, out_type);
@@ -845,7 +1560,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_free_auxiliary_types$MH() {
         return RuntimeHelper.requireNonNull(constants$8.heif_image_handle_free_auxiliary_types$MH,"heif_image_handle_free_auxiliary_types");
     }
-    public static void heif_image_handle_free_auxiliary_types ( Addressable handle,  Addressable out_type) {
+    /**
+     * {@snippet :
+     * void heif_image_handle_free_auxiliary_types(struct heif_image_handle* handle, char** out_type);
+     * }
+     */
+    public static void heif_image_handle_free_auxiliary_types(MemorySegment handle, MemorySegment out_type) {
         var mh$ = heif_image_handle_free_auxiliary_types$MH();
         try {
             mh$.invokeExact(handle, out_type);
@@ -856,7 +1576,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_auxiliary_image_handle$MH() {
         return RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_auxiliary_image_handle$MH,"heif_image_handle_get_auxiliary_image_handle");
     }
-    public static MemorySegment heif_image_handle_get_auxiliary_image_handle ( SegmentAllocator allocator,  Addressable main_image_handle,  int auxiliary_id,  Addressable out_auxiliary_handle) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_image_handle_get_auxiliary_image_handle(struct heif_image_handle* main_image_handle, unsigned int auxiliary_id, struct heif_image_handle** out_auxiliary_handle);
+     * }
+     */
+    public static MemorySegment heif_image_handle_get_auxiliary_image_handle(SegmentAllocator allocator, MemorySegment main_image_handle, int auxiliary_id, MemorySegment out_auxiliary_handle) {
         var mh$ = heif_image_handle_get_auxiliary_image_handle$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, main_image_handle, auxiliary_id, out_auxiliary_handle);
@@ -867,7 +1592,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_number_of_metadata_blocks$MH() {
         return RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_number_of_metadata_blocks$MH,"heif_image_handle_get_number_of_metadata_blocks");
     }
-    public static int heif_image_handle_get_number_of_metadata_blocks ( Addressable handle,  Addressable type_filter) {
+    /**
+     * {@snippet :
+     * int heif_image_handle_get_number_of_metadata_blocks(struct heif_image_handle* handle, char* type_filter);
+     * }
+     */
+    public static int heif_image_handle_get_number_of_metadata_blocks(MemorySegment handle, MemorySegment type_filter) {
         var mh$ = heif_image_handle_get_number_of_metadata_blocks$MH();
         try {
             return (int)mh$.invokeExact(handle, type_filter);
@@ -878,7 +1608,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_list_of_metadata_block_IDs$MH() {
         return RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_list_of_metadata_block_IDs$MH,"heif_image_handle_get_list_of_metadata_block_IDs");
     }
-    public static int heif_image_handle_get_list_of_metadata_block_IDs ( Addressable handle,  Addressable type_filter,  Addressable ids,  int count) {
+    /**
+     * {@snippet :
+     * int heif_image_handle_get_list_of_metadata_block_IDs(struct heif_image_handle* handle, char* type_filter, unsigned int* ids, int count);
+     * }
+     */
+    public static int heif_image_handle_get_list_of_metadata_block_IDs(MemorySegment handle, MemorySegment type_filter, MemorySegment ids, int count) {
         var mh$ = heif_image_handle_get_list_of_metadata_block_IDs$MH();
         try {
             return (int)mh$.invokeExact(handle, type_filter, ids, count);
@@ -889,10 +1624,15 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_metadata_type$MH() {
         return RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_metadata_type$MH,"heif_image_handle_get_metadata_type");
     }
-    public static MemoryAddress heif_image_handle_get_metadata_type ( Addressable handle,  int metadata_id) {
+    /**
+     * {@snippet :
+     * char* heif_image_handle_get_metadata_type(struct heif_image_handle* handle, unsigned int metadata_id);
+     * }
+     */
+    public static MemorySegment heif_image_handle_get_metadata_type(MemorySegment handle, int metadata_id) {
         var mh$ = heif_image_handle_get_metadata_type$MH();
         try {
-            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(handle, metadata_id);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(handle, metadata_id);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -900,10 +1640,15 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_metadata_content_type$MH() {
         return RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_metadata_content_type$MH,"heif_image_handle_get_metadata_content_type");
     }
-    public static MemoryAddress heif_image_handle_get_metadata_content_type ( Addressable handle,  int metadata_id) {
+    /**
+     * {@snippet :
+     * char* heif_image_handle_get_metadata_content_type(struct heif_image_handle* handle, unsigned int metadata_id);
+     * }
+     */
+    public static MemorySegment heif_image_handle_get_metadata_content_type(MemorySegment handle, int metadata_id) {
         var mh$ = heif_image_handle_get_metadata_content_type$MH();
         try {
-            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(handle, metadata_id);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(handle, metadata_id);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -911,7 +1656,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_metadata_size$MH() {
         return RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_metadata_size$MH,"heif_image_handle_get_metadata_size");
     }
-    public static long heif_image_handle_get_metadata_size ( Addressable handle,  int metadata_id) {
+    /**
+     * {@snippet :
+     * unsigned long long heif_image_handle_get_metadata_size(struct heif_image_handle* handle, unsigned int metadata_id);
+     * }
+     */
+    public static long heif_image_handle_get_metadata_size(MemorySegment handle, int metadata_id) {
         var mh$ = heif_image_handle_get_metadata_size$MH();
         try {
             return (long)mh$.invokeExact(handle, metadata_id);
@@ -922,7 +1672,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_metadata$MH() {
         return RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_metadata$MH,"heif_image_handle_get_metadata");
     }
-    public static MemorySegment heif_image_handle_get_metadata ( SegmentAllocator allocator,  Addressable handle,  int metadata_id,  Addressable out_data) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_image_handle_get_metadata(struct heif_image_handle* handle, unsigned int metadata_id, void* out_data);
+     * }
+     */
+    public static MemorySegment heif_image_handle_get_metadata(SegmentAllocator allocator, MemorySegment handle, int metadata_id, MemorySegment out_data) {
         var mh$ = heif_image_handle_get_metadata$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, handle, metadata_id, out_data);
@@ -930,22 +1685,47 @@ public class heif_h  {
             throw new AssertionError("should not reach here", ex$);
         }
     }
+    /**
+     * {@snippet :
+     * enum heif_color_profile_type.heif_color_profile_type_not_present = 0;
+     * }
+     */
     public static int heif_color_profile_type_not_present() {
         return (int)0L;
     }
+    /**
+     * {@snippet :
+     * enum heif_color_profile_type.heif_color_profile_type_nclx = 1852009592;
+     * }
+     */
     public static int heif_color_profile_type_nclx() {
         return (int)1852009592L;
     }
+    /**
+     * {@snippet :
+     * enum heif_color_profile_type.heif_color_profile_type_rICC = 1917403971;
+     * }
+     */
     public static int heif_color_profile_type_rICC() {
         return (int)1917403971L;
     }
+    /**
+     * {@snippet :
+     * enum heif_color_profile_type.heif_color_profile_type_prof = 1886547814;
+     * }
+     */
     public static int heif_color_profile_type_prof() {
         return (int)1886547814L;
     }
     public static MethodHandle heif_image_handle_get_color_profile_type$MH() {
         return RuntimeHelper.requireNonNull(constants$10.heif_image_handle_get_color_profile_type$MH,"heif_image_handle_get_color_profile_type");
     }
-    public static int heif_image_handle_get_color_profile_type ( Addressable handle) {
+    /**
+     * {@snippet :
+     * enum heif_color_profile_type heif_image_handle_get_color_profile_type(struct heif_image_handle* handle);
+     * }
+     */
+    public static int heif_image_handle_get_color_profile_type(MemorySegment handle) {
         var mh$ = heif_image_handle_get_color_profile_type$MH();
         try {
             return (int)mh$.invokeExact(handle);
@@ -956,7 +1736,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_raw_color_profile_size$MH() {
         return RuntimeHelper.requireNonNull(constants$10.heif_image_handle_get_raw_color_profile_size$MH,"heif_image_handle_get_raw_color_profile_size");
     }
-    public static long heif_image_handle_get_raw_color_profile_size ( Addressable handle) {
+    /**
+     * {@snippet :
+     * unsigned long long heif_image_handle_get_raw_color_profile_size(struct heif_image_handle* handle);
+     * }
+     */
+    public static long heif_image_handle_get_raw_color_profile_size(MemorySegment handle) {
         var mh$ = heif_image_handle_get_raw_color_profile_size$MH();
         try {
             return (long)mh$.invokeExact(handle);
@@ -967,7 +1752,12 @@ public class heif_h  {
     public static MethodHandle heif_image_handle_get_raw_color_profile$MH() {
         return RuntimeHelper.requireNonNull(constants$10.heif_image_handle_get_raw_color_profile$MH,"heif_image_handle_get_raw_color_profile");
     }
-    public static MemorySegment heif_image_handle_get_raw_color_profile ( SegmentAllocator allocator,  Addressable handle,  Addressable out_data) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_image_handle_get_raw_color_profile(struct heif_image_handle* handle, void* out_data);
+     * }
+     */
+    public static MemorySegment heif_image_handle_get_raw_color_profile(SegmentAllocator allocator, MemorySegment handle, MemorySegment out_data) {
         var mh$ = heif_image_handle_get_raw_color_profile$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, handle, out_data);
@@ -975,139 +1765,359 @@ public class heif_h  {
             throw new AssertionError("should not reach here", ex$);
         }
     }
+    /**
+     * {@snippet :
+     * enum heif_color_primaries.heif_color_primaries_ITU_R_BT_709_5 = 1;
+     * }
+     */
     public static int heif_color_primaries_ITU_R_BT_709_5() {
         return (int)1L;
     }
+    /**
+     * {@snippet :
+     * enum heif_color_primaries.heif_color_primaries_unspecified = 2;
+     * }
+     */
     public static int heif_color_primaries_unspecified() {
         return (int)2L;
     }
+    /**
+     * {@snippet :
+     * enum heif_color_primaries.heif_color_primaries_ITU_R_BT_470_6_System_M = 4;
+     * }
+     */
     public static int heif_color_primaries_ITU_R_BT_470_6_System_M() {
         return (int)4L;
     }
+    /**
+     * {@snippet :
+     * enum heif_color_primaries.heif_color_primaries_ITU_R_BT_470_6_System_B_G = 5;
+     * }
+     */
     public static int heif_color_primaries_ITU_R_BT_470_6_System_B_G() {
         return (int)5L;
     }
+    /**
+     * {@snippet :
+     * enum heif_color_primaries.heif_color_primaries_ITU_R_BT_601_6 = 6;
+     * }
+     */
     public static int heif_color_primaries_ITU_R_BT_601_6() {
         return (int)6L;
     }
+    /**
+     * {@snippet :
+     * enum heif_color_primaries.heif_color_primaries_SMPTE_240M = 7;
+     * }
+     */
     public static int heif_color_primaries_SMPTE_240M() {
         return (int)7L;
     }
+    /**
+     * {@snippet :
+     * enum heif_color_primaries.heif_color_primaries_generic_film = 8;
+     * }
+     */
     public static int heif_color_primaries_generic_film() {
         return (int)8L;
     }
+    /**
+     * {@snippet :
+     * enum heif_color_primaries.heif_color_primaries_ITU_R_BT_2020_2_and_2100_0 = 9;
+     * }
+     */
     public static int heif_color_primaries_ITU_R_BT_2020_2_and_2100_0() {
         return (int)9L;
     }
+    /**
+     * {@snippet :
+     * enum heif_color_primaries.heif_color_primaries_SMPTE_ST_428_1 = 10;
+     * }
+     */
     public static int heif_color_primaries_SMPTE_ST_428_1() {
         return (int)10L;
     }
+    /**
+     * {@snippet :
+     * enum heif_color_primaries.heif_color_primaries_SMPTE_RP_431_2 = 11;
+     * }
+     */
     public static int heif_color_primaries_SMPTE_RP_431_2() {
         return (int)11L;
     }
+    /**
+     * {@snippet :
+     * enum heif_color_primaries.heif_color_primaries_SMPTE_EG_432_1 = 12;
+     * }
+     */
     public static int heif_color_primaries_SMPTE_EG_432_1() {
         return (int)12L;
     }
+    /**
+     * {@snippet :
+     * enum heif_color_primaries.heif_color_primaries_EBU_Tech_3213_E = 22;
+     * }
+     */
     public static int heif_color_primaries_EBU_Tech_3213_E() {
         return (int)22L;
     }
+    /**
+     * {@snippet :
+     * enum heif_transfer_characteristics.heif_transfer_characteristic_ITU_R_BT_709_5 = 1;
+     * }
+     */
     public static int heif_transfer_characteristic_ITU_R_BT_709_5() {
         return (int)1L;
     }
+    /**
+     * {@snippet :
+     * enum heif_transfer_characteristics.heif_transfer_characteristic_unspecified = 2;
+     * }
+     */
     public static int heif_transfer_characteristic_unspecified() {
         return (int)2L;
     }
+    /**
+     * {@snippet :
+     * enum heif_transfer_characteristics.heif_transfer_characteristic_ITU_R_BT_470_6_System_M = 4;
+     * }
+     */
     public static int heif_transfer_characteristic_ITU_R_BT_470_6_System_M() {
         return (int)4L;
     }
+    /**
+     * {@snippet :
+     * enum heif_transfer_characteristics.heif_transfer_characteristic_ITU_R_BT_470_6_System_B_G = 5;
+     * }
+     */
     public static int heif_transfer_characteristic_ITU_R_BT_470_6_System_B_G() {
         return (int)5L;
     }
+    /**
+     * {@snippet :
+     * enum heif_transfer_characteristics.heif_transfer_characteristic_ITU_R_BT_601_6 = 6;
+     * }
+     */
     public static int heif_transfer_characteristic_ITU_R_BT_601_6() {
         return (int)6L;
     }
+    /**
+     * {@snippet :
+     * enum heif_transfer_characteristics.heif_transfer_characteristic_SMPTE_240M = 7;
+     * }
+     */
     public static int heif_transfer_characteristic_SMPTE_240M() {
         return (int)7L;
     }
+    /**
+     * {@snippet :
+     * enum heif_transfer_characteristics.heif_transfer_characteristic_linear = 8;
+     * }
+     */
     public static int heif_transfer_characteristic_linear() {
         return (int)8L;
     }
+    /**
+     * {@snippet :
+     * enum heif_transfer_characteristics.heif_transfer_characteristic_logarithmic_100 = 9;
+     * }
+     */
     public static int heif_transfer_characteristic_logarithmic_100() {
         return (int)9L;
     }
+    /**
+     * {@snippet :
+     * enum heif_transfer_characteristics.heif_transfer_characteristic_logarithmic_100_sqrt10 = 10;
+     * }
+     */
     public static int heif_transfer_characteristic_logarithmic_100_sqrt10() {
         return (int)10L;
     }
+    /**
+     * {@snippet :
+     * enum heif_transfer_characteristics.heif_transfer_characteristic_IEC_61966_2_4 = 11;
+     * }
+     */
     public static int heif_transfer_characteristic_IEC_61966_2_4() {
         return (int)11L;
     }
+    /**
+     * {@snippet :
+     * enum heif_transfer_characteristics.heif_transfer_characteristic_ITU_R_BT_1361 = 12;
+     * }
+     */
     public static int heif_transfer_characteristic_ITU_R_BT_1361() {
         return (int)12L;
     }
+    /**
+     * {@snippet :
+     * enum heif_transfer_characteristics.heif_transfer_characteristic_IEC_61966_2_1 = 13;
+     * }
+     */
     public static int heif_transfer_characteristic_IEC_61966_2_1() {
         return (int)13L;
     }
+    /**
+     * {@snippet :
+     * enum heif_transfer_characteristics.heif_transfer_characteristic_ITU_R_BT_2020_2_10bit = 14;
+     * }
+     */
     public static int heif_transfer_characteristic_ITU_R_BT_2020_2_10bit() {
         return (int)14L;
     }
+    /**
+     * {@snippet :
+     * enum heif_transfer_characteristics.heif_transfer_characteristic_ITU_R_BT_2020_2_12bit = 15;
+     * }
+     */
     public static int heif_transfer_characteristic_ITU_R_BT_2020_2_12bit() {
         return (int)15L;
     }
+    /**
+     * {@snippet :
+     * enum heif_transfer_characteristics.heif_transfer_characteristic_ITU_R_BT_2100_0_PQ = 16;
+     * }
+     */
     public static int heif_transfer_characteristic_ITU_R_BT_2100_0_PQ() {
         return (int)16L;
     }
+    /**
+     * {@snippet :
+     * enum heif_transfer_characteristics.heif_transfer_characteristic_SMPTE_ST_428_1 = 17;
+     * }
+     */
     public static int heif_transfer_characteristic_SMPTE_ST_428_1() {
         return (int)17L;
     }
+    /**
+     * {@snippet :
+     * enum heif_transfer_characteristics.heif_transfer_characteristic_ITU_R_BT_2100_0_HLG = 18;
+     * }
+     */
     public static int heif_transfer_characteristic_ITU_R_BT_2100_0_HLG() {
         return (int)18L;
     }
+    /**
+     * {@snippet :
+     * enum heif_matrix_coefficients.heif_matrix_coefficients_RGB_GBR = 0;
+     * }
+     */
     public static int heif_matrix_coefficients_RGB_GBR() {
         return (int)0L;
     }
+    /**
+     * {@snippet :
+     * enum heif_matrix_coefficients.heif_matrix_coefficients_ITU_R_BT_709_5 = 1;
+     * }
+     */
     public static int heif_matrix_coefficients_ITU_R_BT_709_5() {
         return (int)1L;
     }
+    /**
+     * {@snippet :
+     * enum heif_matrix_coefficients.heif_matrix_coefficients_unspecified = 2;
+     * }
+     */
     public static int heif_matrix_coefficients_unspecified() {
         return (int)2L;
     }
+    /**
+     * {@snippet :
+     * enum heif_matrix_coefficients.heif_matrix_coefficients_US_FCC_T47 = 4;
+     * }
+     */
     public static int heif_matrix_coefficients_US_FCC_T47() {
         return (int)4L;
     }
+    /**
+     * {@snippet :
+     * enum heif_matrix_coefficients.heif_matrix_coefficients_ITU_R_BT_470_6_System_B_G = 5;
+     * }
+     */
     public static int heif_matrix_coefficients_ITU_R_BT_470_6_System_B_G() {
         return (int)5L;
     }
+    /**
+     * {@snippet :
+     * enum heif_matrix_coefficients.heif_matrix_coefficients_ITU_R_BT_601_6 = 6;
+     * }
+     */
     public static int heif_matrix_coefficients_ITU_R_BT_601_6() {
         return (int)6L;
     }
+    /**
+     * {@snippet :
+     * enum heif_matrix_coefficients.heif_matrix_coefficients_SMPTE_240M = 7;
+     * }
+     */
     public static int heif_matrix_coefficients_SMPTE_240M() {
         return (int)7L;
     }
+    /**
+     * {@snippet :
+     * enum heif_matrix_coefficients.heif_matrix_coefficients_YCgCo = 8;
+     * }
+     */
     public static int heif_matrix_coefficients_YCgCo() {
         return (int)8L;
     }
+    /**
+     * {@snippet :
+     * enum heif_matrix_coefficients.heif_matrix_coefficients_ITU_R_BT_2020_2_non_constant_luminance = 9;
+     * }
+     */
     public static int heif_matrix_coefficients_ITU_R_BT_2020_2_non_constant_luminance() {
         return (int)9L;
     }
+    /**
+     * {@snippet :
+     * enum heif_matrix_coefficients.heif_matrix_coefficients_ITU_R_BT_2020_2_constant_luminance = 10;
+     * }
+     */
     public static int heif_matrix_coefficients_ITU_R_BT_2020_2_constant_luminance() {
         return (int)10L;
     }
+    /**
+     * {@snippet :
+     * enum heif_matrix_coefficients.heif_matrix_coefficients_SMPTE_ST_2085 = 11;
+     * }
+     */
     public static int heif_matrix_coefficients_SMPTE_ST_2085() {
         return (int)11L;
     }
+    /**
+     * {@snippet :
+     * enum heif_matrix_coefficients.heif_matrix_coefficients_chromaticity_derived_non_constant_luminance = 12;
+     * }
+     */
     public static int heif_matrix_coefficients_chromaticity_derived_non_constant_luminance() {
         return (int)12L;
     }
+    /**
+     * {@snippet :
+     * enum heif_matrix_coefficients.heif_matrix_coefficients_chromaticity_derived_constant_luminance = 13;
+     * }
+     */
     public static int heif_matrix_coefficients_chromaticity_derived_constant_luminance() {
         return (int)13L;
     }
+    /**
+     * {@snippet :
+     * enum heif_matrix_coefficients.heif_matrix_coefficients_ICtCp = 14;
+     * }
+     */
     public static int heif_matrix_coefficients_ICtCp() {
         return (int)14L;
     }
     public static MethodHandle heif_image_handle_get_nclx_color_profile$MH() {
         return RuntimeHelper.requireNonNull(constants$10.heif_image_handle_get_nclx_color_profile$MH,"heif_image_handle_get_nclx_color_profile");
     }
-    public static MemorySegment heif_image_handle_get_nclx_color_profile ( SegmentAllocator allocator,  Addressable handle,  Addressable out_data) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_image_handle_get_nclx_color_profile(struct heif_image_handle* handle, struct heif_color_profile_nclx** out_data);
+     * }
+     */
+    public static MemorySegment heif_image_handle_get_nclx_color_profile(SegmentAllocator allocator, MemorySegment handle, MemorySegment out_data) {
         var mh$ = heif_image_handle_get_nclx_color_profile$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, handle, out_data);
@@ -1118,10 +2128,15 @@ public class heif_h  {
     public static MethodHandle heif_nclx_color_profile_alloc$MH() {
         return RuntimeHelper.requireNonNull(constants$10.heif_nclx_color_profile_alloc$MH,"heif_nclx_color_profile_alloc");
     }
-    public static MemoryAddress heif_nclx_color_profile_alloc (Object... x0) {
+    /**
+     * {@snippet :
+     * struct heif_color_profile_nclx* heif_nclx_color_profile_alloc(,...);
+     * }
+     */
+    public static MemorySegment heif_nclx_color_profile_alloc(Object... x0) {
         var mh$ = heif_nclx_color_profile_alloc$MH();
         try {
-            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1129,7 +2144,12 @@ public class heif_h  {
     public static MethodHandle heif_nclx_color_profile_free$MH() {
         return RuntimeHelper.requireNonNull(constants$10.heif_nclx_color_profile_free$MH,"heif_nclx_color_profile_free");
     }
-    public static void heif_nclx_color_profile_free ( Addressable nclx_profile) {
+    /**
+     * {@snippet :
+     * void heif_nclx_color_profile_free(struct heif_color_profile_nclx* nclx_profile);
+     * }
+     */
+    public static void heif_nclx_color_profile_free(MemorySegment nclx_profile) {
         var mh$ = heif_nclx_color_profile_free$MH();
         try {
             mh$.invokeExact(nclx_profile);
@@ -1140,7 +2160,12 @@ public class heif_h  {
     public static MethodHandle heif_image_get_color_profile_type$MH() {
         return RuntimeHelper.requireNonNull(constants$11.heif_image_get_color_profile_type$MH,"heif_image_get_color_profile_type");
     }
-    public static int heif_image_get_color_profile_type ( Addressable image) {
+    /**
+     * {@snippet :
+     * enum heif_color_profile_type heif_image_get_color_profile_type(struct heif_image* image);
+     * }
+     */
+    public static int heif_image_get_color_profile_type(MemorySegment image) {
         var mh$ = heif_image_get_color_profile_type$MH();
         try {
             return (int)mh$.invokeExact(image);
@@ -1151,7 +2176,12 @@ public class heif_h  {
     public static MethodHandle heif_image_get_raw_color_profile_size$MH() {
         return RuntimeHelper.requireNonNull(constants$11.heif_image_get_raw_color_profile_size$MH,"heif_image_get_raw_color_profile_size");
     }
-    public static long heif_image_get_raw_color_profile_size ( Addressable image) {
+    /**
+     * {@snippet :
+     * unsigned long long heif_image_get_raw_color_profile_size(struct heif_image* image);
+     * }
+     */
+    public static long heif_image_get_raw_color_profile_size(MemorySegment image) {
         var mh$ = heif_image_get_raw_color_profile_size$MH();
         try {
             return (long)mh$.invokeExact(image);
@@ -1162,7 +2192,12 @@ public class heif_h  {
     public static MethodHandle heif_image_get_raw_color_profile$MH() {
         return RuntimeHelper.requireNonNull(constants$11.heif_image_get_raw_color_profile$MH,"heif_image_get_raw_color_profile");
     }
-    public static MemorySegment heif_image_get_raw_color_profile ( SegmentAllocator allocator,  Addressable image,  Addressable out_data) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_image_get_raw_color_profile(struct heif_image* image, void* out_data);
+     * }
+     */
+    public static MemorySegment heif_image_get_raw_color_profile(SegmentAllocator allocator, MemorySegment image, MemorySegment out_data) {
         var mh$ = heif_image_get_raw_color_profile$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, image, out_data);
@@ -1173,7 +2208,12 @@ public class heif_h  {
     public static MethodHandle heif_image_get_nclx_color_profile$MH() {
         return RuntimeHelper.requireNonNull(constants$11.heif_image_get_nclx_color_profile$MH,"heif_image_get_nclx_color_profile");
     }
-    public static MemorySegment heif_image_get_nclx_color_profile ( SegmentAllocator allocator,  Addressable image,  Addressable out_data) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_image_get_nclx_color_profile(struct heif_image* image, struct heif_color_profile_nclx** out_data);
+     * }
+     */
+    public static MemorySegment heif_image_get_nclx_color_profile(SegmentAllocator allocator, MemorySegment image, MemorySegment out_data) {
         var mh$ = heif_image_get_nclx_color_profile$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, image, out_data);
@@ -1181,103 +2221,258 @@ public class heif_h  {
             throw new AssertionError("should not reach here", ex$);
         }
     }
+    /**
+     * {@snippet :
+     * enum heif_compression_format.heif_compression_undefined = 0;
+     * }
+     */
     public static int heif_compression_undefined() {
         return (int)0L;
     }
+    /**
+     * {@snippet :
+     * enum heif_compression_format.heif_compression_HEVC = 1;
+     * }
+     */
     public static int heif_compression_HEVC() {
         return (int)1L;
     }
+    /**
+     * {@snippet :
+     * enum heif_compression_format.heif_compression_AVC = 2;
+     * }
+     */
     public static int heif_compression_AVC() {
         return (int)2L;
     }
+    /**
+     * {@snippet :
+     * enum heif_compression_format.heif_compression_JPEG = 3;
+     * }
+     */
     public static int heif_compression_JPEG() {
         return (int)3L;
     }
+    /**
+     * {@snippet :
+     * enum heif_compression_format.heif_compression_AV1 = 4;
+     * }
+     */
     public static int heif_compression_AV1() {
         return (int)4L;
     }
+    /**
+     * {@snippet :
+     * enum heif_chroma.heif_chroma_undefined = 99;
+     * }
+     */
     public static int heif_chroma_undefined() {
         return (int)99L;
     }
+    /**
+     * {@snippet :
+     * enum heif_chroma.heif_chroma_monochrome = 0;
+     * }
+     */
     public static int heif_chroma_monochrome() {
         return (int)0L;
     }
+    /**
+     * {@snippet :
+     * enum heif_chroma.heif_chroma_420 = 1;
+     * }
+     */
     public static int heif_chroma_420() {
         return (int)1L;
     }
+    /**
+     * {@snippet :
+     * enum heif_chroma.heif_chroma_422 = 2;
+     * }
+     */
     public static int heif_chroma_422() {
         return (int)2L;
     }
+    /**
+     * {@snippet :
+     * enum heif_chroma.heif_chroma_444 = 3;
+     * }
+     */
     public static int heif_chroma_444() {
         return (int)3L;
     }
+    /**
+     * {@snippet :
+     * enum heif_chroma.heif_chroma_interleaved_RGB = 10;
+     * }
+     */
     public static int heif_chroma_interleaved_RGB() {
         return (int)10L;
     }
+    /**
+     * {@snippet :
+     * enum heif_chroma.heif_chroma_interleaved_RGBA = 11;
+     * }
+     */
     public static int heif_chroma_interleaved_RGBA() {
         return (int)11L;
     }
+    /**
+     * {@snippet :
+     * enum heif_chroma.heif_chroma_interleaved_RRGGBB_BE = 12;
+     * }
+     */
     public static int heif_chroma_interleaved_RRGGBB_BE() {
         return (int)12L;
     }
+    /**
+     * {@snippet :
+     * enum heif_chroma.heif_chroma_interleaved_RRGGBBAA_BE = 13;
+     * }
+     */
     public static int heif_chroma_interleaved_RRGGBBAA_BE() {
         return (int)13L;
     }
+    /**
+     * {@snippet :
+     * enum heif_chroma.heif_chroma_interleaved_RRGGBB_LE = 14;
+     * }
+     */
     public static int heif_chroma_interleaved_RRGGBB_LE() {
         return (int)14L;
     }
+    /**
+     * {@snippet :
+     * enum heif_chroma.heif_chroma_interleaved_RRGGBBAA_LE = 15;
+     * }
+     */
     public static int heif_chroma_interleaved_RRGGBBAA_LE() {
         return (int)15L;
     }
+    /**
+     * {@snippet :
+     * enum heif_colorspace.heif_colorspace_undefined = 99;
+     * }
+     */
     public static int heif_colorspace_undefined() {
         return (int)99L;
     }
+    /**
+     * {@snippet :
+     * enum heif_colorspace.heif_colorspace_YCbCr = 0;
+     * }
+     */
     public static int heif_colorspace_YCbCr() {
         return (int)0L;
     }
+    /**
+     * {@snippet :
+     * enum heif_colorspace.heif_colorspace_RGB = 1;
+     * }
+     */
     public static int heif_colorspace_RGB() {
         return (int)1L;
     }
+    /**
+     * {@snippet :
+     * enum heif_colorspace.heif_colorspace_monochrome = 2;
+     * }
+     */
     public static int heif_colorspace_monochrome() {
         return (int)2L;
     }
+    /**
+     * {@snippet :
+     * enum heif_channel.heif_channel_Y = 0;
+     * }
+     */
     public static int heif_channel_Y() {
         return (int)0L;
     }
+    /**
+     * {@snippet :
+     * enum heif_channel.heif_channel_Cb = 1;
+     * }
+     */
     public static int heif_channel_Cb() {
         return (int)1L;
     }
+    /**
+     * {@snippet :
+     * enum heif_channel.heif_channel_Cr = 2;
+     * }
+     */
     public static int heif_channel_Cr() {
         return (int)2L;
     }
+    /**
+     * {@snippet :
+     * enum heif_channel.heif_channel_R = 3;
+     * }
+     */
     public static int heif_channel_R() {
         return (int)3L;
     }
+    /**
+     * {@snippet :
+     * enum heif_channel.heif_channel_G = 4;
+     * }
+     */
     public static int heif_channel_G() {
         return (int)4L;
     }
+    /**
+     * {@snippet :
+     * enum heif_channel.heif_channel_B = 5;
+     * }
+     */
     public static int heif_channel_B() {
         return (int)5L;
     }
+    /**
+     * {@snippet :
+     * enum heif_channel.heif_channel_Alpha = 6;
+     * }
+     */
     public static int heif_channel_Alpha() {
         return (int)6L;
     }
+    /**
+     * {@snippet :
+     * enum heif_channel.heif_channel_interleaved = 10;
+     * }
+     */
     public static int heif_channel_interleaved() {
         return (int)10L;
     }
+    /**
+     * {@snippet :
+     * enum heif_progress_step.heif_progress_step_total = 0;
+     * }
+     */
     public static int heif_progress_step_total() {
         return (int)0L;
     }
+    /**
+     * {@snippet :
+     * enum heif_progress_step.heif_progress_step_load_tile = 1;
+     * }
+     */
     public static int heif_progress_step_load_tile() {
         return (int)1L;
     }
     public static MethodHandle heif_decoding_options_alloc$MH() {
         return RuntimeHelper.requireNonNull(constants$11.heif_decoding_options_alloc$MH,"heif_decoding_options_alloc");
     }
-    public static MemoryAddress heif_decoding_options_alloc (Object... x0) {
+    /**
+     * {@snippet :
+     * struct heif_decoding_options* heif_decoding_options_alloc(,...);
+     * }
+     */
+    public static MemorySegment heif_decoding_options_alloc(Object... x0) {
         var mh$ = heif_decoding_options_alloc$MH();
         try {
-            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1285,7 +2480,12 @@ public class heif_h  {
     public static MethodHandle heif_decoding_options_free$MH() {
         return RuntimeHelper.requireNonNull(constants$11.heif_decoding_options_free$MH,"heif_decoding_options_free");
     }
-    public static void heif_decoding_options_free ( Addressable x0) {
+    /**
+     * {@snippet :
+     * void heif_decoding_options_free(struct heif_decoding_options*);
+     * }
+     */
+    public static void heif_decoding_options_free(MemorySegment x0) {
         var mh$ = heif_decoding_options_free$MH();
         try {
             mh$.invokeExact(x0);
@@ -1296,7 +2496,12 @@ public class heif_h  {
     public static MethodHandle heif_decode_image$MH() {
         return RuntimeHelper.requireNonNull(constants$12.heif_decode_image$MH,"heif_decode_image");
     }
-    public static MemorySegment heif_decode_image ( SegmentAllocator allocator,  Addressable in_handle,  Addressable out_img,  int colorspace,  int chroma,  Addressable options) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_decode_image(struct heif_image_handle* in_handle, struct heif_image** out_img, enum heif_colorspace colorspace, enum heif_chroma chroma, struct heif_decoding_options* options);
+     * }
+     */
+    public static MemorySegment heif_decode_image(SegmentAllocator allocator, MemorySegment in_handle, MemorySegment out_img, int colorspace, int chroma, MemorySegment options) {
         var mh$ = heif_decode_image$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, in_handle, out_img, colorspace, chroma, options);
@@ -1307,10 +2512,15 @@ public class heif_h  {
     public static MethodHandle heif_decode_image_alloc$MH() {
         return RuntimeHelper.requireNonNull(constants$12.heif_decode_image_alloc$MH,"heif_decode_image_alloc");
     }
-    public static MemoryAddress heif_decode_image_alloc ( Addressable in_handle,  int colorspace,  int chroma,  Addressable options) {
+    /**
+     * {@snippet :
+     * struct heif_image* heif_decode_image_alloc(struct heif_image_handle* in_handle, enum heif_colorspace colorspace, enum heif_chroma chroma, struct heif_decoding_options* options);
+     * }
+     */
+    public static MemorySegment heif_decode_image_alloc(MemorySegment in_handle, int colorspace, int chroma, MemorySegment options) {
         var mh$ = heif_decode_image_alloc$MH();
         try {
-            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(in_handle, colorspace, chroma, options);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(in_handle, colorspace, chroma, options);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1318,7 +2528,12 @@ public class heif_h  {
     public static MethodHandle heif_image_get_colorspace$MH() {
         return RuntimeHelper.requireNonNull(constants$12.heif_image_get_colorspace$MH,"heif_image_get_colorspace");
     }
-    public static int heif_image_get_colorspace ( Addressable x0) {
+    /**
+     * {@snippet :
+     * enum heif_colorspace heif_image_get_colorspace(struct heif_image*);
+     * }
+     */
+    public static int heif_image_get_colorspace(MemorySegment x0) {
         var mh$ = heif_image_get_colorspace$MH();
         try {
             return (int)mh$.invokeExact(x0);
@@ -1329,7 +2544,12 @@ public class heif_h  {
     public static MethodHandle heif_image_get_chroma_format$MH() {
         return RuntimeHelper.requireNonNull(constants$12.heif_image_get_chroma_format$MH,"heif_image_get_chroma_format");
     }
-    public static int heif_image_get_chroma_format ( Addressable x0) {
+    /**
+     * {@snippet :
+     * enum heif_chroma heif_image_get_chroma_format(struct heif_image*);
+     * }
+     */
+    public static int heif_image_get_chroma_format(MemorySegment x0) {
         var mh$ = heif_image_get_chroma_format$MH();
         try {
             return (int)mh$.invokeExact(x0);
@@ -1340,7 +2560,12 @@ public class heif_h  {
     public static MethodHandle heif_image_get_width$MH() {
         return RuntimeHelper.requireNonNull(constants$12.heif_image_get_width$MH,"heif_image_get_width");
     }
-    public static int heif_image_get_width ( Addressable x0,  int channel) {
+    /**
+     * {@snippet :
+     * int heif_image_get_width(struct heif_image*, enum heif_channel channel);
+     * }
+     */
+    public static int heif_image_get_width(MemorySegment x0, int channel) {
         var mh$ = heif_image_get_width$MH();
         try {
             return (int)mh$.invokeExact(x0, channel);
@@ -1351,7 +2576,12 @@ public class heif_h  {
     public static MethodHandle heif_image_get_height$MH() {
         return RuntimeHelper.requireNonNull(constants$12.heif_image_get_height$MH,"heif_image_get_height");
     }
-    public static int heif_image_get_height ( Addressable x0,  int channel) {
+    /**
+     * {@snippet :
+     * int heif_image_get_height(struct heif_image*, enum heif_channel channel);
+     * }
+     */
+    public static int heif_image_get_height(MemorySegment x0, int channel) {
         var mh$ = heif_image_get_height$MH();
         try {
             return (int)mh$.invokeExact(x0, channel);
@@ -1362,7 +2592,12 @@ public class heif_h  {
     public static MethodHandle heif_image_get_primary_width$MH() {
         return RuntimeHelper.requireNonNull(constants$13.heif_image_get_primary_width$MH,"heif_image_get_primary_width");
     }
-    public static int heif_image_get_primary_width ( Addressable x0) {
+    /**
+     * {@snippet :
+     * int heif_image_get_primary_width(struct heif_image*);
+     * }
+     */
+    public static int heif_image_get_primary_width(MemorySegment x0) {
         var mh$ = heif_image_get_primary_width$MH();
         try {
             return (int)mh$.invokeExact(x0);
@@ -1373,7 +2608,12 @@ public class heif_h  {
     public static MethodHandle heif_image_get_primary_height$MH() {
         return RuntimeHelper.requireNonNull(constants$13.heif_image_get_primary_height$MH,"heif_image_get_primary_height");
     }
-    public static int heif_image_get_primary_height ( Addressable x0) {
+    /**
+     * {@snippet :
+     * int heif_image_get_primary_height(struct heif_image*);
+     * }
+     */
+    public static int heif_image_get_primary_height(MemorySegment x0) {
         var mh$ = heif_image_get_primary_height$MH();
         try {
             return (int)mh$.invokeExact(x0);
@@ -1384,7 +2624,12 @@ public class heif_h  {
     public static MethodHandle heif_image_crop$MH() {
         return RuntimeHelper.requireNonNull(constants$13.heif_image_crop$MH,"heif_image_crop");
     }
-    public static MemorySegment heif_image_crop ( SegmentAllocator allocator,  Addressable img,  int left,  int right,  int top,  int bottom) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_image_crop(struct heif_image* img, int left, int right, int top, int bottom);
+     * }
+     */
+    public static MemorySegment heif_image_crop(SegmentAllocator allocator, MemorySegment img, int left, int right, int top, int bottom) {
         var mh$ = heif_image_crop$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, img, left, right, top, bottom);
@@ -1395,7 +2640,12 @@ public class heif_h  {
     public static MethodHandle heif_image_get_bits_per_pixel$MH() {
         return RuntimeHelper.requireNonNull(constants$13.heif_image_get_bits_per_pixel$MH,"heif_image_get_bits_per_pixel");
     }
-    public static int heif_image_get_bits_per_pixel ( Addressable x0,  int channel) {
+    /**
+     * {@snippet :
+     * int heif_image_get_bits_per_pixel(struct heif_image*, enum heif_channel channel);
+     * }
+     */
+    public static int heif_image_get_bits_per_pixel(MemorySegment x0, int channel) {
         var mh$ = heif_image_get_bits_per_pixel$MH();
         try {
             return (int)mh$.invokeExact(x0, channel);
@@ -1406,7 +2656,12 @@ public class heif_h  {
     public static MethodHandle heif_image_get_bits_per_pixel_range$MH() {
         return RuntimeHelper.requireNonNull(constants$13.heif_image_get_bits_per_pixel_range$MH,"heif_image_get_bits_per_pixel_range");
     }
-    public static int heif_image_get_bits_per_pixel_range ( Addressable x0,  int channel) {
+    /**
+     * {@snippet :
+     * int heif_image_get_bits_per_pixel_range(struct heif_image*, enum heif_channel channel);
+     * }
+     */
+    public static int heif_image_get_bits_per_pixel_range(MemorySegment x0, int channel) {
         var mh$ = heif_image_get_bits_per_pixel_range$MH();
         try {
             return (int)mh$.invokeExact(x0, channel);
@@ -1417,7 +2672,12 @@ public class heif_h  {
     public static MethodHandle heif_image_has_channel$MH() {
         return RuntimeHelper.requireNonNull(constants$13.heif_image_has_channel$MH,"heif_image_has_channel");
     }
-    public static int heif_image_has_channel ( Addressable x0,  int channel) {
+    /**
+     * {@snippet :
+     * int heif_image_has_channel(struct heif_image*, enum heif_channel channel);
+     * }
+     */
+    public static int heif_image_has_channel(MemorySegment x0, int channel) {
         var mh$ = heif_image_has_channel$MH();
         try {
             return (int)mh$.invokeExact(x0, channel);
@@ -1428,10 +2688,15 @@ public class heif_h  {
     public static MethodHandle heif_image_get_plane_readonly$MH() {
         return RuntimeHelper.requireNonNull(constants$14.heif_image_get_plane_readonly$MH,"heif_image_get_plane_readonly");
     }
-    public static MemoryAddress heif_image_get_plane_readonly ( Addressable x0,  int channel,  Addressable out_stride) {
+    /**
+     * {@snippet :
+     * unsigned char* heif_image_get_plane_readonly(struct heif_image*, enum heif_channel channel, int* out_stride);
+     * }
+     */
+    public static MemorySegment heif_image_get_plane_readonly(MemorySegment x0, int channel, MemorySegment out_stride) {
         var mh$ = heif_image_get_plane_readonly$MH();
         try {
-            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0, channel, out_stride);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(x0, channel, out_stride);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1439,10 +2704,15 @@ public class heif_h  {
     public static MethodHandle heif_image_get_plane$MH() {
         return RuntimeHelper.requireNonNull(constants$14.heif_image_get_plane$MH,"heif_image_get_plane");
     }
-    public static MemoryAddress heif_image_get_plane ( Addressable x0,  int channel,  Addressable out_stride) {
+    /**
+     * {@snippet :
+     * unsigned char* heif_image_get_plane(struct heif_image*, enum heif_channel channel, int* out_stride);
+     * }
+     */
+    public static MemorySegment heif_image_get_plane(MemorySegment x0, int channel, MemorySegment out_stride) {
         var mh$ = heif_image_get_plane$MH();
         try {
-            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0, channel, out_stride);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(x0, channel, out_stride);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1450,7 +2720,12 @@ public class heif_h  {
     public static MethodHandle heif_image_scale_image$MH() {
         return RuntimeHelper.requireNonNull(constants$14.heif_image_scale_image$MH,"heif_image_scale_image");
     }
-    public static MemorySegment heif_image_scale_image ( SegmentAllocator allocator,  Addressable input,  Addressable output,  int width,  int height,  Addressable options) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_image_scale_image(struct heif_image* input, struct heif_image** output, int width, int height, struct heif_scaling_options* options);
+     * }
+     */
+    public static MemorySegment heif_image_scale_image(SegmentAllocator allocator, MemorySegment input, MemorySegment output, int width, int height, MemorySegment options) {
         var mh$ = heif_image_scale_image$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, input, output, width, height, options);
@@ -1461,7 +2736,12 @@ public class heif_h  {
     public static MethodHandle heif_image_set_raw_color_profile$MH() {
         return RuntimeHelper.requireNonNull(constants$14.heif_image_set_raw_color_profile$MH,"heif_image_set_raw_color_profile");
     }
-    public static MemorySegment heif_image_set_raw_color_profile ( SegmentAllocator allocator,  Addressable image,  Addressable profile_type_fourcc_string,  Addressable profile_data,  long profile_size) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_image_set_raw_color_profile(struct heif_image* image, char* profile_type_fourcc_string, void* profile_data, unsigned long long profile_size);
+     * }
+     */
+    public static MemorySegment heif_image_set_raw_color_profile(SegmentAllocator allocator, MemorySegment image, MemorySegment profile_type_fourcc_string, MemorySegment profile_data, long profile_size) {
         var mh$ = heif_image_set_raw_color_profile$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, image, profile_type_fourcc_string, profile_data, profile_size);
@@ -1472,7 +2752,12 @@ public class heif_h  {
     public static MethodHandle heif_image_set_nclx_color_profile$MH() {
         return RuntimeHelper.requireNonNull(constants$14.heif_image_set_nclx_color_profile$MH,"heif_image_set_nclx_color_profile");
     }
-    public static MemorySegment heif_image_set_nclx_color_profile ( SegmentAllocator allocator,  Addressable image,  Addressable color_profile) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_image_set_nclx_color_profile(struct heif_image* image, struct heif_color_profile_nclx* color_profile);
+     * }
+     */
+    public static MemorySegment heif_image_set_nclx_color_profile(SegmentAllocator allocator, MemorySegment image, MemorySegment color_profile) {
         var mh$ = heif_image_set_nclx_color_profile$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, image, color_profile);
@@ -1483,7 +2768,12 @@ public class heif_h  {
     public static MethodHandle heif_image_release$MH() {
         return RuntimeHelper.requireNonNull(constants$14.heif_image_release$MH,"heif_image_release");
     }
-    public static void heif_image_release ( Addressable x0) {
+    /**
+     * {@snippet :
+     * void heif_image_release(struct heif_image*);
+     * }
+     */
+    public static void heif_image_release(MemorySegment x0) {
         var mh$ = heif_image_release$MH();
         try {
             mh$.invokeExact(x0);
@@ -1494,7 +2784,12 @@ public class heif_h  {
     public static MethodHandle heif_context_write_to_file$MH() {
         return RuntimeHelper.requireNonNull(constants$15.heif_context_write_to_file$MH,"heif_context_write_to_file");
     }
-    public static MemorySegment heif_context_write_to_file ( SegmentAllocator allocator,  Addressable x1,  Addressable filename) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_context_write_to_file(struct heif_context*, char* filename);
+     * }
+     */
+    public static MemorySegment heif_context_write_to_file(SegmentAllocator allocator, MemorySegment x1, MemorySegment filename) {
         var mh$ = heif_context_write_to_file$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, filename);
@@ -1505,7 +2800,12 @@ public class heif_h  {
     public static MethodHandle heif_context_write$MH() {
         return RuntimeHelper.requireNonNull(constants$15.heif_context_write$MH,"heif_context_write");
     }
-    public static MemorySegment heif_context_write ( SegmentAllocator allocator,  Addressable x1,  Addressable writer,  Addressable userdata) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_context_write(struct heif_context*, struct heif_writer* writer, void* userdata);
+     * }
+     */
+    public static MemorySegment heif_context_write(SegmentAllocator allocator, MemorySegment x1, MemorySegment writer, MemorySegment userdata) {
         var mh$ = heif_context_write$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, writer, userdata);
@@ -1516,7 +2816,12 @@ public class heif_h  {
     public static MethodHandle heif_context_get_encoder_descriptors$MH() {
         return RuntimeHelper.requireNonNull(constants$15.heif_context_get_encoder_descriptors$MH,"heif_context_get_encoder_descriptors");
     }
-    public static int heif_context_get_encoder_descriptors ( Addressable x0,  int format_filter,  Addressable name_filter,  Addressable out_encoders,  int count) {
+    /**
+     * {@snippet :
+     * int heif_context_get_encoder_descriptors(struct heif_context*, enum heif_compression_format format_filter, char* name_filter, struct heif_encoder_descriptor** out_encoders, int count);
+     * }
+     */
+    public static int heif_context_get_encoder_descriptors(MemorySegment x0, int format_filter, MemorySegment name_filter, MemorySegment out_encoders, int count) {
         var mh$ = heif_context_get_encoder_descriptors$MH();
         try {
             return (int)mh$.invokeExact(x0, format_filter, name_filter, out_encoders, count);
@@ -1527,10 +2832,15 @@ public class heif_h  {
     public static MethodHandle heif_encoder_descriptor_get_name$MH() {
         return RuntimeHelper.requireNonNull(constants$15.heif_encoder_descriptor_get_name$MH,"heif_encoder_descriptor_get_name");
     }
-    public static MemoryAddress heif_encoder_descriptor_get_name ( Addressable x0) {
+    /**
+     * {@snippet :
+     * char* heif_encoder_descriptor_get_name(struct heif_encoder_descriptor*);
+     * }
+     */
+    public static MemorySegment heif_encoder_descriptor_get_name(MemorySegment x0) {
         var mh$ = heif_encoder_descriptor_get_name$MH();
         try {
-            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1538,10 +2848,15 @@ public class heif_h  {
     public static MethodHandle heif_encoder_descriptor_get_id_name$MH() {
         return RuntimeHelper.requireNonNull(constants$15.heif_encoder_descriptor_get_id_name$MH,"heif_encoder_descriptor_get_id_name");
     }
-    public static MemoryAddress heif_encoder_descriptor_get_id_name ( Addressable x0) {
+    /**
+     * {@snippet :
+     * char* heif_encoder_descriptor_get_id_name(struct heif_encoder_descriptor*);
+     * }
+     */
+    public static MemorySegment heif_encoder_descriptor_get_id_name(MemorySegment x0) {
         var mh$ = heif_encoder_descriptor_get_id_name$MH();
         try {
-            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1549,7 +2864,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_descriptor_get_compression_format$MH() {
         return RuntimeHelper.requireNonNull(constants$15.heif_encoder_descriptor_get_compression_format$MH,"heif_encoder_descriptor_get_compression_format");
     }
-    public static int heif_encoder_descriptor_get_compression_format ( Addressable x0) {
+    /**
+     * {@snippet :
+     * enum heif_compression_format heif_encoder_descriptor_get_compression_format(struct heif_encoder_descriptor*);
+     * }
+     */
+    public static int heif_encoder_descriptor_get_compression_format(MemorySegment x0) {
         var mh$ = heif_encoder_descriptor_get_compression_format$MH();
         try {
             return (int)mh$.invokeExact(x0);
@@ -1560,7 +2880,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_descriptor_supports_lossy_compression$MH() {
         return RuntimeHelper.requireNonNull(constants$16.heif_encoder_descriptor_supports_lossy_compression$MH,"heif_encoder_descriptor_supports_lossy_compression");
     }
-    public static int heif_encoder_descriptor_supports_lossy_compression ( Addressable x0) {
+    /**
+     * {@snippet :
+     * int heif_encoder_descriptor_supports_lossy_compression(struct heif_encoder_descriptor*);
+     * }
+     */
+    public static int heif_encoder_descriptor_supports_lossy_compression(MemorySegment x0) {
         var mh$ = heif_encoder_descriptor_supports_lossy_compression$MH();
         try {
             return (int)mh$.invokeExact(x0);
@@ -1571,7 +2896,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_descriptor_supports_lossless_compression$MH() {
         return RuntimeHelper.requireNonNull(constants$16.heif_encoder_descriptor_supports_lossless_compression$MH,"heif_encoder_descriptor_supports_lossless_compression");
     }
-    public static int heif_encoder_descriptor_supports_lossless_compression ( Addressable x0) {
+    /**
+     * {@snippet :
+     * int heif_encoder_descriptor_supports_lossless_compression(struct heif_encoder_descriptor*);
+     * }
+     */
+    public static int heif_encoder_descriptor_supports_lossless_compression(MemorySegment x0) {
         var mh$ = heif_encoder_descriptor_supports_lossless_compression$MH();
         try {
             return (int)mh$.invokeExact(x0);
@@ -1582,7 +2912,12 @@ public class heif_h  {
     public static MethodHandle heif_context_get_encoder$MH() {
         return RuntimeHelper.requireNonNull(constants$16.heif_context_get_encoder$MH,"heif_context_get_encoder");
     }
-    public static MemorySegment heif_context_get_encoder ( SegmentAllocator allocator,  Addressable context,  Addressable x2,  Addressable out_encoder) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_context_get_encoder(struct heif_context* context, struct heif_encoder_descriptor*, struct heif_encoder** out_encoder);
+     * }
+     */
+    public static MemorySegment heif_context_get_encoder(SegmentAllocator allocator, MemorySegment context, MemorySegment x2, MemorySegment out_encoder) {
         var mh$ = heif_context_get_encoder$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, context, x2, out_encoder);
@@ -1593,7 +2928,12 @@ public class heif_h  {
     public static MethodHandle heif_have_decoder_for_format$MH() {
         return RuntimeHelper.requireNonNull(constants$16.heif_have_decoder_for_format$MH,"heif_have_decoder_for_format");
     }
-    public static int heif_have_decoder_for_format ( int format) {
+    /**
+     * {@snippet :
+     * int heif_have_decoder_for_format(enum heif_compression_format format);
+     * }
+     */
+    public static int heif_have_decoder_for_format(int format) {
         var mh$ = heif_have_decoder_for_format$MH();
         try {
             return (int)mh$.invokeExact(format);
@@ -1604,7 +2944,12 @@ public class heif_h  {
     public static MethodHandle heif_have_encoder_for_format$MH() {
         return RuntimeHelper.requireNonNull(constants$16.heif_have_encoder_for_format$MH,"heif_have_encoder_for_format");
     }
-    public static int heif_have_encoder_for_format ( int format) {
+    /**
+     * {@snippet :
+     * int heif_have_encoder_for_format(enum heif_compression_format format);
+     * }
+     */
+    public static int heif_have_encoder_for_format(int format) {
         var mh$ = heif_have_encoder_for_format$MH();
         try {
             return (int)mh$.invokeExact(format);
@@ -1615,7 +2960,12 @@ public class heif_h  {
     public static MethodHandle heif_context_get_encoder_for_format$MH() {
         return RuntimeHelper.requireNonNull(constants$16.heif_context_get_encoder_for_format$MH,"heif_context_get_encoder_for_format");
     }
-    public static MemorySegment heif_context_get_encoder_for_format ( SegmentAllocator allocator,  Addressable context,  int format,  Addressable x3) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_context_get_encoder_for_format(struct heif_context* context, enum heif_compression_format format, struct heif_encoder**);
+     * }
+     */
+    public static MemorySegment heif_context_get_encoder_for_format(SegmentAllocator allocator, MemorySegment context, int format, MemorySegment x3) {
         var mh$ = heif_context_get_encoder_for_format$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, context, format, x3);
@@ -1626,7 +2976,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_release$MH() {
         return RuntimeHelper.requireNonNull(constants$17.heif_encoder_release$MH,"heif_encoder_release");
     }
-    public static void heif_encoder_release ( Addressable x0) {
+    /**
+     * {@snippet :
+     * void heif_encoder_release(struct heif_encoder*);
+     * }
+     */
+    public static void heif_encoder_release(MemorySegment x0) {
         var mh$ = heif_encoder_release$MH();
         try {
             mh$.invokeExact(x0);
@@ -1637,10 +2992,15 @@ public class heif_h  {
     public static MethodHandle heif_encoder_get_name$MH() {
         return RuntimeHelper.requireNonNull(constants$17.heif_encoder_get_name$MH,"heif_encoder_get_name");
     }
-    public static MemoryAddress heif_encoder_get_name ( Addressable x0) {
+    /**
+     * {@snippet :
+     * char* heif_encoder_get_name(struct heif_encoder*);
+     * }
+     */
+    public static MemorySegment heif_encoder_get_name(MemorySegment x0) {
         var mh$ = heif_encoder_get_name$MH();
         try {
-            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1648,7 +3008,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_set_lossy_quality$MH() {
         return RuntimeHelper.requireNonNull(constants$17.heif_encoder_set_lossy_quality$MH,"heif_encoder_set_lossy_quality");
     }
-    public static MemorySegment heif_encoder_set_lossy_quality ( SegmentAllocator allocator,  Addressable x1,  int quality) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_encoder_set_lossy_quality(struct heif_encoder*, int quality);
+     * }
+     */
+    public static MemorySegment heif_encoder_set_lossy_quality(SegmentAllocator allocator, MemorySegment x1, int quality) {
         var mh$ = heif_encoder_set_lossy_quality$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, quality);
@@ -1659,7 +3024,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_set_lossless$MH() {
         return RuntimeHelper.requireNonNull(constants$17.heif_encoder_set_lossless$MH,"heif_encoder_set_lossless");
     }
-    public static MemorySegment heif_encoder_set_lossless ( SegmentAllocator allocator,  Addressable x1,  int enable) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_encoder_set_lossless(struct heif_encoder*, int enable);
+     * }
+     */
+    public static MemorySegment heif_encoder_set_lossless(SegmentAllocator allocator, MemorySegment x1, int enable) {
         var mh$ = heif_encoder_set_lossless$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, enable);
@@ -1670,7 +3040,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_set_logging_level$MH() {
         return RuntimeHelper.requireNonNull(constants$17.heif_encoder_set_logging_level$MH,"heif_encoder_set_logging_level");
     }
-    public static MemorySegment heif_encoder_set_logging_level ( SegmentAllocator allocator,  Addressable x1,  int level) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_encoder_set_logging_level(struct heif_encoder*, int level);
+     * }
+     */
+    public static MemorySegment heif_encoder_set_logging_level(SegmentAllocator allocator, MemorySegment x1, int level) {
         var mh$ = heif_encoder_set_logging_level$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, level);
@@ -1681,10 +3056,15 @@ public class heif_h  {
     public static MethodHandle heif_encoder_list_parameters$MH() {
         return RuntimeHelper.requireNonNull(constants$17.heif_encoder_list_parameters$MH,"heif_encoder_list_parameters");
     }
-    public static MemoryAddress heif_encoder_list_parameters ( Addressable x0) {
+    /**
+     * {@snippet :
+     * struct heif_encoder_parameter** heif_encoder_list_parameters(struct heif_encoder*);
+     * }
+     */
+    public static MemorySegment heif_encoder_list_parameters(MemorySegment x0) {
         var mh$ = heif_encoder_list_parameters$MH();
         try {
-            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1692,27 +3072,52 @@ public class heif_h  {
     public static MethodHandle heif_encoder_parameter_get_name$MH() {
         return RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_name$MH,"heif_encoder_parameter_get_name");
     }
-    public static MemoryAddress heif_encoder_parameter_get_name ( Addressable x0) {
+    /**
+     * {@snippet :
+     * char* heif_encoder_parameter_get_name(struct heif_encoder_parameter*);
+     * }
+     */
+    public static MemorySegment heif_encoder_parameter_get_name(MemorySegment x0) {
         var mh$ = heif_encoder_parameter_get_name$MH();
         try {
-            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
     }
+    /**
+     * {@snippet :
+     * enum heif_encoder_parameter_type.heif_encoder_parameter_type_integer = 1;
+     * }
+     */
     public static int heif_encoder_parameter_type_integer() {
         return (int)1L;
     }
+    /**
+     * {@snippet :
+     * enum heif_encoder_parameter_type.heif_encoder_parameter_type_boolean = 2;
+     * }
+     */
     public static int heif_encoder_parameter_type_boolean() {
         return (int)2L;
     }
+    /**
+     * {@snippet :
+     * enum heif_encoder_parameter_type.heif_encoder_parameter_type_string = 3;
+     * }
+     */
     public static int heif_encoder_parameter_type_string() {
         return (int)3L;
     }
     public static MethodHandle heif_encoder_parameter_get_type$MH() {
         return RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_type$MH,"heif_encoder_parameter_get_type");
     }
-    public static int heif_encoder_parameter_get_type ( Addressable x0) {
+    /**
+     * {@snippet :
+     * enum heif_encoder_parameter_type heif_encoder_parameter_get_type(struct heif_encoder_parameter*);
+     * }
+     */
+    public static int heif_encoder_parameter_get_type(MemorySegment x0) {
         var mh$ = heif_encoder_parameter_get_type$MH();
         try {
             return (int)mh$.invokeExact(x0);
@@ -1723,7 +3128,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_parameter_get_valid_integer_range$MH() {
         return RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_valid_integer_range$MH,"heif_encoder_parameter_get_valid_integer_range");
     }
-    public static MemorySegment heif_encoder_parameter_get_valid_integer_range ( SegmentAllocator allocator,  Addressable x1,  Addressable have_minimum_maximum,  Addressable minimum,  Addressable maximum) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_encoder_parameter_get_valid_integer_range(struct heif_encoder_parameter*, int* have_minimum_maximum, int* minimum, int* maximum);
+     * }
+     */
+    public static MemorySegment heif_encoder_parameter_get_valid_integer_range(SegmentAllocator allocator, MemorySegment x1, MemorySegment have_minimum_maximum, MemorySegment minimum, MemorySegment maximum) {
         var mh$ = heif_encoder_parameter_get_valid_integer_range$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, have_minimum_maximum, minimum, maximum);
@@ -1734,7 +3144,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_parameter_get_valid_integer_values$MH() {
         return RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_valid_integer_values$MH,"heif_encoder_parameter_get_valid_integer_values");
     }
-    public static MemorySegment heif_encoder_parameter_get_valid_integer_values ( SegmentAllocator allocator,  Addressable x1,  Addressable have_minimum,  Addressable have_maximum,  Addressable minimum,  Addressable maximum,  Addressable num_valid_values,  Addressable out_integer_array) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_encoder_parameter_get_valid_integer_values(struct heif_encoder_parameter*, int* have_minimum, int* have_maximum, int* minimum, int* maximum, int* num_valid_values, int** out_integer_array);
+     * }
+     */
+    public static MemorySegment heif_encoder_parameter_get_valid_integer_values(SegmentAllocator allocator, MemorySegment x1, MemorySegment have_minimum, MemorySegment have_maximum, MemorySegment minimum, MemorySegment maximum, MemorySegment num_valid_values, MemorySegment out_integer_array) {
         var mh$ = heif_encoder_parameter_get_valid_integer_values$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, have_minimum, have_maximum, minimum, maximum, num_valid_values, out_integer_array);
@@ -1745,7 +3160,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_parameter_get_valid_string_values$MH() {
         return RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_valid_string_values$MH,"heif_encoder_parameter_get_valid_string_values");
     }
-    public static MemorySegment heif_encoder_parameter_get_valid_string_values ( SegmentAllocator allocator,  Addressable x1,  Addressable out_stringarray) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_encoder_parameter_get_valid_string_values(struct heif_encoder_parameter*, char*** out_stringarray);
+     * }
+     */
+    public static MemorySegment heif_encoder_parameter_get_valid_string_values(SegmentAllocator allocator, MemorySegment x1, MemorySegment out_stringarray) {
         var mh$ = heif_encoder_parameter_get_valid_string_values$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, out_stringarray);
@@ -1756,7 +3176,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_set_parameter_integer$MH() {
         return RuntimeHelper.requireNonNull(constants$18.heif_encoder_set_parameter_integer$MH,"heif_encoder_set_parameter_integer");
     }
-    public static MemorySegment heif_encoder_set_parameter_integer ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  int value) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_encoder_set_parameter_integer(struct heif_encoder*, char* parameter_name, int value);
+     * }
+     */
+    public static MemorySegment heif_encoder_set_parameter_integer(SegmentAllocator allocator, MemorySegment x1, MemorySegment parameter_name, int value) {
         var mh$ = heif_encoder_set_parameter_integer$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value);
@@ -1767,7 +3192,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_get_parameter_integer$MH() {
         return RuntimeHelper.requireNonNull(constants$19.heif_encoder_get_parameter_integer$MH,"heif_encoder_get_parameter_integer");
     }
-    public static MemorySegment heif_encoder_get_parameter_integer ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  Addressable value) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_encoder_get_parameter_integer(struct heif_encoder*, char* parameter_name, int* value);
+     * }
+     */
+    public static MemorySegment heif_encoder_get_parameter_integer(SegmentAllocator allocator, MemorySegment x1, MemorySegment parameter_name, MemorySegment value) {
         var mh$ = heif_encoder_get_parameter_integer$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value);
@@ -1778,7 +3208,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_parameter_integer_valid_range$MH() {
         return RuntimeHelper.requireNonNull(constants$19.heif_encoder_parameter_integer_valid_range$MH,"heif_encoder_parameter_integer_valid_range");
     }
-    public static MemorySegment heif_encoder_parameter_integer_valid_range ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  Addressable have_minimum_maximum,  Addressable minimum,  Addressable maximum) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_encoder_parameter_integer_valid_range(struct heif_encoder*, char* parameter_name, int* have_minimum_maximum, int* minimum, int* maximum);
+     * }
+     */
+    public static MemorySegment heif_encoder_parameter_integer_valid_range(SegmentAllocator allocator, MemorySegment x1, MemorySegment parameter_name, MemorySegment have_minimum_maximum, MemorySegment minimum, MemorySegment maximum) {
         var mh$ = heif_encoder_parameter_integer_valid_range$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, have_minimum_maximum, minimum, maximum);
@@ -1789,7 +3224,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_set_parameter_boolean$MH() {
         return RuntimeHelper.requireNonNull(constants$19.heif_encoder_set_parameter_boolean$MH,"heif_encoder_set_parameter_boolean");
     }
-    public static MemorySegment heif_encoder_set_parameter_boolean ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  int value) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_encoder_set_parameter_boolean(struct heif_encoder*, char* parameter_name, int value);
+     * }
+     */
+    public static MemorySegment heif_encoder_set_parameter_boolean(SegmentAllocator allocator, MemorySegment x1, MemorySegment parameter_name, int value) {
         var mh$ = heif_encoder_set_parameter_boolean$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value);
@@ -1800,7 +3240,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_get_parameter_boolean$MH() {
         return RuntimeHelper.requireNonNull(constants$19.heif_encoder_get_parameter_boolean$MH,"heif_encoder_get_parameter_boolean");
     }
-    public static MemorySegment heif_encoder_get_parameter_boolean ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  Addressable value) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_encoder_get_parameter_boolean(struct heif_encoder*, char* parameter_name, int* value);
+     * }
+     */
+    public static MemorySegment heif_encoder_get_parameter_boolean(SegmentAllocator allocator, MemorySegment x1, MemorySegment parameter_name, MemorySegment value) {
         var mh$ = heif_encoder_get_parameter_boolean$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value);
@@ -1811,7 +3256,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_set_parameter_string$MH() {
         return RuntimeHelper.requireNonNull(constants$19.heif_encoder_set_parameter_string$MH,"heif_encoder_set_parameter_string");
     }
-    public static MemorySegment heif_encoder_set_parameter_string ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  Addressable value) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_encoder_set_parameter_string(struct heif_encoder*, char* parameter_name, char* value);
+     * }
+     */
+    public static MemorySegment heif_encoder_set_parameter_string(SegmentAllocator allocator, MemorySegment x1, MemorySegment parameter_name, MemorySegment value) {
         var mh$ = heif_encoder_set_parameter_string$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value);
@@ -1822,7 +3272,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_get_parameter_string$MH() {
         return RuntimeHelper.requireNonNull(constants$19.heif_encoder_get_parameter_string$MH,"heif_encoder_get_parameter_string");
     }
-    public static MemorySegment heif_encoder_get_parameter_string ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  Addressable value,  int value_size) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_encoder_get_parameter_string(struct heif_encoder*, char* parameter_name, char* value, int value_size);
+     * }
+     */
+    public static MemorySegment heif_encoder_get_parameter_string(SegmentAllocator allocator, MemorySegment x1, MemorySegment parameter_name, MemorySegment value, int value_size) {
         var mh$ = heif_encoder_get_parameter_string$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value, value_size);
@@ -1833,7 +3288,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_parameter_string_valid_values$MH() {
         return RuntimeHelper.requireNonNull(constants$20.heif_encoder_parameter_string_valid_values$MH,"heif_encoder_parameter_string_valid_values");
     }
-    public static MemorySegment heif_encoder_parameter_string_valid_values ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  Addressable out_stringarray) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_encoder_parameter_string_valid_values(struct heif_encoder*, char* parameter_name, char*** out_stringarray);
+     * }
+     */
+    public static MemorySegment heif_encoder_parameter_string_valid_values(SegmentAllocator allocator, MemorySegment x1, MemorySegment parameter_name, MemorySegment out_stringarray) {
         var mh$ = heif_encoder_parameter_string_valid_values$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, out_stringarray);
@@ -1844,7 +3304,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_parameter_integer_valid_values$MH() {
         return RuntimeHelper.requireNonNull(constants$20.heif_encoder_parameter_integer_valid_values$MH,"heif_encoder_parameter_integer_valid_values");
     }
-    public static MemorySegment heif_encoder_parameter_integer_valid_values ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  Addressable have_minimum,  Addressable have_maximum,  Addressable minimum,  Addressable maximum,  Addressable num_valid_values,  Addressable out_integer_array) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_encoder_parameter_integer_valid_values(struct heif_encoder*, char* parameter_name, int* have_minimum, int* have_maximum, int* minimum, int* maximum, int* num_valid_values, int** out_integer_array);
+     * }
+     */
+    public static MemorySegment heif_encoder_parameter_integer_valid_values(SegmentAllocator allocator, MemorySegment x1, MemorySegment parameter_name, MemorySegment have_minimum, MemorySegment have_maximum, MemorySegment minimum, MemorySegment maximum, MemorySegment num_valid_values, MemorySegment out_integer_array) {
         var mh$ = heif_encoder_parameter_integer_valid_values$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, have_minimum, have_maximum, minimum, maximum, num_valid_values, out_integer_array);
@@ -1855,7 +3320,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_set_parameter$MH() {
         return RuntimeHelper.requireNonNull(constants$20.heif_encoder_set_parameter$MH,"heif_encoder_set_parameter");
     }
-    public static MemorySegment heif_encoder_set_parameter ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  Addressable value) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_encoder_set_parameter(struct heif_encoder*, char* parameter_name, char* value);
+     * }
+     */
+    public static MemorySegment heif_encoder_set_parameter(SegmentAllocator allocator, MemorySegment x1, MemorySegment parameter_name, MemorySegment value) {
         var mh$ = heif_encoder_set_parameter$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value);
@@ -1866,7 +3336,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_get_parameter$MH() {
         return RuntimeHelper.requireNonNull(constants$20.heif_encoder_get_parameter$MH,"heif_encoder_get_parameter");
     }
-    public static MemorySegment heif_encoder_get_parameter ( SegmentAllocator allocator,  Addressable x1,  Addressable parameter_name,  Addressable value_ptr,  int value_size) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_encoder_get_parameter(struct heif_encoder*, char* parameter_name, char* value_ptr, int value_size);
+     * }
+     */
+    public static MemorySegment heif_encoder_get_parameter(SegmentAllocator allocator, MemorySegment x1, MemorySegment parameter_name, MemorySegment value_ptr, int value_size) {
         var mh$ = heif_encoder_get_parameter$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, parameter_name, value_ptr, value_size);
@@ -1877,7 +3352,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_has_default$MH() {
         return RuntimeHelper.requireNonNull(constants$20.heif_encoder_has_default$MH,"heif_encoder_has_default");
     }
-    public static int heif_encoder_has_default ( Addressable x0,  Addressable parameter_name) {
+    /**
+     * {@snippet :
+     * int heif_encoder_has_default(struct heif_encoder*, char* parameter_name);
+     * }
+     */
+    public static int heif_encoder_has_default(MemorySegment x0, MemorySegment parameter_name) {
         var mh$ = heif_encoder_has_default$MH();
         try {
             return (int)mh$.invokeExact(x0, parameter_name);
@@ -1888,10 +3368,15 @@ public class heif_h  {
     public static MethodHandle heif_encoding_options_alloc$MH() {
         return RuntimeHelper.requireNonNull(constants$20.heif_encoding_options_alloc$MH,"heif_encoding_options_alloc");
     }
-    public static MemoryAddress heif_encoding_options_alloc (Object... x0) {
+    /**
+     * {@snippet :
+     * struct heif_encoding_options* heif_encoding_options_alloc(,...);
+     * }
+     */
+    public static MemorySegment heif_encoding_options_alloc(Object... x0) {
         var mh$ = heif_encoding_options_alloc$MH();
         try {
-            return (java.lang.foreign.MemoryAddress)mh$.invokeExact(x0);
+            return (java.lang.foreign.MemorySegment)mh$.invokeExact(x0);
         } catch (Throwable ex$) {
             throw new AssertionError("should not reach here", ex$);
         }
@@ -1899,7 +3384,12 @@ public class heif_h  {
     public static MethodHandle heif_encoding_options_free$MH() {
         return RuntimeHelper.requireNonNull(constants$21.heif_encoding_options_free$MH,"heif_encoding_options_free");
     }
-    public static void heif_encoding_options_free ( Addressable x0) {
+    /**
+     * {@snippet :
+     * void heif_encoding_options_free(struct heif_encoding_options*);
+     * }
+     */
+    public static void heif_encoding_options_free(MemorySegment x0) {
         var mh$ = heif_encoding_options_free$MH();
         try {
             mh$.invokeExact(x0);
@@ -1910,7 +3400,12 @@ public class heif_h  {
     public static MethodHandle heif_context_encode_image$MH() {
         return RuntimeHelper.requireNonNull(constants$21.heif_context_encode_image$MH,"heif_context_encode_image");
     }
-    public static MemorySegment heif_context_encode_image ( SegmentAllocator allocator,  Addressable x1,  Addressable image,  Addressable encoder,  Addressable options,  Addressable out_image_handle) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_context_encode_image(struct heif_context*, struct heif_image* image, struct heif_encoder* encoder, struct heif_encoding_options* options, struct heif_image_handle** out_image_handle);
+     * }
+     */
+    public static MemorySegment heif_context_encode_image(SegmentAllocator allocator, MemorySegment x1, MemorySegment image, MemorySegment encoder, MemorySegment options, MemorySegment out_image_handle) {
         var mh$ = heif_context_encode_image$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, image, encoder, options, out_image_handle);
@@ -1921,7 +3416,12 @@ public class heif_h  {
     public static MethodHandle heif_context_set_primary_image$MH() {
         return RuntimeHelper.requireNonNull(constants$21.heif_context_set_primary_image$MH,"heif_context_set_primary_image");
     }
-    public static MemorySegment heif_context_set_primary_image ( SegmentAllocator allocator,  Addressable x1,  Addressable image_handle) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_context_set_primary_image(struct heif_context*, struct heif_image_handle* image_handle);
+     * }
+     */
+    public static MemorySegment heif_context_set_primary_image(SegmentAllocator allocator, MemorySegment x1, MemorySegment image_handle) {
         var mh$ = heif_context_set_primary_image$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, image_handle);
@@ -1932,7 +3432,12 @@ public class heif_h  {
     public static MethodHandle heif_context_encode_thumbnail$MH() {
         return RuntimeHelper.requireNonNull(constants$21.heif_context_encode_thumbnail$MH,"heif_context_encode_thumbnail");
     }
-    public static MemorySegment heif_context_encode_thumbnail ( SegmentAllocator allocator,  Addressable x1,  Addressable image,  Addressable master_image_handle,  Addressable encoder,  Addressable options,  int bbox_size,  Addressable out_thumb_image_handle) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_context_encode_thumbnail(struct heif_context*, struct heif_image* image, struct heif_image_handle* master_image_handle, struct heif_encoder* encoder, struct heif_encoding_options* options, int bbox_size, struct heif_image_handle** out_thumb_image_handle);
+     * }
+     */
+    public static MemorySegment heif_context_encode_thumbnail(SegmentAllocator allocator, MemorySegment x1, MemorySegment image, MemorySegment master_image_handle, MemorySegment encoder, MemorySegment options, int bbox_size, MemorySegment out_thumb_image_handle) {
         var mh$ = heif_context_encode_thumbnail$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, image, master_image_handle, encoder, options, bbox_size, out_thumb_image_handle);
@@ -1943,7 +3448,12 @@ public class heif_h  {
     public static MethodHandle heif_context_assign_thumbnail$MH() {
         return RuntimeHelper.requireNonNull(constants$21.heif_context_assign_thumbnail$MH,"heif_context_assign_thumbnail");
     }
-    public static MemorySegment heif_context_assign_thumbnail ( SegmentAllocator allocator,  Addressable x1,  Addressable master_image,  Addressable thumbnail_image) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_context_assign_thumbnail(struct heif_context*, struct heif_image_handle* master_image, struct heif_image_handle* thumbnail_image);
+     * }
+     */
+    public static MemorySegment heif_context_assign_thumbnail(SegmentAllocator allocator, MemorySegment x1, MemorySegment master_image, MemorySegment thumbnail_image) {
         var mh$ = heif_context_assign_thumbnail$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, master_image, thumbnail_image);
@@ -1954,7 +3464,12 @@ public class heif_h  {
     public static MethodHandle heif_context_add_exif_metadata$MH() {
         return RuntimeHelper.requireNonNull(constants$21.heif_context_add_exif_metadata$MH,"heif_context_add_exif_metadata");
     }
-    public static MemorySegment heif_context_add_exif_metadata ( SegmentAllocator allocator,  Addressable x1,  Addressable image_handle,  Addressable data,  int size) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_context_add_exif_metadata(struct heif_context*, struct heif_image_handle* image_handle, void* data, int size);
+     * }
+     */
+    public static MemorySegment heif_context_add_exif_metadata(SegmentAllocator allocator, MemorySegment x1, MemorySegment image_handle, MemorySegment data, int size) {
         var mh$ = heif_context_add_exif_metadata$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, image_handle, data, size);
@@ -1965,7 +3480,12 @@ public class heif_h  {
     public static MethodHandle heif_context_add_XMP_metadata$MH() {
         return RuntimeHelper.requireNonNull(constants$22.heif_context_add_XMP_metadata$MH,"heif_context_add_XMP_metadata");
     }
-    public static MemorySegment heif_context_add_XMP_metadata ( SegmentAllocator allocator,  Addressable x1,  Addressable image_handle,  Addressable data,  int size) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_context_add_XMP_metadata(struct heif_context*, struct heif_image_handle* image_handle, void* data, int size);
+     * }
+     */
+    public static MemorySegment heif_context_add_XMP_metadata(SegmentAllocator allocator, MemorySegment x1, MemorySegment image_handle, MemorySegment data, int size) {
         var mh$ = heif_context_add_XMP_metadata$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1, image_handle, data, size);
@@ -1976,7 +3496,12 @@ public class heif_h  {
     public static MethodHandle heif_context_add_generic_metadata$MH() {
         return RuntimeHelper.requireNonNull(constants$22.heif_context_add_generic_metadata$MH,"heif_context_add_generic_metadata");
     }
-    public static MemorySegment heif_context_add_generic_metadata ( SegmentAllocator allocator,  Addressable ctx,  Addressable image_handle,  Addressable data,  int size,  Addressable item_type,  Addressable content_type) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_context_add_generic_metadata(struct heif_context* ctx, struct heif_image_handle* image_handle, void* data, int size, char* item_type, char* content_type);
+     * }
+     */
+    public static MemorySegment heif_context_add_generic_metadata(SegmentAllocator allocator, MemorySegment ctx, MemorySegment image_handle, MemorySegment data, int size, MemorySegment item_type, MemorySegment content_type) {
         var mh$ = heif_context_add_generic_metadata$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, ctx, image_handle, data, size, item_type, content_type);
@@ -1987,7 +3512,12 @@ public class heif_h  {
     public static MethodHandle heif_image_create$MH() {
         return RuntimeHelper.requireNonNull(constants$22.heif_image_create$MH,"heif_image_create");
     }
-    public static MemorySegment heif_image_create ( SegmentAllocator allocator,  int width,  int height,  int colorspace,  int chroma,  Addressable out_image) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_image_create(int width, int height, enum heif_colorspace colorspace, enum heif_chroma chroma, struct heif_image** out_image);
+     * }
+     */
+    public static MemorySegment heif_image_create(SegmentAllocator allocator, int width, int height, int colorspace, int chroma, MemorySegment out_image) {
         var mh$ = heif_image_create$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, width, height, colorspace, chroma, out_image);
@@ -1998,7 +3528,12 @@ public class heif_h  {
     public static MethodHandle heif_image_add_plane$MH() {
         return RuntimeHelper.requireNonNull(constants$22.heif_image_add_plane$MH,"heif_image_add_plane");
     }
-    public static MemorySegment heif_image_add_plane ( SegmentAllocator allocator,  Addressable image,  int channel,  int width,  int height,  int bit_depth) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_image_add_plane(struct heif_image* image, enum heif_channel channel, int width, int height, int bit_depth);
+     * }
+     */
+    public static MemorySegment heif_image_add_plane(SegmentAllocator allocator, MemorySegment image, int channel, int width, int height, int bit_depth) {
         var mh$ = heif_image_add_plane$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, image, channel, width, height, bit_depth);
@@ -2009,7 +3544,12 @@ public class heif_h  {
     public static MethodHandle heif_image_set_premultiplied_alpha$MH() {
         return RuntimeHelper.requireNonNull(constants$22.heif_image_set_premultiplied_alpha$MH,"heif_image_set_premultiplied_alpha");
     }
-    public static void heif_image_set_premultiplied_alpha ( Addressable image,  int is_premultiplied_alpha) {
+    /**
+     * {@snippet :
+     * void heif_image_set_premultiplied_alpha(struct heif_image* image, int is_premultiplied_alpha);
+     * }
+     */
+    public static void heif_image_set_premultiplied_alpha(MemorySegment image, int is_premultiplied_alpha) {
         var mh$ = heif_image_set_premultiplied_alpha$MH();
         try {
             mh$.invokeExact(image, is_premultiplied_alpha);
@@ -2020,7 +3560,12 @@ public class heif_h  {
     public static MethodHandle heif_image_is_premultiplied_alpha$MH() {
         return RuntimeHelper.requireNonNull(constants$22.heif_image_is_premultiplied_alpha$MH,"heif_image_is_premultiplied_alpha");
     }
-    public static int heif_image_is_premultiplied_alpha ( Addressable image) {
+    /**
+     * {@snippet :
+     * int heif_image_is_premultiplied_alpha(struct heif_image* image);
+     * }
+     */
+    public static int heif_image_is_premultiplied_alpha(MemorySegment image) {
         var mh$ = heif_image_is_premultiplied_alpha$MH();
         try {
             return (int)mh$.invokeExact(image);
@@ -2031,7 +3576,12 @@ public class heif_h  {
     public static MethodHandle heif_register_decoder$MH() {
         return RuntimeHelper.requireNonNull(constants$23.heif_register_decoder$MH,"heif_register_decoder");
     }
-    public static MemorySegment heif_register_decoder ( SegmentAllocator allocator,  Addressable heif,  Addressable x2) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_register_decoder(struct heif_context* heif, struct heif_decoder_plugin*);
+     * }
+     */
+    public static MemorySegment heif_register_decoder(SegmentAllocator allocator, MemorySegment heif, MemorySegment x2) {
         var mh$ = heif_register_decoder$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, heif, x2);
@@ -2042,7 +3592,12 @@ public class heif_h  {
     public static MethodHandle heif_register_decoder_plugin$MH() {
         return RuntimeHelper.requireNonNull(constants$23.heif_register_decoder_plugin$MH,"heif_register_decoder_plugin");
     }
-    public static MemorySegment heif_register_decoder_plugin ( SegmentAllocator allocator,  Addressable x1) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_register_decoder_plugin(struct heif_decoder_plugin*);
+     * }
+     */
+    public static MemorySegment heif_register_decoder_plugin(SegmentAllocator allocator, MemorySegment x1) {
         var mh$ = heif_register_decoder_plugin$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1);
@@ -2053,7 +3608,12 @@ public class heif_h  {
     public static MethodHandle heif_register_encoder_plugin$MH() {
         return RuntimeHelper.requireNonNull(constants$23.heif_register_encoder_plugin$MH,"heif_register_encoder_plugin");
     }
-    public static MemorySegment heif_register_encoder_plugin ( SegmentAllocator allocator,  Addressable x1) {
+    /**
+     * {@snippet :
+     * struct heif_error heif_register_encoder_plugin(struct heif_encoder_plugin*);
+     * }
+     */
+    public static MemorySegment heif_register_encoder_plugin(SegmentAllocator allocator, MemorySegment x1) {
         var mh$ = heif_register_encoder_plugin$MH();
         try {
             return (java.lang.foreign.MemorySegment)mh$.invokeExact(allocator, x1);
@@ -2064,7 +3624,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_descriptor_supportes_lossy_compression$MH() {
         return RuntimeHelper.requireNonNull(constants$23.heif_encoder_descriptor_supportes_lossy_compression$MH,"heif_encoder_descriptor_supportes_lossy_compression");
     }
-    public static int heif_encoder_descriptor_supportes_lossy_compression ( Addressable x0) {
+    /**
+     * {@snippet :
+     * int heif_encoder_descriptor_supportes_lossy_compression(struct heif_encoder_descriptor*);
+     * }
+     */
+    public static int heif_encoder_descriptor_supportes_lossy_compression(MemorySegment x0) {
         var mh$ = heif_encoder_descriptor_supportes_lossy_compression$MH();
         try {
             return (int)mh$.invokeExact(x0);
@@ -2075,7 +3640,12 @@ public class heif_h  {
     public static MethodHandle heif_encoder_descriptor_supportes_lossless_compression$MH() {
         return RuntimeHelper.requireNonNull(constants$23.heif_encoder_descriptor_supportes_lossless_compression$MH,"heif_encoder_descriptor_supportes_lossless_compression");
     }
-    public static int heif_encoder_descriptor_supportes_lossless_compression ( Addressable x0) {
+    /**
+     * {@snippet :
+     * int heif_encoder_descriptor_supportes_lossless_compression(struct heif_encoder_descriptor*);
+     * }
+     */
+    public static int heif_encoder_descriptor_supportes_lossless_compression(MemorySegment x0) {
         var mh$ = heif_encoder_descriptor_supportes_lossless_compression$MH();
         try {
             return (int)mh$.invokeExact(x0);
@@ -2083,21 +3653,59 @@ public class heif_h  {
             throw new AssertionError("should not reach here", ex$);
         }
     }
+    /**
+     * {@snippet :
+     * #define NULL 0
+     * }
+     */
+    public static MemorySegment NULL() {
+        return constants$23.NULL$ADDR;
+    }
+    /**
+     * {@snippet :
+     * #define LIBHEIF_NUMERIC_VERSION 17563648
+     * }
+     */
     public static int LIBHEIF_NUMERIC_VERSION() {
         return (int)17563648L;
     }
+    /**
+     * {@snippet :
+     * #define LIBHEIF_VERSION "1.12.0"
+     * }
+     */
     public static MemorySegment LIBHEIF_VERSION() {
-        return constants$23.LIBHEIF_VERSION$SEGMENT;
+        return constants$24.LIBHEIF_VERSION$SEGMENT;
     }
+    /**
+     * {@snippet :
+     * #define LIBHEIF_AUX_IMAGE_FILTER_OMIT_ALPHA 2
+     * }
+     */
     public static int LIBHEIF_AUX_IMAGE_FILTER_OMIT_ALPHA() {
         return (int)2L;
     }
+    /**
+     * {@snippet :
+     * #define LIBHEIF_AUX_IMAGE_FILTER_OMIT_DEPTH 4
+     * }
+     */
     public static int LIBHEIF_AUX_IMAGE_FILTER_OMIT_DEPTH() {
         return (int)4L;
     }
+    /**
+     * {@snippet :
+     * #define heif_chroma_interleaved_24bit 10
+     * }
+     */
     public static int heif_chroma_interleaved_24bit() {
         return (int)10L;
     }
+    /**
+     * {@snippet :
+     * #define heif_chroma_interleaved_32bit 11
+     * }
+     */
     public static int heif_chroma_interleaved_32bit() {
         return (int)11L;
     }

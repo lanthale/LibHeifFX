@@ -7,8 +7,10 @@ import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import java.lang.foreign.*;
 import static java.lang.foreign.ValueLayout.*;
-class constants$15 {
+final class constants$15 {
 
+    // Suppresses default constructor, ensuring non-instantiability.
+    private constants$15() {}
     static final FunctionDescriptor heif_context_write_to_file$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_LONG$LAYOUT.withName("code"),
         Constants$root.C_LONG$LAYOUT.withName("subcode"),

@@ -7,8 +7,10 @@ import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import java.lang.foreign.*;
 import static java.lang.foreign.ValueLayout.*;
-class constants$23 {
+final class constants$23 {
 
+    // Suppresses default constructor, ensuring non-instantiability.
+    private constants$23() {}
     static final FunctionDescriptor heif_register_decoder$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
         Constants$root.C_LONG$LAYOUT.withName("code"),
         Constants$root.C_LONG$LAYOUT.withName("subcode"),
@@ -57,7 +59,7 @@ class constants$23 {
         "heif_encoder_descriptor_supportes_lossless_compression",
         constants$23.heif_encoder_descriptor_supportes_lossless_compression$FUNC
     );
-    static final MemorySegment LIBHEIF_VERSION$SEGMENT = RuntimeHelper.CONSTANT_ALLOCATOR.allocateUtf8String("1.12.0");
+    static final MemorySegment NULL$ADDR = MemorySegment.ofAddress(0L);
 }
 
 

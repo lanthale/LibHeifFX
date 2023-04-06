@@ -7,8 +7,10 @@ import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import java.lang.foreign.*;
 import static java.lang.foreign.ValueLayout.*;
-class constants$6 {
+final class constants$6 {
 
+    // Suppresses default constructor, ensuring non-instantiability.
+    private constants$6() {}
     static final FunctionDescriptor heif_image_handle_get_luma_bits_per_pixel$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );

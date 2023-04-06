@@ -7,8 +7,10 @@ import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import java.lang.foreign.*;
 import static java.lang.foreign.ValueLayout.*;
-class constants$9 {
+final class constants$9 {
 
+    // Suppresses default constructor, ensuring non-instantiability.
+    private constants$9() {}
     static final FunctionDescriptor heif_image_handle_get_number_of_metadata_blocks$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT,
         Constants$root.C_POINTER$LAYOUT

@@ -7,9 +7,18 @@ import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import java.lang.foreign.*;
 import static java.lang.foreign.ValueLayout.*;
+/**
+ * {@snippet :
+ * struct heif_error {
+ *     enum heif_error_code code;
+ *     enum heif_suberror_code subcode;
+ *     char* message;
+ * };
+ * }
+ */
 public class heif_error {
 
-    static final  GroupLayout $struct$LAYOUT = MemoryLayout.structLayout(
+    static final StructLayout $struct$LAYOUT = MemoryLayout.structLayout(
         Constants$root.C_INT$LAYOUT.withName("code"),
         Constants$root.C_INT$LAYOUT.withName("subcode"),
         Constants$root.C_POINTER$LAYOUT.withName("message")
@@ -21,10 +30,22 @@ public class heif_error {
     public static VarHandle code$VH() {
         return heif_error.code$VH;
     }
+    /**
+     * Getter for field:
+     * {@snippet :
+     * enum heif_error_code code;
+     * }
+     */
     public static int code$get(MemorySegment seg) {
         return (int)heif_error.code$VH.get(seg);
     }
-    public static void code$set( MemorySegment seg, int x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * enum heif_error_code code;
+     * }
+     */
+    public static void code$set(MemorySegment seg, int x) {
         heif_error.code$VH.set(seg, x);
     }
     public static int code$get(MemorySegment seg, long index) {
@@ -37,10 +58,22 @@ public class heif_error {
     public static VarHandle subcode$VH() {
         return heif_error.subcode$VH;
     }
+    /**
+     * Getter for field:
+     * {@snippet :
+     * enum heif_suberror_code subcode;
+     * }
+     */
     public static int subcode$get(MemorySegment seg) {
         return (int)heif_error.subcode$VH.get(seg);
     }
-    public static void subcode$set( MemorySegment seg, int x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * enum heif_suberror_code subcode;
+     * }
+     */
+    public static void subcode$set(MemorySegment seg, int x) {
         heif_error.subcode$VH.set(seg, x);
     }
     public static int subcode$get(MemorySegment seg, long index) {
@@ -53,24 +86,36 @@ public class heif_error {
     public static VarHandle message$VH() {
         return heif_error.message$VH;
     }
-    public static MemoryAddress message$get(MemorySegment seg) {
-        return (java.lang.foreign.MemoryAddress)heif_error.message$VH.get(seg);
+    /**
+     * Getter for field:
+     * {@snippet :
+     * char* message;
+     * }
+     */
+    public static MemorySegment message$get(MemorySegment seg) {
+        return (java.lang.foreign.MemorySegment)heif_error.message$VH.get(seg);
     }
-    public static void message$set( MemorySegment seg, MemoryAddress x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * char* message;
+     * }
+     */
+    public static void message$set(MemorySegment seg, MemorySegment x) {
         heif_error.message$VH.set(seg, x);
     }
-    public static MemoryAddress message$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemoryAddress)heif_error.message$VH.get(seg.asSlice(index*sizeof()));
+    public static MemorySegment message$get(MemorySegment seg, long index) {
+        return (java.lang.foreign.MemorySegment)heif_error.message$VH.get(seg.asSlice(index*sizeof()));
     }
-    public static void message$set(MemorySegment seg, long index, MemoryAddress x) {
+    public static void message$set(MemorySegment seg, long index, MemorySegment x) {
         heif_error.message$VH.set(seg.asSlice(index*sizeof()), x);
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
     public static MemorySegment allocate(SegmentAllocator allocator) { return allocator.allocate($LAYOUT()); }
-    public static MemorySegment allocateArray(int len, SegmentAllocator allocator) {
+    public static MemorySegment allocateArray(long len, SegmentAllocator allocator) {
         return allocator.allocate(MemoryLayout.sequenceLayout(len, $LAYOUT()));
     }
-    public static MemorySegment ofAddress(MemoryAddress addr, MemorySession session) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, session); }
+    public static MemorySegment ofAddress(MemorySegment addr, SegmentScope scope) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope); }
 }
 
 

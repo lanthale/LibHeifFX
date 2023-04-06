@@ -7,9 +7,20 @@ import java.lang.invoke.VarHandle;
 import java.nio.ByteOrder;
 import java.lang.foreign.*;
 import static java.lang.foreign.ValueLayout.*;
+/**
+ * {@snippet :
+ * struct heif_reader {
+ *     int reader_api_version;
+ *     long long (*get_position)(void*);
+ *     int (*read)(void*,unsigned long long,void*);
+ *     int (*seek)(long long,void*);
+ *     enum heif_reader_grow_status (*wait_for_file_size)(long long,void*);
+ * };
+ * }
+ */
 public class heif_reader {
 
-    static final  GroupLayout $struct$LAYOUT = MemoryLayout.structLayout(
+    static final StructLayout $struct$LAYOUT = MemoryLayout.structLayout(
         Constants$root.C_LONG$LAYOUT.withName("reader_api_version"),
         MemoryLayout.paddingLayout(32),
         Constants$root.C_POINTER$LAYOUT.withName("get_position"),
@@ -24,10 +35,22 @@ public class heif_reader {
     public static VarHandle reader_api_version$VH() {
         return heif_reader.reader_api_version$VH;
     }
+    /**
+     * Getter for field:
+     * {@snippet :
+     * int reader_api_version;
+     * }
+     */
     public static int reader_api_version$get(MemorySegment seg) {
         return (int)heif_reader.reader_api_version$VH.get(seg);
     }
-    public static void reader_api_version$set( MemorySegment seg, int x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * int reader_api_version;
+     * }
+     */
+    public static void reader_api_version$set(MemorySegment seg, int x) {
         heif_reader.reader_api_version$VH.set(seg, x);
     }
     public static int reader_api_version$get(MemorySegment seg, long index) {
@@ -39,20 +62,32 @@ public class heif_reader {
     static final FunctionDescriptor get_position$FUNC = FunctionDescriptor.of(Constants$root.C_LONG_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle get_position$MH = RuntimeHelper.downcallHandle(
-        heif_reader.get_position$FUNC
+    static final FunctionDescriptor get_position_UP$FUNC = FunctionDescriptor.of(Constants$root.C_LONG_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
+    static final MethodHandle get_position_UP$MH = RuntimeHelper.upcallHandle(get_position.class, "apply", heif_reader.get_position_UP$FUNC);
+    static final FunctionDescriptor get_position_DOWN$FUNC = FunctionDescriptor.of(Constants$root.C_LONG_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
+    );
+    static final MethodHandle get_position_DOWN$MH = RuntimeHelper.downcallHandle(
+        heif_reader.get_position_DOWN$FUNC
+    );
+    /**
+     * {@snippet :
+ * long long (*get_position)(void*);
+     * }
+     */
     public interface get_position {
 
-        long apply(java.lang.foreign.MemoryAddress _x0);
-        static MemorySegment allocate(get_position fi, MemorySession session) {
-            return RuntimeHelper.upcallStub(get_position.class, fi, heif_reader.get_position$FUNC, session);
+        long apply(java.lang.foreign.MemorySegment _x0);
+        static MemorySegment allocate(get_position fi, SegmentScope scope) {
+            return RuntimeHelper.upcallStub(heif_reader.get_position_UP$MH, fi, heif_reader.get_position$FUNC, scope);
         }
-        static get_position ofAddress(MemoryAddress addr, MemorySession session) {
-            MemorySegment symbol = MemorySegment.ofAddress(addr, 0, session);
-            return (java.lang.foreign.MemoryAddress __x0) -> {
+        static get_position ofAddress(MemorySegment addr, SegmentScope scope) {
+            MemorySegment symbol = MemorySegment.ofAddress(addr.address(), 0, scope);
+            return (java.lang.foreign.MemorySegment __x0) -> {
                 try {
-                    return (long)heif_reader.get_position$MH.invokeExact((Addressable)symbol, (java.lang.foreign.Addressable)__x0);
+                    return (long)heif_reader.get_position_DOWN$MH.invokeExact(symbol, __x0);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -64,40 +99,68 @@ public class heif_reader {
     public static VarHandle get_position$VH() {
         return heif_reader.get_position$VH;
     }
-    public static MemoryAddress get_position$get(MemorySegment seg) {
-        return (java.lang.foreign.MemoryAddress)heif_reader.get_position$VH.get(seg);
+    /**
+     * Getter for field:
+     * {@snippet :
+     * long long (*get_position)(void*);
+     * }
+     */
+    public static MemorySegment get_position$get(MemorySegment seg) {
+        return (java.lang.foreign.MemorySegment)heif_reader.get_position$VH.get(seg);
     }
-    public static void get_position$set( MemorySegment seg, MemoryAddress x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * long long (*get_position)(void*);
+     * }
+     */
+    public static void get_position$set(MemorySegment seg, MemorySegment x) {
         heif_reader.get_position$VH.set(seg, x);
     }
-    public static MemoryAddress get_position$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemoryAddress)heif_reader.get_position$VH.get(seg.asSlice(index*sizeof()));
+    public static MemorySegment get_position$get(MemorySegment seg, long index) {
+        return (java.lang.foreign.MemorySegment)heif_reader.get_position$VH.get(seg.asSlice(index*sizeof()));
     }
-    public static void get_position$set(MemorySegment seg, long index, MemoryAddress x) {
+    public static void get_position$set(MemorySegment seg, long index, MemorySegment x) {
         heif_reader.get_position$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    public static get_position get_position (MemorySegment segment, MemorySession session) {
-        return get_position.ofAddress(get_position$get(segment), session);
+    public static get_position get_position(MemorySegment segment, SegmentScope scope) {
+        return get_position.ofAddress(get_position$get(segment), scope);
     }
     static final FunctionDescriptor read$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT,
         Constants$root.C_LONG_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle read$MH = RuntimeHelper.downcallHandle(
-        heif_reader.read$FUNC
+    static final FunctionDescriptor read_UP$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
+    static final MethodHandle read_UP$MH = RuntimeHelper.upcallHandle(read.class, "apply", heif_reader.read_UP$FUNC);
+    static final FunctionDescriptor read_DOWN$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT,
+        Constants$root.C_LONG_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
+    );
+    static final MethodHandle read_DOWN$MH = RuntimeHelper.downcallHandle(
+        heif_reader.read_DOWN$FUNC
+    );
+    /**
+     * {@snippet :
+ * int (*read)(void*,unsigned long long,void*);
+     * }
+     */
     public interface read {
 
-        int apply(java.lang.foreign.MemoryAddress _x0, long _x1, java.lang.foreign.MemoryAddress _x2);
-        static MemorySegment allocate(read fi, MemorySession session) {
-            return RuntimeHelper.upcallStub(read.class, fi, heif_reader.read$FUNC, session);
+        int apply(java.lang.foreign.MemorySegment _x0, long _x1, java.lang.foreign.MemorySegment _x2);
+        static MemorySegment allocate(read fi, SegmentScope scope) {
+            return RuntimeHelper.upcallStub(heif_reader.read_UP$MH, fi, heif_reader.read$FUNC, scope);
         }
-        static read ofAddress(MemoryAddress addr, MemorySession session) {
-            MemorySegment symbol = MemorySegment.ofAddress(addr, 0, session);
-            return (java.lang.foreign.MemoryAddress __x0, long __x1, java.lang.foreign.MemoryAddress __x2) -> {
+        static read ofAddress(MemorySegment addr, SegmentScope scope) {
+            MemorySegment symbol = MemorySegment.ofAddress(addr.address(), 0, scope);
+            return (java.lang.foreign.MemorySegment __x0, long __x1, java.lang.foreign.MemorySegment __x2) -> {
                 try {
-                    return (int)heif_reader.read$MH.invokeExact((Addressable)symbol, (java.lang.foreign.Addressable)__x0, __x1, (java.lang.foreign.Addressable)__x2);
+                    return (int)heif_reader.read_DOWN$MH.invokeExact(symbol, __x0, __x1, __x2);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -109,39 +172,65 @@ public class heif_reader {
     public static VarHandle read$VH() {
         return heif_reader.read$VH;
     }
-    public static MemoryAddress read$get(MemorySegment seg) {
-        return (java.lang.foreign.MemoryAddress)heif_reader.read$VH.get(seg);
+    /**
+     * Getter for field:
+     * {@snippet :
+     * int (*read)(void*,unsigned long long,void*);
+     * }
+     */
+    public static MemorySegment read$get(MemorySegment seg) {
+        return (java.lang.foreign.MemorySegment)heif_reader.read$VH.get(seg);
     }
-    public static void read$set( MemorySegment seg, MemoryAddress x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * int (*read)(void*,unsigned long long,void*);
+     * }
+     */
+    public static void read$set(MemorySegment seg, MemorySegment x) {
         heif_reader.read$VH.set(seg, x);
     }
-    public static MemoryAddress read$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemoryAddress)heif_reader.read$VH.get(seg.asSlice(index*sizeof()));
+    public static MemorySegment read$get(MemorySegment seg, long index) {
+        return (java.lang.foreign.MemorySegment)heif_reader.read$VH.get(seg.asSlice(index*sizeof()));
     }
-    public static void read$set(MemorySegment seg, long index, MemoryAddress x) {
+    public static void read$set(MemorySegment seg, long index, MemorySegment x) {
         heif_reader.read$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    public static read read (MemorySegment segment, MemorySession session) {
-        return read.ofAddress(read$get(segment), session);
+    public static read read(MemorySegment segment, SegmentScope scope) {
+        return read.ofAddress(read$get(segment), scope);
     }
     static final FunctionDescriptor seek$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
         Constants$root.C_LONG_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle seek$MH = RuntimeHelper.downcallHandle(
-        heif_reader.seek$FUNC
+    static final FunctionDescriptor seek_UP$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_LONG_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
+    static final MethodHandle seek_UP$MH = RuntimeHelper.upcallHandle(seek.class, "apply", heif_reader.seek_UP$FUNC);
+    static final FunctionDescriptor seek_DOWN$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_LONG_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
+    );
+    static final MethodHandle seek_DOWN$MH = RuntimeHelper.downcallHandle(
+        heif_reader.seek_DOWN$FUNC
+    );
+    /**
+     * {@snippet :
+ * int (*seek)(long long,void*);
+     * }
+     */
     public interface seek {
 
-        int apply(long _x0, java.lang.foreign.MemoryAddress _x1);
-        static MemorySegment allocate(seek fi, MemorySession session) {
-            return RuntimeHelper.upcallStub(seek.class, fi, heif_reader.seek$FUNC, session);
+        int apply(long _x0, java.lang.foreign.MemorySegment _x1);
+        static MemorySegment allocate(seek fi, SegmentScope scope) {
+            return RuntimeHelper.upcallStub(heif_reader.seek_UP$MH, fi, heif_reader.seek$FUNC, scope);
         }
-        static seek ofAddress(MemoryAddress addr, MemorySession session) {
-            MemorySegment symbol = MemorySegment.ofAddress(addr, 0, session);
-            return (long __x0, java.lang.foreign.MemoryAddress __x1) -> {
+        static seek ofAddress(MemorySegment addr, SegmentScope scope) {
+            MemorySegment symbol = MemorySegment.ofAddress(addr.address(), 0, scope);
+            return (long __x0, java.lang.foreign.MemorySegment __x1) -> {
                 try {
-                    return (int)heif_reader.seek$MH.invokeExact((Addressable)symbol, __x0, (java.lang.foreign.Addressable)__x1);
+                    return (int)heif_reader.seek_DOWN$MH.invokeExact(symbol, __x0, __x1);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -153,39 +242,65 @@ public class heif_reader {
     public static VarHandle seek$VH() {
         return heif_reader.seek$VH;
     }
-    public static MemoryAddress seek$get(MemorySegment seg) {
-        return (java.lang.foreign.MemoryAddress)heif_reader.seek$VH.get(seg);
+    /**
+     * Getter for field:
+     * {@snippet :
+     * int (*seek)(long long,void*);
+     * }
+     */
+    public static MemorySegment seek$get(MemorySegment seg) {
+        return (java.lang.foreign.MemorySegment)heif_reader.seek$VH.get(seg);
     }
-    public static void seek$set( MemorySegment seg, MemoryAddress x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * int (*seek)(long long,void*);
+     * }
+     */
+    public static void seek$set(MemorySegment seg, MemorySegment x) {
         heif_reader.seek$VH.set(seg, x);
     }
-    public static MemoryAddress seek$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemoryAddress)heif_reader.seek$VH.get(seg.asSlice(index*sizeof()));
+    public static MemorySegment seek$get(MemorySegment seg, long index) {
+        return (java.lang.foreign.MemorySegment)heif_reader.seek$VH.get(seg.asSlice(index*sizeof()));
     }
-    public static void seek$set(MemorySegment seg, long index, MemoryAddress x) {
+    public static void seek$set(MemorySegment seg, long index, MemorySegment x) {
         heif_reader.seek$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    public static seek seek (MemorySegment segment, MemorySession session) {
-        return seek.ofAddress(seek$get(segment), session);
+    public static seek seek(MemorySegment segment, SegmentScope scope) {
+        return seek.ofAddress(seek$get(segment), scope);
     }
     static final FunctionDescriptor wait_for_file_size$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
         Constants$root.C_LONG_LONG$LAYOUT,
         Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle wait_for_file_size$MH = RuntimeHelper.downcallHandle(
-        heif_reader.wait_for_file_size$FUNC
+    static final FunctionDescriptor wait_for_file_size_UP$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_LONG_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
     );
+    static final MethodHandle wait_for_file_size_UP$MH = RuntimeHelper.upcallHandle(wait_for_file_size.class, "apply", heif_reader.wait_for_file_size_UP$FUNC);
+    static final FunctionDescriptor wait_for_file_size_DOWN$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
+        Constants$root.C_LONG_LONG$LAYOUT,
+        Constants$root.C_POINTER$LAYOUT
+    );
+    static final MethodHandle wait_for_file_size_DOWN$MH = RuntimeHelper.downcallHandle(
+        heif_reader.wait_for_file_size_DOWN$FUNC
+    );
+    /**
+     * {@snippet :
+ * enum heif_reader_grow_status (*wait_for_file_size)(long long,void*);
+     * }
+     */
     public interface wait_for_file_size {
 
-        int apply(long _x0, java.lang.foreign.MemoryAddress _x1);
-        static MemorySegment allocate(wait_for_file_size fi, MemorySession session) {
-            return RuntimeHelper.upcallStub(wait_for_file_size.class, fi, heif_reader.wait_for_file_size$FUNC, session);
+        int apply(long _x0, java.lang.foreign.MemorySegment _x1);
+        static MemorySegment allocate(wait_for_file_size fi, SegmentScope scope) {
+            return RuntimeHelper.upcallStub(heif_reader.wait_for_file_size_UP$MH, fi, heif_reader.wait_for_file_size$FUNC, scope);
         }
-        static wait_for_file_size ofAddress(MemoryAddress addr, MemorySession session) {
-            MemorySegment symbol = MemorySegment.ofAddress(addr, 0, session);
-            return (long __x0, java.lang.foreign.MemoryAddress __x1) -> {
+        static wait_for_file_size ofAddress(MemorySegment addr, SegmentScope scope) {
+            MemorySegment symbol = MemorySegment.ofAddress(addr.address(), 0, scope);
+            return (long __x0, java.lang.foreign.MemorySegment __x1) -> {
                 try {
-                    return (int)heif_reader.wait_for_file_size$MH.invokeExact((Addressable)symbol, __x0, (java.lang.foreign.Addressable)__x1);
+                    return (int)heif_reader.wait_for_file_size_DOWN$MH.invokeExact(symbol, __x0, __x1);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -197,27 +312,39 @@ public class heif_reader {
     public static VarHandle wait_for_file_size$VH() {
         return heif_reader.wait_for_file_size$VH;
     }
-    public static MemoryAddress wait_for_file_size$get(MemorySegment seg) {
-        return (java.lang.foreign.MemoryAddress)heif_reader.wait_for_file_size$VH.get(seg);
+    /**
+     * Getter for field:
+     * {@snippet :
+     * enum heif_reader_grow_status (*wait_for_file_size)(long long,void*);
+     * }
+     */
+    public static MemorySegment wait_for_file_size$get(MemorySegment seg) {
+        return (java.lang.foreign.MemorySegment)heif_reader.wait_for_file_size$VH.get(seg);
     }
-    public static void wait_for_file_size$set( MemorySegment seg, MemoryAddress x) {
+    /**
+     * Setter for field:
+     * {@snippet :
+     * enum heif_reader_grow_status (*wait_for_file_size)(long long,void*);
+     * }
+     */
+    public static void wait_for_file_size$set(MemorySegment seg, MemorySegment x) {
         heif_reader.wait_for_file_size$VH.set(seg, x);
     }
-    public static MemoryAddress wait_for_file_size$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemoryAddress)heif_reader.wait_for_file_size$VH.get(seg.asSlice(index*sizeof()));
+    public static MemorySegment wait_for_file_size$get(MemorySegment seg, long index) {
+        return (java.lang.foreign.MemorySegment)heif_reader.wait_for_file_size$VH.get(seg.asSlice(index*sizeof()));
     }
-    public static void wait_for_file_size$set(MemorySegment seg, long index, MemoryAddress x) {
+    public static void wait_for_file_size$set(MemorySegment seg, long index, MemorySegment x) {
         heif_reader.wait_for_file_size$VH.set(seg.asSlice(index*sizeof()), x);
     }
-    public static wait_for_file_size wait_for_file_size (MemorySegment segment, MemorySession session) {
-        return wait_for_file_size.ofAddress(wait_for_file_size$get(segment), session);
+    public static wait_for_file_size wait_for_file_size(MemorySegment segment, SegmentScope scope) {
+        return wait_for_file_size.ofAddress(wait_for_file_size$get(segment), scope);
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
     public static MemorySegment allocate(SegmentAllocator allocator) { return allocator.allocate($LAYOUT()); }
-    public static MemorySegment allocateArray(int len, SegmentAllocator allocator) {
+    public static MemorySegment allocateArray(long len, SegmentAllocator allocator) {
         return allocator.allocate(MemoryLayout.sequenceLayout(len, $LAYOUT()));
     }
-    public static MemorySegment ofAddress(MemoryAddress addr, MemorySession session) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, session); }
+    public static MemorySegment ofAddress(MemorySegment addr, SegmentScope scope) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope); }
 }
 
 
