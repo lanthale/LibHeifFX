@@ -11,23 +11,17 @@ import static java.lang.foreign.ValueLayout.*;
  * {@snippet :
  * struct heif_writer {
  *     int writer_api_version;
- *     struct heif_error (*write)(struct heif_context*,void*,unsigned long,void*);
+ *     struct heif_error (*write)(struct heif_context*,void*,unsigned long long,void*);
  * };
  * }
  */
 public class heif_writer {
 
-    static final StructLayout $struct$LAYOUT = MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("writer_api_version"),
-        MemoryLayout.paddingLayout(32),
-        Constants$root.C_POINTER$LAYOUT.withName("write")
-    ).withName("heif_writer");
     public static MemoryLayout $LAYOUT() {
-        return heif_writer.$struct$LAYOUT;
+        return constants$29.const$1;
     }
-    static final VarHandle writer_api_version$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("writer_api_version"));
     public static VarHandle writer_api_version$VH() {
-        return heif_writer.writer_api_version$VH;
+        return constants$29.const$2;
     }
     /**
      * Getter for field:
@@ -36,7 +30,7 @@ public class heif_writer {
      * }
      */
     public static int writer_api_version$get(MemorySegment seg) {
-        return (int)heif_writer.writer_api_version$VH.get(seg);
+        return (int)constants$29.const$2.get(seg);
     }
     /**
      * Setter for field:
@@ -45,64 +39,30 @@ public class heif_writer {
      * }
      */
     public static void writer_api_version$set(MemorySegment seg, int x) {
-        heif_writer.writer_api_version$VH.set(seg, x);
+        constants$29.const$2.set(seg, x);
     }
     public static int writer_api_version$get(MemorySegment seg, long index) {
-        return (int)heif_writer.writer_api_version$VH.get(seg.asSlice(index*sizeof()));
+        return (int)constants$29.const$2.get(seg.asSlice(index*sizeof()));
     }
     public static void writer_api_version$set(MemorySegment seg, long index, int x) {
-        heif_writer.writer_api_version$VH.set(seg.asSlice(index*sizeof()), x);
+        constants$29.const$2.set(seg.asSlice(index*sizeof()), x);
     }
-    static final FunctionDescriptor write$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final FunctionDescriptor write_UP$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle write_UP$MH = RuntimeHelper.upcallHandle(write.class, "apply", heif_writer.write_UP$FUNC);
-    static final FunctionDescriptor write_DOWN$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle write_DOWN$MH = RuntimeHelper.downcallHandle(
-        heif_writer.write_DOWN$FUNC
-    );
     /**
      * {@snippet :
- * struct heif_error (*write)(struct heif_context*,void*,unsigned long,void*);
+ * struct heif_error (*write)(struct heif_context*,void*,unsigned long long,void*);
      * }
      */
     public interface write {
 
         java.lang.foreign.MemorySegment apply(java.lang.foreign.MemorySegment _x0, java.lang.foreign.MemorySegment _x1, long _x2, java.lang.foreign.MemorySegment _x3);
-        static MemorySegment allocate(write fi, SegmentScope scope) {
-            return RuntimeHelper.upcallStub(heif_writer.write_UP$MH, fi, heif_writer.write$FUNC, scope);
+        static MemorySegment allocate(write fi, Arena scope) {
+            return RuntimeHelper.upcallStub(constants$29.const$3, fi, constants$7.const$4, scope);
         }
-        static write ofAddress(MemorySegment addr, SegmentScope scope) {
-            MemorySegment symbol = MemorySegment.ofAddress(addr.address(), 0, scope);
+        static write ofAddress(MemorySegment addr, Arena arena) {
+            MemorySegment symbol = addr.reinterpret(arena, null);
             return (java.lang.foreign.MemorySegment __x0, java.lang.foreign.MemorySegment __x1, long __x2, java.lang.foreign.MemorySegment __x3) -> {
                 try {
-                    return (java.lang.foreign.MemorySegment)heif_writer.write_DOWN$MH.invokeExact(symbol, __x0, __x1, __x2, __x3);
+                    return (java.lang.foreign.MemorySegment)constants$29.const$4.invokeExact(symbol, __x0, __x1, __x2, __x3);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -110,35 +70,34 @@ public class heif_writer {
         }
     }
 
-    static final VarHandle write$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("write"));
     public static VarHandle write$VH() {
-        return heif_writer.write$VH;
+        return constants$29.const$5;
     }
     /**
      * Getter for field:
      * {@snippet :
-     * struct heif_error (*write)(struct heif_context*,void*,unsigned long,void*);
+     * struct heif_error (*write)(struct heif_context*,void*,unsigned long long,void*);
      * }
      */
     public static MemorySegment write$get(MemorySegment seg) {
-        return (java.lang.foreign.MemorySegment)heif_writer.write$VH.get(seg);
+        return (java.lang.foreign.MemorySegment)constants$29.const$5.get(seg);
     }
     /**
      * Setter for field:
      * {@snippet :
-     * struct heif_error (*write)(struct heif_context*,void*,unsigned long,void*);
+     * struct heif_error (*write)(struct heif_context*,void*,unsigned long long,void*);
      * }
      */
     public static void write$set(MemorySegment seg, MemorySegment x) {
-        heif_writer.write$VH.set(seg, x);
+        constants$29.const$5.set(seg, x);
     }
     public static MemorySegment write$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemorySegment)heif_writer.write$VH.get(seg.asSlice(index*sizeof()));
+        return (java.lang.foreign.MemorySegment)constants$29.const$5.get(seg.asSlice(index*sizeof()));
     }
     public static void write$set(MemorySegment seg, long index, MemorySegment x) {
-        heif_writer.write$VH.set(seg.asSlice(index*sizeof()), x);
+        constants$29.const$5.set(seg.asSlice(index*sizeof()), x);
     }
-    public static write write(MemorySegment segment, SegmentScope scope) {
+    public static write write(MemorySegment segment, Arena scope) {
         return write.ofAddress(write$get(segment), scope);
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
@@ -146,7 +105,7 @@ public class heif_writer {
     public static MemorySegment allocateArray(long len, SegmentAllocator allocator) {
         return allocator.allocate(MemoryLayout.sequenceLayout(len, $LAYOUT()));
     }
-    public static MemorySegment ofAddress(MemorySegment addr, SegmentScope scope) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope); }
+    public static MemorySegment ofAddress(MemorySegment addr, Arena scope) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope); }
 }
 
 

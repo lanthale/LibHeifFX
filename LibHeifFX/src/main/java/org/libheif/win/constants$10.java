@@ -11,55 +11,29 @@ final class constants$10 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$10() {}
-    static final FunctionDescriptor heif_image_handle_get_color_profile_type$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
+    static final FunctionDescriptor const$0 = FunctionDescriptor.ofVoid(
+        RuntimeHelper.POINTER,
+        JAVA_INT
     );
-    static final MethodHandle heif_image_handle_get_color_profile_type$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_get_color_profile_type",
-        constants$10.heif_image_handle_get_color_profile_type$FUNC
+    static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
+        "heif_context_debug_dump_boxes_to_file",
+        constants$10.const$0
     );
-    static final FunctionDescriptor heif_image_handle_get_raw_color_profile_size$FUNC = FunctionDescriptor.of(Constants$root.C_LONG_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
+    static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
+        "heif_context_set_maximum_image_size_limit",
+        constants$10.const$0
     );
-    static final MethodHandle heif_image_handle_get_raw_color_profile_size$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_get_raw_color_profile_size",
-        constants$10.heif_image_handle_get_raw_color_profile_size$FUNC
+    static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
+        "heif_context_set_max_decoding_threads",
+        constants$10.const$0
     );
-    static final FunctionDescriptor heif_image_handle_get_raw_color_profile$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_LONG$LAYOUT.withName("code"),
-        Constants$root.C_LONG$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
+    static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
+        "heif_image_handle_release",
+        constants$3.const$4
     );
-    static final MethodHandle heif_image_handle_get_raw_color_profile$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_get_raw_color_profile",
-        constants$10.heif_image_handle_get_raw_color_profile$FUNC
-    );
-    static final FunctionDescriptor heif_image_handle_get_nclx_color_profile$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_LONG$LAYOUT.withName("code"),
-        Constants$root.C_LONG$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_image_handle_get_nclx_color_profile$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_get_nclx_color_profile",
-        constants$10.heif_image_handle_get_nclx_color_profile$FUNC
-    );
-    static final FunctionDescriptor heif_nclx_color_profile_alloc$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT);
-    static final MethodHandle heif_nclx_color_profile_alloc$MH = RuntimeHelper.downcallHandleVariadic(
-        "heif_nclx_color_profile_alloc",
-        constants$10.heif_nclx_color_profile_alloc$FUNC
-    );
-    static final FunctionDescriptor heif_nclx_color_profile_free$FUNC = FunctionDescriptor.ofVoid(
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_nclx_color_profile_free$MH = RuntimeHelper.downcallHandle(
-        "heif_nclx_color_profile_free",
-        constants$10.heif_nclx_color_profile_free$FUNC
+    static final MethodHandle const$5 = RuntimeHelper.downcallHandle(
+        "heif_image_handle_is_primary_image",
+        constants$2.const$2
     );
 }
 

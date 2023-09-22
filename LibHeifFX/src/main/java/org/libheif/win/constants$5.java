@@ -11,48 +11,20 @@ final class constants$5 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$5() {}
-    static final FunctionDescriptor heif_image_handle_release$FUNC = FunctionDescriptor.ofVoid(
-        Constants$root.C_POINTER$LAYOUT
+    static final FunctionDescriptor const$0 = FunctionDescriptor.of(JAVA_LONG,
+        RuntimeHelper.POINTER
     );
-    static final MethodHandle heif_image_handle_release$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_release",
-        constants$5.heif_image_handle_release$FUNC
+    static final MethodHandle const$1 = RuntimeHelper.upcallHandle(heif_reader.get_position.class, "apply", constants$5.const$0);
+    static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
+        constants$5.const$0
     );
-    static final FunctionDescriptor heif_image_handle_is_primary_image$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
+    static final VarHandle const$3 = constants$4.const$4.varHandle(MemoryLayout.PathElement.groupElement("get_position"));
+    static final FunctionDescriptor const$4 = FunctionDescriptor.of(JAVA_INT,
+        RuntimeHelper.POINTER,
+        JAVA_LONG,
+        RuntimeHelper.POINTER
     );
-    static final MethodHandle heif_image_handle_is_primary_image$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_is_primary_image",
-        constants$5.heif_image_handle_is_primary_image$FUNC
-    );
-    static final FunctionDescriptor heif_image_handle_get_width$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_image_handle_get_width$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_get_width",
-        constants$5.heif_image_handle_get_width$FUNC
-    );
-    static final FunctionDescriptor heif_image_handle_get_height$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_image_handle_get_height$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_get_height",
-        constants$5.heif_image_handle_get_height$FUNC
-    );
-    static final FunctionDescriptor heif_image_handle_has_alpha_channel$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_image_handle_has_alpha_channel$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_has_alpha_channel",
-        constants$5.heif_image_handle_has_alpha_channel$FUNC
-    );
-    static final FunctionDescriptor heif_image_handle_is_premultiplied_alpha$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_image_handle_is_premultiplied_alpha$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_is_premultiplied_alpha",
-        constants$5.heif_image_handle_is_premultiplied_alpha$FUNC
-    );
+    static final MethodHandle const$5 = RuntimeHelper.upcallHandle(heif_reader.read.class, "apply", constants$5.const$4);
 }
 
 

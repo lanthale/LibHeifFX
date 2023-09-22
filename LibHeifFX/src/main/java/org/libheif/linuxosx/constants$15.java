@@ -11,62 +11,23 @@ final class constants$15 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$15() {}
-    static final FunctionDescriptor heif_image_release$FUNC = FunctionDescriptor.ofVoid(
-        Constants$root.C_POINTER$LAYOUT
+    static final VarHandle const$0 = constants$13.const$0.varHandle(MemoryLayout.PathElement.groupElement("depth_nonlinear_representation_model_size"));
+    static final VarHandle const$1 = constants$13.const$0.varHandle(MemoryLayout.PathElement.groupElement("depth_nonlinear_representation_model"));
+    static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
+        "heif_depth_representation_info_free",
+        constants$3.const$4
     );
-    static final MethodHandle heif_image_release$MH = RuntimeHelper.downcallHandle(
-        "heif_image_release",
-        constants$15.heif_image_release$FUNC
+    static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
+        "heif_image_handle_get_depth_image_representation_info",
+        constants$3.const$0
     );
-    static final FunctionDescriptor heif_context_write_to_file$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
+    static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
+        "heif_image_handle_get_number_of_thumbnails",
+        constants$2.const$2
     );
-    static final MethodHandle heif_context_write_to_file$MH = RuntimeHelper.downcallHandle(
-        "heif_context_write_to_file",
-        constants$15.heif_context_write_to_file$FUNC
-    );
-    static final FunctionDescriptor heif_context_write$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_context_write$MH = RuntimeHelper.downcallHandle(
-        "heif_context_write",
-        constants$15.heif_context_write$FUNC
-    );
-    static final FunctionDescriptor heif_context_get_encoder_descriptors$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_INT$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_INT$LAYOUT
-    );
-    static final MethodHandle heif_context_get_encoder_descriptors$MH = RuntimeHelper.downcallHandle(
-        "heif_context_get_encoder_descriptors",
-        constants$15.heif_context_get_encoder_descriptors$FUNC
-    );
-    static final FunctionDescriptor heif_encoder_descriptor_get_name$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_encoder_descriptor_get_name$MH = RuntimeHelper.downcallHandle(
-        "heif_encoder_descriptor_get_name",
-        constants$15.heif_encoder_descriptor_get_name$FUNC
-    );
-    static final FunctionDescriptor heif_encoder_descriptor_get_id_name$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_encoder_descriptor_get_id_name$MH = RuntimeHelper.downcallHandle(
-        "heif_encoder_descriptor_get_id_name",
-        constants$15.heif_encoder_descriptor_get_id_name$FUNC
+    static final MethodHandle const$5 = RuntimeHelper.downcallHandle(
+        "heif_image_handle_get_list_of_thumbnail_IDs",
+        constants$8.const$5
     );
 }
 

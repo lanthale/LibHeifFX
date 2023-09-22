@@ -11,59 +11,25 @@ final class constants$1 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$1() {}
-    static final FunctionDescriptor heif_main_brand$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT
+    static final MethodHandle const$0 = RuntimeHelper.downcallHandle(
+        "heif_get_version_number_maintenance",
+        constants$0.const$2
     );
-    static final MethodHandle heif_main_brand$MH = RuntimeHelper.downcallHandle(
-        "heif_main_brand",
-        constants$1.heif_main_brand$FUNC
+    static final StructLayout const$1 = MemoryLayout.structLayout(
+        JAVA_INT.withName("code"),
+        JAVA_INT.withName("subcode"),
+        RuntimeHelper.POINTER.withName("message")
+    ).withName("heif_error");
+    static final VarHandle const$2 = constants$1.const$1.varHandle(MemoryLayout.PathElement.groupElement("code"));
+    static final VarHandle const$3 = constants$1.const$1.varHandle(MemoryLayout.PathElement.groupElement("subcode"));
+    static final VarHandle const$4 = constants$1.const$1.varHandle(MemoryLayout.PathElement.groupElement("message"));
+    static final FunctionDescriptor const$5 = FunctionDescriptor.of(JAVA_INT,
+        RuntimeHelper.POINTER,
+        JAVA_INT
     );
-    static final FunctionDescriptor heif_read_main_brand$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT
-    );
-    static final MethodHandle heif_read_main_brand$MH = RuntimeHelper.downcallHandle(
-        "heif_read_main_brand",
-        constants$1.heif_read_main_brand$FUNC
-    );
-    static final FunctionDescriptor heif_fourcc_to_brand$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_fourcc_to_brand$MH = RuntimeHelper.downcallHandle(
-        "heif_fourcc_to_brand",
-        constants$1.heif_fourcc_to_brand$FUNC
-    );
-    static final FunctionDescriptor heif_brand_to_fourcc$FUNC = FunctionDescriptor.ofVoid(
-        Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_brand_to_fourcc$MH = RuntimeHelper.downcallHandle(
-        "heif_brand_to_fourcc",
-        constants$1.heif_brand_to_fourcc$FUNC
-    );
-    static final FunctionDescriptor heif_has_compatible_brand$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_has_compatible_brand$MH = RuntimeHelper.downcallHandle(
-        "heif_has_compatible_brand",
-        constants$1.heif_has_compatible_brand$FUNC
-    );
-    static final FunctionDescriptor heif_list_compatible_brands$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_LONG$LAYOUT.withName("code"),
-        Constants$root.C_LONG$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_list_compatible_brands$MH = RuntimeHelper.downcallHandle(
-        "heif_list_compatible_brands",
-        constants$1.heif_list_compatible_brands$FUNC
+    static final MethodHandle const$6 = RuntimeHelper.downcallHandle(
+        "heif_check_filetype",
+        constants$1.const$5
     );
 }
 

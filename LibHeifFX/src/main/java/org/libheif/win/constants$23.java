@@ -11,55 +11,18 @@ final class constants$23 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$23() {}
-    static final FunctionDescriptor heif_register_decoder$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_LONG$LAYOUT.withName("code"),
-        Constants$root.C_LONG$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
+    static final VarHandle const$0 = constants$22.const$4.varHandle(MemoryLayout.PathElement.groupElement("ignore_transformations"));
+    static final FunctionDescriptor const$1 = FunctionDescriptor.ofVoid(
+        JAVA_INT,
+        JAVA_INT,
+        RuntimeHelper.POINTER
     );
-    static final MethodHandle heif_register_decoder$MH = RuntimeHelper.downcallHandle(
-        "heif_register_decoder",
-        constants$23.heif_register_decoder$FUNC
+    static final MethodHandle const$2 = RuntimeHelper.upcallHandle(heif_decoding_options.start_progress.class, "apply", constants$23.const$1);
+    static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
+        constants$23.const$1
     );
-    static final FunctionDescriptor heif_register_decoder_plugin$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_LONG$LAYOUT.withName("code"),
-        Constants$root.C_LONG$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_register_decoder_plugin$MH = RuntimeHelper.downcallHandle(
-        "heif_register_decoder_plugin",
-        constants$23.heif_register_decoder_plugin$FUNC
-    );
-    static final FunctionDescriptor heif_register_encoder_plugin$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_LONG$LAYOUT.withName("code"),
-        Constants$root.C_LONG$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_register_encoder_plugin$MH = RuntimeHelper.downcallHandle(
-        "heif_register_encoder_plugin",
-        constants$23.heif_register_encoder_plugin$FUNC
-    );
-    static final FunctionDescriptor heif_encoder_descriptor_supportes_lossy_compression$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_encoder_descriptor_supportes_lossy_compression$MH = RuntimeHelper.downcallHandle(
-        "heif_encoder_descriptor_supportes_lossy_compression",
-        constants$23.heif_encoder_descriptor_supportes_lossy_compression$FUNC
-    );
-    static final FunctionDescriptor heif_encoder_descriptor_supportes_lossless_compression$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_encoder_descriptor_supportes_lossless_compression$MH = RuntimeHelper.downcallHandle(
-        "heif_encoder_descriptor_supportes_lossless_compression",
-        constants$23.heif_encoder_descriptor_supportes_lossless_compression$FUNC
-    );
-    static final MemorySegment NULL$ADDR = MemorySegment.ofAddress(0L);
+    static final VarHandle const$4 = constants$22.const$4.varHandle(MemoryLayout.PathElement.groupElement("start_progress"));
+    static final MethodHandle const$5 = RuntimeHelper.upcallHandle(heif_decoding_options.on_progress.class, "apply", constants$23.const$1);
 }
 
 

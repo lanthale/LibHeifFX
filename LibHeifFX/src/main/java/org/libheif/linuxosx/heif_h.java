@@ -9,16 +9,40 @@ import java.lang.foreign.*;
 import static java.lang.foreign.ValueLayout.*;
 public class heif_h  {
 
-    public static final OfByte C_CHAR = Constants$root.C_CHAR$LAYOUT;
-    public static final OfShort C_SHORT = Constants$root.C_SHORT$LAYOUT;
-    public static final OfInt C_INT = Constants$root.C_INT$LAYOUT;
-    public static final OfLong C_LONG = Constants$root.C_LONG_LONG$LAYOUT;
-    public static final OfLong C_LONG_LONG = Constants$root.C_LONG_LONG$LAYOUT;
-    public static final OfFloat C_FLOAT = Constants$root.C_FLOAT$LAYOUT;
-    public static final OfDouble C_DOUBLE = Constants$root.C_DOUBLE$LAYOUT;
-    public static final OfAddress C_POINTER = Constants$root.C_POINTER$LAYOUT;
+    public static final OfByte C_CHAR = JAVA_BYTE;
+    public static final OfShort C_SHORT = JAVA_SHORT;
+    public static final OfInt C_INT = JAVA_INT;
+    public static final OfInt C_LONG = JAVA_INT;
+    public static final OfLong C_LONG_LONG = JAVA_LONG;
+    public static final OfFloat C_FLOAT = JAVA_FLOAT;
+    public static final OfDouble C_DOUBLE = JAVA_DOUBLE;
+    public static final AddressLayout C_POINTER = RuntimeHelper.POINTER;
+    /**
+     * {@snippet :
+     * typedef long long ptrdiff_t;
+     * }
+     */
+    public static final OfLong ptrdiff_t = JAVA_LONG;
+    /**
+     * {@snippet :
+     * typedef unsigned long long size_t;
+     * }
+     */
+    public static final OfLong size_t = JAVA_LONG;
+    /**
+     * {@snippet :
+     * typedef unsigned short wchar_t;
+     * }
+     */
+    public static final OfShort wchar_t = JAVA_SHORT;
+    /**
+     * {@snippet :
+     * typedef double max_align_t;
+     * }
+     */
+    public static final OfDouble max_align_t = JAVA_DOUBLE;
     public static MethodHandle heif_get_version$MH() {
-        return RuntimeHelper.requireNonNull(constants$0.heif_get_version$MH,"heif_get_version");
+        return RuntimeHelper.requireNonNull(constants$0.const$1,"heif_get_version");
     }
     /**
      * {@snippet :
@@ -34,7 +58,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_get_version_number$MH() {
-        return RuntimeHelper.requireNonNull(constants$0.heif_get_version_number$MH,"heif_get_version_number");
+        return RuntimeHelper.requireNonNull(constants$0.const$3,"heif_get_version_number");
     }
     /**
      * {@snippet :
@@ -50,7 +74,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_get_version_number_major$MH() {
-        return RuntimeHelper.requireNonNull(constants$0.heif_get_version_number_major$MH,"heif_get_version_number_major");
+        return RuntimeHelper.requireNonNull(constants$0.const$4,"heif_get_version_number_major");
     }
     /**
      * {@snippet :
@@ -66,7 +90,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_get_version_number_minor$MH() {
-        return RuntimeHelper.requireNonNull(constants$0.heif_get_version_number_minor$MH,"heif_get_version_number_minor");
+        return RuntimeHelper.requireNonNull(constants$0.const$5,"heif_get_version_number_minor");
     }
     /**
      * {@snippet :
@@ -82,7 +106,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_get_version_number_maintenance$MH() {
-        return RuntimeHelper.requireNonNull(constants$0.heif_get_version_number_maintenance$MH,"heif_get_version_number_maintenance");
+        return RuntimeHelper.requireNonNull(constants$1.const$0,"heif_get_version_number_maintenance");
     }
     /**
      * {@snippet :
@@ -582,7 +606,7 @@ public class heif_h  {
      * typedef unsigned int heif_item_id;
      * }
      */
-    public static final OfInt heif_item_id = Constants$root.C_INT$LAYOUT;
+    public static final OfInt heif_item_id = JAVA_INT;
     /**
      * {@snippet :
      * enum heif_filetype_result.heif_filetype_no = 0;
@@ -616,7 +640,7 @@ public class heif_h  {
         return (int)3L;
     }
     public static MethodHandle heif_check_filetype$MH() {
-        return RuntimeHelper.requireNonNull(constants$0.heif_check_filetype$MH,"heif_check_filetype");
+        return RuntimeHelper.requireNonNull(constants$1.const$6,"heif_check_filetype");
     }
     /**
      * {@snippet :
@@ -736,7 +760,7 @@ public class heif_h  {
         return (int)12L;
     }
     public static MethodHandle heif_main_brand$MH() {
-        return RuntimeHelper.requireNonNull(constants$1.heif_main_brand$MH,"heif_main_brand");
+        return RuntimeHelper.requireNonNull(constants$2.const$0,"heif_main_brand");
     }
     /**
      * {@snippet :
@@ -756,9 +780,9 @@ public class heif_h  {
      * typedef unsigned int heif_brand2;
      * }
      */
-    public static final OfInt heif_brand2 = Constants$root.C_INT$LAYOUT;
+    public static final OfInt heif_brand2 = JAVA_INT;
     public static MethodHandle heif_read_main_brand$MH() {
-        return RuntimeHelper.requireNonNull(constants$1.heif_read_main_brand$MH,"heif_read_main_brand");
+        return RuntimeHelper.requireNonNull(constants$2.const$1,"heif_read_main_brand");
     }
     /**
      * {@snippet :
@@ -774,7 +798,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_fourcc_to_brand$MH() {
-        return RuntimeHelper.requireNonNull(constants$1.heif_fourcc_to_brand$MH,"heif_fourcc_to_brand");
+        return RuntimeHelper.requireNonNull(constants$2.const$3,"heif_fourcc_to_brand");
     }
     /**
      * {@snippet :
@@ -790,7 +814,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_brand_to_fourcc$MH() {
-        return RuntimeHelper.requireNonNull(constants$1.heif_brand_to_fourcc$MH,"heif_brand_to_fourcc");
+        return RuntimeHelper.requireNonNull(constants$2.const$5,"heif_brand_to_fourcc");
     }
     /**
      * {@snippet :
@@ -806,7 +830,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_has_compatible_brand$MH() {
-        return RuntimeHelper.requireNonNull(constants$1.heif_has_compatible_brand$MH,"heif_has_compatible_brand");
+        return RuntimeHelper.requireNonNull(constants$3.const$1,"heif_has_compatible_brand");
     }
     /**
      * {@snippet :
@@ -822,7 +846,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_list_compatible_brands$MH() {
-        return RuntimeHelper.requireNonNull(constants$1.heif_list_compatible_brands$MH,"heif_list_compatible_brands");
+        return RuntimeHelper.requireNonNull(constants$3.const$3,"heif_list_compatible_brands");
     }
     /**
      * {@snippet :
@@ -838,7 +862,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_free_list_of_compatible_brands$MH() {
-        return RuntimeHelper.requireNonNull(constants$2.heif_free_list_of_compatible_brands$MH,"heif_free_list_of_compatible_brands");
+        return RuntimeHelper.requireNonNull(constants$3.const$5,"heif_free_list_of_compatible_brands");
     }
     /**
      * {@snippet :
@@ -854,7 +878,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_get_file_mime_type$MH() {
-        return RuntimeHelper.requireNonNull(constants$2.heif_get_file_mime_type$MH,"heif_get_file_mime_type");
+        return RuntimeHelper.requireNonNull(constants$4.const$1,"heif_get_file_mime_type");
     }
     /**
      * {@snippet :
@@ -870,7 +894,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_alloc$MH() {
-        return RuntimeHelper.requireNonNull(constants$2.heif_context_alloc$MH,"heif_context_alloc");
+        return RuntimeHelper.requireNonNull(constants$4.const$2,"heif_context_alloc");
     }
     /**
      * {@snippet :
@@ -886,7 +910,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_free$MH() {
-        return RuntimeHelper.requireNonNull(constants$2.heif_context_free$MH,"heif_context_free");
+        return RuntimeHelper.requireNonNull(constants$4.const$3,"heif_context_free");
     }
     /**
      * {@snippet :
@@ -926,7 +950,7 @@ public class heif_h  {
         return (int)2L;
     }
     public static MethodHandle heif_context_read_from_file$MH() {
-        return RuntimeHelper.requireNonNull(constants$2.heif_context_read_from_file$MH,"heif_context_read_from_file");
+        return RuntimeHelper.requireNonNull(constants$7.const$3,"heif_context_read_from_file");
     }
     /**
      * {@snippet :
@@ -942,11 +966,11 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_read_from_memory$MH() {
-        return RuntimeHelper.requireNonNull(constants$2.heif_context_read_from_memory$MH,"heif_context_read_from_memory");
+        return RuntimeHelper.requireNonNull(constants$7.const$5,"heif_context_read_from_memory");
     }
     /**
      * {@snippet :
-     * struct heif_error heif_context_read_from_memory(struct heif_context*, void* mem, unsigned long size, struct heif_reading_options*);
+     * struct heif_error heif_context_read_from_memory(struct heif_context*, void* mem, unsigned long long size, struct heif_reading_options*);
      * }
      */
     public static MemorySegment heif_context_read_from_memory(SegmentAllocator allocator, MemorySegment x1, MemorySegment mem, long size, MemorySegment x4) {
@@ -958,11 +982,11 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_read_from_memory_without_copy$MH() {
-        return RuntimeHelper.requireNonNull(constants$3.heif_context_read_from_memory_without_copy$MH,"heif_context_read_from_memory_without_copy");
+        return RuntimeHelper.requireNonNull(constants$8.const$0,"heif_context_read_from_memory_without_copy");
     }
     /**
      * {@snippet :
-     * struct heif_error heif_context_read_from_memory_without_copy(struct heif_context*, void* mem, unsigned long size, struct heif_reading_options*);
+     * struct heif_error heif_context_read_from_memory_without_copy(struct heif_context*, void* mem, unsigned long long size, struct heif_reading_options*);
      * }
      */
     public static MemorySegment heif_context_read_from_memory_without_copy(SegmentAllocator allocator, MemorySegment x1, MemorySegment mem, long size, MemorySegment x4) {
@@ -974,7 +998,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_read_from_reader$MH() {
-        return RuntimeHelper.requireNonNull(constants$3.heif_context_read_from_reader$MH,"heif_context_read_from_reader");
+        return RuntimeHelper.requireNonNull(constants$8.const$2,"heif_context_read_from_reader");
     }
     /**
      * {@snippet :
@@ -990,7 +1014,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_get_number_of_top_level_images$MH() {
-        return RuntimeHelper.requireNonNull(constants$3.heif_context_get_number_of_top_level_images$MH,"heif_context_get_number_of_top_level_images");
+        return RuntimeHelper.requireNonNull(constants$8.const$3,"heif_context_get_number_of_top_level_images");
     }
     /**
      * {@snippet :
@@ -1006,7 +1030,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_is_top_level_image_ID$MH() {
-        return RuntimeHelper.requireNonNull(constants$3.heif_context_is_top_level_image_ID$MH,"heif_context_is_top_level_image_ID");
+        return RuntimeHelper.requireNonNull(constants$8.const$4,"heif_context_is_top_level_image_ID");
     }
     /**
      * {@snippet :
@@ -1022,7 +1046,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_get_list_of_top_level_image_IDs$MH() {
-        return RuntimeHelper.requireNonNull(constants$3.heif_context_get_list_of_top_level_image_IDs$MH,"heif_context_get_list_of_top_level_image_IDs");
+        return RuntimeHelper.requireNonNull(constants$8.const$6,"heif_context_get_list_of_top_level_image_IDs");
     }
     /**
      * {@snippet :
@@ -1038,7 +1062,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_get_primary_image_ID$MH() {
-        return RuntimeHelper.requireNonNull(constants$3.heif_context_get_primary_image_ID$MH,"heif_context_get_primary_image_ID");
+        return RuntimeHelper.requireNonNull(constants$9.const$1,"heif_context_get_primary_image_ID");
     }
     /**
      * {@snippet :
@@ -1054,7 +1078,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_get_primary_image_handle$MH() {
-        return RuntimeHelper.requireNonNull(constants$4.heif_context_get_primary_image_handle$MH,"heif_context_get_primary_image_handle");
+        return RuntimeHelper.requireNonNull(constants$9.const$2,"heif_context_get_primary_image_handle");
     }
     /**
      * {@snippet :
@@ -1070,7 +1094,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_get_primary_image_handle_alloc$MH() {
-        return RuntimeHelper.requireNonNull(constants$4.heif_context_get_primary_image_handle_alloc$MH,"heif_context_get_primary_image_handle_alloc");
+        return RuntimeHelper.requireNonNull(constants$9.const$4,"heif_context_get_primary_image_handle_alloc");
     }
     /**
      * {@snippet :
@@ -1086,7 +1110,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_get_image_handle$MH() {
-        return RuntimeHelper.requireNonNull(constants$4.heif_context_get_image_handle$MH,"heif_context_get_image_handle");
+        return RuntimeHelper.requireNonNull(constants$9.const$6,"heif_context_get_image_handle");
     }
     /**
      * {@snippet :
@@ -1101,24 +1125,8 @@ public class heif_h  {
             throw new AssertionError("should not reach here", ex$);
         }
     }
-    public static MethodHandle heif_context_get_image_handle_alloc$MH() {
-        return RuntimeHelper.requireNonNull(constants$4.heif_context_get_image_handle_alloc$MH,"heif_context_get_image_handle_alloc");
-    }
-    /**
-     * {@snippet :
-     * struct heif_image_handle* heif_context_get_image_handle_alloc(struct heif_context* ctx, unsigned int id);
-     * }
-     */
-    public static MemorySegment heif_context_get_image_handle_alloc(MemorySegment ctx, int id) {
-        var mh$ = heif_context_get_image_handle_alloc$MH();
-        try {
-            return (java.lang.foreign.MemorySegment)mh$.invokeExact(ctx, id);
-        } catch (Throwable ex$) {
-            throw new AssertionError("should not reach here", ex$);
-        }
-    }
     public static MethodHandle heif_context_debug_dump_boxes_to_file$MH() {
-        return RuntimeHelper.requireNonNull(constants$4.heif_context_debug_dump_boxes_to_file$MH,"heif_context_debug_dump_boxes_to_file");
+        return RuntimeHelper.requireNonNull(constants$10.const$1,"heif_context_debug_dump_boxes_to_file");
     }
     /**
      * {@snippet :
@@ -1134,7 +1142,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_set_maximum_image_size_limit$MH() {
-        return RuntimeHelper.requireNonNull(constants$4.heif_context_set_maximum_image_size_limit$MH,"heif_context_set_maximum_image_size_limit");
+        return RuntimeHelper.requireNonNull(constants$10.const$2,"heif_context_set_maximum_image_size_limit");
     }
     /**
      * {@snippet :
@@ -1150,7 +1158,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_set_max_decoding_threads$MH() {
-        return RuntimeHelper.requireNonNull(constants$5.heif_context_set_max_decoding_threads$MH,"heif_context_set_max_decoding_threads");
+        return RuntimeHelper.requireNonNull(constants$10.const$3,"heif_context_set_max_decoding_threads");
     }
     /**
      * {@snippet :
@@ -1166,7 +1174,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_release$MH() {
-        return RuntimeHelper.requireNonNull(constants$5.heif_image_handle_release$MH,"heif_image_handle_release");
+        return RuntimeHelper.requireNonNull(constants$10.const$4,"heif_image_handle_release");
     }
     /**
      * {@snippet :
@@ -1182,7 +1190,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_is_primary_image$MH() {
-        return RuntimeHelper.requireNonNull(constants$5.heif_image_handle_is_primary_image$MH,"heif_image_handle_is_primary_image");
+        return RuntimeHelper.requireNonNull(constants$10.const$5,"heif_image_handle_is_primary_image");
     }
     /**
      * {@snippet :
@@ -1198,7 +1206,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_width$MH() {
-        return RuntimeHelper.requireNonNull(constants$5.heif_image_handle_get_width$MH,"heif_image_handle_get_width");
+        return RuntimeHelper.requireNonNull(constants$11.const$0,"heif_image_handle_get_width");
     }
     /**
      * {@snippet :
@@ -1214,7 +1222,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_height$MH() {
-        return RuntimeHelper.requireNonNull(constants$5.heif_image_handle_get_height$MH,"heif_image_handle_get_height");
+        return RuntimeHelper.requireNonNull(constants$11.const$1,"heif_image_handle_get_height");
     }
     /**
      * {@snippet :
@@ -1230,7 +1238,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_has_alpha_channel$MH() {
-        return RuntimeHelper.requireNonNull(constants$5.heif_image_handle_has_alpha_channel$MH,"heif_image_handle_has_alpha_channel");
+        return RuntimeHelper.requireNonNull(constants$11.const$2,"heif_image_handle_has_alpha_channel");
     }
     /**
      * {@snippet :
@@ -1246,7 +1254,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_is_premultiplied_alpha$MH() {
-        return RuntimeHelper.requireNonNull(constants$6.heif_image_handle_is_premultiplied_alpha$MH,"heif_image_handle_is_premultiplied_alpha");
+        return RuntimeHelper.requireNonNull(constants$11.const$3,"heif_image_handle_is_premultiplied_alpha");
     }
     /**
      * {@snippet :
@@ -1262,7 +1270,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_luma_bits_per_pixel$MH() {
-        return RuntimeHelper.requireNonNull(constants$6.heif_image_handle_get_luma_bits_per_pixel$MH,"heif_image_handle_get_luma_bits_per_pixel");
+        return RuntimeHelper.requireNonNull(constants$11.const$4,"heif_image_handle_get_luma_bits_per_pixel");
     }
     /**
      * {@snippet :
@@ -1278,7 +1286,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_chroma_bits_per_pixel$MH() {
-        return RuntimeHelper.requireNonNull(constants$6.heif_image_handle_get_chroma_bits_per_pixel$MH,"heif_image_handle_get_chroma_bits_per_pixel");
+        return RuntimeHelper.requireNonNull(constants$11.const$5,"heif_image_handle_get_chroma_bits_per_pixel");
     }
     /**
      * {@snippet :
@@ -1294,7 +1302,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_ispe_width$MH() {
-        return RuntimeHelper.requireNonNull(constants$6.heif_image_handle_get_ispe_width$MH,"heif_image_handle_get_ispe_width");
+        return RuntimeHelper.requireNonNull(constants$12.const$0,"heif_image_handle_get_ispe_width");
     }
     /**
      * {@snippet :
@@ -1310,7 +1318,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_ispe_height$MH() {
-        return RuntimeHelper.requireNonNull(constants$6.heif_image_handle_get_ispe_height$MH,"heif_image_handle_get_ispe_height");
+        return RuntimeHelper.requireNonNull(constants$12.const$1,"heif_image_handle_get_ispe_height");
     }
     /**
      * {@snippet :
@@ -1326,7 +1334,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_has_depth_image$MH() {
-        return RuntimeHelper.requireNonNull(constants$6.heif_image_handle_has_depth_image$MH,"heif_image_handle_has_depth_image");
+        return RuntimeHelper.requireNonNull(constants$12.const$2,"heif_image_handle_has_depth_image");
     }
     /**
      * {@snippet :
@@ -1342,7 +1350,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_number_of_depth_images$MH() {
-        return RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_number_of_depth_images$MH,"heif_image_handle_get_number_of_depth_images");
+        return RuntimeHelper.requireNonNull(constants$12.const$3,"heif_image_handle_get_number_of_depth_images");
     }
     /**
      * {@snippet :
@@ -1358,7 +1366,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_list_of_depth_image_IDs$MH() {
-        return RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_list_of_depth_image_IDs$MH,"heif_image_handle_get_list_of_depth_image_IDs");
+        return RuntimeHelper.requireNonNull(constants$12.const$4,"heif_image_handle_get_list_of_depth_image_IDs");
     }
     /**
      * {@snippet :
@@ -1374,7 +1382,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_depth_image_handle$MH() {
-        return RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_depth_image_handle$MH,"heif_image_handle_get_depth_image_handle");
+        return RuntimeHelper.requireNonNull(constants$12.const$5,"heif_image_handle_get_depth_image_handle");
     }
     /**
      * {@snippet :
@@ -1422,7 +1430,7 @@ public class heif_h  {
         return (int)3L;
     }
     public static MethodHandle heif_depth_representation_info_free$MH() {
-        return RuntimeHelper.requireNonNull(constants$7.heif_depth_representation_info_free$MH,"heif_depth_representation_info_free");
+        return RuntimeHelper.requireNonNull(constants$15.const$2,"heif_depth_representation_info_free");
     }
     /**
      * {@snippet :
@@ -1438,7 +1446,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_depth_image_representation_info$MH() {
-        return RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_depth_image_representation_info$MH,"heif_image_handle_get_depth_image_representation_info");
+        return RuntimeHelper.requireNonNull(constants$15.const$3,"heif_image_handle_get_depth_image_representation_info");
     }
     /**
      * {@snippet :
@@ -1454,7 +1462,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_number_of_thumbnails$MH() {
-        return RuntimeHelper.requireNonNull(constants$7.heif_image_handle_get_number_of_thumbnails$MH,"heif_image_handle_get_number_of_thumbnails");
+        return RuntimeHelper.requireNonNull(constants$15.const$4,"heif_image_handle_get_number_of_thumbnails");
     }
     /**
      * {@snippet :
@@ -1470,7 +1478,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_list_of_thumbnail_IDs$MH() {
-        return RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_list_of_thumbnail_IDs$MH,"heif_image_handle_get_list_of_thumbnail_IDs");
+        return RuntimeHelper.requireNonNull(constants$15.const$5,"heif_image_handle_get_list_of_thumbnail_IDs");
     }
     /**
      * {@snippet :
@@ -1486,7 +1494,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_thumbnail$MH() {
-        return RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_thumbnail$MH,"heif_image_handle_get_thumbnail");
+        return RuntimeHelper.requireNonNull(constants$16.const$0,"heif_image_handle_get_thumbnail");
     }
     /**
      * {@snippet :
@@ -1502,7 +1510,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_number_of_auxiliary_images$MH() {
-        return RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_number_of_auxiliary_images$MH,"heif_image_handle_get_number_of_auxiliary_images");
+        return RuntimeHelper.requireNonNull(constants$16.const$1,"heif_image_handle_get_number_of_auxiliary_images");
     }
     /**
      * {@snippet :
@@ -1518,7 +1526,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_list_of_auxiliary_image_IDs$MH() {
-        return RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_list_of_auxiliary_image_IDs$MH,"heif_image_handle_get_list_of_auxiliary_image_IDs");
+        return RuntimeHelper.requireNonNull(constants$16.const$3,"heif_image_handle_get_list_of_auxiliary_image_IDs");
     }
     /**
      * {@snippet :
@@ -1534,7 +1542,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_auxiliary_type$MH() {
-        return RuntimeHelper.requireNonNull(constants$8.heif_image_handle_get_auxiliary_type$MH,"heif_image_handle_get_auxiliary_type");
+        return RuntimeHelper.requireNonNull(constants$16.const$4,"heif_image_handle_get_auxiliary_type");
     }
     /**
      * {@snippet :
@@ -1550,7 +1558,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_free_auxiliary_types$MH() {
-        return RuntimeHelper.requireNonNull(constants$8.heif_image_handle_free_auxiliary_types$MH,"heif_image_handle_free_auxiliary_types");
+        return RuntimeHelper.requireNonNull(constants$16.const$6,"heif_image_handle_free_auxiliary_types");
     }
     /**
      * {@snippet :
@@ -1566,7 +1574,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_auxiliary_image_handle$MH() {
-        return RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_auxiliary_image_handle$MH,"heif_image_handle_get_auxiliary_image_handle");
+        return RuntimeHelper.requireNonNull(constants$17.const$0,"heif_image_handle_get_auxiliary_image_handle");
     }
     /**
      * {@snippet :
@@ -1582,7 +1590,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_number_of_metadata_blocks$MH() {
-        return RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_number_of_metadata_blocks$MH,"heif_image_handle_get_number_of_metadata_blocks");
+        return RuntimeHelper.requireNonNull(constants$17.const$2,"heif_image_handle_get_number_of_metadata_blocks");
     }
     /**
      * {@snippet :
@@ -1598,7 +1606,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_list_of_metadata_block_IDs$MH() {
-        return RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_list_of_metadata_block_IDs$MH,"heif_image_handle_get_list_of_metadata_block_IDs");
+        return RuntimeHelper.requireNonNull(constants$17.const$4,"heif_image_handle_get_list_of_metadata_block_IDs");
     }
     /**
      * {@snippet :
@@ -1614,7 +1622,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_metadata_type$MH() {
-        return RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_metadata_type$MH,"heif_image_handle_get_metadata_type");
+        return RuntimeHelper.requireNonNull(constants$17.const$5,"heif_image_handle_get_metadata_type");
     }
     /**
      * {@snippet :
@@ -1630,7 +1638,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_metadata_content_type$MH() {
-        return RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_metadata_content_type$MH,"heif_image_handle_get_metadata_content_type");
+        return RuntimeHelper.requireNonNull(constants$18.const$0,"heif_image_handle_get_metadata_content_type");
     }
     /**
      * {@snippet :
@@ -1646,11 +1654,11 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_metadata_size$MH() {
-        return RuntimeHelper.requireNonNull(constants$9.heif_image_handle_get_metadata_size$MH,"heif_image_handle_get_metadata_size");
+        return RuntimeHelper.requireNonNull(constants$18.const$2,"heif_image_handle_get_metadata_size");
     }
     /**
      * {@snippet :
-     * unsigned long heif_image_handle_get_metadata_size(struct heif_image_handle* handle, unsigned int metadata_id);
+     * unsigned long long heif_image_handle_get_metadata_size(struct heif_image_handle* handle, unsigned int metadata_id);
      * }
      */
     public static long heif_image_handle_get_metadata_size(MemorySegment handle, int metadata_id) {
@@ -1662,7 +1670,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_metadata$MH() {
-        return RuntimeHelper.requireNonNull(constants$10.heif_image_handle_get_metadata$MH,"heif_image_handle_get_metadata");
+        return RuntimeHelper.requireNonNull(constants$18.const$3,"heif_image_handle_get_metadata");
     }
     /**
      * {@snippet :
@@ -1710,7 +1718,7 @@ public class heif_h  {
         return (int)1886547814L;
     }
     public static MethodHandle heif_image_handle_get_color_profile_type$MH() {
-        return RuntimeHelper.requireNonNull(constants$10.heif_image_handle_get_color_profile_type$MH,"heif_image_handle_get_color_profile_type");
+        return RuntimeHelper.requireNonNull(constants$18.const$4,"heif_image_handle_get_color_profile_type");
     }
     /**
      * {@snippet :
@@ -1726,11 +1734,11 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_raw_color_profile_size$MH() {
-        return RuntimeHelper.requireNonNull(constants$10.heif_image_handle_get_raw_color_profile_size$MH,"heif_image_handle_get_raw_color_profile_size");
+        return RuntimeHelper.requireNonNull(constants$18.const$5,"heif_image_handle_get_raw_color_profile_size");
     }
     /**
      * {@snippet :
-     * unsigned long heif_image_handle_get_raw_color_profile_size(struct heif_image_handle* handle);
+     * unsigned long long heif_image_handle_get_raw_color_profile_size(struct heif_image_handle* handle);
      * }
      */
     public static long heif_image_handle_get_raw_color_profile_size(MemorySegment handle) {
@@ -1742,7 +1750,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_handle_get_raw_color_profile$MH() {
-        return RuntimeHelper.requireNonNull(constants$10.heif_image_handle_get_raw_color_profile$MH,"heif_image_handle_get_raw_color_profile");
+        return RuntimeHelper.requireNonNull(constants$19.const$0,"heif_image_handle_get_raw_color_profile");
     }
     /**
      * {@snippet :
@@ -2102,7 +2110,7 @@ public class heif_h  {
         return (int)14L;
     }
     public static MethodHandle heif_image_handle_get_nclx_color_profile$MH() {
-        return RuntimeHelper.requireNonNull(constants$10.heif_image_handle_get_nclx_color_profile$MH,"heif_image_handle_get_nclx_color_profile");
+        return RuntimeHelper.requireNonNull(constants$21.const$3,"heif_image_handle_get_nclx_color_profile");
     }
     /**
      * {@snippet :
@@ -2118,7 +2126,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_nclx_color_profile_alloc$MH() {
-        return RuntimeHelper.requireNonNull(constants$10.heif_nclx_color_profile_alloc$MH,"heif_nclx_color_profile_alloc");
+        return RuntimeHelper.requireNonNull(constants$21.const$4,"heif_nclx_color_profile_alloc");
     }
     /**
      * {@snippet :
@@ -2134,7 +2142,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_nclx_color_profile_free$MH() {
-        return RuntimeHelper.requireNonNull(constants$11.heif_nclx_color_profile_free$MH,"heif_nclx_color_profile_free");
+        return RuntimeHelper.requireNonNull(constants$21.const$5,"heif_nclx_color_profile_free");
     }
     /**
      * {@snippet :
@@ -2150,7 +2158,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_get_color_profile_type$MH() {
-        return RuntimeHelper.requireNonNull(constants$11.heif_image_get_color_profile_type$MH,"heif_image_get_color_profile_type");
+        return RuntimeHelper.requireNonNull(constants$22.const$0,"heif_image_get_color_profile_type");
     }
     /**
      * {@snippet :
@@ -2166,11 +2174,11 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_get_raw_color_profile_size$MH() {
-        return RuntimeHelper.requireNonNull(constants$11.heif_image_get_raw_color_profile_size$MH,"heif_image_get_raw_color_profile_size");
+        return RuntimeHelper.requireNonNull(constants$22.const$1,"heif_image_get_raw_color_profile_size");
     }
     /**
      * {@snippet :
-     * unsigned long heif_image_get_raw_color_profile_size(struct heif_image* image);
+     * unsigned long long heif_image_get_raw_color_profile_size(struct heif_image* image);
      * }
      */
     public static long heif_image_get_raw_color_profile_size(MemorySegment image) {
@@ -2182,7 +2190,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_get_raw_color_profile$MH() {
-        return RuntimeHelper.requireNonNull(constants$11.heif_image_get_raw_color_profile$MH,"heif_image_get_raw_color_profile");
+        return RuntimeHelper.requireNonNull(constants$22.const$2,"heif_image_get_raw_color_profile");
     }
     /**
      * {@snippet :
@@ -2198,7 +2206,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_get_nclx_color_profile$MH() {
-        return RuntimeHelper.requireNonNull(constants$11.heif_image_get_nclx_color_profile$MH,"heif_image_get_nclx_color_profile");
+        return RuntimeHelper.requireNonNull(constants$22.const$3,"heif_image_get_nclx_color_profile");
     }
     /**
      * {@snippet :
@@ -2454,7 +2462,7 @@ public class heif_h  {
         return (int)1L;
     }
     public static MethodHandle heif_decoding_options_alloc$MH() {
-        return RuntimeHelper.requireNonNull(constants$11.heif_decoding_options_alloc$MH,"heif_decoding_options_alloc");
+        return RuntimeHelper.requireNonNull(constants$25.const$0,"heif_decoding_options_alloc");
     }
     /**
      * {@snippet :
@@ -2470,7 +2478,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_decoding_options_free$MH() {
-        return RuntimeHelper.requireNonNull(constants$12.heif_decoding_options_free$MH,"heif_decoding_options_free");
+        return RuntimeHelper.requireNonNull(constants$25.const$1,"heif_decoding_options_free");
     }
     /**
      * {@snippet :
@@ -2486,7 +2494,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_decode_image$MH() {
-        return RuntimeHelper.requireNonNull(constants$12.heif_decode_image$MH,"heif_decode_image");
+        return RuntimeHelper.requireNonNull(constants$25.const$3,"heif_decode_image");
     }
     /**
      * {@snippet :
@@ -2502,7 +2510,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_decode_image_alloc$MH() {
-        return RuntimeHelper.requireNonNull(constants$12.heif_decode_image_alloc$MH,"heif_decode_image_alloc");
+        return RuntimeHelper.requireNonNull(constants$25.const$5,"heif_decode_image_alloc");
     }
     /**
      * {@snippet :
@@ -2518,7 +2526,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_get_colorspace$MH() {
-        return RuntimeHelper.requireNonNull(constants$12.heif_image_get_colorspace$MH,"heif_image_get_colorspace");
+        return RuntimeHelper.requireNonNull(constants$26.const$0,"heif_image_get_colorspace");
     }
     /**
      * {@snippet :
@@ -2534,7 +2542,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_get_chroma_format$MH() {
-        return RuntimeHelper.requireNonNull(constants$12.heif_image_get_chroma_format$MH,"heif_image_get_chroma_format");
+        return RuntimeHelper.requireNonNull(constants$26.const$1,"heif_image_get_chroma_format");
     }
     /**
      * {@snippet :
@@ -2550,7 +2558,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_get_width$MH() {
-        return RuntimeHelper.requireNonNull(constants$12.heif_image_get_width$MH,"heif_image_get_width");
+        return RuntimeHelper.requireNonNull(constants$26.const$2,"heif_image_get_width");
     }
     /**
      * {@snippet :
@@ -2566,7 +2574,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_get_height$MH() {
-        return RuntimeHelper.requireNonNull(constants$13.heif_image_get_height$MH,"heif_image_get_height");
+        return RuntimeHelper.requireNonNull(constants$26.const$3,"heif_image_get_height");
     }
     /**
      * {@snippet :
@@ -2582,7 +2590,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_get_primary_width$MH() {
-        return RuntimeHelper.requireNonNull(constants$13.heif_image_get_primary_width$MH,"heif_image_get_primary_width");
+        return RuntimeHelper.requireNonNull(constants$26.const$4,"heif_image_get_primary_width");
     }
     /**
      * {@snippet :
@@ -2598,7 +2606,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_get_primary_height$MH() {
-        return RuntimeHelper.requireNonNull(constants$13.heif_image_get_primary_height$MH,"heif_image_get_primary_height");
+        return RuntimeHelper.requireNonNull(constants$26.const$5,"heif_image_get_primary_height");
     }
     /**
      * {@snippet :
@@ -2614,7 +2622,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_crop$MH() {
-        return RuntimeHelper.requireNonNull(constants$13.heif_image_crop$MH,"heif_image_crop");
+        return RuntimeHelper.requireNonNull(constants$27.const$1,"heif_image_crop");
     }
     /**
      * {@snippet :
@@ -2630,7 +2638,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_get_bits_per_pixel$MH() {
-        return RuntimeHelper.requireNonNull(constants$13.heif_image_get_bits_per_pixel$MH,"heif_image_get_bits_per_pixel");
+        return RuntimeHelper.requireNonNull(constants$27.const$2,"heif_image_get_bits_per_pixel");
     }
     /**
      * {@snippet :
@@ -2646,7 +2654,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_get_bits_per_pixel_range$MH() {
-        return RuntimeHelper.requireNonNull(constants$13.heif_image_get_bits_per_pixel_range$MH,"heif_image_get_bits_per_pixel_range");
+        return RuntimeHelper.requireNonNull(constants$27.const$3,"heif_image_get_bits_per_pixel_range");
     }
     /**
      * {@snippet :
@@ -2662,7 +2670,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_has_channel$MH() {
-        return RuntimeHelper.requireNonNull(constants$14.heif_image_has_channel$MH,"heif_image_has_channel");
+        return RuntimeHelper.requireNonNull(constants$27.const$4,"heif_image_has_channel");
     }
     /**
      * {@snippet :
@@ -2678,7 +2686,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_get_plane_readonly$MH() {
-        return RuntimeHelper.requireNonNull(constants$14.heif_image_get_plane_readonly$MH,"heif_image_get_plane_readonly");
+        return RuntimeHelper.requireNonNull(constants$27.const$6,"heif_image_get_plane_readonly");
     }
     /**
      * {@snippet :
@@ -2694,7 +2702,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_get_plane$MH() {
-        return RuntimeHelper.requireNonNull(constants$14.heif_image_get_plane$MH,"heif_image_get_plane");
+        return RuntimeHelper.requireNonNull(constants$28.const$0,"heif_image_get_plane");
     }
     /**
      * {@snippet :
@@ -2710,7 +2718,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_scale_image$MH() {
-        return RuntimeHelper.requireNonNull(constants$14.heif_image_scale_image$MH,"heif_image_scale_image");
+        return RuntimeHelper.requireNonNull(constants$28.const$1,"heif_image_scale_image");
     }
     /**
      * {@snippet :
@@ -2726,11 +2734,11 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_set_raw_color_profile$MH() {
-        return RuntimeHelper.requireNonNull(constants$14.heif_image_set_raw_color_profile$MH,"heif_image_set_raw_color_profile");
+        return RuntimeHelper.requireNonNull(constants$28.const$3,"heif_image_set_raw_color_profile");
     }
     /**
      * {@snippet :
-     * struct heif_error heif_image_set_raw_color_profile(struct heif_image* image, char* profile_type_fourcc_string, void* profile_data, unsigned long profile_size);
+     * struct heif_error heif_image_set_raw_color_profile(struct heif_image* image, char* profile_type_fourcc_string, void* profile_data, unsigned long long profile_size);
      * }
      */
     public static MemorySegment heif_image_set_raw_color_profile(SegmentAllocator allocator, MemorySegment image, MemorySegment profile_type_fourcc_string, MemorySegment profile_data, long profile_size) {
@@ -2742,7 +2750,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_set_nclx_color_profile$MH() {
-        return RuntimeHelper.requireNonNull(constants$14.heif_image_set_nclx_color_profile$MH,"heif_image_set_nclx_color_profile");
+        return RuntimeHelper.requireNonNull(constants$28.const$4,"heif_image_set_nclx_color_profile");
     }
     /**
      * {@snippet :
@@ -2758,7 +2766,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_release$MH() {
-        return RuntimeHelper.requireNonNull(constants$15.heif_image_release$MH,"heif_image_release");
+        return RuntimeHelper.requireNonNull(constants$28.const$5,"heif_image_release");
     }
     /**
      * {@snippet :
@@ -2774,7 +2782,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_write_to_file$MH() {
-        return RuntimeHelper.requireNonNull(constants$15.heif_context_write_to_file$MH,"heif_context_write_to_file");
+        return RuntimeHelper.requireNonNull(constants$29.const$0,"heif_context_write_to_file");
     }
     /**
      * {@snippet :
@@ -2790,7 +2798,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_write$MH() {
-        return RuntimeHelper.requireNonNull(constants$15.heif_context_write$MH,"heif_context_write");
+        return RuntimeHelper.requireNonNull(constants$30.const$0,"heif_context_write");
     }
     /**
      * {@snippet :
@@ -2806,7 +2814,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_get_encoder_descriptors$MH() {
-        return RuntimeHelper.requireNonNull(constants$15.heif_context_get_encoder_descriptors$MH,"heif_context_get_encoder_descriptors");
+        return RuntimeHelper.requireNonNull(constants$30.const$2,"heif_context_get_encoder_descriptors");
     }
     /**
      * {@snippet :
@@ -2822,7 +2830,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_descriptor_get_name$MH() {
-        return RuntimeHelper.requireNonNull(constants$15.heif_encoder_descriptor_get_name$MH,"heif_encoder_descriptor_get_name");
+        return RuntimeHelper.requireNonNull(constants$30.const$3,"heif_encoder_descriptor_get_name");
     }
     /**
      * {@snippet :
@@ -2838,7 +2846,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_descriptor_get_id_name$MH() {
-        return RuntimeHelper.requireNonNull(constants$15.heif_encoder_descriptor_get_id_name$MH,"heif_encoder_descriptor_get_id_name");
+        return RuntimeHelper.requireNonNull(constants$30.const$4,"heif_encoder_descriptor_get_id_name");
     }
     /**
      * {@snippet :
@@ -2854,7 +2862,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_descriptor_get_compression_format$MH() {
-        return RuntimeHelper.requireNonNull(constants$16.heif_encoder_descriptor_get_compression_format$MH,"heif_encoder_descriptor_get_compression_format");
+        return RuntimeHelper.requireNonNull(constants$30.const$5,"heif_encoder_descriptor_get_compression_format");
     }
     /**
      * {@snippet :
@@ -2870,7 +2878,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_descriptor_supports_lossy_compression$MH() {
-        return RuntimeHelper.requireNonNull(constants$16.heif_encoder_descriptor_supports_lossy_compression$MH,"heif_encoder_descriptor_supports_lossy_compression");
+        return RuntimeHelper.requireNonNull(constants$31.const$0,"heif_encoder_descriptor_supports_lossy_compression");
     }
     /**
      * {@snippet :
@@ -2886,7 +2894,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_descriptor_supports_lossless_compression$MH() {
-        return RuntimeHelper.requireNonNull(constants$16.heif_encoder_descriptor_supports_lossless_compression$MH,"heif_encoder_descriptor_supports_lossless_compression");
+        return RuntimeHelper.requireNonNull(constants$31.const$1,"heif_encoder_descriptor_supports_lossless_compression");
     }
     /**
      * {@snippet :
@@ -2902,7 +2910,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_get_encoder$MH() {
-        return RuntimeHelper.requireNonNull(constants$16.heif_context_get_encoder$MH,"heif_context_get_encoder");
+        return RuntimeHelper.requireNonNull(constants$31.const$2,"heif_context_get_encoder");
     }
     /**
      * {@snippet :
@@ -2918,7 +2926,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_have_decoder_for_format$MH() {
-        return RuntimeHelper.requireNonNull(constants$16.heif_have_decoder_for_format$MH,"heif_have_decoder_for_format");
+        return RuntimeHelper.requireNonNull(constants$31.const$4,"heif_have_decoder_for_format");
     }
     /**
      * {@snippet :
@@ -2934,7 +2942,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_have_encoder_for_format$MH() {
-        return RuntimeHelper.requireNonNull(constants$16.heif_have_encoder_for_format$MH,"heif_have_encoder_for_format");
+        return RuntimeHelper.requireNonNull(constants$31.const$5,"heif_have_encoder_for_format");
     }
     /**
      * {@snippet :
@@ -2950,7 +2958,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_get_encoder_for_format$MH() {
-        return RuntimeHelper.requireNonNull(constants$17.heif_context_get_encoder_for_format$MH,"heif_context_get_encoder_for_format");
+        return RuntimeHelper.requireNonNull(constants$32.const$0,"heif_context_get_encoder_for_format");
     }
     /**
      * {@snippet :
@@ -2966,7 +2974,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_release$MH() {
-        return RuntimeHelper.requireNonNull(constants$17.heif_encoder_release$MH,"heif_encoder_release");
+        return RuntimeHelper.requireNonNull(constants$32.const$1,"heif_encoder_release");
     }
     /**
      * {@snippet :
@@ -2982,7 +2990,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_get_name$MH() {
-        return RuntimeHelper.requireNonNull(constants$17.heif_encoder_get_name$MH,"heif_encoder_get_name");
+        return RuntimeHelper.requireNonNull(constants$32.const$2,"heif_encoder_get_name");
     }
     /**
      * {@snippet :
@@ -2998,7 +3006,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_set_lossy_quality$MH() {
-        return RuntimeHelper.requireNonNull(constants$17.heif_encoder_set_lossy_quality$MH,"heif_encoder_set_lossy_quality");
+        return RuntimeHelper.requireNonNull(constants$32.const$4,"heif_encoder_set_lossy_quality");
     }
     /**
      * {@snippet :
@@ -3014,7 +3022,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_set_lossless$MH() {
-        return RuntimeHelper.requireNonNull(constants$17.heif_encoder_set_lossless$MH,"heif_encoder_set_lossless");
+        return RuntimeHelper.requireNonNull(constants$32.const$5,"heif_encoder_set_lossless");
     }
     /**
      * {@snippet :
@@ -3030,7 +3038,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_set_logging_level$MH() {
-        return RuntimeHelper.requireNonNull(constants$17.heif_encoder_set_logging_level$MH,"heif_encoder_set_logging_level");
+        return RuntimeHelper.requireNonNull(constants$33.const$0,"heif_encoder_set_logging_level");
     }
     /**
      * {@snippet :
@@ -3046,7 +3054,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_list_parameters$MH() {
-        return RuntimeHelper.requireNonNull(constants$18.heif_encoder_list_parameters$MH,"heif_encoder_list_parameters");
+        return RuntimeHelper.requireNonNull(constants$33.const$1,"heif_encoder_list_parameters");
     }
     /**
      * {@snippet :
@@ -3062,7 +3070,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_parameter_get_name$MH() {
-        return RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_name$MH,"heif_encoder_parameter_get_name");
+        return RuntimeHelper.requireNonNull(constants$33.const$2,"heif_encoder_parameter_get_name");
     }
     /**
      * {@snippet :
@@ -3102,7 +3110,7 @@ public class heif_h  {
         return (int)3L;
     }
     public static MethodHandle heif_encoder_parameter_get_type$MH() {
-        return RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_type$MH,"heif_encoder_parameter_get_type");
+        return RuntimeHelper.requireNonNull(constants$33.const$3,"heif_encoder_parameter_get_type");
     }
     /**
      * {@snippet :
@@ -3118,7 +3126,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_parameter_get_valid_integer_range$MH() {
-        return RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_valid_integer_range$MH,"heif_encoder_parameter_get_valid_integer_range");
+        return RuntimeHelper.requireNonNull(constants$33.const$4,"heif_encoder_parameter_get_valid_integer_range");
     }
     /**
      * {@snippet :
@@ -3134,7 +3142,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_parameter_get_valid_integer_values$MH() {
-        return RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_valid_integer_values$MH,"heif_encoder_parameter_get_valid_integer_values");
+        return RuntimeHelper.requireNonNull(constants$33.const$6,"heif_encoder_parameter_get_valid_integer_values");
     }
     /**
      * {@snippet :
@@ -3150,7 +3158,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_parameter_get_valid_string_values$MH() {
-        return RuntimeHelper.requireNonNull(constants$18.heif_encoder_parameter_get_valid_string_values$MH,"heif_encoder_parameter_get_valid_string_values");
+        return RuntimeHelper.requireNonNull(constants$34.const$0,"heif_encoder_parameter_get_valid_string_values");
     }
     /**
      * {@snippet :
@@ -3166,7 +3174,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_set_parameter_integer$MH() {
-        return RuntimeHelper.requireNonNull(constants$19.heif_encoder_set_parameter_integer$MH,"heif_encoder_set_parameter_integer");
+        return RuntimeHelper.requireNonNull(constants$34.const$2,"heif_encoder_set_parameter_integer");
     }
     /**
      * {@snippet :
@@ -3182,7 +3190,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_get_parameter_integer$MH() {
-        return RuntimeHelper.requireNonNull(constants$19.heif_encoder_get_parameter_integer$MH,"heif_encoder_get_parameter_integer");
+        return RuntimeHelper.requireNonNull(constants$34.const$3,"heif_encoder_get_parameter_integer");
     }
     /**
      * {@snippet :
@@ -3198,7 +3206,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_parameter_integer_valid_range$MH() {
-        return RuntimeHelper.requireNonNull(constants$19.heif_encoder_parameter_integer_valid_range$MH,"heif_encoder_parameter_integer_valid_range");
+        return RuntimeHelper.requireNonNull(constants$34.const$5,"heif_encoder_parameter_integer_valid_range");
     }
     /**
      * {@snippet :
@@ -3214,7 +3222,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_set_parameter_boolean$MH() {
-        return RuntimeHelper.requireNonNull(constants$19.heif_encoder_set_parameter_boolean$MH,"heif_encoder_set_parameter_boolean");
+        return RuntimeHelper.requireNonNull(constants$35.const$0,"heif_encoder_set_parameter_boolean");
     }
     /**
      * {@snippet :
@@ -3230,7 +3238,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_get_parameter_boolean$MH() {
-        return RuntimeHelper.requireNonNull(constants$19.heif_encoder_get_parameter_boolean$MH,"heif_encoder_get_parameter_boolean");
+        return RuntimeHelper.requireNonNull(constants$35.const$1,"heif_encoder_get_parameter_boolean");
     }
     /**
      * {@snippet :
@@ -3246,7 +3254,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_set_parameter_string$MH() {
-        return RuntimeHelper.requireNonNull(constants$19.heif_encoder_set_parameter_string$MH,"heif_encoder_set_parameter_string");
+        return RuntimeHelper.requireNonNull(constants$35.const$2,"heif_encoder_set_parameter_string");
     }
     /**
      * {@snippet :
@@ -3262,7 +3270,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_get_parameter_string$MH() {
-        return RuntimeHelper.requireNonNull(constants$20.heif_encoder_get_parameter_string$MH,"heif_encoder_get_parameter_string");
+        return RuntimeHelper.requireNonNull(constants$35.const$4,"heif_encoder_get_parameter_string");
     }
     /**
      * {@snippet :
@@ -3278,7 +3286,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_parameter_string_valid_values$MH() {
-        return RuntimeHelper.requireNonNull(constants$20.heif_encoder_parameter_string_valid_values$MH,"heif_encoder_parameter_string_valid_values");
+        return RuntimeHelper.requireNonNull(constants$35.const$5,"heif_encoder_parameter_string_valid_values");
     }
     /**
      * {@snippet :
@@ -3294,7 +3302,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_parameter_integer_valid_values$MH() {
-        return RuntimeHelper.requireNonNull(constants$20.heif_encoder_parameter_integer_valid_values$MH,"heif_encoder_parameter_integer_valid_values");
+        return RuntimeHelper.requireNonNull(constants$36.const$1,"heif_encoder_parameter_integer_valid_values");
     }
     /**
      * {@snippet :
@@ -3310,7 +3318,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_set_parameter$MH() {
-        return RuntimeHelper.requireNonNull(constants$20.heif_encoder_set_parameter$MH,"heif_encoder_set_parameter");
+        return RuntimeHelper.requireNonNull(constants$36.const$2,"heif_encoder_set_parameter");
     }
     /**
      * {@snippet :
@@ -3326,7 +3334,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_get_parameter$MH() {
-        return RuntimeHelper.requireNonNull(constants$20.heif_encoder_get_parameter$MH,"heif_encoder_get_parameter");
+        return RuntimeHelper.requireNonNull(constants$36.const$3,"heif_encoder_get_parameter");
     }
     /**
      * {@snippet :
@@ -3342,7 +3350,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_has_default$MH() {
-        return RuntimeHelper.requireNonNull(constants$20.heif_encoder_has_default$MH,"heif_encoder_has_default");
+        return RuntimeHelper.requireNonNull(constants$36.const$4,"heif_encoder_has_default");
     }
     /**
      * {@snippet :
@@ -3358,7 +3366,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoding_options_alloc$MH() {
-        return RuntimeHelper.requireNonNull(constants$21.heif_encoding_options_alloc$MH,"heif_encoding_options_alloc");
+        return RuntimeHelper.requireNonNull(constants$38.const$0,"heif_encoding_options_alloc");
     }
     /**
      * {@snippet :
@@ -3374,7 +3382,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoding_options_free$MH() {
-        return RuntimeHelper.requireNonNull(constants$21.heif_encoding_options_free$MH,"heif_encoding_options_free");
+        return RuntimeHelper.requireNonNull(constants$38.const$1,"heif_encoding_options_free");
     }
     /**
      * {@snippet :
@@ -3390,7 +3398,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_encode_image$MH() {
-        return RuntimeHelper.requireNonNull(constants$21.heif_context_encode_image$MH,"heif_context_encode_image");
+        return RuntimeHelper.requireNonNull(constants$38.const$2,"heif_context_encode_image");
     }
     /**
      * {@snippet :
@@ -3406,7 +3414,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_set_primary_image$MH() {
-        return RuntimeHelper.requireNonNull(constants$21.heif_context_set_primary_image$MH,"heif_context_set_primary_image");
+        return RuntimeHelper.requireNonNull(constants$38.const$3,"heif_context_set_primary_image");
     }
     /**
      * {@snippet :
@@ -3422,7 +3430,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_encode_thumbnail$MH() {
-        return RuntimeHelper.requireNonNull(constants$21.heif_context_encode_thumbnail$MH,"heif_context_encode_thumbnail");
+        return RuntimeHelper.requireNonNull(constants$38.const$5,"heif_context_encode_thumbnail");
     }
     /**
      * {@snippet :
@@ -3438,7 +3446,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_assign_thumbnail$MH() {
-        return RuntimeHelper.requireNonNull(constants$21.heif_context_assign_thumbnail$MH,"heif_context_assign_thumbnail");
+        return RuntimeHelper.requireNonNull(constants$39.const$0,"heif_context_assign_thumbnail");
     }
     /**
      * {@snippet :
@@ -3454,7 +3462,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_add_exif_metadata$MH() {
-        return RuntimeHelper.requireNonNull(constants$22.heif_context_add_exif_metadata$MH,"heif_context_add_exif_metadata");
+        return RuntimeHelper.requireNonNull(constants$39.const$1,"heif_context_add_exif_metadata");
     }
     /**
      * {@snippet :
@@ -3470,7 +3478,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_add_XMP_metadata$MH() {
-        return RuntimeHelper.requireNonNull(constants$22.heif_context_add_XMP_metadata$MH,"heif_context_add_XMP_metadata");
+        return RuntimeHelper.requireNonNull(constants$39.const$2,"heif_context_add_XMP_metadata");
     }
     /**
      * {@snippet :
@@ -3486,7 +3494,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_context_add_generic_metadata$MH() {
-        return RuntimeHelper.requireNonNull(constants$22.heif_context_add_generic_metadata$MH,"heif_context_add_generic_metadata");
+        return RuntimeHelper.requireNonNull(constants$39.const$4,"heif_context_add_generic_metadata");
     }
     /**
      * {@snippet :
@@ -3502,7 +3510,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_create$MH() {
-        return RuntimeHelper.requireNonNull(constants$22.heif_image_create$MH,"heif_image_create");
+        return RuntimeHelper.requireNonNull(constants$39.const$6,"heif_image_create");
     }
     /**
      * {@snippet :
@@ -3518,7 +3526,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_add_plane$MH() {
-        return RuntimeHelper.requireNonNull(constants$22.heif_image_add_plane$MH,"heif_image_add_plane");
+        return RuntimeHelper.requireNonNull(constants$40.const$0,"heif_image_add_plane");
     }
     /**
      * {@snippet :
@@ -3534,7 +3542,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_set_premultiplied_alpha$MH() {
-        return RuntimeHelper.requireNonNull(constants$22.heif_image_set_premultiplied_alpha$MH,"heif_image_set_premultiplied_alpha");
+        return RuntimeHelper.requireNonNull(constants$40.const$1,"heif_image_set_premultiplied_alpha");
     }
     /**
      * {@snippet :
@@ -3550,7 +3558,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_image_is_premultiplied_alpha$MH() {
-        return RuntimeHelper.requireNonNull(constants$23.heif_image_is_premultiplied_alpha$MH,"heif_image_is_premultiplied_alpha");
+        return RuntimeHelper.requireNonNull(constants$40.const$2,"heif_image_is_premultiplied_alpha");
     }
     /**
      * {@snippet :
@@ -3566,7 +3574,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_register_decoder$MH() {
-        return RuntimeHelper.requireNonNull(constants$23.heif_register_decoder$MH,"heif_register_decoder");
+        return RuntimeHelper.requireNonNull(constants$40.const$3,"heif_register_decoder");
     }
     /**
      * {@snippet :
@@ -3582,7 +3590,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_register_decoder_plugin$MH() {
-        return RuntimeHelper.requireNonNull(constants$23.heif_register_decoder_plugin$MH,"heif_register_decoder_plugin");
+        return RuntimeHelper.requireNonNull(constants$40.const$5,"heif_register_decoder_plugin");
     }
     /**
      * {@snippet :
@@ -3598,7 +3606,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_register_encoder_plugin$MH() {
-        return RuntimeHelper.requireNonNull(constants$23.heif_register_encoder_plugin$MH,"heif_register_encoder_plugin");
+        return RuntimeHelper.requireNonNull(constants$41.const$0,"heif_register_encoder_plugin");
     }
     /**
      * {@snippet :
@@ -3614,7 +3622,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_descriptor_supportes_lossy_compression$MH() {
-        return RuntimeHelper.requireNonNull(constants$23.heif_encoder_descriptor_supportes_lossy_compression$MH,"heif_encoder_descriptor_supportes_lossy_compression");
+        return RuntimeHelper.requireNonNull(constants$41.const$1,"heif_encoder_descriptor_supportes_lossy_compression");
     }
     /**
      * {@snippet :
@@ -3630,7 +3638,7 @@ public class heif_h  {
         }
     }
     public static MethodHandle heif_encoder_descriptor_supportes_lossless_compression$MH() {
-        return RuntimeHelper.requireNonNull(constants$23.heif_encoder_descriptor_supportes_lossless_compression$MH,"heif_encoder_descriptor_supportes_lossless_compression");
+        return RuntimeHelper.requireNonNull(constants$41.const$2,"heif_encoder_descriptor_supportes_lossless_compression");
     }
     /**
      * {@snippet :
@@ -3647,19 +3655,43 @@ public class heif_h  {
     }
     /**
      * {@snippet :
+     * #define NULL 0
+     * }
+     */
+    public static MemorySegment NULL() {
+        return constants$41.const$3;
+    }
+    /**
+     * {@snippet :
+     * #define LIBHEIF_NUMERIC_VERSION 17563648
+     * }
+     */
+    public static int LIBHEIF_NUMERIC_VERSION() {
+        return (int)17563648L;
+    }
+    /**
+     * {@snippet :
+     * #define LIBHEIF_VERSION "1.12.0"
+     * }
+     */
+    public static MemorySegment LIBHEIF_VERSION() {
+        return constants$41.const$4;
+    }
+    /**
+     * {@snippet :
      * #define LIBHEIF_AUX_IMAGE_FILTER_OMIT_ALPHA 2
      * }
      */
-    public static long LIBHEIF_AUX_IMAGE_FILTER_OMIT_ALPHA() {
-        return 2L;
+    public static int LIBHEIF_AUX_IMAGE_FILTER_OMIT_ALPHA() {
+        return (int)2L;
     }
     /**
      * {@snippet :
      * #define LIBHEIF_AUX_IMAGE_FILTER_OMIT_DEPTH 4
      * }
      */
-    public static long LIBHEIF_AUX_IMAGE_FILTER_OMIT_DEPTH() {
-        return 4L;
+    public static int LIBHEIF_AUX_IMAGE_FILTER_OMIT_DEPTH() {
+        return (int)4L;
     }
     /**
      * {@snippet :

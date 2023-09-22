@@ -11,7 +11,14 @@ final class constants$24 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$24() {}
-    static final MemorySegment LIBHEIF_VERSION$SEGMENT = RuntimeHelper.CONSTANT_ALLOCATOR.allocateUtf8String("1.12.0");
+    static final VarHandle const$0 = constants$22.const$4.varHandle(MemoryLayout.PathElement.groupElement("on_progress"));
+    static final MethodHandle const$1 = RuntimeHelper.upcallHandle(heif_decoding_options.end_progress.class, "apply", constants$2.const$4);
+    static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
+        constants$2.const$4
+    );
+    static final VarHandle const$3 = constants$22.const$4.varHandle(MemoryLayout.PathElement.groupElement("end_progress"));
+    static final VarHandle const$4 = constants$22.const$4.varHandle(MemoryLayout.PathElement.groupElement("progress_user_data"));
+    static final VarHandle const$5 = constants$22.const$4.varHandle(MemoryLayout.PathElement.groupElement("convert_hdr_to_8bit"));
 }
 
 

@@ -11,60 +11,29 @@ final class constants$12 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$12() {}
-    static final FunctionDescriptor heif_decode_image$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_LONG$LAYOUT.withName("code"),
-        Constants$root.C_LONG$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
+    static final MethodHandle const$0 = RuntimeHelper.downcallHandle(
+        "heif_image_handle_get_ispe_width",
+        constants$2.const$2
     );
-    static final MethodHandle heif_decode_image$MH = RuntimeHelper.downcallHandle(
-        "heif_decode_image",
-        constants$12.heif_decode_image$FUNC
+    static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
+        "heif_image_handle_get_ispe_height",
+        constants$2.const$2
     );
-    static final FunctionDescriptor heif_decode_image_alloc$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
+    static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
+        "heif_image_handle_has_depth_image",
+        constants$2.const$2
     );
-    static final MethodHandle heif_decode_image_alloc$MH = RuntimeHelper.downcallHandle(
-        "heif_decode_image_alloc",
-        constants$12.heif_decode_image_alloc$FUNC
+    static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
+        "heif_image_handle_get_number_of_depth_images",
+        constants$2.const$2
     );
-    static final FunctionDescriptor heif_image_get_colorspace$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
+    static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
+        "heif_image_handle_get_list_of_depth_image_IDs",
+        constants$8.const$5
     );
-    static final MethodHandle heif_image_get_colorspace$MH = RuntimeHelper.downcallHandle(
-        "heif_image_get_colorspace",
-        constants$12.heif_image_get_colorspace$FUNC
-    );
-    static final FunctionDescriptor heif_image_get_chroma_format$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_image_get_chroma_format$MH = RuntimeHelper.downcallHandle(
-        "heif_image_get_chroma_format",
-        constants$12.heif_image_get_chroma_format$FUNC
-    );
-    static final FunctionDescriptor heif_image_get_width$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT
-    );
-    static final MethodHandle heif_image_get_width$MH = RuntimeHelper.downcallHandle(
-        "heif_image_get_width",
-        constants$12.heif_image_get_width$FUNC
-    );
-    static final FunctionDescriptor heif_image_get_height$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT
-    );
-    static final MethodHandle heif_image_get_height$MH = RuntimeHelper.downcallHandle(
-        "heif_image_get_height",
-        constants$12.heif_image_get_height$FUNC
+    static final MethodHandle const$5 = RuntimeHelper.downcallHandle(
+        "heif_image_handle_get_depth_image_handle",
+        constants$9.const$5
     );
 }
 

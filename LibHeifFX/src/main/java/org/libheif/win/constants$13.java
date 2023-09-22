@@ -11,59 +11,28 @@ final class constants$13 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$13() {}
-    static final FunctionDescriptor heif_image_get_primary_width$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_image_get_primary_width$MH = RuntimeHelper.downcallHandle(
-        "heif_image_get_primary_width",
-        constants$13.heif_image_get_primary_width$FUNC
-    );
-    static final FunctionDescriptor heif_image_get_primary_height$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_image_get_primary_height$MH = RuntimeHelper.downcallHandle(
-        "heif_image_get_primary_height",
-        constants$13.heif_image_get_primary_height$FUNC
-    );
-    static final FunctionDescriptor heif_image_crop$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_LONG$LAYOUT.withName("code"),
-        Constants$root.C_LONG$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_LONG$LAYOUT
-    );
-    static final MethodHandle heif_image_crop$MH = RuntimeHelper.downcallHandle(
-        "heif_image_crop",
-        constants$13.heif_image_crop$FUNC
-    );
-    static final FunctionDescriptor heif_image_get_bits_per_pixel$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT
-    );
-    static final MethodHandle heif_image_get_bits_per_pixel$MH = RuntimeHelper.downcallHandle(
-        "heif_image_get_bits_per_pixel",
-        constants$13.heif_image_get_bits_per_pixel$FUNC
-    );
-    static final FunctionDescriptor heif_image_get_bits_per_pixel_range$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT
-    );
-    static final MethodHandle heif_image_get_bits_per_pixel_range$MH = RuntimeHelper.downcallHandle(
-        "heif_image_get_bits_per_pixel_range",
-        constants$13.heif_image_get_bits_per_pixel_range$FUNC
-    );
-    static final FunctionDescriptor heif_image_has_channel$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT
-    );
-    static final MethodHandle heif_image_has_channel$MH = RuntimeHelper.downcallHandle(
-        "heif_image_has_channel",
-        constants$13.heif_image_has_channel$FUNC
-    );
+    static final StructLayout const$0 = MemoryLayout.structLayout(
+        JAVA_BYTE.withName("version"),
+        JAVA_BYTE.withName("has_z_near"),
+        JAVA_BYTE.withName("has_z_far"),
+        JAVA_BYTE.withName("has_d_min"),
+        JAVA_BYTE.withName("has_d_max"),
+        MemoryLayout.paddingLayout(3),
+        JAVA_DOUBLE.withName("z_near"),
+        JAVA_DOUBLE.withName("z_far"),
+        JAVA_DOUBLE.withName("d_min"),
+        JAVA_DOUBLE.withName("d_max"),
+        JAVA_INT.withName("depth_representation_type"),
+        JAVA_INT.withName("disparity_reference_view"),
+        JAVA_INT.withName("depth_nonlinear_representation_model_size"),
+        MemoryLayout.paddingLayout(4),
+        RuntimeHelper.POINTER.withName("depth_nonlinear_representation_model")
+    ).withName("heif_depth_representation_info");
+    static final VarHandle const$1 = constants$13.const$0.varHandle(MemoryLayout.PathElement.groupElement("version"));
+    static final VarHandle const$2 = constants$13.const$0.varHandle(MemoryLayout.PathElement.groupElement("has_z_near"));
+    static final VarHandle const$3 = constants$13.const$0.varHandle(MemoryLayout.PathElement.groupElement("has_z_far"));
+    static final VarHandle const$4 = constants$13.const$0.varHandle(MemoryLayout.PathElement.groupElement("has_d_min"));
+    static final VarHandle const$5 = constants$13.const$0.varHandle(MemoryLayout.PathElement.groupElement("has_d_max"));
 }
 
 

@@ -11,72 +11,12 @@ final class constants$14 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$14() {}
-    static final FunctionDescriptor heif_image_get_plane_readonly$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_image_get_plane_readonly$MH = RuntimeHelper.downcallHandle(
-        "heif_image_get_plane_readonly",
-        constants$14.heif_image_get_plane_readonly$FUNC
-    );
-    static final FunctionDescriptor heif_image_get_plane$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_image_get_plane$MH = RuntimeHelper.downcallHandle(
-        "heif_image_get_plane",
-        constants$14.heif_image_get_plane$FUNC
-    );
-    static final FunctionDescriptor heif_image_scale_image$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_LONG$LAYOUT.withName("code"),
-        Constants$root.C_LONG$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_image_scale_image$MH = RuntimeHelper.downcallHandle(
-        "heif_image_scale_image",
-        constants$14.heif_image_scale_image$FUNC
-    );
-    static final FunctionDescriptor heif_image_set_raw_color_profile$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_LONG$LAYOUT.withName("code"),
-        Constants$root.C_LONG$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG_LONG$LAYOUT
-    );
-    static final MethodHandle heif_image_set_raw_color_profile$MH = RuntimeHelper.downcallHandle(
-        "heif_image_set_raw_color_profile",
-        constants$14.heif_image_set_raw_color_profile$FUNC
-    );
-    static final FunctionDescriptor heif_image_set_nclx_color_profile$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_LONG$LAYOUT.withName("code"),
-        Constants$root.C_LONG$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_image_set_nclx_color_profile$MH = RuntimeHelper.downcallHandle(
-        "heif_image_set_nclx_color_profile",
-        constants$14.heif_image_set_nclx_color_profile$FUNC
-    );
-    static final FunctionDescriptor heif_image_release$FUNC = FunctionDescriptor.ofVoid(
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_image_release$MH = RuntimeHelper.downcallHandle(
-        "heif_image_release",
-        constants$14.heif_image_release$FUNC
-    );
+    static final VarHandle const$0 = constants$13.const$0.varHandle(MemoryLayout.PathElement.groupElement("z_near"));
+    static final VarHandle const$1 = constants$13.const$0.varHandle(MemoryLayout.PathElement.groupElement("z_far"));
+    static final VarHandle const$2 = constants$13.const$0.varHandle(MemoryLayout.PathElement.groupElement("d_min"));
+    static final VarHandle const$3 = constants$13.const$0.varHandle(MemoryLayout.PathElement.groupElement("d_max"));
+    static final VarHandle const$4 = constants$13.const$0.varHandle(MemoryLayout.PathElement.groupElement("depth_representation_type"));
+    static final VarHandle const$5 = constants$13.const$0.varHandle(MemoryLayout.PathElement.groupElement("disparity_reference_view"));
 }
 
 

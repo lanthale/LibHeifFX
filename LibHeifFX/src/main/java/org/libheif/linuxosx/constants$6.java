@@ -11,48 +11,19 @@ final class constants$6 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$6() {}
-    static final FunctionDescriptor heif_image_handle_is_premultiplied_alpha$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
+    static final MethodHandle const$0 = RuntimeHelper.downcallHandle(
+        constants$5.const$4
     );
-    static final MethodHandle heif_image_handle_is_premultiplied_alpha$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_is_premultiplied_alpha",
-        constants$6.heif_image_handle_is_premultiplied_alpha$FUNC
+    static final VarHandle const$1 = constants$4.const$4.varHandle(MemoryLayout.PathElement.groupElement("read"));
+    static final FunctionDescriptor const$2 = FunctionDescriptor.of(JAVA_INT,
+        JAVA_LONG,
+        RuntimeHelper.POINTER
     );
-    static final FunctionDescriptor heif_image_handle_get_luma_bits_per_pixel$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
+    static final MethodHandle const$3 = RuntimeHelper.upcallHandle(heif_reader.seek.class, "apply", constants$6.const$2);
+    static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
+        constants$6.const$2
     );
-    static final MethodHandle heif_image_handle_get_luma_bits_per_pixel$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_get_luma_bits_per_pixel",
-        constants$6.heif_image_handle_get_luma_bits_per_pixel$FUNC
-    );
-    static final FunctionDescriptor heif_image_handle_get_chroma_bits_per_pixel$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_image_handle_get_chroma_bits_per_pixel$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_get_chroma_bits_per_pixel",
-        constants$6.heif_image_handle_get_chroma_bits_per_pixel$FUNC
-    );
-    static final FunctionDescriptor heif_image_handle_get_ispe_width$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_image_handle_get_ispe_width$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_get_ispe_width",
-        constants$6.heif_image_handle_get_ispe_width$FUNC
-    );
-    static final FunctionDescriptor heif_image_handle_get_ispe_height$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_image_handle_get_ispe_height$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_get_ispe_height",
-        constants$6.heif_image_handle_get_ispe_height$FUNC
-    );
-    static final FunctionDescriptor heif_image_handle_has_depth_image$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_image_handle_has_depth_image$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_has_depth_image",
-        constants$6.heif_image_handle_has_depth_image$FUNC
-    );
+    static final VarHandle const$5 = constants$4.const$4.varHandle(MemoryLayout.PathElement.groupElement("seek"));
 }
 
 

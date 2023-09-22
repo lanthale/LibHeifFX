@@ -11,88 +11,34 @@ final class constants$22 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$22() {}
-    static final FunctionDescriptor heif_context_add_exif_metadata$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_INT$LAYOUT
+    static final MethodHandle const$0 = RuntimeHelper.downcallHandle(
+        "heif_image_get_color_profile_type",
+        constants$2.const$2
     );
-    static final MethodHandle heif_context_add_exif_metadata$MH = RuntimeHelper.downcallHandle(
-        "heif_context_add_exif_metadata",
-        constants$22.heif_context_add_exif_metadata$FUNC
+    static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
+        "heif_image_get_raw_color_profile_size",
+        constants$5.const$0
     );
-    static final FunctionDescriptor heif_context_add_XMP_metadata$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_INT$LAYOUT
+    static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
+        "heif_image_get_raw_color_profile",
+        constants$9.const$0
     );
-    static final MethodHandle heif_context_add_XMP_metadata$MH = RuntimeHelper.downcallHandle(
-        "heif_context_add_XMP_metadata",
-        constants$22.heif_context_add_XMP_metadata$FUNC
+    static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
+        "heif_image_get_nclx_color_profile",
+        constants$9.const$0
     );
-    static final FunctionDescriptor heif_context_add_generic_metadata$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_INT$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_context_add_generic_metadata$MH = RuntimeHelper.downcallHandle(
-        "heif_context_add_generic_metadata",
-        constants$22.heif_context_add_generic_metadata$FUNC
-    );
-    static final FunctionDescriptor heif_image_create$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_INT$LAYOUT,
-        Constants$root.C_INT$LAYOUT,
-        Constants$root.C_INT$LAYOUT,
-        Constants$root.C_INT$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_image_create$MH = RuntimeHelper.downcallHandle(
-        "heif_image_create",
-        constants$22.heif_image_create$FUNC
-    );
-    static final FunctionDescriptor heif_image_add_plane$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_INT$LAYOUT,
-        Constants$root.C_INT$LAYOUT,
-        Constants$root.C_INT$LAYOUT,
-        Constants$root.C_INT$LAYOUT
-    );
-    static final MethodHandle heif_image_add_plane$MH = RuntimeHelper.downcallHandle(
-        "heif_image_add_plane",
-        constants$22.heif_image_add_plane$FUNC
-    );
-    static final FunctionDescriptor heif_image_set_premultiplied_alpha$FUNC = FunctionDescriptor.ofVoid(
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_INT$LAYOUT
-    );
-    static final MethodHandle heif_image_set_premultiplied_alpha$MH = RuntimeHelper.downcallHandle(
-        "heif_image_set_premultiplied_alpha",
-        constants$22.heif_image_set_premultiplied_alpha$FUNC
-    );
+    static final StructLayout const$4 = MemoryLayout.structLayout(
+        JAVA_BYTE.withName("version"),
+        JAVA_BYTE.withName("ignore_transformations"),
+        MemoryLayout.paddingLayout(6),
+        RuntimeHelper.POINTER.withName("start_progress"),
+        RuntimeHelper.POINTER.withName("on_progress"),
+        RuntimeHelper.POINTER.withName("end_progress"),
+        RuntimeHelper.POINTER.withName("progress_user_data"),
+        JAVA_BYTE.withName("convert_hdr_to_8bit"),
+        MemoryLayout.paddingLayout(7)
+    ).withName("heif_decoding_options");
+    static final VarHandle const$5 = constants$22.const$4.varHandle(MemoryLayout.PathElement.groupElement("version"));
 }
 
 

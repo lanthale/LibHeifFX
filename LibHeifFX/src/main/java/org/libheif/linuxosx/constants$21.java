@@ -11,74 +11,20 @@ final class constants$21 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$21() {}
-    static final FunctionDescriptor heif_encoding_options_alloc$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT);
-    static final MethodHandle heif_encoding_options_alloc$MH = RuntimeHelper.downcallHandleVariadic(
-        "heif_encoding_options_alloc",
-        constants$21.heif_encoding_options_alloc$FUNC
+    static final VarHandle const$0 = constants$19.const$1.varHandle(MemoryLayout.PathElement.groupElement("color_primary_blue_y"));
+    static final VarHandle const$1 = constants$19.const$1.varHandle(MemoryLayout.PathElement.groupElement("color_primary_white_x"));
+    static final VarHandle const$2 = constants$19.const$1.varHandle(MemoryLayout.PathElement.groupElement("color_primary_white_y"));
+    static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
+        "heif_image_handle_get_nclx_color_profile",
+        constants$9.const$0
     );
-    static final FunctionDescriptor heif_encoding_options_free$FUNC = FunctionDescriptor.ofVoid(
-        Constants$root.C_POINTER$LAYOUT
+    static final MethodHandle const$4 = RuntimeHelper.downcallHandleVariadic(
+        "heif_nclx_color_profile_alloc",
+        constants$0.const$0
     );
-    static final MethodHandle heif_encoding_options_free$MH = RuntimeHelper.downcallHandle(
-        "heif_encoding_options_free",
-        constants$21.heif_encoding_options_free$FUNC
-    );
-    static final FunctionDescriptor heif_context_encode_image$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_context_encode_image$MH = RuntimeHelper.downcallHandle(
-        "heif_context_encode_image",
-        constants$21.heif_context_encode_image$FUNC
-    );
-    static final FunctionDescriptor heif_context_set_primary_image$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_context_set_primary_image$MH = RuntimeHelper.downcallHandle(
-        "heif_context_set_primary_image",
-        constants$21.heif_context_set_primary_image$FUNC
-    );
-    static final FunctionDescriptor heif_context_encode_thumbnail$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_INT$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_context_encode_thumbnail$MH = RuntimeHelper.downcallHandle(
-        "heif_context_encode_thumbnail",
-        constants$21.heif_context_encode_thumbnail$FUNC
-    );
-    static final FunctionDescriptor heif_context_assign_thumbnail$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_context_assign_thumbnail$MH = RuntimeHelper.downcallHandle(
-        "heif_context_assign_thumbnail",
-        constants$21.heif_context_assign_thumbnail$FUNC
+    static final MethodHandle const$5 = RuntimeHelper.downcallHandle(
+        "heif_nclx_color_profile_free",
+        constants$3.const$4
     );
 }
 

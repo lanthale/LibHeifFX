@@ -11,60 +11,41 @@ final class constants$9 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$9() {}
-    static final FunctionDescriptor heif_image_handle_get_number_of_metadata_blocks$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_image_handle_get_number_of_metadata_blocks$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_get_number_of_metadata_blocks",
-        constants$9.heif_image_handle_get_number_of_metadata_blocks$FUNC
-    );
-    static final FunctionDescriptor heif_image_handle_get_list_of_metadata_block_IDs$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT
-    );
-    static final MethodHandle heif_image_handle_get_list_of_metadata_block_IDs$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_get_list_of_metadata_block_IDs",
-        constants$9.heif_image_handle_get_list_of_metadata_block_IDs$FUNC
-    );
-    static final FunctionDescriptor heif_image_handle_get_metadata_type$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT
-    );
-    static final MethodHandle heif_image_handle_get_metadata_type$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_get_metadata_type",
-        constants$9.heif_image_handle_get_metadata_type$FUNC
-    );
-    static final FunctionDescriptor heif_image_handle_get_metadata_content_type$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT
-    );
-    static final MethodHandle heif_image_handle_get_metadata_content_type$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_get_metadata_content_type",
-        constants$9.heif_image_handle_get_metadata_content_type$FUNC
-    );
-    static final FunctionDescriptor heif_image_handle_get_metadata_size$FUNC = FunctionDescriptor.of(Constants$root.C_LONG_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT
-    );
-    static final MethodHandle heif_image_handle_get_metadata_size$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_get_metadata_size",
-        constants$9.heif_image_handle_get_metadata_size$FUNC
-    );
-    static final FunctionDescriptor heif_image_handle_get_metadata$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_LONG$LAYOUT.withName("code"),
-        Constants$root.C_LONG$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
+    static final FunctionDescriptor const$0 = FunctionDescriptor.of(MemoryLayout.structLayout(
+        JAVA_INT.withName("code"),
+        JAVA_INT.withName("subcode"),
+        RuntimeHelper.POINTER.withName("message")
     ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
+        RuntimeHelper.POINTER,
+        RuntimeHelper.POINTER
     );
-    static final MethodHandle heif_image_handle_get_metadata$MH = RuntimeHelper.downcallHandle(
-        "heif_image_handle_get_metadata",
-        constants$9.heif_image_handle_get_metadata$FUNC
+    static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
+        "heif_context_get_primary_image_ID",
+        constants$9.const$0
+    );
+    static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
+        "heif_context_get_primary_image_handle",
+        constants$9.const$0
+    );
+    static final FunctionDescriptor const$3 = FunctionDescriptor.of(RuntimeHelper.POINTER,
+        RuntimeHelper.POINTER
+    );
+    static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
+        "heif_context_get_primary_image_handle_alloc",
+        constants$9.const$3
+    );
+    static final FunctionDescriptor const$5 = FunctionDescriptor.of(MemoryLayout.structLayout(
+        JAVA_INT.withName("code"),
+        JAVA_INT.withName("subcode"),
+        RuntimeHelper.POINTER.withName("message")
+    ).withName("heif_error"),
+        RuntimeHelper.POINTER,
+        JAVA_INT,
+        RuntimeHelper.POINTER
+    );
+    static final MethodHandle const$6 = RuntimeHelper.downcallHandle(
+        "heif_context_get_image_handle",
+        constants$9.const$5
     );
 }
 

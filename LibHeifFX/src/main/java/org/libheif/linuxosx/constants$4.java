@@ -11,62 +11,31 @@ final class constants$4 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$4() {}
-    static final FunctionDescriptor heif_context_get_primary_image_handle$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
+    static final FunctionDescriptor const$0 = FunctionDescriptor.of(RuntimeHelper.POINTER,
+        RuntimeHelper.POINTER,
+        JAVA_INT
     );
-    static final MethodHandle heif_context_get_primary_image_handle$MH = RuntimeHelper.downcallHandle(
-        "heif_context_get_primary_image_handle",
-        constants$4.heif_context_get_primary_image_handle$FUNC
+    static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
+        "heif_get_file_mime_type",
+        constants$4.const$0
     );
-    static final FunctionDescriptor heif_context_get_primary_image_handle_alloc$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
+    static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
+        "heif_context_alloc",
+        constants$0.const$0
     );
-    static final MethodHandle heif_context_get_primary_image_handle_alloc$MH = RuntimeHelper.downcallHandle(
-        "heif_context_get_primary_image_handle_alloc",
-        constants$4.heif_context_get_primary_image_handle_alloc$FUNC
+    static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
+        "heif_context_free",
+        constants$3.const$4
     );
-    static final FunctionDescriptor heif_context_get_image_handle$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_INT$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_context_get_image_handle$MH = RuntimeHelper.downcallHandle(
-        "heif_context_get_image_handle",
-        constants$4.heif_context_get_image_handle$FUNC
-    );
-    static final FunctionDescriptor heif_context_get_image_handle_alloc$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_INT$LAYOUT
-    );
-    static final MethodHandle heif_context_get_image_handle_alloc$MH = RuntimeHelper.downcallHandle(
-        "heif_context_get_image_handle_alloc",
-        constants$4.heif_context_get_image_handle_alloc$FUNC
-    );
-    static final FunctionDescriptor heif_context_debug_dump_boxes_to_file$FUNC = FunctionDescriptor.ofVoid(
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_INT$LAYOUT
-    );
-    static final MethodHandle heif_context_debug_dump_boxes_to_file$MH = RuntimeHelper.downcallHandle(
-        "heif_context_debug_dump_boxes_to_file",
-        constants$4.heif_context_debug_dump_boxes_to_file$FUNC
-    );
-    static final FunctionDescriptor heif_context_set_maximum_image_size_limit$FUNC = FunctionDescriptor.ofVoid(
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_INT$LAYOUT
-    );
-    static final MethodHandle heif_context_set_maximum_image_size_limit$MH = RuntimeHelper.downcallHandle(
-        "heif_context_set_maximum_image_size_limit",
-        constants$4.heif_context_set_maximum_image_size_limit$FUNC
-    );
+    static final StructLayout const$4 = MemoryLayout.structLayout(
+        JAVA_INT.withName("reader_api_version"),
+        MemoryLayout.paddingLayout(4),
+        RuntimeHelper.POINTER.withName("get_position"),
+        RuntimeHelper.POINTER.withName("read"),
+        RuntimeHelper.POINTER.withName("seek"),
+        RuntimeHelper.POINTER.withName("wait_for_file_size")
+    ).withName("heif_reader");
+    static final VarHandle const$5 = constants$4.const$4.varHandle(MemoryLayout.PathElement.groupElement("reader_api_version"));
 }
 
 

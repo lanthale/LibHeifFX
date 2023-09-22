@@ -11,53 +11,35 @@ final class constants$16 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$16() {}
-    static final FunctionDescriptor heif_encoder_descriptor_get_compression_format$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
+    static final MethodHandle const$0 = RuntimeHelper.downcallHandle(
+        "heif_image_handle_get_thumbnail",
+        constants$9.const$5
     );
-    static final MethodHandle heif_encoder_descriptor_get_compression_format$MH = RuntimeHelper.downcallHandle(
-        "heif_encoder_descriptor_get_compression_format",
-        constants$16.heif_encoder_descriptor_get_compression_format$FUNC
+    static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
+        "heif_image_handle_get_number_of_auxiliary_images",
+        constants$1.const$5
     );
-    static final FunctionDescriptor heif_encoder_descriptor_supports_lossy_compression$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
+    static final FunctionDescriptor const$2 = FunctionDescriptor.of(JAVA_INT,
+        RuntimeHelper.POINTER,
+        JAVA_INT,
+        RuntimeHelper.POINTER,
+        JAVA_INT
     );
-    static final MethodHandle heif_encoder_descriptor_supports_lossy_compression$MH = RuntimeHelper.downcallHandle(
-        "heif_encoder_descriptor_supports_lossy_compression",
-        constants$16.heif_encoder_descriptor_supports_lossy_compression$FUNC
+    static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
+        "heif_image_handle_get_list_of_auxiliary_image_IDs",
+        constants$16.const$2
     );
-    static final FunctionDescriptor heif_encoder_descriptor_supports_lossless_compression$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
+    static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
+        "heif_image_handle_get_auxiliary_type",
+        constants$9.const$0
     );
-    static final MethodHandle heif_encoder_descriptor_supports_lossless_compression$MH = RuntimeHelper.downcallHandle(
-        "heif_encoder_descriptor_supports_lossless_compression",
-        constants$16.heif_encoder_descriptor_supports_lossless_compression$FUNC
+    static final FunctionDescriptor const$5 = FunctionDescriptor.ofVoid(
+        RuntimeHelper.POINTER,
+        RuntimeHelper.POINTER
     );
-    static final FunctionDescriptor heif_context_get_encoder$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_context_get_encoder$MH = RuntimeHelper.downcallHandle(
-        "heif_context_get_encoder",
-        constants$16.heif_context_get_encoder$FUNC
-    );
-    static final FunctionDescriptor heif_have_decoder_for_format$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
-        Constants$root.C_INT$LAYOUT
-    );
-    static final MethodHandle heif_have_decoder_for_format$MH = RuntimeHelper.downcallHandle(
-        "heif_have_decoder_for_format",
-        constants$16.heif_have_decoder_for_format$FUNC
-    );
-    static final FunctionDescriptor heif_have_encoder_for_format$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
-        Constants$root.C_INT$LAYOUT
-    );
-    static final MethodHandle heif_have_encoder_for_format$MH = RuntimeHelper.downcallHandle(
-        "heif_have_encoder_for_format",
-        constants$16.heif_have_encoder_for_format$FUNC
+    static final MethodHandle const$6 = RuntimeHelper.downcallHandle(
+        "heif_image_handle_free_auxiliary_types",
+        constants$16.const$5
     );
 }
 

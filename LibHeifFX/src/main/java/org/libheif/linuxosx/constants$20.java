@@ -11,86 +11,12 @@ final class constants$20 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$20() {}
-    static final FunctionDescriptor heif_encoder_get_parameter_string$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_INT$LAYOUT
-    );
-    static final MethodHandle heif_encoder_get_parameter_string$MH = RuntimeHelper.downcallHandle(
-        "heif_encoder_get_parameter_string",
-        constants$20.heif_encoder_get_parameter_string$FUNC
-    );
-    static final FunctionDescriptor heif_encoder_parameter_string_valid_values$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_encoder_parameter_string_valid_values$MH = RuntimeHelper.downcallHandle(
-        "heif_encoder_parameter_string_valid_values",
-        constants$20.heif_encoder_parameter_string_valid_values$FUNC
-    );
-    static final FunctionDescriptor heif_encoder_parameter_integer_valid_values$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_encoder_parameter_integer_valid_values$MH = RuntimeHelper.downcallHandle(
-        "heif_encoder_parameter_integer_valid_values",
-        constants$20.heif_encoder_parameter_integer_valid_values$FUNC
-    );
-    static final FunctionDescriptor heif_encoder_set_parameter$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_encoder_set_parameter$MH = RuntimeHelper.downcallHandle(
-        "heif_encoder_set_parameter",
-        constants$20.heif_encoder_set_parameter$FUNC
-    );
-    static final FunctionDescriptor heif_encoder_get_parameter$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_INT$LAYOUT.withName("code"),
-        Constants$root.C_INT$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_INT$LAYOUT
-    );
-    static final MethodHandle heif_encoder_get_parameter$MH = RuntimeHelper.downcallHandle(
-        "heif_encoder_get_parameter",
-        constants$20.heif_encoder_get_parameter$FUNC
-    );
-    static final FunctionDescriptor heif_encoder_has_default$FUNC = FunctionDescriptor.of(Constants$root.C_INT$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_encoder_has_default$MH = RuntimeHelper.downcallHandle(
-        "heif_encoder_has_default",
-        constants$20.heif_encoder_has_default$FUNC
-    );
+    static final VarHandle const$0 = constants$19.const$1.varHandle(MemoryLayout.PathElement.groupElement("full_range_flag"));
+    static final VarHandle const$1 = constants$19.const$1.varHandle(MemoryLayout.PathElement.groupElement("color_primary_red_x"));
+    static final VarHandle const$2 = constants$19.const$1.varHandle(MemoryLayout.PathElement.groupElement("color_primary_red_y"));
+    static final VarHandle const$3 = constants$19.const$1.varHandle(MemoryLayout.PathElement.groupElement("color_primary_green_x"));
+    static final VarHandle const$4 = constants$19.const$1.varHandle(MemoryLayout.PathElement.groupElement("color_primary_green_y"));
+    static final VarHandle const$5 = constants$19.const$1.varHandle(MemoryLayout.PathElement.groupElement("color_primary_blue_x"));
 }
 
 

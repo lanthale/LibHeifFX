@@ -11,69 +11,35 @@ final class constants$3 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$3() {}
-    static final FunctionDescriptor heif_context_read_from_memory_without_copy$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_LONG$LAYOUT.withName("code"),
-        Constants$root.C_LONG$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
+    static final FunctionDescriptor const$0 = FunctionDescriptor.of(JAVA_INT,
+        RuntimeHelper.POINTER,
+        JAVA_INT,
+        RuntimeHelper.POINTER
+    );
+    static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
+        "heif_has_compatible_brand",
+        constants$3.const$0
+    );
+    static final FunctionDescriptor const$2 = FunctionDescriptor.of(MemoryLayout.structLayout(
+        JAVA_INT.withName("code"),
+        JAVA_INT.withName("subcode"),
+        RuntimeHelper.POINTER.withName("message")
     ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
+        RuntimeHelper.POINTER,
+        JAVA_INT,
+        RuntimeHelper.POINTER,
+        RuntimeHelper.POINTER
     );
-    static final MethodHandle heif_context_read_from_memory_without_copy$MH = RuntimeHelper.downcallHandle(
-        "heif_context_read_from_memory_without_copy",
-        constants$3.heif_context_read_from_memory_without_copy$FUNC
+    static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
+        "heif_list_compatible_brands",
+        constants$3.const$2
     );
-    static final FunctionDescriptor heif_context_read_from_reader$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_LONG$LAYOUT.withName("code"),
-        Constants$root.C_LONG$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
+    static final FunctionDescriptor const$4 = FunctionDescriptor.ofVoid(
+        RuntimeHelper.POINTER
     );
-    static final MethodHandle heif_context_read_from_reader$MH = RuntimeHelper.downcallHandle(
-        "heif_context_read_from_reader",
-        constants$3.heif_context_read_from_reader$FUNC
-    );
-    static final FunctionDescriptor heif_context_get_number_of_top_level_images$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_context_get_number_of_top_level_images$MH = RuntimeHelper.downcallHandle(
-        "heif_context_get_number_of_top_level_images",
-        constants$3.heif_context_get_number_of_top_level_images$FUNC
-    );
-    static final FunctionDescriptor heif_context_is_top_level_image_ID$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT
-    );
-    static final MethodHandle heif_context_is_top_level_image_ID$MH = RuntimeHelper.downcallHandle(
-        "heif_context_is_top_level_image_ID",
-        constants$3.heif_context_is_top_level_image_ID$FUNC
-    );
-    static final FunctionDescriptor heif_context_get_list_of_top_level_image_IDs$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_LONG$LAYOUT
-    );
-    static final MethodHandle heif_context_get_list_of_top_level_image_IDs$MH = RuntimeHelper.downcallHandle(
-        "heif_context_get_list_of_top_level_image_IDs",
-        constants$3.heif_context_get_list_of_top_level_image_IDs$FUNC
-    );
-    static final FunctionDescriptor heif_context_get_primary_image_ID$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
-        Constants$root.C_LONG$LAYOUT.withName("code"),
-        Constants$root.C_LONG$LAYOUT.withName("subcode"),
-        Constants$root.C_POINTER$LAYOUT.withName("message")
-    ).withName("heif_error"),
-        Constants$root.C_POINTER$LAYOUT,
-        Constants$root.C_POINTER$LAYOUT
-    );
-    static final MethodHandle heif_context_get_primary_image_ID$MH = RuntimeHelper.downcallHandle(
-        "heif_context_get_primary_image_ID",
-        constants$3.heif_context_get_primary_image_ID$FUNC
+    static final MethodHandle const$5 = RuntimeHelper.downcallHandle(
+        "heif_free_list_of_compatible_brands",
+        constants$3.const$4
     );
 }
 

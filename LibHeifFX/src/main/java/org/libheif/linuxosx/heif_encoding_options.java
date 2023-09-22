@@ -21,22 +21,11 @@ import static java.lang.foreign.ValueLayout.*;
  */
 public class heif_encoding_options {
 
-    static final StructLayout $struct$LAYOUT = MemoryLayout.structLayout(
-        Constants$root.C_CHAR$LAYOUT.withName("version"),
-        Constants$root.C_CHAR$LAYOUT.withName("save_alpha_channel"),
-        Constants$root.C_CHAR$LAYOUT.withName("macOS_compatibility_workaround"),
-        Constants$root.C_CHAR$LAYOUT.withName("save_two_colr_boxes_when_ICC_and_nclx_available"),
-        MemoryLayout.paddingLayout(32),
-        Constants$root.C_POINTER$LAYOUT.withName("output_nclx_profile"),
-        Constants$root.C_CHAR$LAYOUT.withName("macOS_compatibility_workaround_no_nclx_profile"),
-        MemoryLayout.paddingLayout(56)
-    ).withName("heif_encoding_options");
     public static MemoryLayout $LAYOUT() {
-        return heif_encoding_options.$struct$LAYOUT;
+        return constants$36.const$5;
     }
-    static final VarHandle version$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("version"));
     public static VarHandle version$VH() {
-        return heif_encoding_options.version$VH;
+        return constants$37.const$0;
     }
     /**
      * Getter for field:
@@ -45,7 +34,7 @@ public class heif_encoding_options {
      * }
      */
     public static byte version$get(MemorySegment seg) {
-        return (byte)heif_encoding_options.version$VH.get(seg);
+        return (byte)constants$37.const$0.get(seg);
     }
     /**
      * Setter for field:
@@ -54,17 +43,16 @@ public class heif_encoding_options {
      * }
      */
     public static void version$set(MemorySegment seg, byte x) {
-        heif_encoding_options.version$VH.set(seg, x);
+        constants$37.const$0.set(seg, x);
     }
     public static byte version$get(MemorySegment seg, long index) {
-        return (byte)heif_encoding_options.version$VH.get(seg.asSlice(index*sizeof()));
+        return (byte)constants$37.const$0.get(seg.asSlice(index*sizeof()));
     }
     public static void version$set(MemorySegment seg, long index, byte x) {
-        heif_encoding_options.version$VH.set(seg.asSlice(index*sizeof()), x);
+        constants$37.const$0.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle save_alpha_channel$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("save_alpha_channel"));
     public static VarHandle save_alpha_channel$VH() {
-        return heif_encoding_options.save_alpha_channel$VH;
+        return constants$37.const$1;
     }
     /**
      * Getter for field:
@@ -73,7 +61,7 @@ public class heif_encoding_options {
      * }
      */
     public static byte save_alpha_channel$get(MemorySegment seg) {
-        return (byte)heif_encoding_options.save_alpha_channel$VH.get(seg);
+        return (byte)constants$37.const$1.get(seg);
     }
     /**
      * Setter for field:
@@ -82,17 +70,16 @@ public class heif_encoding_options {
      * }
      */
     public static void save_alpha_channel$set(MemorySegment seg, byte x) {
-        heif_encoding_options.save_alpha_channel$VH.set(seg, x);
+        constants$37.const$1.set(seg, x);
     }
     public static byte save_alpha_channel$get(MemorySegment seg, long index) {
-        return (byte)heif_encoding_options.save_alpha_channel$VH.get(seg.asSlice(index*sizeof()));
+        return (byte)constants$37.const$1.get(seg.asSlice(index*sizeof()));
     }
     public static void save_alpha_channel$set(MemorySegment seg, long index, byte x) {
-        heif_encoding_options.save_alpha_channel$VH.set(seg.asSlice(index*sizeof()), x);
+        constants$37.const$1.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle macOS_compatibility_workaround$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("macOS_compatibility_workaround"));
     public static VarHandle macOS_compatibility_workaround$VH() {
-        return heif_encoding_options.macOS_compatibility_workaround$VH;
+        return constants$37.const$2;
     }
     /**
      * Getter for field:
@@ -101,7 +88,7 @@ public class heif_encoding_options {
      * }
      */
     public static byte macOS_compatibility_workaround$get(MemorySegment seg) {
-        return (byte)heif_encoding_options.macOS_compatibility_workaround$VH.get(seg);
+        return (byte)constants$37.const$2.get(seg);
     }
     /**
      * Setter for field:
@@ -110,17 +97,16 @@ public class heif_encoding_options {
      * }
      */
     public static void macOS_compatibility_workaround$set(MemorySegment seg, byte x) {
-        heif_encoding_options.macOS_compatibility_workaround$VH.set(seg, x);
+        constants$37.const$2.set(seg, x);
     }
     public static byte macOS_compatibility_workaround$get(MemorySegment seg, long index) {
-        return (byte)heif_encoding_options.macOS_compatibility_workaround$VH.get(seg.asSlice(index*sizeof()));
+        return (byte)constants$37.const$2.get(seg.asSlice(index*sizeof()));
     }
     public static void macOS_compatibility_workaround$set(MemorySegment seg, long index, byte x) {
-        heif_encoding_options.macOS_compatibility_workaround$VH.set(seg.asSlice(index*sizeof()), x);
+        constants$37.const$2.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle save_two_colr_boxes_when_ICC_and_nclx_available$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("save_two_colr_boxes_when_ICC_and_nclx_available"));
     public static VarHandle save_two_colr_boxes_when_ICC_and_nclx_available$VH() {
-        return heif_encoding_options.save_two_colr_boxes_when_ICC_and_nclx_available$VH;
+        return constants$37.const$3;
     }
     /**
      * Getter for field:
@@ -129,7 +115,7 @@ public class heif_encoding_options {
      * }
      */
     public static byte save_two_colr_boxes_when_ICC_and_nclx_available$get(MemorySegment seg) {
-        return (byte)heif_encoding_options.save_two_colr_boxes_when_ICC_and_nclx_available$VH.get(seg);
+        return (byte)constants$37.const$3.get(seg);
     }
     /**
      * Setter for field:
@@ -138,17 +124,16 @@ public class heif_encoding_options {
      * }
      */
     public static void save_two_colr_boxes_when_ICC_and_nclx_available$set(MemorySegment seg, byte x) {
-        heif_encoding_options.save_two_colr_boxes_when_ICC_and_nclx_available$VH.set(seg, x);
+        constants$37.const$3.set(seg, x);
     }
     public static byte save_two_colr_boxes_when_ICC_and_nclx_available$get(MemorySegment seg, long index) {
-        return (byte)heif_encoding_options.save_two_colr_boxes_when_ICC_and_nclx_available$VH.get(seg.asSlice(index*sizeof()));
+        return (byte)constants$37.const$3.get(seg.asSlice(index*sizeof()));
     }
     public static void save_two_colr_boxes_when_ICC_and_nclx_available$set(MemorySegment seg, long index, byte x) {
-        heif_encoding_options.save_two_colr_boxes_when_ICC_and_nclx_available$VH.set(seg.asSlice(index*sizeof()), x);
+        constants$37.const$3.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle output_nclx_profile$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("output_nclx_profile"));
     public static VarHandle output_nclx_profile$VH() {
-        return heif_encoding_options.output_nclx_profile$VH;
+        return constants$37.const$4;
     }
     /**
      * Getter for field:
@@ -157,7 +142,7 @@ public class heif_encoding_options {
      * }
      */
     public static MemorySegment output_nclx_profile$get(MemorySegment seg) {
-        return (java.lang.foreign.MemorySegment)heif_encoding_options.output_nclx_profile$VH.get(seg);
+        return (java.lang.foreign.MemorySegment)constants$37.const$4.get(seg);
     }
     /**
      * Setter for field:
@@ -166,17 +151,16 @@ public class heif_encoding_options {
      * }
      */
     public static void output_nclx_profile$set(MemorySegment seg, MemorySegment x) {
-        heif_encoding_options.output_nclx_profile$VH.set(seg, x);
+        constants$37.const$4.set(seg, x);
     }
     public static MemorySegment output_nclx_profile$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemorySegment)heif_encoding_options.output_nclx_profile$VH.get(seg.asSlice(index*sizeof()));
+        return (java.lang.foreign.MemorySegment)constants$37.const$4.get(seg.asSlice(index*sizeof()));
     }
     public static void output_nclx_profile$set(MemorySegment seg, long index, MemorySegment x) {
-        heif_encoding_options.output_nclx_profile$VH.set(seg.asSlice(index*sizeof()), x);
+        constants$37.const$4.set(seg.asSlice(index*sizeof()), x);
     }
-    static final VarHandle macOS_compatibility_workaround_no_nclx_profile$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("macOS_compatibility_workaround_no_nclx_profile"));
     public static VarHandle macOS_compatibility_workaround_no_nclx_profile$VH() {
-        return heif_encoding_options.macOS_compatibility_workaround_no_nclx_profile$VH;
+        return constants$37.const$5;
     }
     /**
      * Getter for field:
@@ -185,7 +169,7 @@ public class heif_encoding_options {
      * }
      */
     public static byte macOS_compatibility_workaround_no_nclx_profile$get(MemorySegment seg) {
-        return (byte)heif_encoding_options.macOS_compatibility_workaround_no_nclx_profile$VH.get(seg);
+        return (byte)constants$37.const$5.get(seg);
     }
     /**
      * Setter for field:
@@ -194,20 +178,20 @@ public class heif_encoding_options {
      * }
      */
     public static void macOS_compatibility_workaround_no_nclx_profile$set(MemorySegment seg, byte x) {
-        heif_encoding_options.macOS_compatibility_workaround_no_nclx_profile$VH.set(seg, x);
+        constants$37.const$5.set(seg, x);
     }
     public static byte macOS_compatibility_workaround_no_nclx_profile$get(MemorySegment seg, long index) {
-        return (byte)heif_encoding_options.macOS_compatibility_workaround_no_nclx_profile$VH.get(seg.asSlice(index*sizeof()));
+        return (byte)constants$37.const$5.get(seg.asSlice(index*sizeof()));
     }
     public static void macOS_compatibility_workaround_no_nclx_profile$set(MemorySegment seg, long index, byte x) {
-        heif_encoding_options.macOS_compatibility_workaround_no_nclx_profile$VH.set(seg.asSlice(index*sizeof()), x);
+        constants$37.const$5.set(seg.asSlice(index*sizeof()), x);
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
     public static MemorySegment allocate(SegmentAllocator allocator) { return allocator.allocate($LAYOUT()); }
     public static MemorySegment allocateArray(long len, SegmentAllocator allocator) {
         return allocator.allocate(MemoryLayout.sequenceLayout(len, $LAYOUT()));
     }
-    public static MemorySegment ofAddress(MemorySegment addr, SegmentScope scope) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope); }
+    public static MemorySegment ofAddress(MemorySegment addr, Arena scope) { return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope); }
 }
 
 
