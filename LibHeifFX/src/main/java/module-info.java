@@ -6,8 +6,6 @@ module org.libheiffx {
     requires javafx.base;    
     requires java.logging;
     exports org.libheiffx;    
-    exports org.libheif.linuxosx;
-    exports org.libheif.win;
-    opens org.libheif.linuxosx;
-    opens org.libheif.win;
+    exports org.libheif.nativ;
+    opens org.libheif.nativ;
 }

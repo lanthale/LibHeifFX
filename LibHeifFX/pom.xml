@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.libheiffx</groupId>
     <artifactId>LibHeifFX</artifactId>
-    <version>1.2.4</version>
+    <version>1.2.5</version>
     
     <name>LibHeifFX</name>
     <description>This installs the native lib libheif as a JavaFX Image format provider similar to imageIO before on Swing</description>
@@ -46,9 +46,9 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target> 
-        <javafx.version>21</javafx.version>       
+        <maven.compiler.source>22</maven.compiler.source>
+        <maven.compiler.target>22</maven.compiler.target> 
+        <javafx.version>22</javafx.version>       
     </properties>
     
     
@@ -97,8 +97,7 @@
                 <configuration>
                     <enablePreview>true</enablePreview>                    
                     <fork>true</fork>
-                    <compilerArgs>                        
-                        <arg>--enable-preview</arg>
+                    <compilerArgs>                                                
                         <arg>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</arg>                                
                         <arg>--add-exports=javafx.graphics/com.sun.javafx.iio.common=org.libheiffx</arg>
                     </compilerArgs>                                        
@@ -124,8 +123,7 @@
                         <configuration>
                             <mainClass>org.libheiffx.TestApp</mainClass>  
                             <options>                                   
-                                <option>--enable-native-access org.libheiffx</option>
-                                <option>--enable-preview</option>
+                                <option>--enable-native-access org.libheiffx</option>                                
                                 <option>--add-modules java.se</option>                                
                                 <option>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</option>                                
                                 <option>--add-exports=javafx.graphics/com.sun.javafx.iio.common=org.libheiffx</option>
@@ -139,8 +137,7 @@
                         <configuration>
                             <mainClass>org.libheiffx.TestApp</mainClass>  
                             <options> 
-                                <option>--enable-native-access org.libheiffx</option>                               
-                                <option>--enable-preview</option>
+                                <option>--enable-native-access org.libheiffx</option>                                                               
                                 <option>--add-modules java.se</option>
                                 <option>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=localhost:8000</option>
                                 <option>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</option>                                
@@ -154,8 +151,7 @@
                         <configuration>
                             <mainClass>org.libheiffx.TestApp</mainClass>  
                             <options> 
-                                <option>--enable-native-access org.libheiffx</option> 
-                                <option>--enable-preview</option>
+                                <option>--enable-native-access org.libheiffx</option>                                 
                                 <option>--add-modules java.se</option>                                                              
                                 <option>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</option>
                                 <option>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</option>                                
@@ -240,7 +236,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>3.3.1</version>                
+                        <version>3.3.2</version>                
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
