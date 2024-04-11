@@ -69,7 +69,7 @@ public class LibheifImage {
         } else if (operatingSystem.contains("MAC") && !arch.contains("AARCH64")) {
             loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/osx-x86_64/libc++.1.dylib", "/lib/osx-x86_64/libde265.0.dylib", "/lib/osx-x86_64/libx265.199.dylib", "/lib/osx-x86_64/libSystem.B.dylib", "/lib/osx-x86_64/libiconv.2.dylib", "/lib/osx-x86_64/libresolv.9.dylib", "/lib/osx-x86_64/libheif.1.dylib");
         } else if (operatingSystem.contains("MAC") && arch.contains("AARCH64")) {
-            loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/osx-arm64/libde265.0.dylib", "/lib/osx-arm64/libx265.199.dylib", "/lib/osx-arm64/libaom.3.dylib", "/lib/osx-arm64/libjxl.0.8.dylib", "/lib/osx-arm64/libvmaf.1.dylib", "/lib/osx-arm64/librav1e.0.6.dylib", "/lib/osx-arm64/libdav1d.6.dylib", "/lib/osx-arm64/libheif.1.dylib");
+            loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/osx-arm64/libde265.0.dylib", "/lib/osx-arm64/libx265.199.dylib", "/lib/osx-arm64/libaom.3.dylib", "/lib/osx-arm64/libvmaf.3.dylib", "/lib/osx-arm64/librav1e.0.7.dylib", "/lib/osx-arm64/libdav1d.7.dylib", "/lib/osx-arm64/libheif.1.dylib");
         } else if (operatingSystem.contains("NUX")) {
             loadLibraryFromJar = NativeUtils.loadLibraryFromJar(tempDir, "/lib/linux-x86_64/libheif.so");
         }

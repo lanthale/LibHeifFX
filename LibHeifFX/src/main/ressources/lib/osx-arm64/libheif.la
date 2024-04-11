@@ -17,7 +17,7 @@ old_library='libheif.a'
 inherited_linker_flags=' '
 
 # Libraries that this one depends upon.
-dependency_libs=' -L/opt/homebrew/Cellar/aom/3.6.0/lib -L/opt/homebrew/Cellar/libvmaf/2.3.1/lib -L/opt/homebrew/Cellar/jpeg-xl/0.8.1_1/lib -laom -lvmaf -ljxl -L/opt/homebrew/Cellar/libde265/1.0.11/lib -lde265 -L/opt/homebrew/Cellar/x265/3.5/lib -lx265 -L/opt/homebrew/Cellar/rav1e/0.6.3/lib -lrav1e -L/opt/homebrew/Cellar/dav1d/1.1.0/lib -ldav1d -lpthread'
+dependency_libs=' -L/opt/homebrew/Cellar/aom/3.8.2/lib -L/opt/homebrew/Cellar/libvmaf/3.0.0/lib -laom -lvmaf -L/opt/homebrew/Cellar/libde265/1.0.15/lib -lde265 -L/opt/homebrew/Cellar/x265/3.5/lib -lx265 -L/opt/homebrew/Cellar/rav1e/0.7.1/lib -lrav1e -L/opt/homebrew/Cellar/dav1d/1.4.1/lib -ldav1d -lpthread'
 
 # Names of additional weak libraries provided by this library
 weak_library_names=''
