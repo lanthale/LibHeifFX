@@ -18,8 +18,8 @@ jobs:
     - name: Set up JDK 21
       uses: actions/setup-java@v3
       with:
-        distribution: 'zulu' # See 'Supported distributions' for available options
-        java-version: '21'
+        distribution: 'temurin' # See 'Supported distributions' for available options
+        java-version: '22'
         architecture: 'x64' # defaults to 'x64'
         cache: 'maven'
     - name: Cache Maven packages
