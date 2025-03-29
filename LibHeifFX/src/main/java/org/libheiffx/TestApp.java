@@ -69,10 +69,12 @@ public class TestApp extends Application {
         btn.setOnAction((t) -> {
             stack.getChildren().clear();
             stack.getChildren().add(btn);
-            stack.getChildren().add(new ProgressBar());
+            ProgressBar prg=new ProgressBar();
+            stack.getChildren().add(prg);
             Platform.runLater(() -> {
                 try {
                     loadImages(stack, initialFile, initialFile2, initialFile3);
+                    stack.getChildren().remove(prg);
                 } catch (MalformedURLException ex) {
                     Logger.getLogger(TestApp.class.getName()).log(Level.SEVERE, null, ex);
                 }

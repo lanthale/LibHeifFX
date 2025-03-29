@@ -66,7 +66,7 @@ public class HEIFImageLoader extends ImageLoaderImpl {
     }
 
     @Override
-    public ImageFrame load(int imageIndex, int width, int height, boolean preserveAspectRatio, boolean smooth) throws IOException {
+    public ImageFrame load(int imageIndex, double width, double height, boolean preserveAspectRatio, boolean smooth, float screenPixelScale, float imagePixelScale) throws IOException {
         if (0 != imageIndex) {
             return null;
         }        
@@ -88,7 +88,7 @@ public class HEIFImageLoader extends ImageLoaderImpl {
             Logger.getLogger(HEIFImageLoader.class.getName()).log(Level.FINEST, null, "rawImageWidth " + rawImageWidth);
             rawImageHeight = libheif.getImageHeight();
             rawImageStride = libheif.getStride();            
-            int[] widthHeight = ImageTools.computeDimensions(rawImageWidth, rawImageHeight, width, height, preserveAspectRatio);
+            int[] widthHeight = ImageTools.computeDimensions(rawImageWidth, rawImageHeight, (int)width, (int)height, preserveAspectRatio);
             width = widthHeight[0];
             height = widthHeight[1];
             updateImageProgress(lastPercentDone+1);
@@ -113,18 +113,18 @@ public class HEIFImageLoader extends ImageLoaderImpl {
 
         ImageMetadata md = new ImageMetadata(null, true,
                 null, null, null, null, null,
-                width, height, null, null, null);                 
+                (int)width, (int)height, null, null, null);                 
         updateImageMetadata(md);
         updateImageProgress(lastPercentDone+1);
 
         if (rawImageWidth != width || rawImageHeight != height) {            
-            imageData = ImageTools.scaleImage(imageData, rawImageWidth, rawImageHeight, libheif.getNumBands(), width, height, smooth);            
+            imageData = ImageTools.scaleImage(imageData, rawImageWidth, rawImageHeight, libheif.getNumBands(), (int)width, (int)height, smooth);            
         }
         updateImageProgress(lastPercentDone+1);
-        rawImageStride = width * libheif.getNumBands();
+        rawImageStride = (int)width * libheif.getNumBands();
         Logger.getLogger(HEIFImageLoader.class.getName()).log(Level.FINEST, null, "Creating image frame...");                
-        ImageFrame createImageFrame = new FixedPixelDensityImageFrame(ImageStorage.ImageType.RGBA, imageData, width,
-                height, rawImageStride, null, getPixelScale(), md);
+        ImageFrame createImageFrame = new ImageFrame(ImageStorage.ImageType.RGBA, imageData, (int)width,
+                (int)height, rawImageStride, getPixelScale(), md);
         Logger.getLogger(HEIFImageLoader.class.getName()).log(Level.FINEST, null, "Creating image frame...finished");
         /*updateImageProgress(lastPercentDone+1);
         Logger.getLogger(HEIFImageLoader.class.getName()).log(Level.FINEST, null, "Creating image frame...");                
