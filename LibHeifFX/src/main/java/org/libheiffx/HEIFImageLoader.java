@@ -124,7 +124,7 @@ public class HEIFImageLoader extends ImageLoaderImpl {
         rawImageStride = (int)width * libheif.getNumBands();
         Logger.getLogger(HEIFImageLoader.class.getName()).log(Level.FINEST, null, "Creating image frame...");                
         ImageFrame createImageFrame = new ImageFrame(ImageStorage.ImageType.RGBA, imageData, (int)width,
-                (int)height, rawImageStride, getPixelScale(), md);
+                (int)height, rawImageStride, imagePixelScale, md);
         Logger.getLogger(HEIFImageLoader.class.getName()).log(Level.FINEST, null, "Creating image frame...finished");
         /*updateImageProgress(lastPercentDone+1);
         Logger.getLogger(HEIFImageLoader.class.getName()).log(Level.FINEST, null, "Creating image frame...");                
@@ -135,12 +135,12 @@ public class HEIFImageLoader extends ImageLoaderImpl {
         return createImageFrame;
     }
 
-    public float getPixelScale() {
+    /*public float getPixelScale() {
         if (maxPixelScale == 0) {
             maxPixelScale = calculateMaxRenderScale();
         }
         return maxPixelScale;
-    }
+    }*/
 
     public float calculateMaxRenderScale() {
         float maxRenderScale = 0;
