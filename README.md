@@ -4,7 +4,7 @@ All flavoris of heif formats can be loaded with the Image class and manipulated 
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?hosted_button_id=CXWX6CAQ5MMV4)
 
-**JDK 24 and JavaFX 24 is required for v1.2.7** because of the foreign linker API usage and important changes (Windows) for threading happenend in Panama in JDK21
+**JDK 25 and JavaFX 25 is required for v1.2.9** because of the foreign linker API usage and important changes (Windows) for threading happenend in Panama in JDK21
 
 **JDK 18 is required for v1.1.9** because of the foreign linker API usage and the big changes for threading happenend in Panama in JDK18
 
@@ -37,7 +37,7 @@ Point to the maven coordinates:
 <dependency>  
     <groupId>org.libheiffx</groupId>    
     <artifactId>LibHeifFX</artifactId>  
-    <version>1.2.7</version>  
+    <version>1.2.9</version>  
 </dependency>  
 ```
 
@@ -52,7 +52,7 @@ Point to the maven coordinates:
 --add-exports=javafx.graphics/com.sun.javafx.iio.common=org.libheiffx
 ```
 
-- add the following lines to your java config for JDK24:
+- add the following lines to your java config for JDK25:
 ```
 --enable-preview
 --enable-native-access=org.libheiffx
@@ -77,8 +77,8 @@ You can have a look into the class TestAPP.java to see how to use it, but genera
 You can also use the lib without adding the file handler. What I mean is that you can also forget the "...install" line and just load a file URL with the lib (see the `TestApp.java` to see how it works).
 
 ## Steps to create your own build:
-- OpenJDK/Adoptium 24
-- JavaFX 24
+- OpenJDK/Adoptium 25
+- JavaFX 25
 - SET JAVA_HOME variable
 - Execute `mvn clean compile package -f LibHeifFX/pom.xml`
 - To run the example execute `mvn javafx:run@cli-default`
