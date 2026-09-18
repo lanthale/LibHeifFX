@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.libheiffx</groupId>
     <artifactId>LibHeifFX</artifactId>
-    <version>1.2.9</version>
+    <version>1.3.0</version>
     
     <name>LibHeifFX</name>
     <description>This installs the native lib libheif as a JavaFX Image format provider similar to imageIO before on Swing</description>
@@ -46,9 +46,9 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>25</maven.compiler.source>
-        <maven.compiler.target>25</maven.compiler.target> 
-        <javafx.version>25</javafx.version>       
+        <maven.compiler.source>27</maven.compiler.source>
+        <maven.compiler.target>27</maven.compiler.target> 
+        <javafx.version>27</javafx.version>       
     </properties>
     
     
@@ -123,7 +123,7 @@
                         <configuration>
                             <mainClass>org.libheiffx.TestApp</mainClass>  
                             <options>                                   
-                                <option>--enable-native-access org.libheiffx</option>                                
+                                <option>--enable-native-access org.libheiffx,javafx.graphics</option>                                
                                 <option>--add-modules java.se</option>                                
                                 <option>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</option>                                
                                 <option>--add-exports=javafx.graphics/com.sun.javafx.iio.common=org.libheiffx</option>
@@ -137,7 +137,7 @@
                         <configuration>
                             <mainClass>org.libheiffx.TestApp</mainClass>  
                             <options> 
-                                <option>--enable-native-access org.libheiffx</option>                                                               
+                                <option>--enable-native-access org.libheiffx,javafx.graphics</option>                                                               
                                 <option>--add-modules java.se</option>
                                 <option>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=localhost:8000</option>
                                 <option>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</option>                                
@@ -151,7 +151,7 @@
                         <configuration>
                             <mainClass>org.libheiffx.TestApp</mainClass>  
                             <options> 
-                                <option>--enable-native-access org.libheiffx</option>                                 
+                                <option>--enable-native-access org.libheiffx,javafx.graphics</option>                                 
                                 <option>--add-modules java.se</option>                                                              
                                 <option>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</option>
                                 <option>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</option>                                
@@ -170,7 +170,7 @@
                                 <option>${profiler.jvmargs.arg3}</option>
                                 <option>${profiler.jvmargs.arg4}</option>
                                 <option>${profiler.jvmargs.arg5}</option>
-                                <option>--enable-native-access org.libheiffx</option>    
+                                <option>--enable-native-access org.libheiffx,javafx.graphics</option>    
                                 <option>--enable-preview</option>
                                 <option>--add-modules java.se</option>                                                                                           
                                 <option>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</option>                                
