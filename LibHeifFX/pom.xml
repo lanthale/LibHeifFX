@@ -46,8 +46,8 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>27</maven.compiler.source>
-        <maven.compiler.target>27</maven.compiler.target> 
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target> 
         <javafx.version>27</javafx.version>       
     </properties>
     
@@ -94,8 +94,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.14.0</version>
-                <configuration>
-                    <enablePreview>true</enablePreview>                    
+                <configuration>                    
                     <fork>true</fork>
                     <compilerArgs>                                                
                         <arg>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</arg>                                
@@ -106,10 +105,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.5.2</version>
-                <configuration>
-                    <argLine>--enable-preview</argLine>
-                </configuration>
+                <version>3.5.2</version>                
             </plugin>             
             <plugin>
                 <groupId>org.openjfx</groupId>
@@ -170,8 +166,7 @@
                                 <option>${profiler.jvmargs.arg3}</option>
                                 <option>${profiler.jvmargs.arg4}</option>
                                 <option>${profiler.jvmargs.arg5}</option>
-                                <option>--enable-native-access org.libheiffx,javafx.graphics</option>    
-                                <option>--enable-preview</option>
+                                <option>--enable-native-access org.libheiffx,javafx.graphics</option>                                    
                                 <option>--add-modules java.se</option>                                                                                           
                                 <option>--add-exports=javafx.graphics/com.sun.javafx.iio=org.libheiffx</option>                                
                                 <option>--add-exports=javafx.graphics/com.sun.javafx.iio.common=org.libheiffx</option>
